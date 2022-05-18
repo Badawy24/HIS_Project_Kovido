@@ -1,0 +1,115 @@
+a.link {
+    text-decoration: none;
+    font-size: 17px;
+} 
+a.link:hover {
+    text-decoration: underline;
+}
+.navbar {
+    background-color:transparent !important;
+    box-shadow: 5px -2px 27px rgb(0 0 0 / 20%);
+    border-radius: 0 0 50px 50px;
+}
+.logo-img {
+    width:200px;
+}
+.navbar-light .navbar-nav .nav-link
+{
+    padding-left: 15px;
+    font-size: 20px;
+    padding-right: 15px;
+    border-radius: 30px;
+    margin: 5px;
+    transition: .3s all ease-in-out;
+}
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #fff;
+    background: #287AEA;
+}
+.navbar-light .navbar-nav .nav-link:focus
+, .navbar-light .navbar-nav .nav-link:hover {
+    color: #fff;
+    background: #287AEA;
+    border-radius: 30px;
+}
+.main-div-login {
+    padding: 80px 0;
+}
+.main-div-login .login-form {
+    margin-top: 50px
+}
+.main-div-login .login-form input {
+    display:block;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.main-div-login .login-form a {
+    display:block;
+    text-align: right;
+    margin: 15px 0;
+}
+.main-div-login .login-form input.submit {
+    width: 200px;
+    border-radius: 50px;
+    margin: 20px auto;
+}
+.register-form input{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.register-form a {
+    display:block;
+    text-align: right;
+}
+.register-form input.submit {
+    width: 200px;
+    margin: 10px auto;
+    border-radius: 50px;
+    font-size: 25px;
+}
+/* home style */
+.home-page {
+    background-image: url("/images/shape-a.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding:40px 0;
+}
+.home-content .heading {
+    display: flex;
+    align-items: center;
+    font-size: 60px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #50658e;
+    font-weight: bold;
+    margin-top: 30px;
+}
+.home-content .heading-sm {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+}
+.home-content .heading-sm span:first-of-type {
+    color: #f86168;
+}
+.home-content p {
+    line-height: 1.67;
+    color: #3d4b69;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+.home-content .protect-btn {
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
