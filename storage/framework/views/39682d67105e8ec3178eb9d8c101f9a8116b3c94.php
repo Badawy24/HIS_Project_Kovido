@@ -1,11 +1,11 @@
 <!-- Badawy -->
-@extends('main-template')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="service-page">
         <div class="container text-center">
             <h2 class="head-cards h1 py-5">Welcome To Our Services</h2>
             <div class="row">
-                {{-- Card Dase --}}
+                
                 <div class="col-md-4">
                     <div class="card px-2 py-2 mb-5">
                         <div class="card-img">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- Card Test --}}
+                
                 <div class="col-md-4">
                     <div class="card px-2 py-2 mb-5">
                         <div class="card-img">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- Card Contact --}}
+                
                 <div class="col-md-4">
                     <div class="card px-2 py-2 mb-5">
                         <div class="card-img">
@@ -56,4 +56,6 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido\resources\views/service.blade.php ENDPATH**/ ?>

@@ -17,3 +17,15 @@ Route::get('/register', function () {
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
+Route::get('/service', function () {
+    return view('service');
+});
+Route::get('/new_dose', function () {
+    return view('new_dose');
+});
+Route::get('/new_test', function () {
+    return view('new_test');
+});
+Route::get('/contact_doc', function () {
+    return view('contact_doc');
+});
