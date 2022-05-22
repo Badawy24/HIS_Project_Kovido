@@ -207,7 +207,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         $dose_time = $request->dose_time;
 
         $patient = MyTokenManager::currentPatient($request);
-        
+
         $result = DB::insert('insert into Dose_patient values (?,?,?,?)',
         [$dose_id,$patient->pat_id,$dose_date,$dose_time]);
 
@@ -281,6 +281,8 @@ Route::get('/available-tests-no-middleware',function(){
     // retrieve json object -> $data in not in [] because it is already an array
     return response($data,200);
 });
+
+
 
 
 

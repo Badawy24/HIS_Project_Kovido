@@ -95,6 +95,4 @@ class MyTokenManager {
         DB::delete('delete from patient_tokens where id = ?',[$tokenId]);
     }
 
-     
-
 }
