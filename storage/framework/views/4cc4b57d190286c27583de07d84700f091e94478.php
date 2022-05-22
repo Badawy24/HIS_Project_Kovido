@@ -1,5 +1,4 @@
-@extends('main-template')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="main-div-login">
         <div class="container">
             <div class="row">
@@ -11,29 +10,43 @@
                 <div class="col-md-6">
                     <div class="login-form">
                         <form action="login" method="post">
-                            @if(Session::has('cantLogin'))
+                            <?php if(Session::has('cantLogin')): ?>
                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <div>{{Session::get('cantLogin')}} </div>
+                                    <div><?php echo e(Session::get('cantLogin')); ?> </div>
                                 </div>
-                            @endif
-                            @csrf
+                            <?php endif; ?>
+                            <?php echo csrf_field(); ?>
                             <input class="form-control" type="text" placeholder="Username or Email" name="email"
-                                id="email" aria-label="default input example" value = "{{ old('email')}}">
-                            @error('email')
+                                id="email" aria-label="default input example" value = "<?php echo e(old('email')); ?>">
+                            <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div>{{$message}} </div>
+                                <div><?php echo e($message); ?> </div>
                             </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             <input class="form-control" type="password" placeholder="Password" name="password"
                                 id="password" aria-label="default input example">
-                            @error('password')
+                            <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div> {{$message}} </div>
+                                <div> <?php echo e($message); ?> </div>
                             </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             <a class="link" href="/forgetSendMail">Do You Forget Password?</a>
                             <a class="link" href="/register">Don't Have Account..</a>
                             <input type="submit" class="btn btn-primary mb-3 submit" value="Login">
@@ -43,4 +56,6 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DELL\OneDrive\Desktop\new clone\HIS_Project_Kovido\resources\views/login.blade.php ENDPATH**/ ?>
