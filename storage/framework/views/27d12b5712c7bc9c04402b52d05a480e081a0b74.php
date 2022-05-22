@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="main-div-login">
         <div class="container">
@@ -10,7 +9,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="login-form">
-                        <form action="profile" method="post">
+                         
+                        <form action=" /service" method="GET"> 
                             <input class="form-control" type="text" placeholder="Username or Email" name="username"
                                 id="username" aria-label="default input example">
                             <input class="form-control" type="password" placeholder="Password" name="password"

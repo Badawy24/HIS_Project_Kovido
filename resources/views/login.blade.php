@@ -10,7 +10,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="login-form">
-                        <form action="profile" method="post">
+                        {{-- <form action="profile" method="POST"> --}} {{-- Old Line --}}
+                        <form action="{{-- profile --}} /service" method="GET"> {{-- Edit This line To Enter Service page --}}
                             <input class="form-control" type="text" placeholder="Username or Email" name="username"
                                 id="username" aria-label="default input example">
                             <input class="form-control" type="password" placeholder="Password" name="password"

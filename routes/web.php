@@ -14,9 +14,14 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
-Route::get('/contact_us', function () {
-    return view('contact_us');
-});
+
+
+
+Route::view('contact_us', 'contact_us')->name('contact_us');
+Route::post('/send', 'App\Http\Controllers\ContactController@send')->name('send.email');
+// Route::get('/contact_us', function () {
+//     return view('contact_us');
+// });
 Route::get('/service', function () {
     return view('service');
 });

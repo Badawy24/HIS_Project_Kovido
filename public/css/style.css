@@ -177,3 +177,30 @@ a.link:hover {
 }
 
 /* End Services Page Abdelrahman*/
+
+/* Start Contact Form */
+.contact-form textarea {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.contact-form button {
+    width: 200px;
+    margin: 10px auto;
+    border-radius: 50px;
+    font-size: 25px;
+}
+
+.contact-form span {
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.contact-img {
+    width: 500px;
+    height: 500px;
+    padding-left: 60px;
+}
+
+/*End Contact Form */
