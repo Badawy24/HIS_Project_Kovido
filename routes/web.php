@@ -3,7 +3,9 @@
 use App\Http\Controllers\ForgetPassController;
 use App\Http\Controllers\Login_Controller;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RegisterController;
+//use App\Http\Controllers\Request;
+use Illuminate\Http\Request;
 
 /* |-------------------------------------------------------------------------- | Web Routes |-------------------------------------------------------------------------- | | Here is where you can register web routes for your application. These | routes are loaded by the RouteServiceProvider within a group which | contains the "web" middleware group. Now create something great! | */
 
@@ -17,6 +19,8 @@ Route::post('/login', [Login_Controller::class , 'login']);
 Route::get('/register', function () {
     return view('register');
 })->middleware('logoutmiddle');
+
+Route::post('/register', [RegisterController::class, 'registration'])->name('register');
 
 Route::get('/logout', [Login_Controller::class , 'logout']);
 
