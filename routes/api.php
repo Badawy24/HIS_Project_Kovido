@@ -3,6 +3,7 @@
 use App\Helpers\MyTokenManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -305,9 +306,62 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     // all tests reserved for a specified user
     Route::get('/get-tests-reserved',function(Request $request){
-        
+
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
+
+        $result = DB::select('select t.test_name,hc.hc_name, tp.pat_test_date, tp.pat_test_time
+        from test t
+        inner join test_patient tp
+        on  tp.test_id = t.test_id
+        inner join healthcare_center hc
+        on hc.hc_id = tp.test_patient_health
+        where tp.pat_id = ?',[$patientId]);
+
+        // declare $data array
+        $tests = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ( $result as $childCat ) {
+            $tests[] =
+            [
+                'test_name' =>  $childCat->test_name,
+                'pat_test_date' =>  $childCat->pat_test_date,
+                'pat_test_time' =>  $childCat->pat_test_time,
+                'hc_name' =>  $childCat->hc_name,
+            ];
+        }
+
+
+        // retrieve json object -> $data in not in [] because it is already an array
+        return response($tests,200);
     });
+
+
+    Route::put('/update-reservation',function(Request $request){
+        // get data from request body
+        $test_name = $request->test_name;
+        $test_date = $request->test_date;
+        $test_time = $request->test_time;
+        $test_patient_health_name = $request->test_patient_health_name;
+
+        // search for test_id
+        $test_id_array = DB::select('select test_id from test where test_name = ?',[$test_name]);
+        // search for healthcare_id
+        $test_patient_health_id_array = DB::select('select hc_id from healthcare_center where hc_name = ?',
+        [$test_patient_health_name]);
+
+        // get patient data from autherization header
+        $patient = MyTokenManager::currentPatient($request);
+
+        // get test_id and hc_id from arrays retrieved from DB
+        $test_id = (int)$test_id_array[0]->test_id;
+        $test_patient_health_id = (int)$test_patient_health_id_array[0]->hc_id;
+
+
+    });
+
+
+    //Route::put('')
 
 });
 

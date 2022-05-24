@@ -6,3 +6,12 @@ FROM
   INNER JOIN patient_token AS pt 
     ON pt.patient_id = p.pat_id
 	where p.pat_id = 4
+
+----
+select t.test_name,hc.hc_name, tp.pat_test_date, tp.pat_test_time
+from test t
+inner join test_patient tp
+on  tp.test_id = t.test_id
+inner join healthcare_center hc
+on hc.hc_id = tp.test_patient_health
+-- where pat_id = 2
