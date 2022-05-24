@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test',function(){
     return [
-        'msg' => 'Hello world',
+        'msg' => 'congratulation 🎉🎈, successful get request',
     ];
 });
 
@@ -26,7 +26,7 @@ Route::get('/test',function(){
 // handle register POST request
 Route::post('/register',function(Request $request){
 
-    // store in variables
+    // get request body
     $patient_first_name = $request->patient_first_name;
     $patinet_last_name = $request->patinet_last_name;
     $patinet_age = $request->patinet_age;
@@ -37,6 +37,16 @@ Route::post('/register',function(Request $request){
     $patient_SSN = $request->patient_SSN;
     $patient_password = $request->patient_password;
 
+    // check if SSN or email exist
+    $query = DB::select('select pat_id from patient where pat_SSN = ? or pat_email = ?',
+    [$patient_SSN,$patient_email]);
+
+    if($query){
+        return [
+            'msg' => 'this email or social security number is already registered before'
+        ];
+    }
+
     $result = DB::insert('insert into patient (pat_fname,pat_lname,pat_age,pat_address,pat_phone,pat_email,pat_DOF,pat_SSN,patient_password)
     VALUES (?,?,?,?,?,?,?,?,?)',[
         $patient_first_name,$patinet_last_name,$patinet_age,$patinet_address, $patient_phone, $patient_email,
@@ -44,9 +54,9 @@ Route::post('/register',function(Request $request){
     ]);
 
     if($result){
-        return [
+        return response([
             'msg' => 'successful registeration'
-        ];
+        ],200);
     }
     else {
         return response([
@@ -115,6 +125,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         // ];
     });
 
+    // get profile data
     Route::get('/logout',function(Request $request){
         MyTokenManager::removePatientToken($request);
         return [
@@ -122,6 +133,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         ];
     });
 
+    // get available tests
     Route::get('/available-tests',function(){
 
         // get all tests from tests table in DB
@@ -136,7 +148,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
             [
                 'test_id' =>  $childCat->test_id,
                 'test-name' =>  $childCat->test_name,
-                'test-fee' => $childCat->test_fee,
             ];
         }
 
@@ -148,30 +159,46 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         return response($data,200);
     });
 
+    // post test-reservation
     Route::post('/test-reservation',function(Request $request){
-        // $patient_id = $request->patient_id;
-        $test_id = $request->test_id;
+
+        // get data from request body
+        $test_name = $request->test_name;
         $test_date = $request->test_date;
         $test_time = $request->test_time;
+        $test_patient_health_name = $request->test_patient_health_name;
 
-        // get patient data
+        // search for test_id
+        $test_id_array = DB::select('select test_id from test where test_name = ?',[$test_name]);
+        // search for healthcare_id
+        $test_patient_health_id_array = DB::select('select hc_id from healthcare_center where hc_name = ?',
+        [$test_patient_health_name]);
+
+        // get patient data from autherization header
         $patient = MyTokenManager::currentPatient($request);
 
-        $result = DB::insert("insert into test_patient values (?,?,?,?)",
-        [$patient->pat_id,$test_id,$test_date,$test_time]);
+        // get test_id and hc_id from arrays retrieved from DB
+        $test_id = (int)$test_id_array[0]->test_id;
+        $test_patient_health_id = (int)$test_patient_health_id_array[0]->hc_id;
 
+        // insert into DB
+        $result = DB::insert("insert into test_patient values (?,?,?,?,?)",
+        [$patient->pat_id,$test_id,$test_date,$test_time,$test_patient_health_id]);
+
+        // if successfully inserted
         if($result){
-            return [
-                'msg' => 'successful reservation'
-            ];
+            return response([
+                'msg' => 'successful test reservation'
+            ], 200);
         }
         else {
-            return [
-                'msg' => 'failed reservation'
-            ];
+            return response([
+                'msg' => 'failed test reservation'
+                ]);
         }
     });
 
+    // get available vaccines
     Route::get('/available-vaccines',function(){
 
         // get all dose from doses table in DB
@@ -185,7 +212,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
             $data[] =
             [
                 'dose_id' =>  $childCat->dose_id,
-                'dose_number' =>  $childCat->dose_number,
                 'vaccine_name' => $childCat->vaccine_name,
             ];
         }
@@ -199,29 +225,82 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     });
 
-
+    // post dose reservation
     Route::post('/dose-reservation',function(Request $request){
-        // $patient_id = $request->patient_id;
-        $dose_id = $request->dose_id;
+
+        // get data from request body
+        $dose_name = $request->dose_name;
         $dose_date = $request->dose_date;
         $dose_time = $request->dose_time;
+        $dose_patient_health_name = $request->dose_patient_health_name;
 
+
+        // search for dose_id
+        $dose_id_array = DB::select('select dose_id from dose where vaccine_name = ?',[$dose_name]);
+        // search for healthcare_id
+        $dose_patient_health_id_array = DB::select('select hc_id from healthcare_center where hc_name = ?',
+        [$dose_patient_health_name]);
+
+
+        // get dose_id and hc_id from arrays retrieved from DB
+        $dose_id = (int)$dose_id_array[0]->dose_id;
+        $dose_patient_health_id = (int)$dose_patient_health_id_array[0]->hc_id;
+
+        // get patient_id from autherization header
         $patient = MyTokenManager::currentPatient($request);
 
-        $result = DB::insert('insert into Dose_patient values (?,?,?,?)',
-        [$dose_id,$patient->pat_id,$dose_date,$dose_time]);
+        $result = DB::insert('insert into Dose_patient values (?,?,?,?,?)',
+        [$dose_id,$patient->pat_id,$dose_date,$dose_time,$dose_patient_health_id]);
 
         if($result){
-            return [
-                'msg' => 'successful reservation'
-            ];
+            return response(['msg' => 'successful dose reservation'],200);
+
         }
         else {
-            return [
-                'msg' => 'failed reservation'
+            return response(['msg' => 'failed dose reservation']);
+        }
+
+    });
+
+    // get available healthcare places
+    Route::get('/avaiable-healthcare-centers',function(){
+        $result = DB::select('select * from healthcare_center');
+
+        $hospitals = [];
+
+        foreach ($result as $hosital){
+            $hospitals [] = [
+                "hc_id" => $hosital->hc_id,
+                "hc_name" => $hosital->hc_name,
+                "hc_address" => $hosital->hc_address
+            ];
+        }
+        return response($hospitals,200);
+    });
+
+    // get available doctors
+    Route::get('available-doctors',function(){
+        $result = DB::select('select * from doctor');
+        // declare $data array
+        $data = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ( $result as $childCat ) {
+            $data[] =
+            [
+                'doc_id' =>  $childCat->doc_id,
+                'doc_fname' =>  $childCat->doc_fname,
+                'doc_lname' =>  $childCat->doc_lname,
+                'doc_phone' =>  $childCat->doc_phone,
+                'doc_email' =>  $childCat->doc_email,
+                'doc_sex' =>  $childCat->doc_sex,
+                'doc_age' =>  $childCat->doc_age,
             ];
         }
 
+
+        // retrieve json object -> $data in not in [] because it is already an array
+        return response($data,200);
     });
 
 });
@@ -241,7 +320,6 @@ Route::get('/available-vaccines-no-middleware',function(){
         $data[] =
         [
             'dose_id' =>  $childCat->dose_id,
-            'dose_number' =>  $childCat->dose_number,
             'vaccine_name' => $childCat->vaccine_name,
         ];
     }
@@ -270,12 +348,8 @@ Route::get('/available-tests-no-middleware',function(){
         [
             'test_id' =>  $childCat->test_id,
             'test_name' =>  $childCat->test_name,
-            'test_fee' => $childCat->test_fee,
         ];
     }
-
-    // retrieve json object
-    // return response()->json([ $data ]);
 
 
     // retrieve json object -> $data in not in [] because it is already an array
@@ -283,6 +357,40 @@ Route::get('/available-tests-no-middleware',function(){
 });
 
 
+Route::get('/all-patients-registered',function(){
+    // get all tests from tests table in DB
+    $result = DB::select('select * from patient');
+
+    // declare $data array
+    $data = [];
+
+    // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+    foreach ( $result as $childCat ) {
+        $data[] =
+        [
+            'pat_id' =>  $childCat->pat_id,
+            'pat_fname' =>  $childCat->pat_fname,
+            'pat_lname' =>  $childCat->pat_lname,
+            'pat_age' =>  $childCat->pat_age,
+            'pat_address' =>  $childCat->pat_address,
+            'pat_phone' =>  $childCat->pat_phone,
+            'pat_email' =>  $childCat->pat_email,
+            'pat_DOF' =>  $childCat->pat_DOF,
+            'pat_SSN' =>  $childCat->pat_SSN,
+            'patient_password' =>  $childCat->patient_password,
+
+        ];
+    }
+
+
+    // retrieve json object -> $data in not in [] because it is already an array
+    return response($data,200);
+});
+
+
+Route::get('/all-patients-logined',function(){
+    // inner join to show username
+});
 
 
 

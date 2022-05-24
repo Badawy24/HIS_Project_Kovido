@@ -21,7 +21,7 @@ class MyTokenManager {
         $encToken = Hash::make($tokenStr);
 
         // insert encrypted token (encToken) into Database
-        DB::select('insert into patient_tokens(patient_id,token) VALUES (?, ?)',
+        DB::select('insert into patient_token(patient_id,token) VALUES (?, ?)',
         [$patientId,$encToken]);
 
         // to get the id of last inserted token
@@ -51,9 +51,9 @@ class MyTokenManager {
         [$tokenId,$tokenStr] = explode('|',$token,2); // use 2 to maximise the partitioning to 2 sections only
 
 
-        // search for token in patient_tokens table
+        // search for token in patient_token table
         $result = DB::select(
-            'select * from patient_tokens where id = ?'
+            'select * from patient_token where id = ?'
             ,[$tokenId]);
 
         if($result){
@@ -92,7 +92,7 @@ class MyTokenManager {
         [$tokenId,$tokenStr] = explode('|',$token,2);
 
 
-        DB::delete('delete from patient_tokens where id = ?',[$tokenId]);
+        DB::delete('delete from patient_token where id = ?',[$tokenId]);
     }
 
 }
