@@ -3,7 +3,7 @@
 request: <strong> POST </strong>
 
 <strong>
-   http://localhost:8000/api/register
+   <a>http://localhost:8000/api/register</a>
 </strong>
 
 <strong> Request body </strong>
@@ -28,6 +28,16 @@ request: <strong> POST </strong>
 <strong> Does not need [ Autherization header ]  </strong>
 
 ### Response 
+
+#### if the email or ssn already registered before 
+<pre>
+<code>
+{
+    "msg": "this email or social security number is already registered"
+}
+</code>
+</pre>
+
 #### if successful operation
 <pre>
 <code>

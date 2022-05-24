@@ -279,7 +279,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
     });
 
     // get available doctors
-    Route::get('available-doctors',function(){
+    Route::get('/available-doctors',function(){
         $result = DB::select('select * from doctor');
         // declare $data array
         $data = [];
@@ -301,6 +301,12 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         // retrieve json object -> $data in not in [] because it is already an array
         return response($data,200);
+    });
+
+    // all tests reserved for a specified user
+    Route::get('/get-tests-reserved',function(Request $request){
+        
+        $patientId = MyTokenManager::currentPatient($request)->pat_id;
     });
 
 });
@@ -389,7 +395,31 @@ Route::get('/all-patients-registered',function(){
 
 
 Route::get('/all-patients-logined',function(){
-    // inner join to show username
+    // inner join to show pat_name
+    $result = DB::select('select pt.id, p.pat_fname, p.pat_lname, pt.patient_id FROM patient AS p
+    INNER JOIN patient_token AS pt ON pt.patient_id = p.pat_id ');
+
+    //where p.pat_id = 4
+
+
+     // declare $data array
+    $data = [];
+
+    // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+    foreach ( $result as $childCat ) {
+        $data[] =
+        [
+            'token_id' =>  $childCat->id,
+            'pat_id' =>  $childCat->patient_id,
+            'pat_fname' =>  $childCat->pat_fname,
+            'pat_lname' =>  $childCat->pat_lname,
+
+        ];
+    }
+
+
+    // retrieve json object -> $data in not in [] because it is already an array
+    return response($data,200);
 });
 
 

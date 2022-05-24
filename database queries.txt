@@ -1,0 +1,8 @@
+SELECT
+  p.pat_fname, p.pat_lname,
+  pt.patient_id, pt.id
+FROM
+  patient AS p 
+  INNER JOIN patient_token AS pt 
+    ON pt.patient_id = p.pat_id
+	where p.pat_id = 4

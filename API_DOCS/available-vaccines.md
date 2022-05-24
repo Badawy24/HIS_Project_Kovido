@@ -10,7 +10,7 @@ request: <strong> GET </strong>
 <strong> No Request body </strong>
 
 
-<strong> Must provide [ Autherization header (secret token) ] like that <code>Bearer 13|P6VvMvJmWQ05wgyic6zXux42deaqL5nzJtVnOCB3</code> </strong>
+<strong> Must provide [ <code>Autherization header</code> (secret token) ] like that <code>Bearer 13|P6VvMvJmWQ05wgyic6zXux42deaqL5nzJtVnOCB3</code> </strong>
 
 ### Response 
 #### if successful operation
@@ -19,25 +19,20 @@ request: <strong> GET </strong>
 [
     {
         "dose_id": 1,
-        "dose_number": 1,
         "vaccine_name": "Pfizer"
     },
     {
         "dose_id": 2,
-        "dose_number": 1,
-        "vaccine_name": "Astrazeneka"
+        "vaccine_name": "AstraZeneca"
     },
     {
         "dose_id": 3,
-        "dose_number": 1,
-        "vaccine_name": "Sinopharm"
+        "vaccine_name": "Johnson & Johnson"
     },
     {
         "dose_id": 4,
-        "dose_number": 1,
-        "vaccine_name": "johnson and johnson"
+        "vaccine_name": "Sinopharm"
     }
-] }
 ]
 </code>
 </pre>

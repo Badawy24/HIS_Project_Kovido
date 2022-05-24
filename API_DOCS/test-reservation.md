@@ -11,13 +11,14 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    'test_id': userInput
+    'test_name': userInput
     'test_date': userInput
     'test_time': userInput
+    'test_patient_health_name': userInput
 }
 </code>
 </pre>
-<strong> Does not need [ Autherization header ]  </strong>
+<strong> Must provide [ <code>Autherization header</code> (secret token) ] like that <code>Bearer 13|P6VvMvJmWQ05wgyic6zXux42deaqL5nzJtVnOCB3</code> </strong>
 
 
 ### Response 
@@ -25,7 +26,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "successful reservation"
+    "msg": "successful test reservation"
 }
 </code>
 </pre>
@@ -33,7 +34,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "failed reservation"
+    "msg": "failed test reservation"
 }
 </code>
 </pre>
