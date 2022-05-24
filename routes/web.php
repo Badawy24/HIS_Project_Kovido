@@ -4,7 +4,9 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\ForgetPassController;
 use App\Http\Controllers\Login_Controller;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RegisterController;
+//use App\Http\Controllers\Request;
+use Illuminate\Http\Request;
 
 /* |-------------------------------------------------------------------------- | Web Routes |-------------------------------------------------------------------------- | | Here is where you can register web routes for your application. These | routes are loaded by the RouteServiceProvider within a group which | contains the "web" middleware group. Now create something great! | */
 
@@ -18,6 +20,8 @@ Route::post('/login', [Login_Controller::class , 'login']);
 Route::get('/register', function () {
     return view('register');
 })->middleware('logoutmiddle');
+
+Route::post('/register', [RegisterController::class, 'registration'])->name('register');
 
 Route::get('/logout', [Login_Controller::class , 'logout']);
 
@@ -50,8 +54,11 @@ Route::post('/sendmailForget', [ForgetPassController::class, 'sendMailForgetPass
 
 Route::get('/resetPass' , [ForgetPassController::class, 'showResetPass']);
 Route::post('/resetPass' , [ForgetPassController::class, 'resetPassword']);
+<<<<<<< HEAD
 
 Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middleware('loginmiddle');
 Route::get('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
 Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
+=======
+>>>>>>> 92716d06bed2cb4698ad6a85edee30f6ee2d90bc

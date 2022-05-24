@@ -65,7 +65,8 @@ a.link:hover {
     margin: 20px auto;
 }
 
-.register-form input {
+.register-form input,
+.register-form select {
     margin-bottom: 20px;
     font-size: 20px;
 }
@@ -204,25 +205,48 @@ a.link:hover {
 }
 
 /*End Contact Form */
+/* Contac Doctor*/
+.head-contact-doctor {
+    margin: 30px auto;
+}
+
+.head-contact-doctor h3 {
+    font-weight: bold;
+    font-size: 2em;
+    color: #000
+}
+
+.head-contact-doctor h3 span {
+    color: #f86168;
+    display: inline-block;
+}
+
+.head-contact-doctor .head-dose {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    color: #f86168;
+}
 
 /* forgot password */
 .forget-mail {
     text-align: center;
-    width:50%;
-    padding:0 20px 20px 20px;
+    width: 50%;
+    padding: 0 20px 20px 20px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    box-shadow: 5px 20px 20px rgba(0,0,0,0.2);
-    margin: 40px auto ;
+    box-shadow: 5px 20px 20px rgba(0, 0, 0, 0.2);
+    margin: 40px auto;
 }
+
 .forget-mail img {
-    width:400px;
+    width: 400px;
     height: 400px;
 }
+
 .forget-mail .email,
 .forget-mail .pass,
 .forget-mail .alert {
-    width:80%;
+    width: 80%;
     margin: 10px auto;
 }
 
@@ -232,4 +256,7 @@ a.link:hover {
     font-size: 20px;
     border-radius: 20px;
 }
-.forget-mail .send i {margin-left: 3px;}
+
+.forget-mail .send i {
+    margin-left: 3px;
+}

@@ -61,4 +61,4 @@
         </div>
     </div>
 </nav>
-<?php endif; ?><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido\resources\views/navbar.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH G:\HIS_Project_Kovido\resources\views/navbar.blade.php ENDPATH**/ ?>
