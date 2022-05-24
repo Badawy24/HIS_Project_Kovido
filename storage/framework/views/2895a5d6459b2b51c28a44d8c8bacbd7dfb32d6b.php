@@ -10,6 +10,8 @@
                         <?php if(Session::has('error')): ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <div>
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    &nbsp;
                                     <?php echo e(Session::get('error')); ?>
 
                                 </div>
@@ -17,9 +19,8 @@
                         <?php endif; ?>
                         <?php if(Session::has('success')): ?>
                             <div class="alert alert-success d-flex align-items-center" role="alert">
-                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                                    <use xlink:href="#check-circle-fill" />
-                                </svg>
+                                <i class="fa-regular fa-circle-check"></i>
+                                &nbsp;
                                 <div>
                                     <?php echo e(Session::get('success')); ?>
 
@@ -98,7 +99,6 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-
                             <button class="btn btn-primary mb-3 submit">Send</button>
                         </form>
                     </div>

@@ -21,7 +21,7 @@ Route::get('/register', function () {
     return view('register');
 })->middleware('logoutmiddle');
 
-Route::post('/register', [RegisterController::class, 'registration'])->name('register');
+Route::post('/register', [RegisterController::class , 'registration'])->name('register');
 
 Route::get('/logout', [Login_Controller::class , 'logout']);
 
@@ -49,16 +49,15 @@ Route::get('/contact_doc', function () {
     return view('contact_doc');
 });
 
-Route::get('/forgetSendMail', [ForgetPassController::class, 'showForgetSendMail']);
-Route::post('/sendmailForget', [ForgetPassController::class, 'sendMailForgetPass']);
+Route::get('/forgetSendMail', [ForgetPassController::class , 'showForgetSendMail']);
+Route::post('/sendmailForget', [ForgetPassController::class , 'sendMailForgetPass']);
 
-Route::get('/resetPass' , [ForgetPassController::class, 'showResetPass']);
-Route::post('/resetPass' , [ForgetPassController::class, 'resetPassword']);
-<<<<<<< HEAD
+Route::get('/resetPass', [ForgetPassController::class , 'showResetPass']);
+Route::post('/resetPass', [ForgetPassController::class , 'resetPassword']);
 
-Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middleware('loginmiddle');
-Route::get('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
-Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
-Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
-=======
->>>>>>> 92716d06bed2cb4698ad6a85edee30f6ee2d90bc
+
+Route::get('/admin_doc_data', [adminController::class , 'admin_doc_data'])->middleware('loginmiddle');
+Route::get('/admin_doc_msg', [adminController::class , 'Show_admin_doc_msg'])->middleware('loginmiddle');
+Route::post('/admin_doc_msg', [adminController::class , 'admin_doc_msg'])->middleware('loginmiddle');
+Route::get('/admin_dose_data', [adminController::class , 'admin_dose_data'])->middleware('loginmiddle');
+Route::get('/admin_test_data', [adminController::class , 'admin_test_data'])->middleware('loginmiddle');
