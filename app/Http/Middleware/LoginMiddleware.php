@@ -16,7 +16,7 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session('Logged_In')){
+        if(session('Logged_In') || session('adminLogin')){
             return $next($request);
         } else {
             return redirect('/login');

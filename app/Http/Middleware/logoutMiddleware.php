@@ -16,9 +16,13 @@ class logoutMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session('Logged_In')){
+        if (session('Logged_In')) {
             return redirect('/service');
-        } else {
+        }
+        else if (session('adminLogin')) {
+            return redirect('/admin_doc_data');
+        }
+        else {
             return $next($request);
         }
     }

@@ -22,15 +22,20 @@ class Login_Controller extends Controller
         $password = $request->get('password');
         $users = DB::select('select * from patient where pat_email = ? and patient_password = ?', [$email, $password]);
         if ($users) {
-            session(['Logged_In'=> True]);
+            session(['Logged_In' => True]);
             session(['user_id' => $users[0]->pat_id]);
             return redirect('/service');
         }
+        else if ($email = "aya55osma2001@gmail.com" && $password = 'aya') {
+            session(['adminLogin' => True]);
+            return redirect('/admin_doc_data');
+        }
         else {
-            return back()->with(['cantLogin'=> "Invalied Email or Password"]);
+            return back()->with(['cantLogin' => "Invalied Email or Password"]);
         }
     }
-    public function logout() {
+    public function logout()
+    {
         session()->flush();
         return redirect('/login');
     }
