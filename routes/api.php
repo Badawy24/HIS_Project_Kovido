@@ -450,8 +450,8 @@ Route::get('/all-patients-registered',function(){
 
 Route::get('/all-patients-logined',function(){
     // inner join to show pat_name
-    $result = DB::select('select pt.id, p.pat_fname, p.pat_lname, pt.patient_id FROM patient AS p
-    INNER JOIN patient_token AS pt ON pt.patient_id = p.pat_id ');
+    $result = DB::select('select pt.id, p.pat_fname, p.pat_lname, pt.patient_id, pt.token FROM patient AS p
+    INNER JOIN patient_token AS pt ON pt.patient_id = p.pat_id');
 
     //where p.pat_id = 4
 
@@ -467,6 +467,7 @@ Route::get('/all-patients-logined',function(){
             'pat_id' =>  $childCat->patient_id,
             'pat_fname' =>  $childCat->pat_fname,
             'pat_lname' =>  $childCat->pat_lname,
+            'token' => $childCat->token
 
         ];
     }
