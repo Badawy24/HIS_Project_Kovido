@@ -17541,6 +17541,7 @@ ew clone\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Htt
 ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\DELL\\\\O...')
 #56 {main}
 "} 
+<<<<<<< HEAD
 [2022-05-25 11:42:39] local.ERROR: foreach() argument must be of type array|object, null given {"view":{"view":"C:\\Users\\DELL\\OneDrive\\Desktop\
 ew clone\\HIS_Project_Kovido\esources\\views\\admin\\admin_doc_msg.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-115574031 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#306</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
@@ -17779,4 +17780,324 @@ ew clone\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Htt
 #55 C:\\Users\\DELL\\OneDrive\\Desktop\
 ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\DELL\\\\O...')
 #56 {main}
+=======
+[2022-05-25 12:07:03] local.ERROR: Target class [ContactDocController] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [ContactDocController] does not exist. at C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877)
+[stacktrace]
+#0 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build('ContactDocContr...')
+#1 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(855): Illuminate\\Container\\Container->resolve('ContactDocContr...', Array, true)
+#2 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('ContactDocContr...', Array)
+#3 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(840): Illuminate\\Container\\Container->make('ContactDocContr...', Array)
+#4 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(275): Illuminate\\Foundation\\Application->make('ContactDocContr...')
+#5 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1081): Illuminate\\Routing\\Route->getController()
+#6 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1024): Illuminate\\Routing\\Route->controllerMiddleware()
+#7 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Route->gatherMiddleware()
+#8 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(719): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#9 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(703): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(667): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#11 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(656): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#13 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#30 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\Badawy...')
+#33 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"ContactDocController\" does not exist at C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:875)
+[stacktrace]
+#0 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(875): ReflectionClass->__construct('ContactDocContr...')
+#1 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build('ContactDocContr...')
+#2 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(855): Illuminate\\Container\\Container->resolve('ContactDocContr...', Array, true)
+#3 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('ContactDocContr...', Array)
+#4 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(840): Illuminate\\Container\\Container->make('ContactDocContr...', Array)
+#5 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(275): Illuminate\\Foundation\\Application->make('ContactDocContr...')
+#6 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1081): Illuminate\\Routing\\Route->getController()
+#7 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1024): Illuminate\\Routing\\Route->controllerMiddleware()
+#8 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Route->gatherMiddleware()
+#9 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(719): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#10 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(703): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#11 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(667): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#12 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(656): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#13 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#31 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\Badawy...')
+#34 {main}
+"} 
+[2022-05-25 12:08:41] local.ERROR: Target class [ContactDocController] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [ContactDocController] does not exist. at C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:877)
+[stacktrace]
+#0 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build('ContactDocContr...')
+#1 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(855): Illuminate\\Container\\Container->resolve('ContactDocContr...', Array, true)
+#2 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('ContactDocContr...', Array)
+#3 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(840): Illuminate\\Container\\Container->make('ContactDocContr...', Array)
+#4 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(275): Illuminate\\Foundation\\Application->make('ContactDocContr...')
+#5 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1081): Illuminate\\Routing\\Route->getController()
+#6 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1024): Illuminate\\Routing\\Route->controllerMiddleware()
+#7 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Route->gatherMiddleware()
+#8 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(719): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#9 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(703): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(667): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#11 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(656): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#13 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#30 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#31 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\Badawy...')
+#33 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"ContactDocController\" does not exist at C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:875)
+[stacktrace]
+#0 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(875): ReflectionClass->__construct('ContactDocContr...')
+#1 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(756): Illuminate\\Container\\Container->build('ContactDocContr...')
+#2 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(855): Illuminate\\Container\\Container->resolve('ContactDocContr...', Array, true)
+#3 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(692): Illuminate\\Foundation\\Application->resolve('ContactDocContr...', Array)
+#4 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(840): Illuminate\\Container\\Container->make('ContactDocContr...', Array)
+#5 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(275): Illuminate\\Foundation\\Application->make('ContactDocContr...')
+#6 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1081): Illuminate\\Routing\\Route->getController()
+#7 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(1024): Illuminate\\Routing\\Route->controllerMiddleware()
+#8 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Route->gatherMiddleware()
+#9 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(719): Illuminate\\Routing\\Router->gatherRouteMiddleware(Object(Illuminate\\Routing\\Route))
+#10 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(703): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#11 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(667): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#12 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(656): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#13 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(167): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(141): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(180): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(116): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#31 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\esources\\server.php(16): require_once('C:\\\\Users\\\\Badawy...')
+#34 {main}
+"} 
+[2022-05-25 12:09:39] local.ERROR: Cannot use App\Http\Controllers\Login_Controller as Login_Controller because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use App\\Http\\Controllers\\Login_Controller as Login_Controller because the name is already in use at C:\\Users\\Badawy\\Desktop\\New folder (3)\\HIS_Project_Kovido\outes\\web.php:6)
+[stacktrace]
+#0 {main}
+>>>>>>> d6334d4b4f9d87087914de4c7e28a7d2611835fc
+"} 
+[2022-05-25 12:16:22] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\outes\\web.php:67)
+[stacktrace]
+#0 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\DELL\\\\O...')
+#1 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\DELL\\\\O...')
+#2 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\DELL\\\\O...')
+#3 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\app\\Providers\\RouteServiceProvider.php(37): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\DELL\\\\O...')
+#4 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(931): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(909): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 23)
+#20 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(910): array_walk(Array, Object(Closure))
+#21 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-05-25 12:16:28] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\outes\\web.php:67)
+[stacktrace]
+#0 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\DELL\\\\O...')
+#1 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\DELL\\\\O...')
+#2 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\DELL\\\\O...')
+#3 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\app\\Providers\\RouteServiceProvider.php(37): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\DELL\\\\O...')
+#4 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(931): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(909): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 23)
+#20 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(910): array_walk(Array, Object(Closure))
+#21 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-05-25 12:16:28] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\outes\\web.php:67)
+[stacktrace]
+#0 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\DELL\\\\O...')
+#1 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\DELL\\\\O...')
+#2 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(163): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\DELL\\\\O...')
+#3 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\app\\Providers\\RouteServiceProvider.php(37): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\DELL\\\\O...')
+#4 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(931): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(909): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 23)
+#20 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(910): array_walk(Array, Object(Closure))
+#21 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\DELL\\OneDrive\\Desktop\
+ew clone\\HIS_Project_Kovido\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
 "} 
