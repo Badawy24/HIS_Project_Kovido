@@ -64,9 +64,6 @@ Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middl
 Route::get('/admin_doc_msg', [adminController::class, 'Show_admin_doc_msg'])->middleware('loginmiddle');
 Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
-<<<<<<< HEAD
+
 Route::get('/admin_test_data', [adminController::class, 'show_admin_test_data'])->middleware('loginmiddle');
 Route::post('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
-=======
-Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
->>>>>>> d6334d4b4f9d87087914de4c7e28a7d2611835fc
