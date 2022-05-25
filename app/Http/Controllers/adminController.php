@@ -62,7 +62,16 @@ class adminController extends Controller
             return view('admin.admin_test_data');
         }
     }
-    public function admin_test_data()
+    public function admin_test_data(Request $request)
     {
+        $pat_id = $request->get('pat_id');
+        $tests = DB::select('select * from test_patient where pat_id = ?', [$pat_id]);
+        if ($tests) {
+            // sendsession(['doc_msg' => $doc_msg, 'doc_email' => $email]);
+            return redirect()->back()->with('tests', $tests);
+        } else {
+            //session(['msg' => 'There is No Message For This Doctor!']);
+            return redirect()->back()->with('message', 'There is No Tests For This Patient!');
+        }
     }
 }
