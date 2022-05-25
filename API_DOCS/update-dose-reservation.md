@@ -1,9 +1,9 @@
-## test-reservation
+## dose-reservation
 
-request: <strong> POST </strong>
+request: <strong> PUT </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/test-reservation
+   https://gentle-depths-38045.herokuapp.com/api/update-dose-reservation
 </strong>
 
 <strong> Request body </strong>
@@ -11,10 +11,10 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    'test_name': userInput
-    'test_date': userInput
-    'test_time': userInput
-    'test_patient_health_name': userInput
+    'dose_name': userInput
+    'dose_date': userInput
+    'dose_time': userInput
+    'dose_patient_health_name': userInput
 }
 </code>
 </pre>
@@ -26,7 +26,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "successful test reservation"
+    "msg": "successful update"
 }
 </code>
 </pre>
@@ -34,7 +34,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "failed test reservation"
+    "msg": "unsuccessful update"
 }
 </code>
 </pre>

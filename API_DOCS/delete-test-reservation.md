@@ -1,9 +1,9 @@
-## test-reservation
+## delete-test-reservation
 
-request: <strong> POST </strong>
+request: <strong> DELETE </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/test-reservation
+   https://gentle-depths-38045.herokuapp.com/api/delete-test-reservation
 </strong>
 
 <strong> Request body </strong>
@@ -12,9 +12,6 @@ request: <strong> POST </strong>
 <code>
 {
     'test_name': userInput
-    'test_date': userInput
-    'test_time': userInput
-    'test_patient_health_name': userInput
 }
 </code>
 </pre>
@@ -26,7 +23,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "successful test reservation"
+    "msg": "deleted successfully"
 }
 </code>
 </pre>
@@ -34,7 +31,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "failed test reservation"
+    "msg": "unsuccessfull operation due to that reservation does not exist"
 }
 </code>
 </pre>

@@ -1,9 +1,9 @@
-## Logout
+## delete-dose-reservation
 
-request: <strong> GET </strong>
+request: <strong> DELETE </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/logout
+   https://gentle-depths-38045.herokuapp.com/api/delete-dose-reservation
 </strong>
 
 <strong> No Request body </strong>
@@ -17,7 +17,15 @@ request: <strong> GET </strong>
 <pre>
 <code>
 {
-    "message": "logged out successfully"
+    "msg": "deleted successfully"
+}
+</code>
+</pre>
+#### if unsuccessful operation
+<pre>
+<code>
+{
+    "msg": "unsuccessful operation"
 }
 </code>
 </pre>

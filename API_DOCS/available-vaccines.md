@@ -4,7 +4,7 @@ request: <strong> GET </strong>
 
 
 <strong>
-   http://localhost:8000/api/available-tests
+  https://gentle-depths-38045.herokuapp.com/api/available-tests
 </strong>
 
 <strong> No Request body </strong>

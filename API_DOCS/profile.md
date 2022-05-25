@@ -4,7 +4,7 @@
 request: <strong> GET </strong>
 
 <strong>
-   http://localhost:8000/api/profile
+  https://gentle-depths-38045.herokuapp.com/api/profile
 </strong>
 
 <strong> No Request body </strong>
