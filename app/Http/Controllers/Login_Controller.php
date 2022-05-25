@@ -25,12 +25,10 @@ class Login_Controller extends Controller
             session(['Logged_In' => True]);
             session(['user_id' => $users[0]->pat_id]);
             return redirect('/service');
-        }
-        else if ($email = "aya55osma2001@gmail.com" && $password = 'aya') {
+        } else if ($email == "admin@gmail.com" && $password == 'admin') {
             session(['adminLogin' => True]);
             return redirect('/admin_doc_data');
-        }
-        else {
+        } else {
             return back()->with(['cantLogin' => "Invalied Email or Password"]);
         }
     }
