@@ -28,7 +28,7 @@ Route::get('/test',function(){
 });
 
 
-// handle register POST request
+// handle register POST request             [tested]
 Route::post('/register',function(Request $request){
 
     // get request body
@@ -71,7 +71,7 @@ Route::post('/register',function(Request $request){
 });
 
 
-// handle login process
+// handle login process                     [tested and documented]
 Route::post('/login',function(Request $request){
 
     // receive email and password from user
@@ -116,18 +116,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         return [
             'patient' => $patient
         ];
-        // or
-        // return [
-        //     'patient_id' => $patient->pat_id,
-        //     'patient_first_name' => $patient->pat_fname,
-        //     'patient_last_name' => $patient->pat_lname,
-        //     'patient_age' => $patient->pat_age,
-        //     'patient_address' => $patient->pat_address,
-        //     'patient_phone' => $patient->pat_phone,
-        //     'patient_email' => $patient->pat_email,
-        //     'patient_data_of_birth' => $patient->pat_DOF,
-        //     'patient_SSN' => $patient->pat_SSN,
-        // ];
     });
 
     // get profile data
@@ -138,7 +126,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         ];
     });
 
-    // get available tests
+    // get available tests                  [tested and documented]
     Route::get('/available-tests',function(){
 
         // get all tests from tests table in DB
@@ -161,10 +149,12 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
 
         // retrieve json object -> $data in not in [] because it is already an array
-        return response($data,200);
+        return response([
+            'test' => $result
+        ],200);
     });
 
-    // post test-reservation
+    // post test-reservation                [tested and documented]
     Route::post('/test-reservation',function(Request $request){
 
         // get data from request body
@@ -203,7 +193,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         }
     });
 
-    // get available vaccines
+    // get available vaccines               [tested and documented]
     Route::get('/available-vaccines',function(){
 
         // get all dose from doses table in DB
@@ -230,7 +220,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     });
 
-    // post dose reservation
+    // post dose reservation                [tested and documented]
     Route::post('/dose-reservation',function(Request $request){
 
         // get data from request body
@@ -267,7 +257,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     });
 
-    // get available healthcare places
+    // get available healthcare places      [tested and documented]
     Route::get('/avaiable-healthcare-centers',function(){
         $result = DB::select('select * from healthcare_center');
 
@@ -283,7 +273,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         return response($hospitals,200);
     });
 
-    // get available doctors
+    // get available doctors                [tested and documented]
     Route::get('/available-doctors',function(){
         $result = DB::select('select * from doctor');
         // declare $data array
@@ -308,7 +298,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         return response($data,200);
     });
 
-    // all tests reserved for a specified user
+    // all tests reserved for a  user       [tested and documented]
     Route::get('/get-tests-reserved',function(Request $request){
 
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
@@ -340,7 +330,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         return response($tests,200);
     });
 
-    // delete reservation
+    // delete reservation                   [tested and documented]
     Route::delete('/delete-test-reservation',function(Request $request){
 
         // get data from request body
@@ -372,7 +362,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     });
 
-    // get reservation dose for patient
+    // get reservation dose for patient     [tested and documented]
     Route::get('/get-dose-reservation',function(Request $request){
 
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
@@ -449,7 +439,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
     });
 
 
-    // delete dose reservation
+    // delete dose reservation              [tested and documented]
     Route::delete('/delete-dose-reservation',function(Request $request){
 
         // get patient id from autherization header
@@ -468,6 +458,8 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
             ];
         }
     });
+
+
 
     Route::post('/contact-with-doctor',function(Request $request){
 
