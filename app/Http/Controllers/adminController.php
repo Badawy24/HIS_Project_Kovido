@@ -27,17 +27,17 @@ class adminController extends Controller
             return view('admin.admin_doc_msg');
         }
     }
-    public function admin_doc_msg(Request $request){
+    public function admin_doc_msg(Request $request)
+    {
         $email = $request->get('doc_mail');
-        $doc_id = DB::select('select doc_id from doctor where doc_email = ?',[$email]);
+        $doc_id = DB::select('select doc_id from doctor where doc_email = ?', [$email]);
         $doc_msg = DB::select('select * from doc_pat where doc_id = ?', [$doc_id[0]->doc_id]);
         if ($doc_msg) {
             // sendsession(['doc_msg' => $doc_msg, 'doc_email' => $email]);
-            return redirect()->back()->with('doc_msg', $doc_msg)->with('doc_email' , $email);
+            return redirect()->back()->with('doc_msg', $doc_msg)->with('doc_email', $email);
         } else {
             //session(['msg' => 'There is No Message For This Doctor!']);
-            return redirect()->back()->with('message' , 'There is No Message For This Doctor!');
-            
+            return redirect()->back()->with('message', 'There is No Message For This Doctor!');
         }
     }
 
@@ -50,13 +50,19 @@ class adminController extends Controller
             return view('admin.admin_dose_data');
         } else {
             //session(['msg' => 'There is No Message For This Doctor!']);
-            return view('admin.admin_dose_data')->with('message' , 'There is No Dose In This Date!');
-            
+            return view('admin.admin_dose_data')->with('message', 'There is No Dose In This Date!');
         }
-        
+    }
+    public function show_admin_test_data()
+    {
+
+        $pat_name = DB::select('select * from patient');
+        session(['pat_name' => $pat_name]);
+        if ($pat_name) {
+            return view('admin.admin_test_data');
+        }
     }
     public function admin_test_data()
     {
-        return view('admin.admin_test_data');
     }
 }
