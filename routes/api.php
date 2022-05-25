@@ -5,6 +5,7 @@ use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use App\Mail\CloudHostingProduct;
+use App\Mail\DoctortContact;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -482,6 +483,8 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         $doctor_id = $query[0]->doc_id;
 
         $result = DB::insert('insert into doc_pat VALUES (?,?,?)',[$doctor_id,$patientId,$msg]);
+
+        Mail::to($doctor_email)->send(new DoctortContact($msg,$doctor_email));
 
         if($result){
             return [
