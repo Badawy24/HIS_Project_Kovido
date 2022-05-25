@@ -149,8 +149,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
 
         // retrieve json object -> $data in not in [] because it is already an array
-        return response( $data
-        ,200);
+        return response($data,200);
     });
 
     // post test-reservation                [tested and documented]
