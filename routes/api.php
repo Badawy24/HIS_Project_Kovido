@@ -481,7 +481,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         $doctor_id = $query[0]->doc_id;
 
-        $result = DB::insert('insert into doc_pat values(?,?,?)',[$patientId,$doctor_id,$msg]);
+        $result = DB::insert('insert into doc_pat VALUES (?,?,?)',[$doctor_id,$patientId,$msg]);
 
         if($result){
             return [
