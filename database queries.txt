@@ -15,3 +15,31 @@ on  tp.test_id = t.test_id
 inner join healthcare_center hc
 on hc.hc_id = tp.test_patient_health
 -- where pat_id = 2
+
+-- delete from test_patient where test_id = 1 and pat_id =  6
+--------
+-- select d.vaccine_name, dp.pat_dose_date, dp.pat_dose_time, hc.hc_name
+--         from dose d
+--         inner join Dose_patient dp
+--         on  d.dose_id = dp.dose_id
+--         inner join healthcare_center hc
+--         on hc.hc_id = dp.dose_patient_health
+--         where dp.pat_id = 7
+--------
+-- update Dose_patient
+-- set pat_dose_date = '14-06-2023',
+-- 	pat_dose_time = '20:00',
+-- 	dose_patient_health = '1',
+-- 	dose_id = 1
+-- where pat_id = 7
+--------
+-- delete from Dose_patient where pat_id = 
+---
+-- select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name
+-- 	from patient p
+-- 	inner join test_patient tp
+--     on p.pat_id = tp.pat_id 
+--     inner join test t
+--     on  tp.test_id = t.test_id
+--     inner join healthcare_center hc
+--     on hc.hc_id = tp.test_patient_health
