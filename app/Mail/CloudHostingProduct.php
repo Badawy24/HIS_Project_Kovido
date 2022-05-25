@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 
 class CloudHostingProduct extends Mailable
 {
+
     use Queueable, SerializesModels;
 
     /**
@@ -15,9 +16,12 @@ class CloudHostingProduct extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
 
+    public $name;
+
+    public function __construct($email)
+    {
+        $this->name = $email;
     }
 
     /**
@@ -28,6 +32,6 @@ class CloudHostingProduct extends Mailable
     public function build()
     {
         return $this->from('programmerahmedlotfy@gmail.com')
-                ->view('emails.CloudHosting.Product');
+                ->view('emails.CloudHosting.Product',['email' => $this->name]);
     }
 }

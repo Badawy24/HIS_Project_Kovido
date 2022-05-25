@@ -468,13 +468,50 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         }
     });
 
+    Route::post('/contact-with-doctor',function(Request $request){
+
+
+        // get patient id from autherization header
+        $patientId = MyTokenManager::currentPatient($request)->pat_id;
+
+        $doctor_email = $request->doctor_email;
+        $msg = $request->msg;
+
+        $query = DB::select('select doc_id from doctor where doc_email = ?',[$doctor_email]);
+
+        $doctor_id = $query[0]->doc_id;
+
+        $result = DB::insert('insert into doc_pat values(?,?,?)',[$patientId,$doctor_id,$msg]);
+
+        if($result){
+            return [
+                'msg' => 'successfully'
+            ];
+        }
+        else{
+            return [
+                'msg' => 'unsuccessfully'
+            ];
+        }
+
+    });
+
     //  end of middleware group
 });
 // ahmedmolotfycrpyto@gmail.com
 
 Route::post('/send-reset-email',function(Request $request){
     $email = $request->email;
-    Mail::to($email)->send(new CloudHostingProduct());
+
+    $result = DB::select('select * from patient where pat_email = ?',[$email]);
+
+    if(!$result){
+        return [
+            'msg' => 'this email is not registered'
+        ];
+    }
+
+    Mail::to($email)->send(new CloudHostingProduct($email));
 
     return [
         'msg' => 'Email sent Successfully'
@@ -553,7 +590,6 @@ Route::get('/all-patients-registered',function(){
             'pat_DOF' =>  $childCat->pat_DOF,
             'pat_SSN' =>  $childCat->pat_SSN,
             'patient_password' =>  $childCat->patient_password,
-
         ];
     }
 
