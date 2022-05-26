@@ -264,3 +264,246 @@ a.link:hover {
 .booked span {
     color: #f86168;
 }
+
+
+/* start test forms  */
+.test_menu {
+
+    margin: 200px 0;
+    text-align: center;
+
+}
+
+.test_menu button {
+    font-size: 27px;
+    width: 200px;
+    border-radius: 70px;
+}
+
+.test_menu p {
+    line-height: 1.67;
+    color: #5c73a5;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+.test_form_img {
+    width: 450px;
+    margin: 150px 0;
+    opacity: 0.5;
+    margin-top: 30px;
+    margin-left: 100px
+}
+
+.test_image_1 {
+    width: 450px;
+    margin: 150px 0;
+    opacity: 0.5;
+    margin-top: 60px
+}
+
+.test_image_2 {
+    width: 450px;
+    margin: 150px 0;
+    opacity: 0.5;
+    margin-top: 40px
+}
+
+.choice-1 {
+    margin-top: 200px;
+
+}
+
+.choice-1 button {
+
+    box-shadow: 3px 5px #9fd7f8;
+}
+
+.choice-2 button {
+    margin-top: 0px;
+    box-shadow: 3px 5px #9fd7f8;
+
+}
+
+.test-form select {
+
+    margin: 10px auto;
+
+    font-size: 15px;
+}
+
+.test-form {
+
+    margin-top: 0px;
+
+}
+
+.test-form label {
+
+    margin-top: 10px;
+
+    font-size: 15px;
+}
+
+.test-form textarea {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.test-form input.submit {
+    width: 200px;
+    margin: 10;
+    margin-top: 40px;
+    margin-right: 10px;
+    margin-left: 100px;
+    border-radius: 50px;
+    font-size: 25px;
+    box-shadow: 3px 5px #9fd7f8;
+}
+
+.test-form a {
+    display: block;
+    text-align: right;
+}
+
+.test_button_margin {
+
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+/* end test forms  */
+
+
+
+
+/*  table_my_test */
+body a {
+    color: #2a3b4b;
+}
+
+.page {
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+table th,
+table td {
+    text-align: left;
+}
+
+table.layout {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.display {
+    margin: 1em 0;
+
+}
+
+table.display th,
+table.display td {
+
+    padding: 1em 1em;
+    text-align: center;
+}
+
+table.display th {
+    background: #2f567ab0;
+    border-radius: 40px;
+    box-shadow: 3px 5px #6196be4d;
+}
+
+table.display td {
+    background: rgba(183, 231, 243, 0.534);
+    border-radius: 30px;
+    box-shadow: 3px 5px #cae1ee75;
+    font-family: sans-serif;
+
+}
+
+
+
+@media (max-width: 40em) {
+    table.responsive-table {
+        box-shadow: none;
+    }
+
+    table.responsive-table thead {
+        display: none;
+    }
+
+    table.display th,
+    table.display td {
+        padding: .5em;
+    }
+}
+
+.table_button {
+    margin: 7px;
+    margin-top: 20px;
+
+}
+
+.t_name_col_width {
+    width: 170px;
+}
+
+.t_date_col_width {
+    width: 100px;
+}
+
+.t_time_col_width {
+    width: 100px;
+}
+
+.t_action_col_width {
+    width: 100px;
+}
+
+.table_heading_3 {
+    margin-left: 390px;
+    margin-top: 20px;
+}
+
+/* end_table_my_tests */
+
+/* update_form */
+
+.update_buttons {
+
+    margin-top: 20px;
+    margin-left: 550px;
+    width: 25%;
+}
+
+.update_button_margin {
+
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+.update_form_img {
+    width: 500px;
+    margin: 10px 0;
+    opacity: 0.8;
+
+    margin-left: 100px
+}
+
+.update_from_select {
+    margin-bottom: 20px;
+
+}
+
+.test-form .update_from_button {
+    margin-left: 100px;
+}
+
+/* end_update_form */

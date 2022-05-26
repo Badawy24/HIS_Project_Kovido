@@ -33,7 +33,7 @@
                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                         </div>
                         <div class="card-body">
-                            <a href="/new_test" class="card-btn btn btn-primary mb-3 py-2">Book Now</a>
+                            <a href="/test_option" class="card-btn btn btn-primary mb-3 py-2">Book Now</a>
                         </div>
                     </div>
                 </div>

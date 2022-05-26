@@ -7,6 +7,8 @@ use App\Http\Controllers\Login_Controller;
 use App\Http\Controllers\ContactDocController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TestFormController;
+use App\Http\Controllers\MyTestController;
 //use App\Http\Controllers\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,9 +49,9 @@ Route::get('/new_dose', [BookDoseController::class, 'dose']);
 Route::post('/bookDose', 'App\Http\Controllers\BookDoseController@bookDose')->name('bookDose');
 
 
-Route::get('/new_test', function () {
-    return view('new_test');
-});
+// Route::get('/new_test', function () {
+//     return view('new_test');
+// });
 Route::get('/contact_doc', function () {
     $doc_name = DB::select('select * from doctor');
     return view('contact_doc')->with('doc_names', $doc_name);
@@ -73,3 +75,37 @@ Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->mid
 
 Route::get('/admin_test_data', [adminController::class, 'show_admin_test_data'])->middleware('loginmiddle');
 Route::post('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
+
+
+
+
+// test_forms_routs
+
+Route::get('/new_test', [TestFormController::class, 'new_test_display']);
+Route::post('/new_test', [TestFormController::class, 'new_test']);
+
+// Route::get('/new_test', function() {
+//     return view('new_test');
+// });
+
+
+Route::get('/my_tests', [MyTestController::class, 'mytest_display']);
+Route::get('/delete/{res_id}', [MyTestController::class, 'delete']);
+
+
+// Route::get('/my_tests', function()
+// {
+//     return view('my_tests');
+// });
+
+Route::get('/test_option', function () {
+    return view('test_option');
+});
+
+
+Route::get('/update_test/{res_id}', [TestFormController::class, 'showdata']);
+Route::post('/update_test/{res_id}', [TestFormController::class, 'update_data']);
+
+// Route::get('/update_test/{$testcase.res_id}', function() {
+//     return view('update_test');
+// });

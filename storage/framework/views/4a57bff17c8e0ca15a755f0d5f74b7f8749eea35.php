@@ -60,4 +60,4 @@ use Illuminate\Support\Facades\DB;
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\New folder\HIS_Project_Kovido\resources\views/admin/admin_test_data.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido\resources\views/admin/admin_test_data.blade.php ENDPATH**/ ?>

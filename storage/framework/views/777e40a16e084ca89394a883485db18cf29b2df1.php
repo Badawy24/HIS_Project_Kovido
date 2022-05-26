@@ -12,20 +12,41 @@
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form register-form ">
-                        
+                        <?php if(Session::has('error')): ?>
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <div>
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    &nbsp;
+                                    <?php echo e(Session::get('error')); ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(Session::has('success')): ?>
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <i class="fa-regular fa-circle-check"></i>
+                                &nbsp;
+                                <div>
+                                    <?php echo e(Session::get('success')); ?>
+
+
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <div class="head-contact-doctor">
-                            <h3>Hi <span> Ahmed! </span></h3>
                             <h4>You Can Contact With Doctor Now!</h4>
                         </div>
-                        <form action="" method="POST" class="row">
+                        <form action="<?php echo e(route('sendDoc.email')); ?>" method="POST" class="row">
                             <?php echo csrf_field(); ?>
                             <div class="col-lg-12">
                                 <select class="form-select" name="doc_name" id="doc_name"
                                     aria-label="Default select example">
-                                    <option selected>Choose Doctor</option>
-                                    <option value="1">Doctor One</option>
-                                    <option value="2">Doctor Two</option>
-                                    <option value="3">Doctor Three</option>
+                                    <?php $__currentLoopData = $doc_names; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc_name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($doc_name->doc_email); ?>"><?php echo e($doc_name->doc_fname); ?>
+
+                                            <?php echo e($doc_name->doc_lname); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['doc_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

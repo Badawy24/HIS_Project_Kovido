@@ -12,7 +12,26 @@
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form register-form ">
-                        
+                        <?php if(Session::has('error')): ?>
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <div>
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    &nbsp;
+                                    <?php echo e(Session::get('error')); ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(Session::has('success')): ?>
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <i class="fa-regular fa-circle-check"></i>
+                                &nbsp;
+                                <div>
+                                    <?php echo e(Session::get('success')); ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
                                 <path
@@ -51,15 +70,13 @@
                                 Please stick to the time you choose </div>
                         </div>
 
-                        <form action="" method="POST" class="row">
+                        <form action="<?php echo e(route('bookDose')); ?>" method="POST" class="row">
                             <?php echo csrf_field(); ?>
                             <div class="col-lg-12">
-                                <select class="form-select" name="dose" id="doc_name"
-                                    aria-label="Default select example">
-                                    <option selected>Choose Dose</option>
-                                    <option value="1">Dose One</option>
-                                    <option value="2">Dose Two</option>
-                                    <option value="3">Dose Three</option>
+                                <select class="form-select" name="dose" id="dose" aria-label="Default select example">
+                                    <?php $__currentLoopData = $doses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dose): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($dose->dose_id); ?>"><?php echo e($dose->vaccine_name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['dose'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -73,12 +90,13 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
-                                <select class="form-select" name="center" id="doc_name"
+                                <select class="form-select" name="center" id="center"
                                     aria-label="Default select example">
-                                    <option selected>Choose Helthcare Center</option>
-                                    <option value="1">Center One</option>
-                                    <option value="2">Center Two</option>
-                                    <option value="3">Center Three</option>
+                                    <?php $__currentLoopData = $hecs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($hec->hc_id); ?>"><?php echo e($hec->hc_name); ?> [
+                                            <?php echo e($hec->hc_address); ?> ]
+                                        </option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <?php $__errorArgs = ['center'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -119,7 +137,6 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-
                             <button class="btn btn-primary mb-3 submit">Book Now</button>
                         </form>
                     </div>

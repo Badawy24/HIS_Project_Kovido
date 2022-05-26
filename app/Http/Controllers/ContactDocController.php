@@ -23,7 +23,6 @@ class ContactDocController extends Controller
         $pat = DB::select('select * from patient where pat_id = ?', [$pat_id]);
         $doc = DB::select('select * from doctor where doc_email = ?', [$request->doc_name]);
 
-        DB::insert('insert into doc_pat (pat_id,doc_id,message) values (?,?,?)', [$pat_id, $doc[0]->doc_id, $request->msg]);
 
 
         if ($this->checkInternet()) {
@@ -43,15 +42,13 @@ class ContactDocController extends Controller
                 'body' => $request->msg
             ];
 
+
             Mail::send('email-temp-contact-doctor', $mail_data, function ($message) use ($mail_data) {
                 $message->to($mail_data['receiver'])
                     ->from($mail_data['fromEmail'], $mail_data['fromName'])
                     ->subject($mail_data['subject']);
             });
-
-
-
-
+            DB::insert('insert into doc_pat (pat_id,doc_id,message) values (?,?,?)', [$pat_id, $doc[0]->doc_id, $request->msg]);
 
             return redirect()->back()->with('success', 'Email Send Successfully');
         } else {
