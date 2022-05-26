@@ -61,12 +61,12 @@ Route::post('/register',function(Request $request){
     if($result){
         return response([
             'msg' => 'successful registeration'
-        ],200);
+        ]);
     }
     else {
         return response([
             'msg' => 'error, unsuccessful registeration'
-        ],424);
+        ]);
     }
 });
 
@@ -182,7 +182,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         if($result){
             return response([
                 'msg' => 'successful test reservation'
-            ], 200);
+            ]);
         }
         else {
             return response([
@@ -246,7 +246,7 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         [$dose_id,$patient->pat_id,$dose_date,$dose_time,$dose_patient_health_id]);
 
         if($result){
-            return response(['msg' => 'successful dose reservation'],200);
+            return response(['msg' => 'successful dose reservation']);
 
         }
         else {
@@ -686,5 +686,5 @@ Route::get('/get-all-dose-reservation',function(){
 
 
     // retrieve json object -> $data in not in [] because it is already an array
-    return response($tests,200);
+    return response($tests);
 });
