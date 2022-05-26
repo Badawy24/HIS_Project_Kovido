@@ -1,7 +1,7 @@
 <!-- Badawy -->
-@extends('main-template')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="contact_us main-div-login">
         <div class="container">
             <div class="row">
@@ -12,24 +12,26 @@
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form register-form ">
-                        @if (Session::has('error'))
+                        <?php if(Session::has('error')): ?>
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <div>
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     &nbsp;
-                                    {{ Session::get('error') }}
+                                    <?php echo e(Session::get('error')); ?>
+
                                 </div>
                             </div>
-                        @endif
-                        @if (Session::has('success'))
+                        <?php endif; ?>
+                        <?php if(Session::has('success')): ?>
                             <div class="alert alert-success d-flex align-items-center" role="alert">
                                 <i class="fa-regular fa-circle-check"></i>
                                 &nbsp;
                                 <div>
-                                    {{ Session::get('success') }}
+                                    <?php echo e(Session::get('success')); ?>
+
                                 </div>
                             </div>
-                        @endif
+                        <?php endif; ?>
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
                                 <path
@@ -68,44 +70,72 @@
                                 Please stick to the time you choose </div>
                         </div>
 
-                        <form action="{{ route('bookDose') }}" method="POST" class="row">
-                            @csrf
+                        <form action="<?php echo e(route('bookDose')); ?>" method="POST" class="row">
+                            <?php echo csrf_field(); ?>
                             <div class="col-lg-12">
                                 <select class="form-select" name="dose" id="dose" aria-label="Default select example">
-                                    @foreach ($doses as $dose)
-                                        <option value="{{ $dose->dose_id }}">{{ $dose->vaccine_name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $doses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dose): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($dose->dose_id); ?>"><?php echo e($dose->vaccine_name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
-                                @error('dose')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <?php $__errorArgs = ['dose'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
                                 <select class="form-select" name="center" id="center"
                                     aria-label="Default select example">
-                                    @foreach ($hecs as $hec)
-                                        <option value="{{ $hec->hc_id }}">{{ $hec->hc_name }} [
-                                            {{ $hec->hc_address }} ]
+                                    <?php $__currentLoopData = $hecs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($hec->hc_id); ?>"><?php echo e($hec->hc_name); ?> [
+                                            <?php echo e($hec->hc_address); ?> ]
                                         </option>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
-                                @error('center')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <?php $__errorArgs = ['center'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-6">
                                 <input class=" form-control" type="date" name="dose_date" id="dose_date"
                                     aria-label="default input example">
-                                @error('dose_date')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <?php $__errorArgs = ['dose_date'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-6">
                                 <input class=" form-control" type="time" name="dose_time" id="dose_time"
                                     aria-label="default input example">
-                                @error('doc_name')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <?php $__errorArgs = ['doc_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="text-danger"><?php echo e($message); ?></span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <button class="btn btn-primary mb-3 submit">Book Now</button>
                         </form>
@@ -114,4 +144,6 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\New folder\HIS_Project_Kovido\resources\views/new_dose.blade.php ENDPATH**/ ?>
