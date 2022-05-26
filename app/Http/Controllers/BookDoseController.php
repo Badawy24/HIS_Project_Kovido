@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class BookDoseController extends Controller
 {
+    public function dose()
+    {
+        $doses = DB::select('select * from dose');
+        $hecs = DB::select('select * from healthcare_center');
+        $check = DB::select('select * from Dose_patient where pat_id = ?', [session('user_id')]);
+
+
+
+        if ($check)
+            return view('alreadyBooked')->with(['appo' => $check[0], 'hecs' => $hecs[0], 'dose' => $doses[0]]);
+        else
+            return view('new_dose')->with(['doses' => $doses, 'hecs' => $hecs]);
+    }
+
     public function bookDose(Request $request)
     {
 

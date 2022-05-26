@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\BookDoseController;
 use App\Http\Controllers\ForgetPassController;
 use App\Http\Controllers\Login_Controller;
 use App\Http\Controllers\ContactDocController;
@@ -41,15 +42,7 @@ Route::get('/service', function () {
 })->middleware('loginmiddle');
 
 
-Route::get('/new_dose', function () {
-    $doses = DB::select('select * from dose');
-    $hecs = DB::select('select * from healthcare_center');
-    $check = DB::select('select * from Dose_patient where pat_id = ?', [session('user_id')]);
-    if ($check)
-        return "You Booked alreayd";
-    else
-        return view('new_dose')->with(['doses' => $doses, 'hecs' => $hecs]);
-});
+Route::get('/new_dose', [BookDoseController::class, 'dose']);
 
 Route::post('/bookDose', 'App\Http\Controllers\BookDoseController@bookDose')->name('bookDose');
 
@@ -74,10 +67,9 @@ Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middl
 Route::get('/admin_doc_msg', [adminController::class, 'Show_admin_doc_msg'])->middleware('loginmiddle');
 Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
-<<<<<<< HEAD
+
 Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
-=======
+
 
 Route::get('/admin_test_data', [adminController::class, 'show_admin_test_data'])->middleware('loginmiddle');
 Route::post('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
->>>>>>> 7f0e1bb1cccd912b4edee8b2732d645006f41ad3

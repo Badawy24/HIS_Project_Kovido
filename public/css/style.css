@@ -260,3 +260,7 @@ a.link:hover {
 .forget-mail .send i {
     margin-left: 3px;
 }
+
+.booked span {
+    color: #f86168;
+}
