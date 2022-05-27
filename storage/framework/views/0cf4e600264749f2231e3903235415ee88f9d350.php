@@ -1,0 +1,1 @@
+<?php /**PATH A:\Laravel-project\final-web\HIS_Project_Kovido\resources\views/update_test.blade.php ENDPATH**/ ?>

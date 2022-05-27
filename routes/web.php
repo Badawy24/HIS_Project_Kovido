@@ -109,3 +109,20 @@ Route::post('/update_test/{res_id}', [TestFormController::class, 'update_data'])
 // Route::get('/update_test/{$testcase.res_id}', function() {
 //     return view('update_test');
 // });
+
+Route::get('/reset-password_api/{email}',function($pat_email){
+    $email = $pat_email;
+    return view('reset_passpword_api',['email' => $email]);
+});
+
+Route::post('/submit-new-passord-api',function(){
+    $email = request('email');
+    $password = request('password');
+    //return "$email and $password";
+    //$result = DB::select('select * from patient where pat_email = ?',[$email]);
+    //$result = DB::update('update patient set patient_password = ? where pat_email = ?',[$password,$email]);
+    $result = DB::update('update patient set patient_password = ?',[$password,$email]);
+
+    return $result;
+
+});

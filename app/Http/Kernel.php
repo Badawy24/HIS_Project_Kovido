@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\logoutMiddleware;
+use App\Http\Middleware\MyAuthAPI;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -68,6 +69,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'loginmiddle' => LoginMiddleware::class,
         'logoutmiddle' => logoutMiddleware::class,
-        'PreventBackHistory' => PreventBackHistory::class
+        'PreventBackHistory' => PreventBackHistory::class,
+        'MyAuthAPI'=> MyAuthAPI::class
     ];
 }
