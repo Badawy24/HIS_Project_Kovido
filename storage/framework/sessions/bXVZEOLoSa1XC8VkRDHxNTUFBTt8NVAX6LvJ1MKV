@@ -1,1 +1,1 @@
-a:5:{s:6:"_token";s:40:"0brK5qejSGizbCQJfCBqUA1xeLQI7sALSGDDcvVG";s:9:"_previous";a:1:{s:3:"url";s:33:"http://192.168.1.20:8000/my_tests";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:9:"Logged_In";b:1;s:7:"user_id";i:15;}
+a:5:{s:9:"_previous";a:1:{s:3:"url";s:33:"http://192.168.1.20:8000/my_tests";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:6:"_token";s:40:"uEgZtHepkPHubaclP5kvQQGL9A6pDRyBLHTAhIGX";s:9:"Logged_In";b:1;s:7:"user_id";i:16;}
