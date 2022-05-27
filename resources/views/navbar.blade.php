@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link active" href="/logout">Admin</a>
+                        <a class="nav-link active" href="#">Admin</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/logout">Log Out</a>
