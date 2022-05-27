@@ -11,16 +11,30 @@ class BookDoseController extends Controller
 {
     public function dose()
     {
-        $doses = DB::select('select * from dose');
-        $hecs = DB::select('select * from healthcare_center');
-        $check = DB::select('select * from Dose_patient where pat_id = ?', [session('user_id')]);
 
+        // $check = DB::select('select * from Dose_patient where pat_id = ?', [session('user_id')]);
 
+        $dose_id = DB::select('select * from Dose_patient where pat_id = ?', [session('user_id')]);
 
-        if ($check)
-            return view('alreadyBooked')->with(['appo' => $check[0], 'hecs' => $hecs[0], 'dose' => $doses[0]]);
-        else
-            return view('new_dose')->with(['doses' => $doses, 'hecs' => $hecs]);
+        if ($dose_id) {
+            $dose_name = DB::select('select * from dose where dose_id = ?', [$dose_id[0]->dose_id]);
+            $hecs_name = DB::select('select * from healthcare_center where hc_id = ? ', [$dose_id[0]->dose_patient_health]);
+            return view('alreadyBooked')->with(['appo' => $dose_id[0], 'hecs' => $hecs_name[0], 'dose' => $dose_name[0]]);
+        } else {
+            $dose_name = DB::select('select * from dose');
+            $hecs_name = DB::select('select * from healthcare_center');
+            return view('new_dose')->with(['doses' => $dose_name, 'hecs' => $hecs_name]);
+        }
+        // $dose_name = DB::select('select * from dose where dose_id = ?', [$dose_id[0]->dose_id]);
+
+        // // $hecs_id = DB::select('select * from Dose_patient where pat_id = ? ', [session('user_id')]);
+
+        // $hecs_name = DB::select('select * from healthcare_center where hc_id = ? ', [$dose_id[0]->dose_patient_health]);
+
+        // if ($dose_id)
+        //     return view('alreadyBooked')->with(['appo' => $dose_id[0], 'hecs' => $hecs_name[0], 'dose' => $dose_name[0]]);
+        // else
+        //     return view('new_dose')->with(['doses' => $dose_name, 'hecs' => $hecs_name[0]]);
     }
 
     public function bookDose(Request $request)

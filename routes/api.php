@@ -44,6 +44,7 @@ Route::post('/register',function(Request $request){
     $query = DB::select('select pat_id from patient where pat_SSN = ? or pat_email = ?',
     [$patient_SSN,$patient_email]);
 
+    // get 
     if($query){
         return [
             'msg' => 'this email or social security number is already registered before'
@@ -473,19 +474,12 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
 
         $doctor_email = $request->doctor_email;
+
         $msg = $request->msg;
-
-
 
         $query = DB::select('select doc_id from doctor where doc_email = ?',[$doctor_email]);
 
-
-
         $doctor_id = $query[0]->doc_id;
-
-        return [
-            'msg' => $doctor_id
-        ];
 
         $result = DB::insert('insert into doc_pat VALUES (?,?,?)',[$doctor_id,$patientId,$msg]);
 
