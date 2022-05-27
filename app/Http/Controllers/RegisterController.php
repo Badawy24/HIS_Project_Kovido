@@ -37,7 +37,7 @@ class RegisterController extends BaseController
         $requestDate = "$date";
 
         $user = DB::insert('insert into patient(pat_fname,pat_lname,pat_SSN,patient_password,pat_email,pat_address,pat_phone,pat_age,pat_DOF)
-        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->patient_password, $request->pat_email, $request->pat_address, $request->pat_phone, $request->pat_age, $requestDate]);
+        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->p_pass, $request->pat_email, $request->pat_address, $request->pat_phone, $request->pat_age, $requestDate]);
         if ($user) {
                         // $success = true;
                         // return back()->with('success', 'You have registered successfully');
@@ -50,7 +50,7 @@ class RegisterController extends BaseController
                     }
 
                     else {
-                        
+
                         return back()->with('fail', 'Something wrong');
                     //return "no";
                     //return back()->with('fail', 'Something wrong');
