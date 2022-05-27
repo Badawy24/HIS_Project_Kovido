@@ -29,10 +29,10 @@ class RegisterController extends BaseController
             'pat_age' => 'required',
             'pat_address' => 'required',
             'pat_phone' => 'required',
-            'pat_DOB' => 'required',
+            'pat_DOF' => 'required',
         ]);
 
-        $date = $request->pat_BOF;
+        $date = $request->pat_DOF;
 
         $requestDate = "$date";
 
