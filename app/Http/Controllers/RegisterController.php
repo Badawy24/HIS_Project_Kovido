@@ -29,32 +29,30 @@ class RegisterController extends BaseController
             'pat_age' => 'required',
             'pat_address' => 'required',
             'pat_phone' => 'required',
-            'pat_DOB' => 'required',
+            'pat_DOF' => 'required',
         ]);
 
-        $date = $request->pat_BOF;
+        $date = $request->pat_DOF;
 
         $requestDate = "$date";
 
         $user = DB::insert('insert into patient(pat_fname,pat_lname,pat_SSN,patient_password,pat_email,pat_address,pat_phone,pat_age,pat_DOF)
-        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->patient_password, $request->pat_email, $request->pat_address, $request->pat_phone, $request->pat_age, $requestDate]);
+        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->p_pass, $request->pat_email, $request->pat_address, $request->pat_phone, $request->pat_age, $requestDate]);
         if ($user) {
-                        // $success = true;
-                        // return back()->with('success', 'You have registered successfully');
-                    session(['Logged_In' => True]);
-                    $user_id = DB::select('select pat_id from patient where pat_email = ?', [$request->pat_email]);
-                    session(['user_id' => $user_id[0]->pat_id]);
-                    return redirect('/service');
-                    // return "yes";
-                    // return back()->with('success', session('user_id'));
-                    }
+            // $success = true;
+            // return back()->with('success', 'You have registered successfully');
+            session(['Logged_In' => True]);
+            $user_id = DB::select('select pat_id from patient where pat_email = ?', [$request->pat_email]);
+            session(['user_id' => $user_id[0]->pat_id]);
+            return redirect('/service');
+            // return "yes";
+            // return back()->with('success', session('user_id'));
+        } else {
 
-                    else {
-                        
-                        return back()->with('fail', 'Something wrong');
-                    //return "no";
-                    //return back()->with('fail', 'Something wrong');
-                    }
+            return back()->with('fail', 'Something wrong');
+            //return "no";
+            //return back()->with('fail', 'Something wrong');
+        }
     }
 }
 

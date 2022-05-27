@@ -188,7 +188,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
                                 <label>Birth Of Date</label>
-                                <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOB"
+                                <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF"
                                     id="BOD" value="<?php echo e(old('pat_BOF')); ?>" aria-label="default input example">
 
                                 <?php $__errorArgs = ['pat_BOF'];

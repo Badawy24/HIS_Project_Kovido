@@ -126,7 +126,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <label>Birth Of Date</label>
-                                <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOB"
+                                <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF"
                                     id="BOD" value="{{ old('pat_BOF') }}" aria-label="default input example">
 
                                 @error('pat_BOF')

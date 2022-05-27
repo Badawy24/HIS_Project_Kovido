@@ -18,7 +18,7 @@
         <h2 style=" margin: 0px 10px;">Message From : <span style="color:#50658E"><?php echo e($fromName); ?></span></h2>
         <ul>
             <li>
-                <h4>Email : <sp style="color:#50658E"><?php echo e($fromEmail); ?></span></h4>
+                <h4>Email : <span style="color:#50658E;text-transform: capitalize;"><?php echo e($fromEmail); ?></span></h4>
             </li>
             <li>
                 <h4>phone : <span style="color:#50658E"><?php echo e($fromPhone); ?></span></h4>
