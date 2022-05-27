@@ -24,7 +24,7 @@
         border-radius: 20px;
         border: 2px solid #F6F8FD;
         font-size: 20px;">
-            If you have forgotten the password of your mail.com Account, you can reset the password using your contact email address or a mobile phone number and create a new one. Reset the password by visiting this page <a href="http://127.0.0.1:8000/resetPass">Reset Password</a>
+            If you have forgotten the password of your mail.com Account, you can reset the password using your contact email address or a mobile phone number and create a new one. Reset the password by visiting this page <a href="https://boiling-spire-83238.herokuapp.com/resetPass">Reset Password</a>
         </div>
         </div>
 </body>
