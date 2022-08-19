@@ -11,6 +11,7 @@ a.link:hover {
     background-color: transparent !important;
     box-shadow: 5px -2px 27px rgb(0 0 0 / 20%);
     border-radius: 0 0 50px 50px;
+
 }
 
 .logo-img {
@@ -39,6 +40,13 @@ a.link:hover {
     border-radius: 30px;
 }
 
+.dark-light-content{
+    background: white;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 .main-div-login {
     padding: 80px 0;
 }
@@ -507,3 +515,23 @@ table.display td {
 }
 
 /* end_update_form */
+
+.icon-d{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    padding: 5px;
+    background-color: #000;
+}
+.icon-dark{
+  position: relative;
+  line-height: 50px;
+  color: white;
+  left: 5px;
+  top:2px;
+
+}
