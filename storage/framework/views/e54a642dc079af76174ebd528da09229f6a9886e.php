@@ -12,22 +12,9 @@
 </head>
 
 <body>
-    <main class="dark-light-content forget-main">
-        <div class="foget-password ">
-            <div class="container fog-padding">
-                <div class="forget-mail col-sm-12 col-md-6">
-                    <div class="image">
-                        @yield('image')
-
-                    </div>
-                    <div class="head">
-                        @yield('head')
-
-                    </div>
-                    @yield('form')
-                </div>
-            </div>
-        </div>
+    <main class="dark-light-content">
+        <?php echo $__env->make('navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
     <a href="#" id="ToggleDarkLight" class="icon-d fa-beat-fade"><i id="icon-dl"
             class="fa-2x fa-solid fa-moon fa-beat-fade icon-dark"></i></a>
@@ -36,6 +23,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/file.js"></script>
     <script src="/js/all.min.js"></script>
+
 </body>
 
-</html>
+</html><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido - Copy\resources\views/main-template.blade.php ENDPATH**/ ?>

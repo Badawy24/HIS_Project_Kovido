@@ -17,14 +17,14 @@
             <div class="container fog-padding">
                 <div class="forget-mail col-sm-12 col-md-6">
                     <div class="image">
-                        @yield('image')
+                        <?php echo $__env->yieldContent('image'); ?>
 
                     </div>
                     <div class="head">
-                        @yield('head')
+                        <?php echo $__env->yieldContent('head'); ?>
 
                     </div>
-                    @yield('form')
+                    <?php echo $__env->yieldContent('form'); ?>
                 </div>
             </div>
         </div>
@@ -39,3 +39,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido - Copy\resources\views/forget-temp.blade.php ENDPATH**/ ?>

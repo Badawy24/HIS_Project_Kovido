@@ -26,7 +26,7 @@ class RegisterController extends BaseController
             'p_pass' => 'required',
             'pat_email' => 'required|email|unique:patient',
             'password_confirmation' => 'required_with:p_pass|same:p_pass',
-            'pat_age' => 'required',
+            // 'pat_age' => 'required',
             'pat_address' => 'required',
             'pat_phone' => 'required',
             'pat_DOF' => 'required',
@@ -36,8 +36,8 @@ class RegisterController extends BaseController
 
         $requestDate = "$date";
 
-        $user = DB::insert('insert into patient(pat_fname,pat_lname,pat_SSN,patient_password,pat_email,pat_address,pat_phone,pat_age,pat_DOF)
-        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->p_pass, $request->pat_email, $request->pat_address, $request->pat_phone, $request->pat_age, $requestDate]);
+        $user = DB::insert('insert into patient(pat_fname,pat_lname,pat_SSN,patient_password,pat_email,pat_address,pat_phone,pat_DOF)
+        values(?,?,?,?,?,?,?,?,?)', [$request->pat_fname, $request->pat_lname, $request->pat_SSN, $request->p_pass, $request->pat_email, $request->pat_address, $request->pat_phone, $requestDate]);
         if ($user) {
             // $success = true;
             // return back()->with('success', 'You have registered successfully');
