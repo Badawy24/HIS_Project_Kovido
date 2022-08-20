@@ -31,7 +31,10 @@ const dark_img = () => {
     img_dark('login-img', '/images/login-img-dark.png'); // login Dark Mode
     img_dark('register-img', '/images/register-img-dark.png'); // Register Dark Mode
     img_dark('contact-us-img', '/images/contact/contact-us-dark.png'); // Contact-us Dark Mode
+<<<<<<< HEAD
     img_dark('img-send-forgetPass', '/images/Forgot password-bro-dark.png'); // forget-pass-send Dark Mode
+=======
+>>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
 
 }
 
@@ -45,7 +48,10 @@ const light_img = () => {
     img_light('login-img', '/images/login-img-2.png'); // login light Mode
     img_light('register-img', '/images/register-img.png'); // Register Light Mode
     img_light('contact-us-img', '/images/contact/contact-us.png'); // Contact-us Light Mode
+<<<<<<< HEAD
     img_light('img-send-forgetPass', '/images/Forgot password-bro.png'); // forget-pass-send Light Mode
+=======
+>>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
 
 }
 

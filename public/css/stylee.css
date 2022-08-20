@@ -44,6 +44,7 @@ a.link:hover {
     color: #fff;
     background: #003971;
     border-radius: 30px;
+<<<<<<< HEAD
 }
 
 .dark-light-content {
@@ -54,6 +55,18 @@ a.link:hover {
     background-size: cover;
 }
 
+=======
+}
+
+.dark-light-content {
+    background: linear-gradient(to right, #003971, #bc4949);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+>>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
 .main-div-login {
     padding: 80px 0;
 }
@@ -321,6 +334,7 @@ a.link:hover {
 
 .forget-mail {
     text-align: center;
+<<<<<<< HEAD
     /* width: 50%; */
     padding: 35px;
     border: 1px solid #ccc;
@@ -333,6 +347,19 @@ a.link:hover {
 .forget-mail img {
     width: 300px;
     height: 300px;
+=======
+    width: 50%;
+    padding: 0 20px 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 5px 20px 20px rgba(0, 0, 0, 0.2);
+    margin: 0px auto;
+}
+
+.forget-mail img {
+    width: 400px;
+    height: 400px;
+>>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
 }
 
 .forget-mail .email,
