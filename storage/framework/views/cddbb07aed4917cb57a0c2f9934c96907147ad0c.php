@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="main-div-login">
         <div class="container">
@@ -167,27 +168,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
 
                             </div>
-                            <div class="col-md-12">
-                                <input class="form-control" type="number" placeholder="Age" name="pat_age"
-                                    value="<?php echo e(old('pat_age')); ?>" id="age" aria-label="default input example">
-
-                                <?php $__errorArgs = ['pat_age'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                        <i class="fa-solid fa-triangle-exclamation"></i>
-                                        <div> <?php echo e($message); ?> </div>
-                                    </div>
-                                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-
-                            </div>
+                            
                             <div class="col-lg-12">
-                                <label>Birth Of Date</label>
+                                <label class="head-fog">Birth Of Date</label>
                                 <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF"
                                     id="BOD" value="<?php echo e(old('pat_BOF')); ?>" aria-label="default input example">
 
@@ -207,13 +190,14 @@ unset($__errorArgs, $__bag); ?>
 
                             </div>
                             <a class="link" href="/login">allready have an account ?</a>
-                            <input type="submit" class="btn btn-primary mb-3 submit" value="Register" name="register-user">
+                            <input type="submit" class="btn btn-primary mb-3 submit " value="Register"
+                                name="register-user">
                         </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="login-img">
-                        <img src="/images/register-img.png" class="img-fluid" />
+                        <img id="register-img" src="/images/register-img.png" class="img-fluid" />
                     </div>
                 </div>
             </div>

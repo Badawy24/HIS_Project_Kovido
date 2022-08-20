@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-6">
                 <div class="home-image">
-                    <img src="/images/home.png" class="img-fluid" />
+                    <img id="img-welcome" src="/images/home.png" class="img-fluid" />
                 </div>
             </div>
         </div>

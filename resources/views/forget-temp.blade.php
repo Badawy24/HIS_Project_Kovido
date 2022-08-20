@@ -15,7 +15,7 @@
     <main class="dark-light-content forget-main">
         <div class="foget-password ">
             <div class="container fog-padding">
-                <div class="forget-mail col-sm-12 col-md-6">
+                <div class="forget-mail rest-pass col-sm-12 col-md-6">
                     <div class="image">
                         @yield('image')
 

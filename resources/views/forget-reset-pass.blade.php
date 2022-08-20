@@ -1,11 +1,11 @@
 @extends('forget-temp')
 
 @section('image')
-    <img src="/images/Reset password.gif" class="img-fluid" />
+    <img id="img-reset-pass" src="/images/Reset password.gif" class="img-fluid" />
 @endsection
 
 @section('head')
-    <h3>Reset Password</h3>
+    <h3 class="head-cards">Reset Password</h3>
 @endsection
 
 @section('form')
@@ -30,30 +30,31 @@
             </div>
         @endif
         @csrf
-        <input class="email form-control form-control-lg" name="email" type="email" placeholder="Enter Email"
-            aria-label=".form-control-lg example">
-        @error('email')
-            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <div>{{ $message }} </div>
-            </div>
-        @enderror
-        <input class="pass form-control form-control-lg" name="password" type="password" placeholder="password"
-            aria-label=".form-control-lg example">
+
+        <input class="inp-form pass form-control form-control-lg" name="password" type="password"
+            placeholder="Enter Password" aria-label=".form-control-lg example">
         @error('password')
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <div>{{ $message }} </div>
             </div>
         @enderror
-        <input class="pass form-control form-control-lg" name="password_confirmation" type="password"
-            placeholder="confirm Password" aria-label=".form-control-lg example">
+        <input class="inp-form pass form-control form-control-lg" name="password_confirmation" type="password"
+            placeholder="Confirm Password" aria-label=".form-control-lg example">
         @error('password_confirmation')
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <div>{{ $message }} </div>
             </div>
         @enderror
-        <button type="submit" class="btn btn-primary mb-3 send">Change Password</button>
+        <input class="inp-form email form-control form-control-lg" name="code" type="text" placeholder="Enter code"
+            aria-label=".form-control-lg example">
+        @error('code_confirmation')
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>{{ $message }} </div>
+            </div>
+        @enderror
+        <button type="submit" class="btn btn-primary mb-3 send btn-front">Change Password</button>
     </form>
 @endsection

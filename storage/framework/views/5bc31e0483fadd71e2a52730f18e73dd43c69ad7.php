@@ -1,11 +1,9 @@
-
-
 <?php $__env->startSection('image'); ?>
-    <img src="/images/Reset password.gif" class="img-fluid" />
+    <img id="img-reset-pass" src="/images/Reset password.gif" class="img-fluid" />
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('head'); ?>
-    <h3>Reset Password</h3>
+    <h3 class="head-cards">Reset Password</h3>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('form'); ?>
@@ -32,23 +30,9 @@
             </div>
         <?php endif; ?>
         <?php echo csrf_field(); ?>
-        <input class="email form-control form-control-lg" name="email" type="email" placeholder="Enter Email"
-            aria-label=".form-control-lg example">
-        <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <div><?php echo e($message); ?> </div>
-            </div>
-        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-        <input class="pass form-control form-control-lg" name="password" type="password" placeholder="password"
-            aria-label=".form-control-lg example">
+
+        <input class="inp-form pass form-control form-control-lg" name="password" type="password"
+            placeholder="Enter Password" aria-label=".form-control-lg example">
         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -62,8 +46,8 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-        <input class="pass form-control form-control-lg" name="password_confirmation" type="password"
-            placeholder="confirm Password" aria-label=".form-control-lg example">
+        <input class="inp-form pass form-control form-control-lg" name="password_confirmation" type="password"
+            placeholder="Confirm Password" aria-label=".form-control-lg example">
         <?php $__errorArgs = ['password_confirmation'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -77,7 +61,22 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-        <button type="submit" class="btn btn-primary mb-3 send">Change Password</button>
+        <input class="inp-form email form-control form-control-lg" name="code" type="text" placeholder="Enter code"
+            aria-label=".form-control-lg example">
+        <?php $__errorArgs = ['code_confirmation'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div><?php echo e($message); ?> </div>
+            </div>
+        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+        <button type="submit" class="btn btn-primary mb-3 send btn-front">Change Password</button>
     </form>
 <?php $__env->stopSection(); ?>
 
