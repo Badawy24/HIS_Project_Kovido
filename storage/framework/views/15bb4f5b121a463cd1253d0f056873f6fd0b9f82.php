@@ -86,8 +86,8 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
-                                <textarea class=" form-control" placeholder="Enter Your Message" name="msg" id="msg" aria-label="default input example"
-                                    style="height: 120px"></textarea>
+                                <textarea class=" form-control inp-form" placeholder="Enter Your Message" name="msg" id="msg"
+                                    aria-label="default input example" style="height: 120px"></textarea>
                                 <?php $__errorArgs = ['msg'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -99,13 +99,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-                            <button class="btn btn-primary mb-3 submit">Send</button>
+                            <button class="btn btn-primary mb-3 submit btn-front">Send</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="contact-img">
-                        <img src="\images\contact\contact-us.png" class="img-fluid" />
+                        <img id="contact-us-img" src="\images\contact\contact-us.png" class="img-fluid" />
                     </div>
                 </div>
             </div>
