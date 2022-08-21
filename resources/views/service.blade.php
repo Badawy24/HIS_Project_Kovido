@@ -17,7 +17,7 @@
                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                         </div>
                         <div class="card-body">
-                            <a href="/new_dose" class="card-btn btn btn-primary mb-3 py-2">Book Now</a>
+                            <a href="/new_dose" class="btn-front card-btn btn btn-primary mb-3 py-2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                         </div>
                         <div class="card-body">
-                            <a href="/test_option" class="card-btn btn btn-primary mb-3 py-2">Book Now</a>
+                            <a href="/test_option" class="btn-front card-btn btn btn-primary mb-3 py-2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                         </div>
                         <div class="card-body">
-                            <a href="/contact_doc" class="card-btn btn btn-primary mb-3 py-2">Contact Now</a>
+                            <a href="/contact_doc" class="btn-front card-btn btn btn-primary mb-3 py-2">Contact Now</a>
                         </div>
                     </div>
                 </div>

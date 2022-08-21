@@ -46,7 +46,8 @@
                         </svg>
 
                         <div class="alert alert-primary d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                aria-label="Info:">
                                 <use xlink:href="#info-fill" />
                             </svg>
                             <div>
@@ -54,14 +55,16 @@
                             </div>
                         </div>
                         <div class="alert alert-primary d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                aria-label="Info:">
                                 <use xlink:href="#info-fill" />
                             </svg>
                             <div>
                                 You will experience some side effects as a result of the vaccine </div>
                         </div>
                         <div class="alert alert-primary d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                aria-label="Info:">
                                 <use xlink:href="#info-fill" />
                             </svg>
                             <div>
@@ -71,7 +74,8 @@
                         <form action="{{ route('bookDose') }}" method="POST" class="row">
                             @csrf
                             <div class="col-lg-12">
-                                <select class="form-select" name="dose" id="dose" aria-label="Default select example">
+                                <select class="inp-form form-select" name="dose" id="dose"
+                                    aria-label="Default select example">
                                     @foreach ($doses as $dose)
                                         <option value="{{ $dose->dose_id }}">{{ $dose->vaccine_name }}</option>
                                     @endforeach
@@ -81,7 +85,7 @@
                                 @enderror
                             </div>
                             <div class="col-lg-12">
-                                <select class="form-select" name="center" id="center"
+                                <select class="inp-form form-select" name="center" id="center"
                                     aria-label="Default select example">
                                     @foreach ($hecs as $hec)
                                         <option value="{{ $hec->hc_id }}">{{ $hec->hc_name }} [
@@ -107,7 +111,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <button class="btn btn-primary mb-3 submit">Book Now</button>
+                            <button class="btn-front btn btn-primary mb-3 submit">Book Now</button>
                         </form>
                     </div>
                 </div>

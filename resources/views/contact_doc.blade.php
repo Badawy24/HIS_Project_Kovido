@@ -33,12 +33,12 @@
                             </div>
                         @endif
                         <div class="head-contact-doctor">
-                            <h4>You Can Contact With Doctor Now!</h4>
+                            <h4 class="head-cards">You Can Contact With Doctor Now!</h4>
                         </div>
                         <form action="{{ route('sendDoc.email') }}" method="POST" class="row">
                             @csrf
                             <div class="col-lg-12">
-                                <select class="form-select" name="doc_name" id="doc_name"
+                                <select class="inp-form form-select" name="doc_name" id="doc_name"
                                     aria-label="Default select example">
                                     @foreach ($doc_names as $doc_name)
                                         <option value="{{ $doc_name->doc_email }}">{{ $doc_name->doc_fname }}
@@ -50,20 +50,20 @@
                                 @enderror
                             </div>
                             <div class="col-lg-12">
-                                <input class=" form-control" type="text" placeholder="Message Subject" name="subj"
-                                    id="subj" aria-label="default input example">
+                                <input class="inp-form form-control" type="text" placeholder="Message Subject"
+                                    name="subj" id="subj" aria-label="default input example">
                                 @error('subj')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-lg-12">
-                                <textarea class=" form-control" placeholder="Enter Your Message" name="msg" id="msg" aria-label="default input example"
-                                    style="height: 120px"></textarea>
+                                <textarea class="inp-form form-control" placeholder="Enter Your Message" name="msg" id="msg"
+                                    aria-label="default input example" style="height: 120px"></textarea>
                                 @error('msg')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <button class="btn btn-primary mb-3 submit">Send</button>
+                            <button class="btn-front btn btn-primary mb-3 submit">Send</button>
                         </form>
                     </div>
                 </div>

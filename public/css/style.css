@@ -163,7 +163,7 @@ a.link:hover {
     background-color: rgb(249, 249, 252);
     border-radius: 20px;
     box-shadow: 10px 10px 5px rgb(202, 203, 208);
-
+    margin-left: 15px;
 }
 
 .card-img {
@@ -320,7 +320,6 @@ a.link:hover {
 .test_form_img {
     width: 450px;
     margin: 150px 0;
-    opacity: 0.5;
     margin-top: 30px;
     margin-left: 100px
 }
@@ -328,14 +327,14 @@ a.link:hover {
 .test_image_1 {
     width: 450px;
     margin: 150px 0;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     margin-top: 60px
 }
 
 .test_image_2 {
     width: 450px;
     margin: 150px 0;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     margin-top: 40px
 }
 
@@ -355,11 +354,13 @@ a.link:hover {
 
 }
 
-.test-form select {
-
-    margin: 10px auto;
-
-    font-size: 15px;
+.test-form select,
+.test-form input {
+    display: block !important;
+    margin-bottom: 25px !important;
+    font-size: 20px !important;
+    background-color: transparent !important;
+    color: #000 !important;
 }
 
 .test-form {
@@ -383,14 +384,18 @@ a.link:hover {
 }
 
 .test-form input.submit {
-    width: 200px;
-    margin: 10;
-    margin-top: 40px;
-    margin-right: 10px;
-    margin-left: 100px;
-    border-radius: 50px;
-    font-size: 25px;
-    box-shadow: 3px 5px #9fd7f8;
+    min-width: 150px !important;
+    max-width: 250px !important;
+    margin: 10px auto !important;
+    border-color: transparent !important;
+    border-radius: 50px !important;
+    font-size: 20px !important;
+    background-color: rgb(40, 122, 234) !important;
+    color: #FFF !important;
+    font-weight: bold !important;
+
+    display: block !important;
+    /* box-shadow: 3px 5px #9fd7f8; */
 }
 
 .test-form a {

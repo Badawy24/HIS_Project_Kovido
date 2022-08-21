@@ -35,12 +35,12 @@
                             </div>
                         <?php endif; ?>
                         <div class="head-contact-doctor">
-                            <h4>You Can Contact With Doctor Now!</h4>
+                            <h4 class="head-cards">You Can Contact With Doctor Now!</h4>
                         </div>
                         <form action="<?php echo e(route('sendDoc.email')); ?>" method="POST" class="row">
                             <?php echo csrf_field(); ?>
                             <div class="col-lg-12">
-                                <select class="form-select" name="doc_name" id="doc_name"
+                                <select class="inp-form form-select" name="doc_name" id="doc_name"
                                     aria-label="Default select example">
                                     <?php $__currentLoopData = $doc_names; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc_name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($doc_name->doc_email); ?>"><?php echo e($doc_name->doc_fname); ?>
@@ -60,8 +60,8 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
-                                <input class=" form-control" type="text" placeholder="Message Subject" name="subj"
-                                    id="subj" aria-label="default input example">
+                                <input class="inp-form form-control" type="text" placeholder="Message Subject"
+                                    name="subj" id="subj" aria-label="default input example">
                                 <?php $__errorArgs = ['subj'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -74,8 +74,8 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-12">
-                                <textarea class=" form-control" placeholder="Enter Your Message" name="msg" id="msg" aria-label="default input example"
-                                    style="height: 120px"></textarea>
+                                <textarea class="inp-form form-control" placeholder="Enter Your Message" name="msg" id="msg"
+                                    aria-label="default input example" style="height: 120px"></textarea>
                                 <?php $__errorArgs = ['msg'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -87,7 +87,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-                            <button class="btn btn-primary mb-3 submit">Send</button>
+                            <button class="btn-front btn btn-primary mb-3 submit">Send</button>
                         </form>
                     </div>
                 </div>

@@ -223,18 +223,14 @@ a.link:hover {
 .card {
     transition: 1s all ease-in-out;
     cursor: pointer;
-    /* border: 1px solid #909090; */
-    background-color: transparent;
-    /* border-radius: 20px; */
-    /* box-shadow: 4px 4px 11px rgb(255 255 255 / 10%); */
-    margin-left: 15px;
     border: 5px solid rgba(255, 255, 255, 0.4);
+    background-color: transparent;
     border-radius: 20px;
     box-shadow: 2px 2px 7px #FFF;
-    cursor: pointer;
+    margin-left: 15px;
 }
 
-.card-img {
+s .card-img {
     width: 300px;
     height: 300px;
     margin: 0px auto;
@@ -258,7 +254,7 @@ a.link:hover {
 .card-title {
     transition: 1s all ease-in-out;
     color: white;
-    margin-bottom: 10px !important;
+    /* margin-bottom: 10px !important; */
 }
 
 .card-text {
@@ -375,10 +371,10 @@ a.link:hover {
     margin-left: 3px;
 }
 
-.booked {
+/* .booked {
     position: relative;
     top: 100px;
-}
+} */
 
 .booked span {
     color: #f86168;
@@ -405,7 +401,6 @@ a.link:hover {
 .test_form_img {
     width: 450px;
     margin: 150px 0;
-    opacity: 0.5;
     margin-top: 30px;
     margin-left: 100px;
 }
@@ -426,13 +421,13 @@ a.link:hover {
     margin-top: 200px;
 }
 
-.choice-1 button {
-    box-shadow: 3px 5px #9fd7f8;
-}
+/* .choice-1 button {
+     box-shadow: 3px 5px #9fd7f8;
+} */
 
 .choice-2 button {
     margin-top: 0px;
-    box-shadow: 3px 5px #9fd7f8;
+    /* box-shadow: 3px 5px #9fd7f8; */
 }
 
 .test-form select {
@@ -465,7 +460,7 @@ a.link:hover {
     margin-left: 100px;
     border-radius: 50px;
     font-size: 25px;
-    box-shadow: 3px 5px #9fd7f8;
+    /* box-shadow: 3px 5px #9fd7f8; */
 
 }
 

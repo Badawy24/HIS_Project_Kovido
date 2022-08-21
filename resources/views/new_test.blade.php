@@ -15,17 +15,17 @@
                             @endif
                             <div class="col-md-12">
 
-                                <label>Choose test</label>
-                                <select class=" form-select " aria-label="Default select example" name="test_name"
+                                <label class="card-text">Choose test</label>
+                                <select class="inp-form  form-select " aria-label="Default select example" name="test_name"
                                     value="{{ old('test') }}">
                                     <!-- <option selected disabled> Choose test </option> -->
                                     @foreach ($tests_list as $test)
                                         <option value="{{ $test->test_name }}">{{ $test->test_name }}</option>
                                     @endforeach
                                     <!-- <option value="RT-PCR">RT-PCR</option>
-                                    <option value="Antigen">Antigen</option>
-                                    <option value="X-ray">X-ray</option>
-                                    <option value="CBC">CBC</option> -->
+                                                                                                    <option value="Antigen">Antigen</option>
+                                                                                                    <option value="X-ray">X-ray</option>
+                                                                                                    <option value="CBC">CBC</option> -->
                                 </select>
                                 @error('test')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -36,17 +36,17 @@
                             </div>
 
                             <div class="col-md-12">
-                                <label>Choose Health Care Center</label>
-                                <select class="form-select" aria-label="Default select example" name="health_cc"
+                                <label class="card-text">Choose Health Care Center</label>
+                                <select class="inp-form form-select" aria-label="Default select example" name="health_cc"
                                     value="{{ old('health_cc') }}">
                                     @foreach ($hc_list as $hc)
                                         <option value="{{ $hc->hc_name }}">{{ $hc->hc_name }}</option>
                                     @endforeach
                                     <!-- <option selected disabled> Choose Health Care Center </option> -->
                                     <!-- <option value="benha">benha</option>
-                                    <option value="tanta">tanta</option>
-                                    <option value="giza">giza</option>
-                                    <option value="cairo hcc">cairo hcc</option> -->
+                                                                                                    <option value="tanta">tanta</option>
+                                                                                                    <option value="giza">giza</option>
+                                                                                                    <option value="cairo hcc">cairo hcc</option> -->
                                 </select>
                                 @error('health_cc')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -57,8 +57,8 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label>Date</label>
-                                <input class=" form-control" type="date" placeholder="test_date" name="test_date"
+                                <label class="card-text">Date</label>
+                                <input class="inp-form form-control" type="date" placeholder="test_date" name="test_date"
                                     id="test_date" aria-label="default input example" value="{{ old('test_date') }}">
                                 @error('test_date')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -70,8 +70,8 @@
 
 
                             <div class="col-lg-12">
-                                <label>Time</label>
-                                <input class="form-control" type="time" name="test_time" placeholder="test_time"
+                                <label class="card-text">Time</label>
+                                <input class="inp-form form-control" type="time" name="test_time" placeholder="test_time"
                                     id="test_time" aria-label="default input example" value="{{ old('test_time') }}">
                                 @error('test_time')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -82,8 +82,8 @@
                             </div>
 
 
-                            <input type="reset" class="btn btn-primary mb-3 submit" value="reset">
-                            <input type="submit" class="btn btn-primary mb-3 submit" value="confirm">
+                            <input type="reset" class="btn-front btn btn-primary mb-3 submit" value="Reset">
+                            <input type="submit" class="btn-front btn btn-primary mb-3 submit" value="Confirm">
 
                         </form>
                     </div>
