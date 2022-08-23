@@ -22,9 +22,9 @@
                                         <option value="<?php echo e($test->test_name); ?>"><?php echo e($test->test_name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <!-- <option value="RT-PCR">RT-PCR</option>
-                                                                                                    <option value="Antigen">Antigen</option>
-                                                                                                    <option value="X-ray">X-ray</option>
-                                                                                                    <option value="CBC">CBC</option> -->
+                                                                                                        <option value="Antigen">Antigen</option>
+                                                                                                        <option value="X-ray">X-ray</option>
+                                                                                                        <option value="CBC">CBC</option> -->
                                 </select>
                                 <?php $__errorArgs = ['test'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -50,9 +50,9 @@ unset($__errorArgs, $__bag); ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <!-- <option selected disabled> Choose Health Care Center </option> -->
                                     <!-- <option value="benha">benha</option>
-                                                                                                    <option value="tanta">tanta</option>
-                                                                                                    <option value="giza">giza</option>
-                                                                                                    <option value="cairo hcc">cairo hcc</option> -->
+                                                                                                        <option value="tanta">tanta</option>
+                                                                                                        <option value="giza">giza</option>
+                                                                                                        <option value="cairo hcc">cairo hcc</option> -->
                                 </select>
                                 <?php $__errorArgs = ['health_cc'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -117,7 +117,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-md-6">
                     <div class="login-img">
-                        <img src="/images/test_reservation.png" class="test_form_img" />
+                        <img id="newTest" src="/images/test_reservation.png" class="test_form_img" />
                     </div>
                 </div>
             </div>

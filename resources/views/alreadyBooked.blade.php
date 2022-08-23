@@ -10,11 +10,15 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">First Dose</h3>
                             <br>
-                            <h4 class="card-title mb-4">Vaccine Name : <span>{{ $dose->vaccine_name }}</span></h4>
-                            <h4 class="card-title mb-4">Healthcare Center : <span>{{ $hecs->hc_name }}</span></h4>
-                            <h4 class="card-title mb-4">City : <span>{{ $hecs->hc_address }}</span></h4>
-                            <h4 class="card-title mb-4">Date : <span>{{ $appo->pat_dose_date }}</span></h4>
-                            <h4 class="card-title mb-4">Time : <span>{{ $appo->pat_dose_time }}</span></h4>
+                            <h4 class="card-title mb-4">Vaccine Name : <span
+                                    class="booked-data">{{ $dose->vaccine_name }}</span></h4>
+                            <h4 class="card-title mb-4">Healthcare Center : <span
+                                    class="booked-data">{{ $hecs->hc_name }}</span></h4>
+                            <h4 class="card-title mb-4">City : <span class="booked-data">{{ $hecs->hc_address }}</span></h4>
+                            <h4 class="card-title mb-4">Date : <span class="booked-data">{{ $appo->pat_dose_date }}</span>
+                            </h4>
+                            <h4 class="card-title mb-4">Time : <span class="booked-data">{{ $appo->pat_dose_time }}</span>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -23,16 +27,19 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">Second Dose</h3>
                             <br>
-                            <h4 class="card-title mb-4">Vaccine Name : <span>{{ $dose->vaccine_name }}</span></h4>
-                            <h4 class="card-title mb-4">Healthcare Center : <span>{{ $hecs->hc_name }}</span></h4>
-                            <h4 class="card-title mb-4">City : <span>{{ $hecs->hc_address }}</span></h4>
+                            <h4 class="card-title mb-4">Vaccine Name : <span
+                                    class="booked-data">{{ $dose->vaccine_name }}</span></h4>
+                            <h4 class="card-title mb-4">Healthcare Center : <span
+                                    class="booked-data">{{ $hecs->hc_name }}</span></h4>
+                            <h4 class="card-title mb-4">City : <span class="booked-data">{{ $hecs->hc_address }}</span></h4>
                             {{-- <h4 class="card-title mb-4">Date : <span
                                     style="color:red">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $appo->pat_dose_time)->format('d-m-Y') }}</span>
                             </h4> --}}
                             <h4 class="card-title mb-4">Date : <span
-                                    style="color:red">{{ date('Y-m-d', strtotime($appo->pat_dose_date . '+ 14 days')) }}</span>
+                                    style="color:#003971">{{ date('Y-m-d', strtotime($appo->pat_dose_date . '+ 14 days')) }}</span>
                             </h4>
-                            <h4 class="card-title mb-4">Time : <span>{{ $appo->pat_dose_time }}</span></h4>
+                            <h4 class="card-title mb-4">Time : <span class="booked-data">{{ $appo->pat_dose_time }}</span>
+                            </h4>
                         </div>
                     </div>
                 </div>

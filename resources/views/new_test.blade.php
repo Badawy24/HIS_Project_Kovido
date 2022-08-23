@@ -23,9 +23,9 @@
                                         <option value="{{ $test->test_name }}">{{ $test->test_name }}</option>
                                     @endforeach
                                     <!-- <option value="RT-PCR">RT-PCR</option>
-                                                                                                    <option value="Antigen">Antigen</option>
-                                                                                                    <option value="X-ray">X-ray</option>
-                                                                                                    <option value="CBC">CBC</option> -->
+                                                                                                        <option value="Antigen">Antigen</option>
+                                                                                                        <option value="X-ray">X-ray</option>
+                                                                                                        <option value="CBC">CBC</option> -->
                                 </select>
                                 @error('test')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -44,9 +44,9 @@
                                     @endforeach
                                     <!-- <option selected disabled> Choose Health Care Center </option> -->
                                     <!-- <option value="benha">benha</option>
-                                                                                                    <option value="tanta">tanta</option>
-                                                                                                    <option value="giza">giza</option>
-                                                                                                    <option value="cairo hcc">cairo hcc</option> -->
+                                                                                                        <option value="tanta">tanta</option>
+                                                                                                        <option value="giza">giza</option>
+                                                                                                        <option value="cairo hcc">cairo hcc</option> -->
                                 </select>
                                 @error('health_cc')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -90,7 +90,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="login-img">
-                        <img src="/images/test_reservation.png" class="test_form_img" />
+                        <img id="newTest" src="/images/test_reservation.png" class="test_form_img" />
                     </div>
                 </div>
             </div>

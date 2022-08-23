@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="contact-img">
-                        <img src="\images\contact\Online Doctor.png" class="img-fluid" />
+                        <img id="conDoc" src="\images\contact\Online Doctor.png" class="img-fluid" />
                     </div>
                 </div>
                 <div class="col-md-7">

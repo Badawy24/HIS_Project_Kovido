@@ -157,7 +157,7 @@ a.link:hover {
 
 /* Start Services Page Abdelrahman*/
 .card {
-    transition: 1s all ease-in-out;
+    transition: 0.5s border ease-in-out;
     cursor: pointer;
     border: 3px solid #F6F8FD;
     background-color: rgb(249, 249, 252);

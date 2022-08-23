@@ -6,7 +6,7 @@
             <div class="row ">
 
                 <div class="col-md-4">
-                    <img class="test_image_1" src="/images/test_menu.png" />
+                    <img id="test1" class="test_image_1" src="/images/test_menu.png" />
                 </div>
 
 
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <img class="test_image_2" src="/images/test_menu_2.png" />
+                    <img id="test2" class="test_image_2" src="/images/test_menu_2.png" />
                 </div>
 
             </div>

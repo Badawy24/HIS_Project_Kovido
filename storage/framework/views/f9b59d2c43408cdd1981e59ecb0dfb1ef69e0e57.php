@@ -10,11 +10,15 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">First Dose</h3>
                             <br>
-                            <h4 class="card-title mb-4">Vaccine Name : <span><?php echo e($dose->vaccine_name); ?></span></h4>
-                            <h4 class="card-title mb-4">Healthcare Center : <span><?php echo e($hecs->hc_name); ?></span></h4>
-                            <h4 class="card-title mb-4">City : <span><?php echo e($hecs->hc_address); ?></span></h4>
-                            <h4 class="card-title mb-4">Date : <span><?php echo e($appo->pat_dose_date); ?></span></h4>
-                            <h4 class="card-title mb-4">Time : <span><?php echo e($appo->pat_dose_time); ?></span></h4>
+                            <h4 class="card-title mb-4">Vaccine Name : <span
+                                    class="booked-data"><?php echo e($dose->vaccine_name); ?></span></h4>
+                            <h4 class="card-title mb-4">Healthcare Center : <span
+                                    class="booked-data"><?php echo e($hecs->hc_name); ?></span></h4>
+                            <h4 class="card-title mb-4">City : <span class="booked-data"><?php echo e($hecs->hc_address); ?></span></h4>
+                            <h4 class="card-title mb-4">Date : <span class="booked-data"><?php echo e($appo->pat_dose_date); ?></span>
+                            </h4>
+                            <h4 class="card-title mb-4">Time : <span class="booked-data"><?php echo e($appo->pat_dose_time); ?></span>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -23,14 +27,17 @@
                         <div class="card-body">
                             <h3 class="card-title text-center">Second Dose</h3>
                             <br>
-                            <h4 class="card-title mb-4">Vaccine Name : <span><?php echo e($dose->vaccine_name); ?></span></h4>
-                            <h4 class="card-title mb-4">Healthcare Center : <span><?php echo e($hecs->hc_name); ?></span></h4>
-                            <h4 class="card-title mb-4">City : <span><?php echo e($hecs->hc_address); ?></span></h4>
+                            <h4 class="card-title mb-4">Vaccine Name : <span
+                                    class="booked-data"><?php echo e($dose->vaccine_name); ?></span></h4>
+                            <h4 class="card-title mb-4">Healthcare Center : <span
+                                    class="booked-data"><?php echo e($hecs->hc_name); ?></span></h4>
+                            <h4 class="card-title mb-4">City : <span class="booked-data"><?php echo e($hecs->hc_address); ?></span></h4>
                             
                             <h4 class="card-title mb-4">Date : <span
-                                    style="color:red"><?php echo e(date('Y-m-d', strtotime($appo->pat_dose_date . '+ 14 days'))); ?></span>
+                                    style="color:#003971"><?php echo e(date('Y-m-d', strtotime($appo->pat_dose_date . '+ 14 days'))); ?></span>
                             </h4>
-                            <h4 class="card-title mb-4">Time : <span><?php echo e($appo->pat_dose_time); ?></span></h4>
+                            <h4 class="card-title mb-4">Time : <span class="booked-data"><?php echo e($appo->pat_dose_time); ?></span>
+                            </h4>
                         </div>
                     </div>
                 </div>
