@@ -24,7 +24,7 @@ class Login_Controller extends Controller
         if ($users) {
             session(['Logged_In' => True]);
             session(['user_id' => $users[0]->pat_id]);
-            return redirect('/service');
+            return redirect('/profile');
         } else if ($email == "admin@gmail.com" && $password == 'admin') {
             session(['adminLogin' => True]);
             return redirect('/admin_doc_data');

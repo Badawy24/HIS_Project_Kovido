@@ -1,9 +1,5 @@
 /*Welcome
-<<<<<<< HEAD
-https://storyset.com/illustration/fighting-against-coronavirus/amico
-=======
 https://storyset.com/illustration/winning-the-battle-against-coronavirus/rafiki
->>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
 /--------------------------------------------
 /*Login
 https://storyset.com/illustration/mobile-login/amico
@@ -14,25 +10,23 @@ https://storyset.com/illustration/personal-data/amico
 /*Contact-us
 https://storyset.com/illustration/contact-us/amico
 /--------------------------------------------
-<<<<<<< HEAD
-/*Forget Password Send
-https://storyset.com/illustration/forgot-password/bro
-=======
-/*
-
->>>>>>> e940fab4991548a4654a9b65ba5ebe3c0d2cf455
+/* Service
+https://storyset.com/illustration/online-doctor/amico
+https://storyset.com/illustration/stem-cell-research/rafiki
+https://storyset.com/illustration/vaccine-development/rafiki
 /--------------------------------------------
-/*
-
+/*test_option
+https://storyset.com/illustration/world-hepatitis-day/bro
+https://storyset.com/illustration/blood-test/cuate
 /--------------------------------------------
-/*
-
+/*contact_doc
+https://storyset.com/illustration/online-doctor/rafiki
 /--------------------------------------------
-/*
-
+/*new_dose
+https://storyset.com/illustration/medicine/amico
 /--------------------------------------------
-/*
-
+/*update_test
+https://storyset.com/illustration/lungs/rafiki
 /--------------------------------------------
 /*
 

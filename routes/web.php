@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestFormController;
 use App\Http\Controllers\MyTestController;
+use App\Http\Controllers\ProfileController;
 //use App\Http\Controllers\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,14 +38,19 @@ Route::post('/send', 'App\Http\Controllers\ContactController@send')->name('send.
 //     return view('contact_us');
 // });
 
-
+Route::get('/profile', [ProfileController::class, 'getData'])->middleware('loginmiddle');
+Route::get('/Editprofile', [ProfileController::class, 'getEditData'])->middleware('loginmiddle');
+Route::post('/updateprofile', [ProfileController::class, 'updateprofile'])->middleware('loginmiddle');
+// Route::get('/Editprofile', function () {
+//     return view('Editprofile');
+// });
 
 Route::get('/service', function () {
     return view('service');
 })->middleware('loginmiddle');
 
 
-Route::get('/new_dose', [BookDoseController::class, 'dose']);
+Route::get('/new_dose', [BookDoseController::class, 'dose'])->middleware('loginmiddle');
 
 Route::post('/bookDose', 'App\Http\Controllers\BookDoseController@bookDose')->name('bookDose');
 
@@ -101,6 +107,7 @@ Route::get('/delete/{res_id}', [MyTestController::class, 'delete']);
 Route::get('/test_option', function () {
     return view('test_option');
 });
+
 
 
 Route::get('/update_test/{res_id}', [TestFormController::class, 'showdata']);

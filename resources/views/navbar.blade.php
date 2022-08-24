@@ -12,6 +12,9 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a @class(['active' => Request::is('profile'), 'nav-link' => true]) class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a @class(['active' => Request::is('service'), 'nav-link' => true]) aria-current="page" href="/service">Services</a>
                     </li>
                     <li class="nav-item">

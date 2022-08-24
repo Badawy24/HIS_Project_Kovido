@@ -41,6 +41,8 @@ const dark_img = () => {
     img_dark('conDoc', '/images_dark/contact/Online Doctor.png'); // contact_doc Dark Mode
     img_dark('dose', '/images_dark/service/Vaccinee.png'); // new_Dose Dark Mode
     img_dark('updateTest', '/images_dark/update_test.png'); // update_test Dark Mode
+    img_dark('profile', '/images_dark/profile.png'); // profile Dark Mode
+    img_dark('editprof', '/images_dark/editprof.png'); // editprof Dark Mode
 
 }
 
@@ -66,6 +68,8 @@ const light_img = () => {
     img_light('conDoc', '/images/contact/Online Doctor.png'); // contact_doc Light Mode
     img_light('dose', '/images/service/Vaccinee.png'); // new_Dose Light Mode
     img_light('updateTest', '/images/update_test.png'); // update_test Light Mode
+    img_light('profile', '/images/profile.png'); // profile Light Mode
+    img_light('editprof', '/images/editprof.png'); // editprof Light Mode
 
 }
 
