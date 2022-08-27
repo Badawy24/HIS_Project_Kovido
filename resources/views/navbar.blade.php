@@ -106,6 +106,41 @@
             </div>
         </div>
     </div>
+@elseif(Session::get('doc_Logged_In'))
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a @class(['active' => Request::is('profile'), 'nav-link' => true]) class="nav-link" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a @class(['active' => Request::is('service'), 'nav-link' => true]) aria-current="page" href="/service">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a @class(['active' => Request::is('test_option'), 'nav-link' => true]) aria-current="page" href="/test_option">Test</a>
+                </li>
+                <li class="nav-item">
+                    <a @class(['active' => Request::is('new_dose'), 'nav-link' => true]) class="nav-link" href="/new_dose">Dose</a>
+                </li>
+                <li class="nav-item">
+                    <a @class(['active' => Request::is('contact_doc'), 'nav-link' => true]) class="nav-link" href="/contact_doc">Contact Doctor</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 @else
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">

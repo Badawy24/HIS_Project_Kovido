@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DELL\OneDrive\Desktop\3rd training\HIS_Project_Kovido\resources\views/doc_profile.blade.php ENDPATH**/ ?>

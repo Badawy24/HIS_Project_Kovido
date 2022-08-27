@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestFormController;
 use App\Http\Controllers\MyTestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\docProfileController;
 //use App\Http\Controllers\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,7 @@ Route::post('/send', 'App\Http\Controllers\ContactController@send')->name('send.
 // });
 
 Route::get('/profile', [ProfileController::class, 'getData'])->middleware('loginmiddle');
+Route::get('/doc_profile', [docProfileController::class, 'docProfile'])->middleware('loginmiddle');
 Route::get('/Editprofile', [ProfileController::class, 'getEditData'])->middleware('loginmiddle');
 Route::post('/updateprofile', [ProfileController::class, 'updateprofile'])->middleware('loginmiddle');
 // Route::get('/Editprofile', function () {
