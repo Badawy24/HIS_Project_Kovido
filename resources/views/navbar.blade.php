@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Facades\DB;
+?>
 @if (Session::get('Logged_In'))
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -120,20 +123,12 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a @class(['active' => Request::is('profile'), 'nav-link' => true]) class="nav-link" href="/profile">Profile</a>
+                    <a class="nav-link active" ><?php
+                        $id = Session::get('doc_user_id');
+                        $doc = DB::select('select doc_fname, doc_lname from doctor where doc_id = ?', [$id]);
+                        ?>{{'D/ '. $doc[0]->doc_fname . ' ' . $doc[0]->doc_lname}} </a>
                 </li>
-                <li class="nav-item">
-                    <a @class(['active' => Request::is('service'), 'nav-link' => true]) aria-current="page" href="/service">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a @class(['active' => Request::is('test_option'), 'nav-link' => true]) aria-current="page" href="/test_option">Test</a>
-                </li>
-                <li class="nav-item">
-                    <a @class(['active' => Request::is('new_dose'), 'nav-link' => true]) class="nav-link" href="/new_dose">Dose</a>
-                </li>
-                <li class="nav-item">
-                    <a @class(['active' => Request::is('contact_doc'), 'nav-link' => true]) class="nav-link" href="/contact_doc">Contact Doctor</a>
-                </li>
+
                 <li class="nav-item ">
                     <a class="nav-link" href="/logout">Log Out</a>
                 </li>

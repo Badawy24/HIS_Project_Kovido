@@ -40,7 +40,8 @@ Route::post('/send', 'App\Http\Controllers\ContactController@send')->name('send.
 // });
 
 Route::get('/profile', [ProfileController::class, 'getData'])->middleware('loginmiddle');
-Route::get('/doc_profile', [docProfileController::class, 'docProfile'])->middleware('loginmiddle');
+
+
 Route::get('/Editprofile', [ProfileController::class, 'getEditData'])->middleware('loginmiddle');
 Route::post('/updateprofile', [ProfileController::class, 'updateprofile'])->middleware('loginmiddle');
 // Route::get('/Editprofile', function () {
@@ -118,3 +119,6 @@ Route::post('/update_test/{res_id}', [TestFormController::class, 'update_data'])
 // Route::get('/update_test/{$testcase.res_id}', function() {
 //     return view('update_test');
 // });
+
+Route::get('/doc_profile', [docProfileController::class, 'docProfile'])->middleware('loginmiddle');
+Route::post('/saveReply/{msg_id}', [docProfileController::class, 'saveReply'])->middleware('loginmiddle');
