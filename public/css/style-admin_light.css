@@ -1,81 +1,49 @@
-.adm-nav,
-.admin-options {
-    background: linear-gradient(to right, #003971, #bc4949);
-}
-
 .admin-options .btn {
     width: 100%;
-    background: #fff;
-    color: #003971;
-    border: transparent;
 }
-
 .admin-options .btn,
 .admin-options button i {
-    color: #003971;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
 }
-
 .admin-nav {
     font-weight: bold;
     font-size: 25px;
 }
-
 .admin-nav i {
-    color: #bc4949;
+    color: #287AEA;
     font-size: 27px;
-    margin-right: 5px
+    margin-right:5px
 }
-
-.alert-p {
-    color: #fff;
-    background: linear-gradient(to right, #003971, #bc4949);
-    border-color: transparent;
-
-}
-
 .alert-admin {
     position: relative;
 }
-
 .alert-admin span {
-    position: absolute;
+    position:absolute;
     right: 10px;
-    top: 0;
+    top:0;
     font-size: 17px;
     cursor: pointer;
 }
 
 .doc-data p.doc-btn {
     text-align: center;
-
 }
-
 /* .doc-data p.doc-btn button a {
     color: #fff;
     text-decoration: none;
 } */
 .doc-data p.doc-btn button {
-    background-color: #bc4949;
-    font-weight: bold;
-    border: transparent;
-    font-size: 20px;
+    font-size:20px;
     padding: 7px 30px;
     border-radius: 20px;
 }
-
-.doc-data p.doc-btn button:focus {
-    border-color: #bc4949;
-    box-shadow: 0 0 0 0.25rem rgb(118 73 73 / 50%);
-}
-
 .doc-data .report {
     margin-bottom: 20px;
     box-shadow: 1px 2px 21px rgb(0 0 0 / 20%);
 }
-
 .doc-data .report .doc {
     border: 1px solid #ccc;
     padding: 20px;
@@ -83,34 +51,12 @@
     background-color: #fff;
     cursor: pointer;
 }
-
 .doc-data .report .doc:hover {
     transform: scale(1.05);
     box-shadow: 1px 2px 21px rgb(0 0 0 / 20%);
 }
-
 .doc-data .no-doc {
     width: 600px;
-    margin: 10px auto;
+    margin: 10px auto; 
     text-align: center
-}
-
-.search-btn {
-    background-color: #bc4949;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-}
-
-.search-btn:hover {
-    color: #fff;
-}
-
-.opt-btn a {
-    opacity: .8;
-}
-
-.opt-btn .active {
-    transform: scale(1.13);
-    opacity: 1;
 }
