@@ -4,7 +4,7 @@ request: <strong> GET </strong>
 
 
 <strong>
-  https://gentle-depths-38045.herokuapp.com/api/available-tests
+  http://127.0.0.1:8000/api/available-vaccines
 </strong>
 
 <strong> No Request body </strong>
@@ -19,19 +19,19 @@ request: <strong> GET </strong>
 [
     {
         "dose_id": 1,
-        "vaccine_name": "Pfizer"
+        "vaccine_name": "AAA"
     },
     {
         "dose_id": 2,
-        "vaccine_name": "AstraZeneca"
+        "vaccine_name": "BBB"
     },
     {
         "dose_id": 3,
-        "vaccine_name": "Johnson & Johnson"
+        "vaccine_name": "CCC"
     },
     {
         "dose_id": 4,
-        "vaccine_name": "Sinopharm"
+        "vaccine_name": "DDD"
     }
 ]
 </code>
