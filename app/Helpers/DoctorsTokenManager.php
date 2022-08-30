@@ -49,17 +49,15 @@ class DoctorsTokenManager {
 
         $result = DB::select("select * from doctor_token where id = ?",[$tokenId]);
 
-        
+
         if($result){
 
             $tokenData = $result[0];
 
             // compare $tokenStr(stored in shared prefs) with $encryptedtoken stored in DB
-
             if(Hash::check($tokenStr,$tokenData->token)){
 
                 // retrieve doctor data
-
                 $doctor_result = DB::select("select * from doctor where doc_id = ? ",[$tokenData->doctor_id]);
 
                 if($doctor_result){
@@ -67,11 +65,40 @@ class DoctorsTokenManager {
                     return $doctor;
                 }
             }
+        }
+    }
 
+    public static function removeDoctorToken(Request $request) {
 
+        // get token
+        $token = $request->bearerToken();
+
+        // rejects the request of no token is given
+        if(!$token){
+            return null;
         }
 
+        // rejects any token that does not contain '|' symbol
+        if(!str_contains($token,'|')){
+            return null;
+        }
+
+        // split token into toeknid and tokenStr
+        [$tokenId,$tokenStr] = explode('|',$token,2);
+
+        $result = DB::select("select * from doctor_token where id = ?",[$tokenId]);
 
 
+        if($result){
+
+            $tokenData = $result[0];
+
+            // compare $tokenStr(stored in shared prefs) with $encryptedtoken stored in DB
+            if(Hash::check($tokenStr,$tokenData->token)){
+
+                $deleted = DB::delete("delete from doctor_token where id = ?",[$tokenData->id]);
+            }
+        }
     }
+
 }

@@ -508,7 +508,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         }
 
     });
-
     //  end of middleware group
 });
 
@@ -543,16 +542,50 @@ Route::group(['middleware' => 'DoctorAuthAPI'],function(){
                 'msg_id' =>  $childCat->msg_id,
             ];
         }
-
-
         // retrieve json object -> $data in not in [] because it is already an array
         return response($data,200);
 
     });
 
+    Route::post('/reply_to_message',function(Request $request){
+        // get doctor_id to search for his patient's messages
+        $doctor_id = DoctorsTokenManager::currentDoctor($request)->doc_id;
+
+        // get message_id
+        $msg_id = $request->msg_id;
+
+
+        $result = DB::update(
+            "update doc_pat
+            SET reply = ?
+            WHERE msg_id = ? and doc_id = ?",
+            [$request->reply,$msg_id,$doctor_id]
+        );
+
+        if($result){
+
+        return [
+            'msg' => "successfully",
+        ];
+        }
+        else {
+            return [
+                'msg' => 'failed',
+            ];
+        }
+
+
+
+    });
+
+    Route::get('/doctor_logout',function(Request $request){
+        DoctorsTokenManager::removeDoctorToken($request);
+        return [
+            'msg' => 'doctor, loggout successfully'
+        ];
+    });
+
 });
-
-
 
 
 Route::post('/send-reset-email',function(Request $request){
