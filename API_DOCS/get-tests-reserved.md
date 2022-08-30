@@ -2,7 +2,7 @@
 
 this is for get all tests that the user reserved
 
-<code>http://localhost:8000/api/get-tests-reserved</code>
+<code>http://127.0.0.1:8000/api/get-tests-reserved</code>
 
 request: <strong> GET </strong>
 
