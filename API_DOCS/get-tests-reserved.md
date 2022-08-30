@@ -17,28 +17,11 @@ request: <strong> GET </strong>
 <code>
 [
     {
-        "test_name": "PCR",
-        "pat_test_date": "12-06-2022",
-        "pat_test_time": "12:00",
-        "hc_name": "Abbasia Hospital for Chest Diseases"
-    },
-    {
-        "test_name": "Anti-bodies",
-        "pat_test_date": "20/03/2023",
-        "pat_test_time": "14:30",
-        "hc_name": "Sadr Imbaba Hospital"
-    },
-    {
         "test_name": "CBC",
-        "pat_test_date": "20/03/2023",
-        "pat_test_time": "14:30",
-        "hc_name": "Abbasia Hospital for Chest Diseases"
-    },
-    {
-        "test_name": "CBC",
-        "pat_test_date": "20/03/2023",
-        "pat_test_time": "14:30",
-        "hc_name": "Abbasia Hospital for Chest Diseases"
+        "pat_test_date": "25/10/2022",
+        "pat_test_time": "09:00",
+        "hc_name": "benha",
+        "res_id": 25
     }
 ]
 </code>
