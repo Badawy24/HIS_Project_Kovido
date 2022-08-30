@@ -3,7 +3,7 @@
 request: <strong> GET </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/logout
+   https://gentle-depths-38045.herokuapp.com/api/logout-patient
 </strong>
 
 <strong> No Request body </strong>
