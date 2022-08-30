@@ -484,15 +484,23 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         $doctor_email = $request->doctor_email;
         $msg = $request->msg;
-        $reply = $request->reply;
+        $reply = "";
 
         $query = DB::select('select doc_id from doctor where doc_email = ?',[$doctor_email]);
 
-
-
         $doctor_id = $query[0]->doc_id;
 
-        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,1000]);
+        $number_of_msg = DB::select("select count(*) as num_msgs from doc_pat where doc_id = ?",[$doctor_id]);
+
+        // return [
+        //     'doc_id' => $doctor_id ,
+        //     'patient_id' => $patientId,
+        //     'msg' => $msg,
+        //     'reply' => $reply,
+        //     'num of msgs' => $number_of_msg[0]->num_msgs,
+        // ];
+
+        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,$number_of_msg[0]->num_msgs + 1]);
 
         Mail::to($doctor_email)->send(new DoctortContact($msg,$doctor_email));
 
@@ -584,6 +592,8 @@ Route::group(['middleware' => 'DoctorAuthAPI'],function(){
             'msg' => 'doctor, loggout successfully'
         ];
     });
+
+
 
 });
 
