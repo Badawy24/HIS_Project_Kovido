@@ -1,5 +1,5 @@
 
-## doctor_data
+## messages_of_doctor
 
 request: <strong> GET </strong>
 
