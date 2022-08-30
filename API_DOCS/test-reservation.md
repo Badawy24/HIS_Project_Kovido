@@ -3,7 +3,7 @@
 request: <strong> POST </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/test-reservation
+   http://127.0.0.1:8000/api/test-reservation
 </strong>
 
 <strong> Request body </strong>
