@@ -30,7 +30,7 @@ Route::post('/register',function(Request $request){
     $patient_first_name = $request->patient_first_name;
     $patinet_last_name = $request->patient_last_name;
     $patinet_age = $request->patient_age;
-    $patinet_address = $request->patinet_address;
+    $patinet_address = $request->patienet_address;
     $patient_phone = $request->patient_phone;
     $patient_email = $request->patient_email;
     $patient_date_of_birth = $request->patient_date_of_birth;
@@ -478,7 +478,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     Route::post('/contact-with-doctor',function(Request $request){
 
-
         // get patient id from autherization header
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
 
@@ -491,14 +490,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         $doctor_id = $query[0]->doc_id;
 
         $number_of_msg = DB::select("select count(*) as num_msgs from doc_pat where doc_id = ?",[$doctor_id]);
-
-        // return [
-        //     'doc_id' => $doctor_id ,
-        //     'patient_id' => $patientId,
-        //     'msg' => $msg,
-        //     'reply' => $reply,
-        //     'num of msgs' => $number_of_msg[0]->num_msgs,
-        // ];
 
         $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,$number_of_msg[0]->num_msgs + 1]);
 
@@ -514,7 +505,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
                 'msg' => 'unsuccessfully'
             ];
         }
-
     });
     //  end of middleware group
 });
