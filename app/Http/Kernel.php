@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\DoctorAuthAPI;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\logoutMiddleware;
 use App\Http\Middleware\MyAuthAPI;
@@ -70,7 +71,8 @@ class Kernel extends HttpKernel
         'loginmiddle' => LoginMiddleware::class,
         'logoutmiddle' => logoutMiddleware::class,
         'PreventBackHistory' => PreventBackHistory::class,
-        'MyAuthAPI'=> MyAuthAPI::class
+        'MyAuthAPI'=> MyAuthAPI::class,
+        'DoctorAuthAPI' => DoctorAuthAPI::class,
         // 'PreventBackHistory' => PreventBackHistory::class
     ];
 }

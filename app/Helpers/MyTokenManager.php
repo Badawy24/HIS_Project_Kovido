@@ -62,7 +62,7 @@ class MyTokenManager {
             // compare $tokenStr(stored in shared prefs) with $encryptedtoken stored in DB
             if(Hash::check($tokenStr,$tokenData->token)){
 
-                // retrieve doctor data
+                // retrieve patient data
                 $queryResult = DB::select('select * from patient where pat_id = ?',[$tokenData->patient_id]);
 
                 if($queryResult){

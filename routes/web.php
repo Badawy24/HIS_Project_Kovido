@@ -123,6 +123,7 @@ Route::post('/update_test/{res_id}', [TestFormController::class, 'update_data'])
 Route::get('/doc_profile', [docProfileController::class, 'docProfile'])->middleware('loginmiddle');
 Route::post('/saveReply/{msg_id}', [docProfileController::class, 'saveReply'])->middleware('loginmiddle');
 
+
 Route::get('/reset-password_api/{email}',function($pat_email){
     $email = $pat_email;
     return view('reset_passpword_api',['email' => $email]);

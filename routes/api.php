@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\DoctorsTokenManager;
 use App\Helpers\MyTokenManager;
 use Illuminate\Http\Request;
 use App\Mail\CloudHostingProduct;
@@ -7,6 +8,8 @@ use App\Mail\DoctortContact;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
+use function GuzzleHttp\Promise\queue;
 
 /*
 	@@ -14,6 +19,681 @@
@@ -74,6 +77,9 @@ Route::post('/login',function(Request $request){
     $result = DB::select('select * from patient where pat_email = ? and patient_password = ?',
     [$email,$password]);
 
+    $doctorResult = DB::select('select * from doctor where doc_email = ? and doc_pass = ?',[$email,$password]);
+
+
     // if patient exist [correct email and password ]
     if($result){
         // because the result is a list of only one element, we store that element in patient variable
@@ -86,9 +92,19 @@ Route::post('/login',function(Request $request){
 
         // return token like  [3|dkjfbvjfkbvdfkjbv89yrhfb]
         return [
-            'msg' => 'logged In successfully',
+            'msg' => 'Patient , logged In successfully',
             'token' => $token,
         ];
+    }
+    else if($doctorResult) {
+        $doctor = $doctorResult[0];
+        $doctorToken = DoctorsTokenManager::createDoctorToken($doctor->doc_id);
+
+        return [
+            'msg' => 'Doctor, Logged In successfully',
+            'token' => $doctorToken,
+        ];
+
     }
     // if patient does not exist [0 rows returned]
     else{
@@ -99,6 +115,8 @@ Route::post('/login',function(Request $request){
 
 });
 
+
+// middleware of services
 Route::group(['middleware'=>'MyAuthAPI'],function(){
 
     // get profile function
@@ -458,8 +476,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
         }
     });
 
-
-
     Route::post('/contact-with-doctor',function(Request $request){
 
 
@@ -472,9 +488,11 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         $query = DB::select('select doc_id from doctor where doc_email = ?',[$doctor_email]);
 
+
+
         $doctor_id = $query[0]->doc_id;
 
-        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?)',[$doctor_id,$patientId,$msg,$reply]);
+        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,1000]);
 
         Mail::to($doctor_email)->send(new DoctortContact($msg,$doctor_email));
 
@@ -495,7 +513,47 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 });
 
 
-// ahmedmolotfycrpyto@gmail.com
+Route::group(['middleware' => 'DoctorAuthAPI'],function(){
+
+    Route::get('/doctor_data',function(Request $request){
+        $doctor = DoctorsTokenManager::currentDoctor($request);
+        return [
+            'doctor' => $doctor,
+        ];
+    });
+
+    Route::get('/messages_of_doctor',function(Request $request){
+        // get doctor_id to search for his patient's messages
+        $doctor_id = DoctorsTokenManager::currentDoctor($request)->doc_id;
+
+        // retreive messages of doctor
+        $msgsData = DB::select("select * from doc_pat where doc_id = ?",[$doctor_id]);
+
+        // declare $data array
+        $data = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ( $msgsData as $childCat ) {
+            $data[] =
+            [
+                'doc_id' =>  $childCat->doc_id,
+                'pat_id' =>  $childCat->pat_id,
+                'message' =>  $childCat->message,
+                'reply' =>  $childCat->reply,
+                'msg_id' =>  $childCat->msg_id,
+            ];
+        }
+
+
+        // retrieve json object -> $data in not in [] because it is already an array
+        return response($data,200);
+
+    });
+
+});
+
+
+
 
 Route::post('/send-reset-email',function(Request $request){
     $email = $request->email;
