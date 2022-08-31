@@ -1,9 +1,9 @@
-## test-reservation
+## reply_to_message
 
 request: <strong> POST </strong>
 
 <strong>
-   http://127.0.0.1:8000/api/test-reservation
+   http://127.0.0.1:8000/api/reply_to_message
 </strong>
 
 <strong> Request body </strong>
@@ -11,10 +11,9 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    'test_name': userInput
-    'test_date': userInput
-    'test_time': userInput
-    'test_patient_health_name': userInput
+    'reply': userInput
+    'msg_id': userInput
+    'doc_id': userInput
 }
 </code>
 </pre>
@@ -26,7 +25,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "successful test reservation"
+    "msg": "successfully"
 }
 </code>
 </pre>
@@ -34,7 +33,7 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-    "msg": "failed test reservation"
+    "msg": "failed"
 }
 </code>
 </pre>
