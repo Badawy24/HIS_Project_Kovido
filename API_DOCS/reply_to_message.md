@@ -1,9 +1,9 @@
-## dose-reservation
+## reply_to_message
 
-request: <strong> PUT </strong>
+request: <strong> POST </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/update-dose-reservation
+   http://127.0.0.1:8000/api/reply_to_message
 </strong>
 
 <strong> Request body </strong>
@@ -11,10 +11,9 @@ request: <strong> PUT </strong>
 <pre>
 <code>
 {
-    'dose_name': userInput
-    'dose_date': userInput
-    'dose_time': userInput
-    'dose_patient_health_name': userInput
+    'reply': userInput
+    'msg_id': userInput
+    'doc_id': userInput
 }
 </code>
 </pre>
@@ -26,7 +25,7 @@ request: <strong> PUT </strong>
 <pre>
 <code>
 {
-    "msg": "successful update"
+    "msg": "successfully"
 }
 </code>
 </pre>
@@ -34,7 +33,7 @@ request: <strong> PUT </strong>
 <pre>
 <code>
 {
-    "msg": "unsuccessful update"
+    "msg": "failed"
 }
 </code>
 </pre>

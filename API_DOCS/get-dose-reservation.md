@@ -3,7 +3,7 @@
 request: <strong> GET </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/get_dose_reservation
+   http://127.0.0.1:8000/api/get-dose-reservation
 </strong>
 
 <strong> No Request body </strong>
@@ -17,10 +17,10 @@ request: <strong> GET </strong>
 <code>
 [
     {
-        "dose_name": "Pfizer",
+        "dose_name": "AAA",
         "pat_test_date": "14/07/2022",
         "pat_test_time": "19:00",
-        "hc_name": "Sadr Imbaba Hospital"
+        "hc_name": "benha"
     }
 ]
 </code>

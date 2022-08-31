@@ -1,4 +1,4 @@
-## Register
+# Register
 
 request: <strong> POST </strong>
 
@@ -11,11 +11,10 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-  patinet_first_name: userInput,
-  patinet_last_name: userInput,
-  patinet_age: userInput,
-  patinet_address: userInput,
-  patient_phone: userInput,
+  patient_first_name: userInput,
+  patient_last_name: userInput,
+  patient_age: userInput,
+  patienet_address: userInput,
   patient_phone: userInput,
   patient_email: userInput,
   patient_date_of_birth: userInput,

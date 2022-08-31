@@ -3,7 +3,7 @@
 request: <strong> POST </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/dose-reservation
+  http://127.0.0.1:8000/api/dose-reservation
 </strong>
 
 <strong> Request body </strong>

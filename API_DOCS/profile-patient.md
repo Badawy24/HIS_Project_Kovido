@@ -4,7 +4,7 @@
 request: <strong> GET </strong>
 
 <strong>
-  https://gentle-depths-38045.herokuapp.com/api/profile
+  http://127.0.0.1:8000/api/profile-patient
 </strong>
 
 <strong> No Request body </strong>
@@ -19,16 +19,16 @@ request: <strong> GET </strong>
 <code>
 {
     "patient": {
-        "pat_id": 5,
-        "pat_fname": "AbdelAzizi",
-        "pat_lname": "lotfy",
-        "pat_age": 50,
-        "pat_address": "Shoubra-elkheima",
-        "pat_phone": 1001000100,
-        "pat_email": "abdelaziz@gmail.com",
-        "pat_DOF": "15/12/1972",
-        "pat_SSN": 12343546765,
-        "patient_password": "zxcv"
+        "pat_id": 22,
+        "pat_fname": "ali1",
+        "pat_lname": "sayed1",
+        "pat_age": 22,
+        "pat_address": "Kuwait12",
+        "pat_phone": 12345678911,
+        "pat_email": "27med2001lotfy@gmail.com",
+        "pat_DOF": "11/01/2001",
+        "pat_SSN": 30112011404916,
+        "patient_password": 123456789
     }
 }
 </code>

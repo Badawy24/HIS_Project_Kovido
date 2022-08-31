@@ -1,9 +1,9 @@
-## Logout
+## logout-patient
 
 request: <strong> GET </strong>
 
 <strong>
-   https://gentle-depths-38045.herokuapp.com/api/logout
+   http://127.0.0.1:8000/api/logout-patient
 </strong>
 
 <strong> No Request body </strong>

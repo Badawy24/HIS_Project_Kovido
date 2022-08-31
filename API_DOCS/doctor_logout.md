@@ -1,9 +1,9 @@
-## delete-dose-reservation
+## doctor_logout
 
-request: <strong> DELETE </strong>
+request: <strong> GET </strong>
 
 <strong>
-    http://127.0.0.1:8000/api/delete-dose-reservation
+   http://127.0.0.1:8000/api/doctor_logout
 </strong>
 
 <strong> No Request body </strong>
@@ -17,15 +17,7 @@ request: <strong> DELETE </strong>
 <pre>
 <code>
 {
-    "msg": "deleted successfully"
-}
-</code>
-</pre>
-#### if unsuccessful operation
-<pre>
-<code>
-{
-    "msg": "unsuccessful operation"
+    "msg": "doctor, loggout successfully"
 }
 </code>
 </pre>
