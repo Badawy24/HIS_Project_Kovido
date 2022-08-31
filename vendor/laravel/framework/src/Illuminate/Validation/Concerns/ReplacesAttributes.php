@@ -127,6 +127,20 @@ trait ReplacesAttributes
     }
 
     /**
+     * Replace all place-holders for the min digits rule.
+     *
+     * @param  string  $message
+     * @param  string  $attribute
+     * @param  string  $rule
+     * @param  array<int,string>  $parameters
+     * @return string
+     */
+    protected function replaceMinDigits($message, $attribute, $rule, $parameters)
+    {
+        return str_replace(':min', $parameters[0], $message);
+    }
+
+    /**
      * Replace all place-holders for the max rule.
      *
      * @param  string  $message
@@ -136,6 +150,20 @@ trait ReplacesAttributes
      * @return string
      */
     protected function replaceMax($message, $attribute, $rule, $parameters)
+    {
+        return str_replace(':max', $parameters[0], $message);
+    }
+
+    /**
+     * Replace all place-holders for the max digits rule.
+     *
+     * @param  string  $message
+     * @param  string  $attribute
+     * @param  string  $rule
+     * @param  array<int,string>  $parameters
+     * @return string
+     */
+    protected function replaceMaxDigits($message, $attribute, $rule, $parameters)
     {
         return str_replace(':max', $parameters[0], $message);
     }
@@ -611,6 +639,24 @@ trait ReplacesAttributes
     }
 
     /**
+     * Replace all place-holders for the doesnt_end_with rule.
+     *
+     * @param  string  $message
+     * @param  string  $attribute
+     * @param  string  $rule
+     * @param  array<int,string>  $parameters
+     * @return string
+     */
+    protected function replaceDoesntEndWith($message, $attribute, $rule, $parameters)
+    {
+        foreach ($parameters as &$parameter) {
+            $parameter = $this->getDisplayableValue($attribute, $parameter);
+        }
+
+        return str_replace(':values', implode(', ', $parameters), $message);
+    }
+
+    /**
      * Replace all place-holders for the starts_with rule.
      *
      * @param  string  $message
@@ -620,6 +666,24 @@ trait ReplacesAttributes
      * @return string
      */
     protected function replaceStartsWith($message, $attribute, $rule, $parameters)
+    {
+        foreach ($parameters as &$parameter) {
+            $parameter = $this->getDisplayableValue($attribute, $parameter);
+        }
+
+        return str_replace(':values', implode(', ', $parameters), $message);
+    }
+
+    /**
+     * Replace all place-holders for the doesnt_start_with rule.
+     *
+     * @param  string  $message
+     * @param  string  $attribute
+     * @param  string  $rule
+     * @param  array<int,string>  $parameters
+     * @return string
+     */
+    protected function replaceDoesntStartWith($message, $attribute, $rule, $parameters)
     {
         foreach ($parameters as &$parameter) {
             $parameter = $this->getDisplayableValue($attribute, $parameter);

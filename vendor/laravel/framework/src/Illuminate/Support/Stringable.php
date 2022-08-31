@@ -298,6 +298,16 @@ class Stringable implements JsonSerializable
     }
 
     /**
+     * Determine if a given string is valid JSON.
+     *
+     * @return bool
+     */
+    public function isJson()
+    {
+        return Str::isJson($this->value);
+    }
+
+    /**
      * Determine if a given string is a valid UUID.
      *
      * @return bool
@@ -379,6 +389,17 @@ class Stringable implements JsonSerializable
     public function markdown(array $options = [])
     {
         return new static(Str::markdown($this->value, $options));
+    }
+
+    /**
+     * Convert inline Markdown into HTML.
+     *
+     * @param  array  $options
+     * @return static
+     */
+    public function inlineMarkdown(array $options = [])
+    {
+        return new static(Str::inlineMarkdown($this->value, $options));
     }
 
     /**
@@ -930,6 +951,19 @@ class Stringable implements JsonSerializable
     public function whenExactly($value, $callback, $default = null)
     {
         return $this->when($this->exactly($value), $callback, $default);
+    }
+
+    /**
+     * Execute the given callback if the string is not an exact match with the given value.
+     *
+     * @param  string  $value
+     * @param  callable  $callback
+     * @param  callable|null  $default
+     * @return static
+     */
+    public function whenNotExactly($value, $callback, $default = null)
+    {
+        return $this->when(! $this->exactly($value), $callback, $default);
     }
 
     /**

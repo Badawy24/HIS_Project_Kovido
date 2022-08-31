@@ -237,7 +237,7 @@ abstract class AbstractUnicodeString extends AbstractString
                 $lastError = preg_last_error();
 
                 foreach (get_defined_constants(true)['pcre'] as $k => $v) {
-                    if ($lastError === $v && '_ERROR' === substr($k, -6)) {
+                    if ($lastError === $v && str_ends_with($k, '_ERROR')) {
                         throw new RuntimeException('Matching failed with '.$k.'.');
                     }
                 }
@@ -329,7 +329,7 @@ abstract class AbstractUnicodeString extends AbstractString
                 $lastError = preg_last_error();
 
                 foreach (get_defined_constants(true)['pcre'] as $k => $v) {
-                    if ($lastError === $v && '_ERROR' === substr($k, -6)) {
+                    if ($lastError === $v && str_ends_with($k, '_ERROR')) {
                         throw new RuntimeException('Matching failed with '.$k.'.');
                     }
                 }
@@ -356,7 +356,7 @@ abstract class AbstractUnicodeString extends AbstractString
 
     public function snake(): static
     {
-        $str = $this->camel()->title();
+        $str = $this->camel();
         $str->string = mb_strtolower(preg_replace(['/(\p{Lu}+)(\p{Lu}\p{Ll})/u', '/([\p{Ll}0-9])(\p{Lu})/u'], '\1_\2', $str->string), 'UTF-8');
 
         return $str;
@@ -467,7 +467,7 @@ abstract class AbstractUnicodeString extends AbstractString
         $width = 0;
         $s = str_replace(["\x00", "\x05", "\x07"], '', $this->string);
 
-        if (false !== strpos($s, "\r")) {
+        if (str_contains($s, "\r")) {
             $s = str_replace(["\r\n", "\r"], "\n", $s);
         }
 
@@ -484,8 +484,11 @@ abstract class AbstractUnicodeString extends AbstractString
                 )|[\p{Cc}\x7F]++)/xu', '', $s);
             }
 
-            // Non printable characters have been dropped, so wcswidth cannot logically return -1.
-            $width += $this->wcswidth($s);
+            $lineWidth = $this->wcswidth($s);
+
+            if ($lineWidth > $width) {
+                $width = $lineWidth;
+            }
         }
 
         return $width;

@@ -117,13 +117,29 @@ trait ValidatesAttributes
 
         if ($url = parse_url($value, PHP_URL_HOST)) {
             try {
-                return count(dns_get_record($url.'.', DNS_A | DNS_AAAA)) > 0;
+                $records = $this->getDnsRecords($url.'.', DNS_A | DNS_AAAA);
+
+                if (is_array($records) && count($records) > 0) {
+                    return true;
+                }
             } catch (Exception $e) {
                 return false;
             }
         }
 
         return false;
+    }
+
+    /**
+     * Get the DNS records for the given hostname.
+     *
+     * @param  string  $hostname
+     * @param  int  $type
+     * @return array|false
+     */
+    protected function getDnsRecords($hostname, $type)
+    {
+        return dns_get_record($hostname, $type);
     }
 
     /**
@@ -581,16 +597,7 @@ trait ValidatesAttributes
 
         $length = strlen((string) $value);
 
-        if (((string) $value) === '.') {
-            return false;
-        }
-
-        // Make sure there is not more than one dot...
-        if (($length - strlen(str_replace('.', '', (string) $value))) > 1) {
-            return false;
-        }
-
-        return ! preg_match('/[^0-9.]/', $value)
+        return ! preg_match('/[^0-9]/', $value)
                     && $length >= $parameters[0] && $length <= $parameters[1];
     }
 
@@ -1319,6 +1326,23 @@ trait ValidatesAttributes
     }
 
     /**
+     * Validate that an attribute has a maximum number of digits.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  array<int, int|string>  $parameters
+     * @return bool
+     */
+    public function validateMaxDigits($attribute, $value, $parameters)
+    {
+        $this->requireParameterCount(1, $parameters, 'max');
+
+        $length = strlen((string) $value);
+
+        return ! preg_match('/[^0-9]/', $value) && $length <= $parameters[0];
+    }
+
+    /**
      * Validate the guessed extension of a file upload is in a set of file extensions.
      *
      * @param  string  $attribute
@@ -1401,6 +1425,23 @@ trait ValidatesAttributes
         $this->requireParameterCount(1, $parameters, 'min');
 
         return $this->getSize($attribute, $value) >= $parameters[0];
+    }
+
+    /**
+     * Validate that an attribute has a minimum number of digits.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  array<int, int|string>  $parameters
+     * @return bool
+     */
+    public function validateMinDigits($attribute, $value, $parameters)
+    {
+        $this->requireParameterCount(1, $parameters, 'min');
+
+        $length = strlen((string) $value);
+
+        return ! preg_match('/[^0-9]/', $value) && $length >= $parameters[0];
     }
 
     /**
@@ -1960,6 +2001,19 @@ trait ValidatesAttributes
     }
 
     /**
+     * Validate the attribute does not start with a given substring.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  array<int, int|string>  $parameters
+     * @return bool
+     */
+    public function validateDoesntStartWith($attribute, $value, $parameters)
+    {
+        return ! Str::startsWith($value, $parameters);
+    }
+
+    /**
      * Validate the attribute ends with a given substring.
      *
      * @param  string  $attribute
@@ -1970,6 +2024,19 @@ trait ValidatesAttributes
     public function validateEndsWith($attribute, $value, $parameters)
     {
         return Str::endsWith($value, $parameters);
+    }
+
+    /**
+     * Validate the attribute does not end with a given substring.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  array<int, int|string>  $parameters
+     * @return bool
+     */
+    public function validateDoesntEndWith($attribute, $value, $parameters)
+    {
+        return ! Str::endsWith($value, $parameters);
     }
 
     /**
