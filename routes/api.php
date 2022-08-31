@@ -669,6 +669,8 @@ Route::get('/available-tests-no-middleware',function(){
 });
 
 
+
+// https://powerful-forest-82516.herokuapp.com/api/all-patients-registered
 Route::get('/all-patients-registered',function(){
     // get all tests from tests table in DB
     $result = DB::select('select * from patient');
@@ -698,7 +700,7 @@ Route::get('/all-patients-registered',function(){
     return response($data,200);
 });
 
-
+// https://powerful-forest-82516.herokuapp.com/api/all-patients-logined
 Route::get('/all-patients-logined',function(){
     // inner join to show pat_name
     $result = DB::select('select pt.id, p.pat_fname, p.pat_lname, pt.patient_id, pt.token FROM patient AS p
@@ -728,7 +730,7 @@ Route::get('/all-patients-logined',function(){
     return response($data,200);
 });
 
-// get email , fname , lastname , test , date, time , hc_name ,test_name
+// https://powerful-forest-82516.herokuapp.com/api/get-all-test-reservation
 Route::get('/get-all-test-reservation',function(){
 
     $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name
@@ -762,7 +764,7 @@ Route::get('/get-all-test-reservation',function(){
     return response($tests,200);
 });
 
-
+// https://powerful-forest-82516.herokuapp.com/api/get-all-dose-reservation
 Route::get('/get-all-dose-reservation',function(){
 
     $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, d.vaccine_name, dp.pat_dose_date , dp.pat_dose_time , hc.hc_name
