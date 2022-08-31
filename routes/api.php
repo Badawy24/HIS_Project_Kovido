@@ -514,7 +514,6 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
 
 Route::group(['middleware' => 'DoctorAuthAPI'],function(){
-
     //                                          [tested and documented]
     Route::get('/doctor_data',function(Request $request){
         $doctor = DoctorsTokenManager::currentDoctor($request);
@@ -589,8 +588,6 @@ Route::group(['middleware' => 'DoctorAuthAPI'],function(){
             'msg' => 'doctor, loggout successfully'
         ];
     });
-
-
 
 });
 
