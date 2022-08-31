@@ -1,4 +1,4 @@
-## Logout
+## logout-patient
 
 request: <strong> GET </strong>
 
