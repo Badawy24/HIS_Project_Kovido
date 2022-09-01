@@ -485,7 +485,8 @@ body a {
 }
 
 .page {
-    max-width: 60em;
+    max-width: 70em;
+    
     margin: 0 auto;
 }
 
@@ -497,29 +498,42 @@ table td {
 table.layout {
     width: 100%;
     border-collapse: collapse;
+    
+
 }
 
 table.display {
     margin: 1em 0;
+    
 }
 
 table.display th,
 table.display td {
     padding: 1em 1em;
-    text-align: center;
+    text-align: center;  
+   
 }
 
 table.display th {
-    background: #2f567ab0;
+    background: hsl(0, 0%, 100%);
+    font-size: 18px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#296075;
     border-radius: 40px;
-    box-shadow: 3px 5px #6196be4d;
+    
+   
+    /* box-shadow: 3px 5px #6196be4d;*/ 
 }
 
 table.display td {
-    background: rgba(183, 231, 243, 0.534);
+    background: #3b5658;
     border-radius: 30px;
-    box-shadow: 3px 5px #cae1ee75;
+    color: #fff;
+    font-size: 20px;
     font-family: sans-serif;
+    
+     /*box-shadow: 3px 5px #cae1ee75;*/
+
 }
 
 @media (max-width: 40em) {
@@ -540,6 +554,9 @@ table.display td {
 .table_button {
     margin: 7px;
     margin-top: 20px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 2px 4px #97bedc4d;
 }
 
 .t_name_col_width {
@@ -560,10 +577,25 @@ table.display td {
 
 .table_heading_3 {
     margin-left: 390px;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: rgb(255, 255, 255);
 }
 
 /* end_table_my_tests */
+
+/* start no reservations */
+.no_res_button
+ {
+    margin-left: 470px;
+    margin-top: 20px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 2px 4px #1a04045b;
+}
+
+/* end no reservations */
+
 
 /* update_form */
 
