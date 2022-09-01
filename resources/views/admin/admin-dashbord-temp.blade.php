@@ -13,14 +13,24 @@
 
 <body>
     @include('navbar')
-    <div class="alert-admin">
-        <div class="container p-3">
-            <div class="alert alert-primary alert-p" role="alert">
-                Hello From Admin Page , You Can Get Reports About Data You Want Here.
+    <div class="row">
+        <div class="col-md-3">
+            @include('admin.admin_option')
+        </div>
+        <div class="col-md-9">
+            <div class="admin-page">
+                <div class="alert-admin">
+                    <div class="container p-3">
+                        <div class="alert alert-primary alert-p" role="alert">
+                            Hello From Admin Page , You Can Get Reports About Data You Want Here.
+                        </div>
+                    </div>
+                </div>
+                <div>@yield('content')</div>
             </div>
         </div>
     </div>
-    <div>@yield('content')</div>
+
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/file.js"></script>

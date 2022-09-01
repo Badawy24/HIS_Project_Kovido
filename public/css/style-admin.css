@@ -1,6 +1,19 @@
-.adm-nav,
+body {
+    overflow-x: hidden;
+}
+.adm-nav {
+    /* background: linear-gradient(to right, #003971, #bc4949); */
+    background: #003971 !important;
+}
+/* .admin-options {
+    width:300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+} */
 .admin-options {
-    background: linear-gradient(to right, #003971, #bc4949);
+    height: 91vh;
+    background: linear-gradient(to bottom, #003971, #bc4949);
 }
 
 .admin-options .btn {
@@ -17,6 +30,10 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+
+
+
 
 .admin-nav {
     font-weight: bold;

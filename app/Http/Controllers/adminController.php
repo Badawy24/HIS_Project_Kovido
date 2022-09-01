@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
 {
+    public function admin_dashbord()
+    {
+        return view('admin.admin-dashbord');
+    }
     public function admin_doc_data(Request $request)
     {
         $doctors = DB::select('select * from doctor');

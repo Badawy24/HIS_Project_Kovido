@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\DB;
             </div>
         </div>
     </nav>
+
+
 @elseif(Session::get('adminLogin'))
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark adm-nav">
         <div class="container">
@@ -63,7 +65,7 @@ use Illuminate\Support\Facades\DB;
         </div>
     </nav>
 
-    <div class="admin-options p-3 bg-dark">
+    {{-- <div class="admin-options p-3 bg-dark">
         <div class="container">
             <div class="row">
                 <div class='col-md-3'>
@@ -112,7 +114,10 @@ use Illuminate\Support\Facades\DB;
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+
+
 @elseif(Session::get('doc_Logged_In'))
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">

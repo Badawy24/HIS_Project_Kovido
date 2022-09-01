@@ -114,6 +114,43 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8">
+                        <div class="msg-content">
+                            <h4>You have Sent #<?php
+                            $pat_id = $patients[0]->pat_id;
+                            $msgs = DB::select('select * from doc_pat where pat_id = ?', [$pat_id]);
+                            echo count($msgs);
+                            $i = 1;
+                            ?> Messages : </h4>
+                            <div class="all-msgs">
+                                @foreach ($msgs as $m)
+                                    <div class="one-msg row">
+                                        <div class="col-md-6">
+                                            Message #<?php echo $i;  $i++; ?> :
+                                            <div class="msg-content">
+                                                {{$m->message}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 icon">
+                                            Doctor Reply :
+                                            @if ($m->reply == '')
+                                                <div class="alert alert-danger" role="alert">
+                                                    A simple danger alert—check it out!
+                                                </div>
+                                            @else
+                                            <div class="msg-reply">
+                                                {{$m->reply}}
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

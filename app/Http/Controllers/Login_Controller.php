@@ -32,7 +32,7 @@ class Login_Controller extends Controller
             return redirect('/doc_profile');
         } else if ($email == "admin@gmail.com" && $password == 'admin') {
             session(['adminLogin' => True]);
-            return redirect('/admin_doc_data');
+            return redirect('/admin-dashbord');
         } else {
             return back()->with(['cantLogin' => "Invalied Email or Password"]);
         }
