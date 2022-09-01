@@ -492,9 +492,11 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         $doctor_id = $query[0]->doc_id;
 
-        $number_of_msg = DB::select("select count(*) as num_msgs from doc_pat where doc_id = ?",[$doctor_id]);
+        $number_of_msg = DB::select("select count(*) as num_msgs from doc_pat");
 
-        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,$number_of_msg[0]->num_msgs + 1]);
+
+
+        $result = DB::insert('insert into doc_pat VALUES (?,?,?,?,?)',[$doctor_id,$patientId,$msg,$reply,$number_of_msg[0]->num_msgs+1]);
 
         Mail::to($doctor_email)->send(new DoctortContact($msg,$doctor_email));
 
@@ -509,6 +511,31 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
             ];
         }
     });
+
+    Route::get('/messages_of_patient',function(Request $request){
+
+        $patientId = MyTokenManager::currentPatient($request)->pat_id;
+
+        $result = DB::select("select doctor.doc_fname as doctor_first_name ,doctor.doc_lname as doctor_last_name,doc_pat.message as message,doc_pat.reply as reply
+        from doc_pat , doctor
+        where pat_id = ?
+        and doc_pat.doc_id = doctor.doc_id",[$patientId]);
+
+        $messagesData = [];
+
+        foreach ($result as $msg){
+            $messagesData[] = [
+                'doctor_first_name' => $msg->doctor_first_name,
+                'doctor_last_name' => $msg->doctor_last_name,
+                'message' => $msg->message,
+                'reply' => $msg->reply,
+            ];
+        }
+
+        return response($messagesData,200);
+
+    });
+
     //  end of middleware group
 });
 
@@ -667,8 +694,6 @@ Route::get('/available-tests-no-middleware',function(){
     // retrieve json object -> $data in not in [] because it is already an array
     return response($data,200);
 });
-
-
 
 // https://powerful-forest-82516.herokuapp.com/api/all-patients-registered
 Route::get('/all-patients-registered',function(){
