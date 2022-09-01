@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\DB;
+?>
 <?php if(Session::get('Logged_In')): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -33,8 +36,10 @@
             </div>
         </div>
     </nav>
+
+
 <?php elseif(Session::get('adminLogin')): ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark adm-nav">
         <div class="container">
             <a class="navbar-brand admin-nav" href="#">
                 <i class="fa-solid fa-gear fa-spin"></i> Dashboard
@@ -60,52 +65,39 @@
         </div>
     </nav>
 
-    <div class="admin-options p-3 bg-dark">
+    
+
+
+
+<?php elseif(Session::get('doc_Logged_In')): ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <div class="row">
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_doc_data'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_doc_data"><i
-                                class="fa-solid fa-calendar-minus"></i> Doctor Data</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_doc_msg'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_doc_msg"><i class="fa-solid fa-inbox"></i> Doctor
-                            Message</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_dose_data'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_dose_data"><i class="fa-solid fa-virus"></i> Dose
-                            Data</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_test_data'),
-                            'btn' => true,
-                        ]) ?>" href="admin_test_data"><i class="fa-solid fa-vials"></i> Test
-                            Data</a>
-                    </div>
-                </div>
+            <a class="navbar-brand" href="#">
+                <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active"><?php
+                        $id = Session::get('doc_user_id');
+                        $doc = DB::select('select doc_fname, doc_lname from doctor where doc_id = ?', [$id]);
+                        ?><?php echo e('D/ ' . $doc[0]->doc_fname . ' ' . $doc[0]->doc_lname); ?>
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 <?php else: ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
