@@ -486,7 +486,7 @@ body a {
 
 .page {
     max-width: 70em;
-    
+
     margin: 0 auto;
 }
 
@@ -498,31 +498,31 @@ table td {
 table.layout {
     width: 100%;
     border-collapse: collapse;
-    
+
 
 }
 
 table.display {
     margin: 1em 0;
-    
+
 }
 
 table.display th,
 table.display td {
     padding: 1em 1em;
-    text-align: center;  
-   
+    text-align: center;
+
 }
 
 table.display th {
     background: hsl(0, 0%, 100%);
     font-size: 18px;
-    font-family:Arial, Helvetica, sans-serif;
-    color:#296075;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #296075;
     border-radius: 40px;
-    
-   
-    /* box-shadow: 3px 5px #6196be4d;*/ 
+
+
+    /* box-shadow: 3px 5px #6196be4d;*/
 }
 
 table.display td {
@@ -531,8 +531,8 @@ table.display td {
     color: #fff;
     font-size: 20px;
     font-family: sans-serif;
-    
-     /*box-shadow: 3px 5px #cae1ee75;*/
+
+    /*box-shadow: 3px 5px #cae1ee75;*/
 
 }
 
@@ -585,8 +585,7 @@ table.display td {
 /* end_table_my_tests */
 
 /* start no reservations */
-.no_res_button
- {
+.no_res_button {
     margin-left: 470px;
     margin-top: 20px;
     border: 0px;
@@ -738,23 +737,23 @@ textarea::placeholder {
 /* Profile*/
 
 .icon-d {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #FFF;
     border-radius: 50%;
     position: absolute;
     top: 15%;
     right: 3%;
-    padding: 5px;
     background-color: #FFF;
 }
 
 .icon-dark {
     position: relative;
-    line-height: 50px;
+    /* line-height: 50px; */
     color: #000;
-    left: 4px;
-    top: 2px;
+    top: 11%;
+    left: 15%;
+    font-size: 20px;
 
 }
 
@@ -767,73 +766,91 @@ textarea::placeholder {
         height: 600px;
     }
 }
-body { 
+
+body {
     overflow-x: hidden;
 }
+
 .doc-content-msg {
     color: #fff;
-    margin-top:30px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
+
 .rp-icon {
-    font-size:25px;
+    font-size: 25px;
     margin-right: 10px;
 }
-.rp {color:green}
-.not-rp {color:red}
+
+.rp {
+    color: green
+}
+
+.not-rp {
+    color: red
+}
+
 .accordion-flush .accordion-item {
-    background-color:rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
 }
+
 .accordion-flush .accordion-item .accordion-button {
     background-color: transparent;
     border-bottom: 1px solid #ccc;
     font-size: 20px;
     color: #fff
 }
+
 .accordion-button:focus {
     z-index: 3;
     border-color: #ccc;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
 }
+
 .reply {
     border: 1px solid #ccc;
-    border-radius:20px;
-    padding:10px
+    border-radius: 20px;
+    padding: 10px
 }
+
 .msg-cont {
     margin-bottom: 5px;
 }
+
 .accordion-flush .accordion-item .comment {
     text-align: right;
     margin-bottom: 5px;
     margin-top: -35px;
 }
+
 .accordion-flush .accordion-item .comment a {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    border-radius:50%;
+    border-radius: 50%;
     cursor: pointer;
     border: none;
     font-size: 22px;
 }
+
 .text-comment textarea {
     width: 100%;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     height: 100px;
     font-size: 18px;
     border: none;
 }
+
 .text-comment input {
     background-color: #fff;
     color: #003971;
     font-weight: bold;
     border: none;
-    border-radius:5px;
+    border-radius: 5px;
     font-size: 20px;
-    margin-top:10px;
-    padding-left:10px;
-    padding-right:10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

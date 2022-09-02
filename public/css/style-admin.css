@@ -1,10 +1,37 @@
+/*icon */
+
+
+.icon-d {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    background-color: #FFF;
+}
+
+.icon-dark {
+    position: relative;
+    /* line-height: 50px; */
+    color: #000;
+    top: 11%;
+    left: 15%;
+    font-size: 20px;
+
+}
+
+/*icon */
 body {
     overflow-x: hidden;
 }
+
 .adm-nav {
     /* background: linear-gradient(to right, #003971, #bc4949); */
     background: #003971 !important;
 }
+
 /* .admin-options {
     width:300px;
     position: fixed;

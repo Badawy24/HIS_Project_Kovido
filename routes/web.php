@@ -65,7 +65,7 @@ Route::get('/contact_doc', function () {
     $doc_name = DB::select('select * from doctor');
     return view('contact_doc')->with('doc_names', $doc_name);
 });
-// Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc.email');
+Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc.email');
 
 // Route::get('/forgetSendMail', [ForgetPassController::class, 'showForgetSendMail']);
 // Route::post('/sendmailForget', [ForgetPassController::class, 'sendMailForgetPass']);

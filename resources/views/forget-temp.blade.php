@@ -29,8 +29,8 @@
             </div>
         </div>
     </main>
-    <a href="#" id="ToggleDarkLight" class="icon-d fa-beat-fade"><i id="icon-dl"
-            class="fa-2x fa-solid fa-moon fa-beat-fade icon-dark"></i></a>
+    <a href="#" id="ToggleDarkLight" class="icon-d fa-shake"><i id="icon-dl"
+            class=" fa-solid fa-moon fa-shake icon-dark"></i></a>
     <script src="/js/toggleDarkLight.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
