@@ -78,4 +78,10 @@ class adminController extends Controller
             return redirect()->back()->with('message', 'There is No Tests For This Patient!');
         }
     }
+
+    public function admin_patient_show(Request $request){
+        $patientData = DB::select("select * from patient");
+        session(['patientData' => $patientData]);
+        return view('admin.patient_data_show');
+    }
 }

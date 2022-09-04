@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style-admin.css" id="cssToggleAdmin">
     <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/patient_data_show.css">
 </head>
 
 <body>

@@ -149,3 +149,6 @@ Route::get('/forgetPassword', function () {
 Route::post('/forgetsend', [ForgetPassController::class, 'forgetSendMail']);
 Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
 Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
+
+// admin (Patient data)
+Route::get('/admin_patient_data_show',[adminController::class,'admin_patient_show'])->middleware('loginmiddle');

@@ -50,11 +50,11 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a @class([
-                                'active' => Request::is('admin_doc_data'),
+                                'active' => Request::is('admin_patient_data_show'),
                                 //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
+                                //'btn-danger' => Request::is('admin_patient_data_show'),
                                 //'btn' => true,
-                                ]) href="/admin_doc_data"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
+                                ]) href="/admin_patient_data_show"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
                             </li>
                             <li>
                                 <a @class([

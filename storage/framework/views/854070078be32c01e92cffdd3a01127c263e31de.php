@@ -55,64 +55,12 @@ use Illuminate\Support\Facades\DB;
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/logout">Log Out</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#" id="ToggleDarkLight">Dark Mode</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="admin-options p-3 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'active' => Request::is('admin_doc_data'),
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_doc_data'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_doc_data"><i
-                                class="fa-solid fa-calendar-minus"></i> Doctor Data</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'active' => Request::is('admin_doc_msg'),
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_doc_msg'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_doc_msg"><i class="fa-solid fa-inbox"></i> Doctor
-                            Message</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'active' => Request::is('admin_dose_data'),
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_dose_data'),
-                            'btn' => true,
-                        ]) ?>" href="/admin_dose_data"><i class="fa-solid fa-virus"></i> Dose
-                            Data</a>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class="opt-btn">
-                        <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                            'active' => Request::is('admin_test_data'),
-                            'btn-primary' => true,
-                            'btn-danger' => Request::is('admin_test_data'),
-                            'btn' => true,
-                        ]) ?>" href="admin_test_data"><i class="fa-solid fa-vials"></i> Test
-                            Data</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 <?php elseif(Session::get('doc_Logged_In')): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
