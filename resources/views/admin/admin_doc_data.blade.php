@@ -32,7 +32,9 @@
                             <td>{{ $doc->doc_email }}</td>
                             <td>{{ $doc->doc_pass }}</td>
                             <td>
-                                <a href="/admin_doc_data/{{$doc->doc_id}}"><button type="button" class="btn btn-danger del-doc">Delete</button></a>
+                                <a href="/admin_doc_data/{{$doc->doc_id}}">
+                                    <button type="button" class="btn btn-danger del-doc">Delete</button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

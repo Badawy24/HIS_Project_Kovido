@@ -152,3 +152,4 @@ Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
 Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
 
 Route::get('/admin_patient_data_show',[adminController::class,'admin_patient_show'])->middleware('loginmiddle');
+Route::get('/admin_patient_data_show/delete_doc/{pat_id}',[adminController::class,'admin_delete_patient'])->middleware('loginmiddle');

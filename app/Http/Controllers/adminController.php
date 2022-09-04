@@ -93,4 +93,10 @@ class adminController extends Controller
         session(['patientData' => $patientData]);
         return view('admin.patient_data_show');
     }
+
+    public function admin_delete_patient(Request $request){
+        $patientId = $request->pat_id;
+        DB::select("delete from patient where pat_id = ?",[$patientId]);
+        return redirect()->back()->with('patient_deleted',"Patient {$patientId} deleted successfully");
+    }
 }

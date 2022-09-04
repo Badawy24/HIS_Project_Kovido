@@ -42,19 +42,14 @@
                     Patient
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse {{Request::is('admin_patient_data_show')?'show':''}}" aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
                             <a @class([
                                 'active' => Request::is('admin_patient_data_show'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_patient_data_show'),
-                                //'btn' => true,
-                                ]) href="/admin_patient_data_show"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
-                                'active' => Request::is(''),
                                 'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
+                                ]) href="admin_patient_data_show"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
                             </li>
                             <li>
                                 <a @class([
