@@ -12,7 +12,7 @@ class adminController extends Controller
     {
         return view('admin.admin-dashbord');
     }
-    public function admin_doc_data(Request $request)
+    public function admin_doc_data()
     {
         $doctors = DB::select('select * from doctor');
         if ($doctors) {
@@ -24,12 +24,65 @@ class adminController extends Controller
         }
     }
 
-    public function delete_doc($doc_id){
+    public function delete_doc($doc_id)
+    {
         $delete_doc = DB::delete('delete from doctor where doc_id = ?', [$doc_id]);
-        if($delete_doc) {
-            return redirect('admin_doc_data');
+        if ($delete_doc) {
+            $doctors = DB::select('select * from doctor');
+            if ($doctors) {
+                session(['doctors' => $doctors]);
+                return redirect('admin_doc_data');
+            } else {
+                session(['doctors' => '']);
+                return redirect('admin_doc_data');
+            }
         } else {
-            return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctoe');
+            return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctor');
+        }
+    }
+
+    public function show_admin_add_doc_form()
+    {
+        return view('admin.admin_add_doc');
+    }
+    public function admin_add_doc(Request $request)
+    {
+        $request->validate([
+            'f_name' => 'required',
+            'l_name' => 'required',
+            'gender' => 'required',
+            'email' => 'required|email|unique:doctor',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required_with:password|same:password',
+            'phone' => 'required|size:11',
+            'age' => 'required',
+        ]);
+
+        $doctor = DB::insert(
+            'insert into doctor(
+            doc_fname,
+            doc_lname,
+            doc_phone,
+            doc_email,
+            doc_sex,
+            doc_age,
+            doc_pass)
+            values(?,?,?,?,?,?,?)',
+            [
+                $request->f_name,
+                $request->l_name,
+                $request->phone,
+                $request->email,
+                $request->gender,
+                $request->age,
+                $request->password,
+            ]
+        );
+
+        if ($doctor) {
+            return back()->with('success', 'Doctor Added successfully');
+        } else {
+            return back()->with('fail', 'Something Wrong');
         }
     }
     public function Show_admin_doc_msg()
