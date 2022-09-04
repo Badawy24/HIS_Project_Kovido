@@ -4,8 +4,8 @@
 
 @if(session('patient_deleted'))
 <div class="alerto info">
-  <span class="closebtn">&times;</span>
-  <strong>Info!</strong> {{ Session::get('patient_deleted') }}.
+    <span class="closebtn">&times;</span>
+    <strong>Info!</strong> {{ Session::get('patient_deleted') }}.
 </div>
 @endif
 

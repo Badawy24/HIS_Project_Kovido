@@ -24,9 +24,10 @@ class adminController extends Controller
         }
     }
 
-    public function delete_doc($doc_id){
+    public function delete_doc($doc_id)
+    {
         $delete_doc = DB::delete('delete from doctor where doc_id = ?', [$doc_id]);
-        if($delete_doc) {
+        if ($delete_doc) {
             return redirect('admin_doc_data');
         } else {
             return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctoe');
@@ -88,15 +89,22 @@ class adminController extends Controller
         }
     }
 
-    public function admin_patient_show(Request $request){
+    public function admin_patient_show(Request $request)
+    {
         $patientData = DB::select("select * from patient");
         session(['patientData' => $patientData]);
         return view('admin.patient_data_show');
     }
 
-    public function admin_delete_patient(Request $request){
+    public function admin_delete_patient(Request $request)
+    {
         $patientId = $request->pat_id;
-        DB::select("delete from patient where pat_id = ?",[$patientId]);
-        return redirect()->back()->with('patient_deleted',"Patient {$patientId} deleted successfully");
+        DB::select("delete from patient where pat_id = ?", [$patientId]);
+        return redirect()->back()->with('patient_deleted', "Patient {$patientId} deleted successfully");
+    }
+
+    public function adminAddPatient()
+    {
+        return view('admin.admin_add_patient');
     }
 }
