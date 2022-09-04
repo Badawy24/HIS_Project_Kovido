@@ -10,7 +10,9 @@
     @endif
     @if(count($my_tests)==0)
     <h5 class="table_heading_3">you don't have any reservations</h2>
-        <a class="link " href="/new_test" style="color:blue; margin-left : 470px "> Make Reservation </a>
+        <button class="btn btn-primary mb-3 submit no_res_button " style="background-color:rgb(74, 129, 172), align" onclick="window.location.href = '/new_test'"> Make Reservation</button>
+                    
+        
         @endif
 
         @if(count($my_tests) > 0)
@@ -36,8 +38,8 @@
 
 
                     <td class="t_action_col_width">
-                        <button class="btn btn-primary mb-3 submit table_button" onclick="window.location.href = '/update_test/{{ $testcase->res_id }}';"> Edit </button>
-                        <button class="btn btn-primary mb-3 submit table_button" style="background-color:red" onclick="window.location.href = '/delete/{{ $testcase->res_id }}';"> Remove </button>
+                        <button class="btn btn-primary mb-3 submit table_button" style="background-color:rgb(74, 129, 172)" onclick="window.location.href = '/update_test/{{ $testcase->res_id }}';"> Edit </button>
+                        <button class="btn btn-primary mb-3 submit table_button" style="background-color:rgb(151, 39, 39)" onclick="window.location.href = '/delete/{{ $testcase->res_id }}';"> Remove </button>
                     </td>
 
                 </tr>

@@ -7,7 +7,8 @@
 </head>
 
 <body>
-    <section style=" direction: ltr;
+    <section
+        style=" direction: ltr;
     width: 85%;
     margin: auto;
     padding: 20px;
@@ -25,7 +26,8 @@
             </li>
         </ul>
         <br>
-        <div style="width: 90%;
+        <div
+            style="width: 90%;
         margin: auto;
         background-color: #EEE;
         padding: 20px;

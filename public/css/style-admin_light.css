@@ -1,6 +1,32 @@
+/*icon */
+
+.icon-d {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    padding: 5px;
+    background-color: #000;
+}
+
+.icon-dark {
+    position: relative;
+    /* line-height: 50px; */
+    color: white;
+    top: -11%;
+    left: 2%;
+    font-size: 20px;
+
+}
+
+/*icon */
 .admin-options .btn {
     width: 100%;
 }
+
 .admin-options .btn,
 .admin-options button i {
     color: #fff;
@@ -8,22 +34,26 @@
     font-weight: bold;
     text-decoration: none;
 }
+
 .admin-nav {
     font-weight: bold;
     font-size: 25px;
 }
+
 .admin-nav i {
     color: #287AEA;
     font-size: 27px;
-    margin-right:5px
+    margin-right: 5px
 }
+
 .alert-admin {
     position: relative;
 }
+
 .alert-admin span {
-    position:absolute;
+    position: absolute;
     right: 10px;
-    top:0;
+    top: 0;
     font-size: 17px;
     cursor: pointer;
 }
@@ -31,19 +61,22 @@
 .doc-data p.doc-btn {
     text-align: center;
 }
+
 /* .doc-data p.doc-btn button a {
     color: #fff;
     text-decoration: none;
 } */
 .doc-data p.doc-btn button {
-    font-size:20px;
+    font-size: 20px;
     padding: 7px 30px;
     border-radius: 20px;
 }
+
 .doc-data .report {
     margin-bottom: 20px;
     box-shadow: 1px 2px 21px rgb(0 0 0 / 20%);
 }
+
 .doc-data .report .doc {
     border: 1px solid #ccc;
     padding: 20px;
@@ -51,12 +84,14 @@
     background-color: #fff;
     cursor: pointer;
 }
+
 .doc-data .report .doc:hover {
     transform: scale(1.05);
     box-shadow: 1px 2px 21px rgb(0 0 0 / 20%);
 }
+
 .doc-data .no-doc {
     width: 600px;
-    margin: 10px auto; 
+    margin: 10px auto;
     text-align: center
 }

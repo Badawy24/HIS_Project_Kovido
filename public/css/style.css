@@ -417,11 +417,11 @@ a.link:hover {
 
 /*  table_my_test */
 body a {
-    color: #2a3b4b;
+    color: #2c5e29;
 }
 
 .page {
-    max-width: 60em;
+    max-width: 70em;
     margin: 0 auto;
 }
 
@@ -433,10 +433,12 @@ table td {
 table.layout {
     width: 100%;
     border-collapse: collapse;
+
 }
 
 table.display {
     margin: 1em 0;
+
 
 }
 
@@ -445,19 +447,27 @@ table.display td {
 
     padding: 1em 1em;
     text-align: center;
+
 }
 
 table.display th {
-    background: #2f567ab0;
+    background: #2f7a397d;
     border-radius: 40px;
-    box-shadow: 3px 5px #6196be4d;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 40px;
+
+    /* box-shadow: 3px 5px #6196be4d;*/
 }
 
 table.display td {
-    background: rgba(183, 231, 243, 0.534);
+    background: rgba(73, 229, 151, 0.276);
     border-radius: 30px;
-    box-shadow: 3px 5px #cae1ee75;
+    font-size: 20px;
     font-family: sans-serif;
+
+
+    /*box-shadow: 3px 5px #cae1ee75;*/
 
 }
 
@@ -481,6 +491,9 @@ table.display td {
 .table_button {
     margin: 7px;
     margin-top: 20px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 2px 4px #ffffffba;
 
 }
 
@@ -502,10 +515,27 @@ table.display td {
 
 .table_heading_3 {
     margin-left: 390px;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: rgb(43, 75, 121);
 }
 
 /* end_table_my_tests */
+
+
+/* start no reservations */
+.no_res_button {
+    margin-left: 470px;
+    margin-top: 20px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 2px 4px #1a04045b;
+}
+
+/* end no reservations */
+
+
+
 
 /* update_form */
 
@@ -543,8 +573,8 @@ table.display td {
 /* end_update_form */
 
 .icon-d {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #000;
     border-radius: 50%;
     position: absolute;
@@ -556,10 +586,11 @@ table.display td {
 
 .icon-dark {
     position: relative;
-    line-height: 50px;
+    /* line-height: 50px; */
     color: white;
-    left: 5px;
-    top: 2px;
+    top: -11%;
+    left: 2%;
+    font-size: 20px;
 
 }
 

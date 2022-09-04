@@ -67,11 +67,11 @@ Route::get('/contact_doc', function () {
 });
 Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc.email');
 
-Route::get('/forgetSendMail', [ForgetPassController::class, 'showForgetSendMail']);
-Route::post('/sendmailForget', [ForgetPassController::class, 'sendMailForgetPass']);
+// Route::get('/forgetSendMail', [ForgetPassController::class, 'showForgetSendMail']);
+// Route::post('/sendmailForget', [ForgetPassController::class, 'sendMailForgetPass']);
 
-Route::get('/resetPass', [ForgetPassController::class, 'showResetPass']);
-Route::post('/resetPass', [ForgetPassController::class, 'resetPassword']);
+// Route::get('/resetPass', [ForgetPassController::class, 'showResetPass']);
+// Route::post('/resetPass', [ForgetPassController::class, 'resetPassword']);
 
 
 Route::get('/admin-dashbord', [adminController::class, 'admin_dashbord'])->middleware('loginmiddle');
@@ -140,3 +140,12 @@ Route::post('/submit-new-passord-api', function () {
 
     return $result;
 });
+
+
+/* Forget Password*/
+Route::get('/forgetPassword', function () {
+    return view('forget-send-mail');
+});
+Route::post('/forgetsend', [ForgetPassController::class, 'forgetSendMail']);
+Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
+Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);

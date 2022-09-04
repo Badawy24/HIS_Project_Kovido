@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="main-div-login">
         <div class="container">
@@ -10,6 +9,18 @@
                 </div>
                 <div class="col-md-6">
                     <div class="login-form">
+                        <?php if(Session::has('updated')): ?>
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
+                                    aria-label="Success:">
+                                    <use xlink:href="#check-circle-fill" />
+                                </svg>
+                                <div>
+                                    <?php echo e(Session::get('updated')); ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <form action="login" method="post">
                             <?php if(Session::has('cantLogin')): ?>
                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -48,7 +59,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                            <a class="link" href="/forgetSendMail">Do You Forget Password?</a>
+                            <a class="link" href="/forgetPassword">Do You Forget Password?</a>
                             <a class="link" href="/register">Don't Have Account..</a>
                             <input type="submit" class="btn btn-primary mb-3 submit btn-front" value="Login">
                         </form>
