@@ -197,3 +197,22 @@ body {
     transform: scale(1.13);
     opacity: 1;
 }
+
+
+/*doctor data*/
+.del-doc {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.doc-data th, td {padding: 0 7px 7px;}
+.doc-data th {
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.doc-data th:first-of-type,
+.doc-data th:nth-of-type(7) {border-left: none}
+.doc-data th:last-of-type { border-bottom: none;}
+.doc-data td:not(:last-of-type) {border: 1px solid #ccc}
+
+.doc-data .head{margin-bottom: 5px;}
+.doc-data hr {margin-top:3px; margin-bottom:30px}

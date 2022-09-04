@@ -36,8 +36,6 @@ use Illuminate\Support\Facades\DB;
             </div>
         </div>
     </nav>
-
-
 <?php elseif(Session::get('adminLogin')): ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark adm-nav">
         <div class="container">
@@ -57,18 +55,12 @@ use Illuminate\Support\Facades\DB;
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/logout">Log Out</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#" id="ToggleDarkLight">Dark Mode</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     
-
-
-
 <?php elseif(Session::get('doc_Logged_In')): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">

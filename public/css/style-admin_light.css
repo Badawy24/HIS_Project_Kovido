@@ -1,4 +1,10 @@
 /*icon */
+body {
+    overflow-x: hidden;
+}
+.admin-options {
+    min-height: 91vh;
+}
 
 .icon-d {
     width: 30px;
@@ -94,4 +100,11 @@
     width: 600px;
     margin: 10px auto;
     text-align: center
+}
+
+.search-btn {
+    background-color: #287AEA;
+    font-weight: bold;
+    color: #fff;
+    border: none;
 }

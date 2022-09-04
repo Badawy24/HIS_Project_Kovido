@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
 <div class="doc-data">
     <div class="container">
@@ -10,19 +9,33 @@
         <?php if(session('doctors')): ?>
         <div class="report collapse" id="collapseExample">
             <div class="card card-body">
-                <div class="row">
-                    <h4 class='p-2'>Data About <?php echo e(count(session('doctors'))); ?> doctors in Our System : </h4>
-                    <p class="lead"><b>Time :</b> <?php $date = date('d-m-y h:i:s'); echo $date; ?></pclass->
-                    
+                <p class="head">Data About <?php echo e(count(session('doctors'))); ?> doctors in System <br />
+                Date : <?php $date = date('d-m-y h:i:s'); echo $date; ?></p>
+                <hr>
+                <table >
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
                     <?php $__currentLoopData = session('doctors'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="doc col-md-6">
-                            <h5>Doctor Name : <?php echo e($doc->doc_fname . ' ' . $doc->doc_lname); ?></h5>
-                            <p class="lead">Age : <?php echo e($doc->doc_age); ?></p>
-                            <p class="lead">Phone Number : <?php echo e($doc->doc_phone); ?></p>
-                            <p class="lead">E-mail : <a href="#"> <?php echo e($doc->doc_email); ?> </a></p>
-                        </div>
+                        <tr>
+                            <td><?php echo e($doc->doc_id); ?></td>
+                            <td><?php echo e($doc->doc_fname . ' ' . $doc->doc_lname); ?></td>
+                            <td><?php echo e($doc->doc_age); ?></td>
+                            <td><?php echo e($doc->doc_phone); ?></td>
+                            <td><?php echo e($doc->doc_email); ?></td>
+                            <td><?php echo e($doc->doc_pass); ?></td>
+                            <td>
+                                <a href="/admin_doc_data/<?php echo e($doc->doc_id); ?>"><button type="button" class="btn btn-danger del-doc">Delete</button></a>
+                            </td>
+                        </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
+                </table>
             </div>
         </div>
         <?php else: ?>

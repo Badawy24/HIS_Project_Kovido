@@ -23,6 +23,15 @@ class adminController extends Controller
             return view('admin.admin_doc_data');
         }
     }
+
+    public function delete_doc($doc_id){
+        $delete_doc = DB::delete('delete from doctor where doc_id = ?', [$doc_id]);
+        if($delete_doc) {
+            return redirect('admin_doc_data');
+        } else {
+            return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctoe');
+        }
+    }
     public function Show_admin_doc_msg()
     {
         $doc_name = DB::select('select * from doctor');

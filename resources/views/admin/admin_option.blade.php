@@ -20,10 +20,10 @@
                             </li>
                             <li>
                                 <a @class([
-                                'active' => Request::is(''),
+                                'active' => Request::is('admin_add_doc'),
                                 'nav-link' => true,
 
-                                ]) href=""><i class="fa-solid fa-user-plus"></i> Add Doctor </a>
+                                ]) href="/admin_add_doc"><i class="fa-solid fa-user-plus"></i> Add Doctor </a>
                             </li>
                             <li>
                                 <a @class([
