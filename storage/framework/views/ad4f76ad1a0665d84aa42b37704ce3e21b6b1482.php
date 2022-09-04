@@ -14,26 +14,23 @@
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-calendar-minus"></i> Doctor Data</a>
+                                'nav-link' => true,
+
+                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-doctor"></i> Doctor Data</a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> Add Doctor </a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-user-plus"></i> Add Doctor </a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> Doctor Messages </a>
+                                'active' => Request::is('admin_doc_msg'),
+                                'nav-link' => true,
+
+                                ]) ?>" href="/admin_doc_msg"><i class="fa-solid fa-comment"></i> Doctor Messages </a>
                             </li>
                         <ul>
                     </div>
@@ -50,19 +47,17 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> Add Patient </a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-user-plus"></i> Add Patient </a>
                             </li>
 
                         <ul>
@@ -81,27 +76,24 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-calendar-minus"></i> Dose data</a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-square-virus"></i> Dose data</a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> Add Dose </a>
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-circle-plus"></i> Add Dose </a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> View Patient Dose </a>
+                                'nav-link' => true,
+
+                                ]) ?>" href=""><i class="fa-solid fa-street-view"></i> View Patient Dose </a>
                             </li>
                         <ul>
                     </div>
@@ -119,19 +111,15 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-calendar-minus"></i> Test data</a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+                                ]) ?>" href=""><i class="fa-solid fa-vials"></i> Test data</a>
                             </li>
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                'active' => Request::is('admin_doc_data'),
-                                //'btn-primary' => true,
-                                //'btn-danger' => Request::is('admin_doc_data'),
-                                //'btn' => true,
-                                ]) ?>" href="/admin_doc_data"><i class="fa-solid fa-user-plus"></i> Add Dose </a>
+                                'active' => Request::is(''),
+                                'nav-link' => true,
+                                ]) ?>" href=""><i class="fa-solid fa-circle-plus"></i> Add Dose </a>
                             </li>
 
                         <ul>

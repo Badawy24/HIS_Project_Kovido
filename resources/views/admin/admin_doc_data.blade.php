@@ -10,19 +10,33 @@
         @if(session('doctors'))
         <div class="report collapse" id="collapseExample">
             <div class="card card-body">
-                <div class="row">
-                    <h4 class='p-2'>Data About {{ count(session('doctors')) }} doctors in Our System : </h4>
-                    <p class="lead"><b>Time :</b> <?php $date = date('d-m-y h:i:s'); echo $date; ?></pclass->
-                    
+                <p class="head">Data About {{ count(session('doctors')) }} doctors in System <br />
+                Date : <?php $date = date('d-m-y h:i:s'); echo $date; ?></p>
+                <hr>
+                <table >
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
                     @foreach (session('doctors') as $doc)
-                        <div class="doc col-md-6">
-                            <h5>Doctor Name : {{ $doc->doc_fname . ' ' . $doc->doc_lname }}</h5>
-                            <p class="lead">Age : {{ $doc->doc_age}}</p>
-                            <p class="lead">Phone Number : {{ $doc->doc_phone}}</p>
-                            <p class="lead">E-mail : <a href="#"> {{ $doc->doc_email}} </a></p>
-                        </div>
+                        <tr>
+                            <td>{{ $doc->doc_id }}</td>
+                            <td>{{ $doc->doc_fname . ' ' . $doc->doc_lname }}</td>
+                            <td>{{ $doc->doc_age }}</td>
+                            <td>{{ $doc->doc_phone }}</td>
+                            <td>{{ $doc->doc_email }}</td>
+                            <td>{{ $doc->doc_pass }}</td>
+                            <td>
+                                <a href="/admin_doc_data/{{$doc->doc_id}}"><button type="button" class="btn btn-danger del-doc">Delete</button></a>
+                            </td>
+                        </tr>
                     @endforeach
-                </div>
+                </table>
             </div>
         </div>
         @else

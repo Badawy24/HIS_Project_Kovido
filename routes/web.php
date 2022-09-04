@@ -76,6 +76,7 @@ Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc
 
 Route::get('/admin-dashbord', [adminController::class, 'admin_dashbord'])->middleware('loginmiddle');
 Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middleware('loginmiddle');
+Route::get('/admin_doc_data/{doc_id}', [adminController::class, 'delete_doc'])->middleware('loginmiddle');
 Route::get('/admin_doc_msg', [adminController::class, 'Show_admin_doc_msg'])->middleware('loginmiddle');
 Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
@@ -150,5 +151,4 @@ Route::post('/forgetsend', [ForgetPassController::class, 'forgetSendMail']);
 Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
 Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
 
-// admin (Patient data)
 Route::get('/admin_patient_data_show',[adminController::class,'admin_patient_show'])->middleware('loginmiddle');
