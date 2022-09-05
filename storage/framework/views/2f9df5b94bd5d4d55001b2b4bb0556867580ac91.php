@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    @include('navbar')
+    <?php echo $__env->make('navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="row">
         <div class="col-md-3">
-            @include('admin.admin_option')
+            <?php echo $__env->make('admin.admin_option', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
         <div class="col-md-9">
             <div class="admin-page">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div>@yield('content')</div>
+                <div><?php echo $__env->yieldContent('content'); ?></div>
             </div>
         </div>
     </div>
@@ -39,3 +39,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\Users\Badawy\Desktop\v0.1\HIS_Project_Kovido\resources\views/admin/admin-dashbord-temp.blade.php ENDPATH**/ ?>
