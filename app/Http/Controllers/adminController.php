@@ -213,22 +213,21 @@ class adminController extends Controller
     public function admin_registration(Request $request)
     {
 
-        // test every input using dd
+        $request->validate([
+            'pat_fname' => 'required',
+            'pat_lname' => 'required',
+            'pat_SSN' => 'required',
+            'p_pass' => 'required',
+            'pat_email' => 'required|email|unique:patient',
+            'password_confirmation' => 'required_with:p_pass|same:p_pass',
+            'pat_address' => 'required',
+            'pat_phone' => 'required',
+            'pat_DOF' => 'required',
+        ]);
+        // return dd('aloo');
 
-        // $request->validate([
-        //     'pat_fname' => 'required',
-        //     'pat_lname' => 'required',
-        //     'pat_SSN' => 'required|size:14|unique:patient',
-        //     'pat_email' => 'required|email|unique:patient',
-        //     'p_pass' => 'required|min:8',
-        //     'password_confirmation' => 'required_with:p_pass|same:p_pass',
-        //     'pat_address' => 'required',
-        //     'pat_phone' => 'required|size:11',
-        //     'pat_DOF' => 'required',
-        // ]);
-
-        // return dd("stooop");
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+
 
 
 
@@ -256,6 +255,9 @@ class adminController extends Controller
                 $request->pat_DOF,
             ]
         );
+
+
+
 
 
 

@@ -4,13 +4,9 @@
         <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-<<<<<<< HEAD
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-=======
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                         aria-controls="panelsStayOpen-collapseOne">
->>>>>>> c6c19ae531f52f4771f2f2aea2fc7f76b524e8da
                         Doctors
                     </button>
                 </h2>
@@ -19,24 +15,6 @@
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
-<<<<<<< HEAD
-                                <a @class([ 'active'=> Request::is('admin_doc_data'),
-                                    'nav-link' => true,
-
-                                    ]) href="/admin_doc_data"><i class="fa-solid fa-user-doctor"></i> Doctor Data</a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_add_doc'),
-                                    'nav-link' => true,
-
-                                    ]) href="/admin_add_doc"><i class="fa-solid fa-user-plus"></i> Add Doctor </a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_doc_msg'),
-                                    'nav-link' => true,
-
-                                    ]) href="/admin_doc_msg"><i class="fa-solid fa-comment"></i> Doctor Messages </a>
-=======
                                 <a @class([
                                     'active' => Request::is('admin_doc_data'),
                                     'nav-link' => true,
@@ -56,7 +34,6 @@
                                     'nav-link' => true,
                                 ]) href="/admin_doc_msg"><i
                                         class="fa-solid fa-comment"></i> Doctor Messages </a>
->>>>>>> c6c19ae531f52f4771f2f2aea2fc7f76b524e8da
                             </li>
                             <ul>
                     </div>
@@ -64,47 +41,29 @@
             </div>
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                        Patient
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse {{Request::is('admin_patient_data_show')?'show':''}} {{Request::is('admin_add_patient')?'show':''}}" aria-labelledby="panelsStayOpen-headingTwo">
-                    <div class="accordion-body">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_patient_data_show'),
-                                    'nav-link' => true,
-                                    ]) href="admin_patient_data_show"><i class="fa-solid fa-calendar-minus"></i> Patient Data</a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_add_patient'),
-                                    'nav-link' => true,
-
-                                    ]) href="admin_add_patient"><i class="fa-solid fa-user-plus"></i> Add Patient </a>
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseTwo">
                         Patient
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse {{Request::is('admin_patient_data_show')?'show':''}} {{Request::is('admin_add_patient')?'show':''}}"
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_patient_data_show'),
                                     'nav-link' => true,
-                                ]) href=""><i
+                                ]) href="admin_patient_data_show"><i
                                         class="fa-solid fa-calendar-minus"></i> Patient Data</a>
                             </li>
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_add_patient'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-user-plus"></i> Add
+                                ]) href="admin_add_patient"><i class="fa-solid fa-user-plus"></i> Add
                                     Patient </a>
->>>>>>> c6c19ae531f52f4771f2f2aea2fc7f76b524e8da
                             </li>
 
                             <ul>
@@ -125,24 +84,6 @@
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
-<<<<<<< HEAD
-                                <a @class([ 'active'=> Request::is(''),
-                                    'nav-link' => true,
-
-                                    ]) href=""><i class="fa-solid fa-square-virus"></i> Dose data</a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_doc_data'),
-                                    'nav-link' => true,
-
-                                    ]) href=""><i class="fa-solid fa-circle-plus"></i> Add Dose </a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is('admin_doc_data'),
-                                    'nav-link' => true,
-
-                                    ]) href=""><i class="fa-solid fa-street-view"></i> View Patient Dose </a>
-=======
                                 <a @class([
                                     'active' => Request::is('admin_dose_data'),
                                     'nav-link' => true,
@@ -163,7 +104,6 @@
                                     'nav-link' => true,
                                 ]) href=""><i class="fa-solid fa-street-view"></i>
                                     View Patient Dose </a>
->>>>>>> c6c19ae531f52f4771f2f2aea2fc7f76b524e8da
                             </li>
                             <ul>
                     </div>
@@ -183,16 +123,6 @@
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
-<<<<<<< HEAD
-                                <a @class([ 'active'=> Request::is(''),
-                                    'nav-link' => true,
-                                    ]) href=""><i class="fa-solid fa-vials"></i> Test data</a>
-                            </li>
-                            <li>
-                                <a @class([ 'active'=> Request::is(''),
-                                    'nav-link' => true,
-                                    ]) href=""><i class="fa-solid fa-circle-plus"></i> Add Dose </a>
-=======
                                 <a @class([
                                     'active' => Request::is(''),
                                     'nav-link' => true,
@@ -205,7 +135,6 @@
                                     'nav-link' => true,
                                 ]) href=""><i class="fa-solid fa-circle-plus"></i>
                                     Add Dose </a>
->>>>>>> c6c19ae531f52f4771f2f2aea2fc7f76b524e8da
                             </li>
 
                             <ul>

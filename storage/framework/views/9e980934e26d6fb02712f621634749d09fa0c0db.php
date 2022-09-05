@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style-admin.css" id="cssToggleAdmin">
+    <link rel="stylesheet" href="/css/style-admin.css">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/patient_data_show.css">
     <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
@@ -32,8 +32,7 @@
             </div>
         </div>
     </div>
-    <a href="#" id="ToggleDarkLight" class="icon-d fa-shake"><i id="icon-dl"
-            class="fa-solid fa-moon fa-shake icon-dark"></i></a>
+
     <script src="/js/dark_light_admin.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
