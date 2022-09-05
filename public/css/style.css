@@ -162,7 +162,7 @@ a.link:hover {
     border: 3px solid #F6F8FD;
     background-color: rgb(249, 249, 252);
     border-radius: 20px;
-    box-shadow: 10px 10px 5px rgb(202, 203, 208);
+    box-shadow: -10px 10px 10px #e3e7f1;
     margin-left: 15px;
 }
 
@@ -177,10 +177,10 @@ a.link:hover {
     width: 100%;
 }
 
-.card:hover {
+/* .card:hover {
     border: 3px solid #287AEA;
     background-color: #e3e7f1;
-}
+} */
 
 .head-cards {
     font-family: Arial, Helvetica, sans-serif;
