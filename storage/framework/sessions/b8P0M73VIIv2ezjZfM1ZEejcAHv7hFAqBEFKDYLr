@@ -1,1 +1,1 @@
-a:5:{s:6:"_token";s:40:"e3Mtb5ysXnnEF2xjdWzoCj91dOeviQVz9Y8w2nf9";s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:9:"_previous";a:1:{s:3:"url";s:36:"http://127.0.0.1:8000/admin-dashbord";}s:10:"adminLogin";b:1;s:8:"doc_name";a:0:{}}
+a:5:{s:9:"_previous";a:1:{s:3:"url";s:37:"http://127.0.0.1:8000/admin_dose_data";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:6:"_token";s:40:"UIdXZeoh31vz8xFvkktGaXm1b1JdSZvkqSpdbGpQ";s:10:"adminLogin";b:1;s:7:"message";s:34:"There is No Reservation In System!";}

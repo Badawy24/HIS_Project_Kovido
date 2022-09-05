@@ -84,6 +84,8 @@ Route::post('/admin_add_doc', [adminController::class, 'admin_add_doc'])->middle
 
 
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
+Route::get('/admin_dose_data_update/{pat_id}', [adminController::class, 'update_dose'])->middleware('loginmiddle');
+Route::get('/admin_dose_data_del/{pat_id}', [adminController::class, 'delete_dose'])->middleware('loginmiddle');
 
 
 Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');

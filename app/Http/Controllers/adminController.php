@@ -106,19 +106,63 @@ class adminController extends Controller
             return redirect()->back()->with('message', 'There is No Message For This Doctor!');
         }
     }
-
+    // Start Functions Of Dose Reservation
     public function admin_dose_data()
     {
-        $dose_data = DB::select('select * from Dose_patient ORDER BY pat_dose_date DESC');
+        $dose_data = DB::select('select Dose_patient.pat_dose_date, Dose_patient.pat_dose_time, Dose_patient.pat_id,
+        patient.pat_fname, patient.pat_lname,
+        dose.vaccine_name,
+        healthcare_center.hc_name, healthcare_center.hc_address
+        from Dose_patient
+        inner join patient ON Dose_patient.pat_id = patient.pat_id
+        inner join dose ON Dose_patient.dose_id = dose.dose_id
+        inner join healthcare_center ON Dose_patient.dose_patient_health = healthcare_center.hc_id;');
+
         if ($dose_data) {
-            // sendsession(['doc_msg' => $doc_msg, 'doc_email' => $email]);
             session(['dose_data' => $dose_data]);
             return view('admin.admin_dose_data');
         } else {
-            //session(['msg' => 'There is No Message For This Doctor!']);
-            return view('admin.admin_dose_data')->with('message', 'There is No Dose In This Date!');
+            session(['message' => 'There is No Reservation In System!']);
+            return view('admin.admin_dose_data');
         }
     }
+
+    public function delete_dose($pat_id)
+    {
+        $delete_dose = DB::delete('delete from Dose_patient where pat_id = ?', [$pat_id]);
+        if ($delete_dose) {
+            $dose_data = DB::select('select * from Dose_patient');
+            if ($dose_data) {
+                session(['dose_data' => $dose_data]);
+                return redirect('admin_doc_data');
+            } else {
+                session(['dose_data' => '']);
+                return redirect('admin_doc_data');
+            }
+        } else {
+            return view('admin.admin_dose_data')->with('error_msg', 'Can\'t Delete This Reservation');
+        }
+    }
+
+    public function update_dose($pat_id)
+    {
+        // $update_dose = DB::update('delete from Dose_patient where pat_id = ?', [$pat_id]);
+        // if ($update_dose) {
+        //     $dose_data = DB::select('select * from Dose_patient');
+        //     if ($dose_data) {
+        //         session(['dose_data' => $dose_data]);
+        //         return redirect('admin_doc_data');
+        //     } else {
+        //         session(['dose_data' => '']);
+        //         return redirect('admin_doc_data');
+        //     }
+        // } else {
+        //     return view('admin.admin_dose_data')->with('error_msg', 'Can\'t Delete This Reservation');
+        // }
+    }
+
+    // End Functions Of Dose Reservation
+
     public function show_admin_test_data()
     {
 

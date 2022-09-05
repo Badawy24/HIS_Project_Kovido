@@ -42,16 +42,19 @@ body {
     min-height: 91vh;
     background: linear-gradient(to bottom, #003971, #bc4949);
 }
+
 .admin-options .accordion-item .accordion-button,
 .admin-options .accordion-item {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
 }
+
 .accordion-button::after {
     background-image: none;
     content: '\f0d7';
     font-family: FontAwesome;
 }
+
 .accordion-button:not(.collapsed)::after {
     background-image: none;
 }
@@ -61,17 +64,23 @@ body {
     font-size: 18px;
     letter-spacing: 1px;
 }
+
 .admin-options .accordion-button:focus {
     z-index: 3;
     border-color: #ccc;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 25%);
 }
+
 .admin-options .nav-link {
     color: #fff;
     font-size: 16px;
 }
-.admin-options .accordion-body {padding-top: 10px; padding-bottom: 0}
+
+.admin-options .accordion-body {
+    padding-top: 10px;
+    padding-bottom: 0
+}
 
 .admin-options .active {
     font-weight: bold;
@@ -204,15 +213,51 @@ body {
     padding-top: 0;
     padding-bottom: 0;
 }
-.doc-data th, td {padding: 0 7px 7px;}
+
+.doc-data th,
+td {
+    padding: 0 7px 7px;
+}
+
 .doc-data th {
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
-.doc-data th:first-of-type,
-.doc-data th:nth-of-type(7) {border-left: none}
-.doc-data th:last-of-type { border-bottom: none;}
-.doc-data td:not(:last-of-type) {border: 1px solid #ccc}
 
-.doc-data .head{margin-bottom: 5px;}
-.doc-data hr {margin-top:3px; margin-bottom:30px}
+.doc-data th:first-of-type {
+    border-left: none
+}
+
+.doc-data th:last-of-type {
+    border-bottom: none;
+}
+
+.doc-data td {
+    border: 1px solid #ccc
+}
+
+.doc-data .head {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.doc-data .head span {
+    font-weight: bold;
+}
+
+.doc-data hr {
+    margin-top: 3px;
+    margin-bottom: 30px
+}
+
+.report-icon {
+    text-align: center;
+}
+
+.del-icon {
+    color: red;
+}
+
+.edit-icon {
+    color: green;
+}
