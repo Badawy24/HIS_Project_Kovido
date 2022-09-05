@@ -1,6 +1,6 @@
 <!-- Badawy -->
-@extends('main-template')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="service-page">
         <div class="container text-center">
             <h2 class="head-cards h1 py-3">Welcome To Our Services</h2>
@@ -10,7 +10,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-                                {{-- Card Dase --}}
+                                
                                 <div class="col-md-12">
                                     <div class="card px-2 py-2 mb-5">
                                         <div class="card-img serv-img">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="row">
-                                {{-- Card Test --}}
+                                
                                 <div class="col-md-12">
                                     <div class="card px-2 py-2 mb-5">
                                         <div class="card-img serv-img">
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div class="row">{{-- Card Contact --}}
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="card px-2 py-2 mb-5">
                                         <div class="card-img serv-img">
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div class="row">{{-- Card Live --}}
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="card px-2 py-2 mb-5">
                                         <div class="card-img serv-img">
@@ -113,4 +113,6 @@
             </section>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\v0.1\HIS_Project_Kovido\resources\views/service.blade.php ENDPATH**/ ?>

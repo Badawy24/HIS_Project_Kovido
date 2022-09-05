@@ -35,6 +35,8 @@ const dark_img = () => {
     img_dark('img-reset-pass', '/images_dark/Reset-password-dark.png'); // forget-pass-reset Dark Mode
     img_dark('service1', '/images_dark/service/Vaccine.png'); // Service Dark Mode
     img_dark('service2', '/images_dark/service/test.png'); // Service Dark Mode
+    img_dark('service3', '/images_dark/service/contact-Doctor.png'); // Service Dark Mode
+    img_dark('service4', '/images_dark/service/live.png'); // Service Dark Mode
     img_dark('test1', '/images_dark/test_menu.png'); // menu_test Dark Mode
     img_dark('test2', '/images_dark/test_menu_2.png'); // menu_test Dark Mode
     img_dark('newTest', '/images_dark/test_reservation.png'); // menu_test Dark Mode
@@ -61,6 +63,7 @@ const light_img = () => {
     img_light('service1', '/images/service/Vaccine.png'); // Service Light Mode
     img_light('service2', '/images/service/test.png'); // Service Light Mode
     img_light('service3', '/images/service/contact-Doctor.png'); // Service Light Mode
+    img_light('service4', '/images/service/live.png'); // Service Light Mode
     img_light('test1', '/images/test_menu.png'); // menu_test Light Mode
     img_light('test2', '/images/test_menu_2.png'); // menu_test Light Mode
     img_light('newTest', '/images/test_reservation.png'); // menu_test Light Mode
