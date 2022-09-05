@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
@@ -12,7 +17,7 @@ class adminController extends Controller
     {
         return view('admin.admin-dashbord');
     }
-    public function admin_doc_data(Request $request)
+    public function admin_doc_data()
     {
         $doctors = DB::select('select * from doctor');
         if ($doctors) {
@@ -28,9 +33,61 @@ class adminController extends Controller
     {
         $delete_doc = DB::delete('delete from doctor where doc_id = ?', [$doc_id]);
         if ($delete_doc) {
-            return redirect('admin_doc_data');
+            $doctors = DB::select('select * from doctor');
+            if ($doctors) {
+                session(['doctors' => $doctors]);
+                return redirect('admin_doc_data');
+            } else {
+                session(['doctors' => '']);
+                return redirect('admin_doc_data');
+            }
         } else {
-            return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctoe');
+            return view('admin.admin_doc_data')->with('error_msg', 'Can\'t Delete This Doctor');
+        }
+    }
+
+    public function show_admin_add_doc_form()
+    {
+        return view('admin.admin_add_doc');
+    }
+    public function admin_add_doc(Request $request)
+    {
+        $request->validate([
+            'f_name' => 'required',
+            'l_name' => 'required',
+            'gender' => 'required',
+            'email' => 'required|email|unique:doctor',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required_with:password|same:password',
+            'phone' => 'required|size:11',
+            'age' => 'required',
+        ]);
+
+        $doctor = DB::insert(
+            'insert into doctor(
+            doc_fname,
+            doc_lname,
+            doc_phone,
+            doc_email,
+            doc_sex,
+            doc_age,
+            doc_pass)
+            values(?,?,?,?,?,?,?)',
+            [
+                $request->f_name,
+                $request->l_name,
+                $request->phone,
+                $request->email,
+                $request->gender,
+                $request->age,
+                $request->password,
+            ]
+        );
+
+        if ($doctor) {
+            return back()->with('success', 'Doctor Added successfully');
+        } else {
+            return back()->with('fail', 'Something Wrong');
         }
     }
     public function Show_admin_doc_msg()
@@ -106,5 +163,69 @@ class adminController extends Controller
     public function adminAddPatient()
     {
         return view('admin.admin_add_patient');
+    }
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function admin_registration(Request $request)
+    {
+
+        // test every input using dd
+
+        // $request->validate([
+        //     'pat_fname' => 'required',
+        //     'pat_lname' => 'required',
+        //     'pat_SSN' => 'required|size:14|unique:patient',
+        //     'pat_email' => 'required|email|unique:patient',
+        //     'p_pass' => 'required|min:8',
+        //     'password_confirmation' => 'required_with:p_pass|same:p_pass',
+        //     'pat_address' => 'required',
+        //     'pat_phone' => 'required|size:11',
+        //     'pat_DOF' => 'required',
+        // ]);
+
+        // return dd("stooop");
+        $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+
+
+
+        $user = DB::insert(
+            'insert into patient(
+            pat_fname,
+            pat_lname,
+            pat_SSN,
+            pat_email,
+            patient_password,
+            pat_address,
+            pat_phone,
+            pat_age,
+            pat_DOF)
+        values(?,?,?,?,?,?,?,?,?)',
+            [
+                $request->pat_fname,
+                $request->pat_lname,
+                $request->pat_SSN,
+                $request->pat_email,
+                $request->p_pass,
+                $request->pat_address,
+                $request->pat_phone,
+                $age,
+                $request->pat_DOF,
+            ]
+        );
+
+
+
+        if ($user) {
+
+            session(['added' => True]);
+
+            $user_id = DB::select('select pat_id from patient where pat_email = ?', [$request->pat_email]);
+
+            session(['user_id' => $user_id[0]->pat_id]);
+
+            return redirect()->back()->with('a_i_msg', true);
+        } else {
+            return redirect()->back()->with('a_i_msg', false);
+        }
     }
 }

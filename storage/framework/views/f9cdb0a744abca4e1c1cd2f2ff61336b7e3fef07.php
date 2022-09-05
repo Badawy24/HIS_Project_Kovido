@@ -3,8 +3,8 @@
 
 <?php if(session('patient_deleted')): ?>
 <div class="alerto info">
-  <span class="closebtn">&times;</span>
-  <strong>Info!</strong> <?php echo e(Session::get('patient_deleted')); ?>.
+    <span class="closebtn">&times;</span>
+    <strong>Info!</strong> <?php echo e(Session::get('patient_deleted')); ?>.
 </div>
 <?php endif; ?>
 

@@ -128,3 +128,12 @@ tbody tr:nth-child(even) {
 .closebtn:hover {
     color: black;
 }
+
+/* /****************** */
+#admin_patient  {
+    width: 80%;
+    margin: 0 auto;
+}
+#admin_patient .col-lg-12 ,  #admin_patient  .col-md-6{
+    padding: 10px;
+}
