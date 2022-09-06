@@ -83,7 +83,7 @@
                     </button>
                 </h2>
                 <div id="panelsStayOpen-collapseThree"
-                    class="accordion-collapse collapse {{ Request::is('admin_dose_data') ? 'show' : '' }} {{ Request::is('admin_dose_data') ? 'show' : '' }}"
+                    class="accordion-collapse collapse {{ Request::is('admin_dose_data') ? 'show' : '' }} {{ Request::is('admin_add_dose') ? 'show' : '' }}"
                     aria-labelledby="panelsStayOpen-headingThree">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
@@ -97,9 +97,10 @@
                             </li>
                             <li>
                                 <a @class([
-                                    'active' => Request::is('admin_dose_data'),
+                                    'active' => Request::is('admin_add_dose'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-circle-plus"></i>
+                                ]) href="/admin_add_dose"><i
+                                        class="fa-solid fa-circle-plus"></i>
                                     Add Dose </a>
                             </li>
                             <li>

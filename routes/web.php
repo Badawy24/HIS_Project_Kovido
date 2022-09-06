@@ -85,6 +85,8 @@ Route::get('/admin_doc_msg/{msg_id}', [adminController::class, 'delete_msg'])->m
 Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_add_doc', [adminController::class, 'show_admin_add_doc_form'])->middleware('loginmiddle');
 Route::post('/admin_add_doc', [adminController::class, 'admin_add_doc'])->middleware('loginmiddle');
+Route::get('/admin_add_dose', [adminController::class, 'admin_add_dose'])->middleware('loginmiddle');
+Route::post('/dose_add', [adminController::class, 'dose_add'])->middleware('loginmiddle');
 
 
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');

@@ -50,12 +50,13 @@ class adminController extends Controller
 
     public function update_doc($doc_id)
     {
-        $id_doc = $doc_id; 
+        $id_doc = $doc_id;
         $doctor_data = DB::select('select * from doctor where doc_id = ?', [$id_doc]);
         return view('admin.admin_doc_data_update')->with('doctor', $doctor_data[0]);
     }
 
-    public function update_doc_data(Request $request, $doc_id){
+    public function update_doc_data(Request $request, $doc_id)
+    {
         $update_data = DB::update(
             'update doctor set
             doc_phone = ?,
@@ -68,7 +69,7 @@ class adminController extends Controller
                 $doc_id,
             ]
         );
-        if($update_data) {
+        if ($update_data) {
             return redirect('/admin_doc_data');
         } else {
             return redirect()->back()->with('fail', 'Something Wrong');
@@ -145,7 +146,8 @@ class adminController extends Controller
         }
     }
 
-    public function delete_msg($msg_id){
+    public function delete_msg($msg_id)
+    {
         $delete_msg = DB::delete('delete from doc_pat where msg_id = ?', [$msg_id]);
         if ($delete_msg) {
             $doc_msg = DB::select('select * from doc_pat');
@@ -153,7 +155,7 @@ class adminController extends Controller
             session(['doc_name' => $doc_name]);
             if ($doc_msg) {
                 return redirect('admin_doc_msg')->with('doc_msg', $doc_msg);
-            } 
+            }
         } else {
             return view('admin.admin_doc_msg')->with('error_msg', 'Can\'t Delete This Message');
         }
@@ -239,6 +241,25 @@ class adminController extends Controller
         );
 
         return redirect('/admin_dose_data');
+    }
+
+    public function admin_add_dose()
+    {
+        $dose_type = DB::select('select * from dose');
+        session(['dose_type' => $dose_type]);
+        return view('admin.admin_add_dose');
+    }
+
+    public function dose_add(Request $request)
+    {
+        $request->validate(['dose_name' => 'required']);
+        $check = DB::select('select vaccine_name from dose where vaccine_name= ?', [$request->dose_name]);
+        if ($check) {
+            return redirect()->back()->with(['error' => 'This Vaccine Already Exists!']);
+        } else {
+            DB::insert('insert into dose (vaccine_name) values (?)', [$request->dose_name]);
+            return redirect()->back()->with(['success' => 'Vaccine Added Successfuly']);
+        }
     }
     // End Functions Of Dose Reservation
 
