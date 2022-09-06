@@ -48,7 +48,17 @@ unset($__errorArgs, $__bag); ?>
                                 Get Vaccine Data Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
                             </button>
                         </p>
-                        <?php if(session('dose_data')): ?>
+                        <div class="text-center">
+                            <?php if(Session::has('update')): ?>
+                                <div class="alert alert-success"><i class="edit-icon fa-solid fa-pen-to-square"></i>
+                                    <?php echo e(Session::get('update')); ?></div>
+                            <?php endif; ?>
+                            <?php if(Session::has('del')): ?>
+                                <div class="alert alert-danger"><i class="del-icon fa-solid fa-trash"></i>
+                                    <?php echo e(Session::get('del')); ?></div>
+                            <?php endif; ?>
+                        </div>
+                        <?php if(session('dose_type')): ?>
                             <div class="report collapse" id="collapseExample">
                                 <div class="card card-body">
                                     <hr>
@@ -57,8 +67,7 @@ unset($__errorArgs, $__bag); ?>
                                             <tr>
                                                 <th>Vaccine ID</th>
                                                 <th>Vaccine name</th>
-                                                <th>Edit</th>
-                                                <th>Del</th>
+                                                <th>Delete Vaccine</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -67,12 +76,7 @@ unset($__errorArgs, $__bag); ?>
                                                     <td><?php echo e($dose->dose_id); ?></td>
                                                     <td><?php echo e($dose->vaccine_name); ?></td>
                                                     <td class="report-icon">
-                                                        <a href="">
-                                                            <i class="edit-icon fa-solid fa-pen-to-square"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td class="report-icon">
-                                                        <a href="">
+                                                        <a href="/del_data_dose/<?php echo e($dose->dose_id); ?>">
                                                             <i class="del-icon fa-solid fa-trash"></i>
                                                         </a>
                                                     </td>

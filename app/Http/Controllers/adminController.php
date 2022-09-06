@@ -258,8 +258,16 @@ class adminController extends Controller
             return redirect()->back()->with(['error' => 'This Vaccine Already Exists!']);
         } else {
             DB::insert('insert into dose (vaccine_name) values (?)', [$request->dose_name]);
-            return redirect()->back()->with(['success' => 'Vaccine Added Successfuly']);
+            return redirect()->back()->with([
+                'success' => 'Vaccine Added Successfuly',
+            ]);
         }
+    }
+
+    public function del_data_dose($dose_id)
+    {
+        DB::delete('delete from dose where dose_id = ?', [$dose_id]);
+        return redirect()->back()->with(['del' => 'Data Deleted Successfuly']);
     }
     // End Functions Of Dose Reservation
 

@@ -103,13 +103,6 @@
                                         class="fa-solid fa-circle-plus"></i>
                                     Add Dose </a>
                             </li>
-                            <li>
-                                <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                    'active' => Request::is('admin_dose_data'),
-                                    'nav-link' => true,
-                                ]) ?>" href=""><i class="fa-solid fa-street-view"></i>
-                                    View Patient Dose </a>
-                            </li>
                             <ul>
                     </div>
                 </div>
