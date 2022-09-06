@@ -1,5 +1,4 @@
-@extends('admin.admin-dashbord-temp')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
             <p class="doc-btn">
@@ -8,10 +7,10 @@
                     Get Doctor Data Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
                 </button>
             </p>
-            @if (session('doctors'))
+            <?php if(session('doctors')): ?>
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
-                        <p class="head">Data About <span>{{ count(session('doctors')) }}</span> doctors in System <br />
+                        <p class="head">Data About <span><?php echo e(count(session('doctors'))); ?></span> doctors in System <br />
                             Date : <?php $date = date('d-m-y h:i:s');
                             echo $date; ?></p>
                         <hr>
@@ -29,37 +28,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (session('doctors') as $doc)
+                                <?php $__currentLoopData = session('doctors'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td>{{ $doc->doc_id }}</td>
-                                        <td>{{ $doc->doc_fname . ' ' . $doc->doc_lname }}</td>
-                                        <td>{{ $doc->doc_age }}</td>
-                                        <td>{{ $doc->doc_phone }}</td>
-                                        <td>{{ $doc->doc_email }}</td>
-                                        <td>{{ $doc->doc_pass }}</td>
+                                        <td><?php echo e($doc->doc_id); ?></td>
+                                        <td><?php echo e($doc->doc_fname . ' ' . $doc->doc_lname); ?></td>
+                                        <td><?php echo e($doc->doc_age); ?></td>
+                                        <td><?php echo e($doc->doc_phone); ?></td>
+                                        <td><?php echo e($doc->doc_email); ?></td>
+                                        <td><?php echo e($doc->doc_pass); ?></td>
                                         <td class="report-icon">
                                             <a href=""><i class="edit-icon fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_doc_data/{{ $doc->doc_id }}">
+                                            <a href="/admin_doc_data/<?php echo e($doc->doc_id); ?>">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            @else
+            <?php else: ?>
                 <div class="no-doc collapse" id="collapseExample">
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <div>
-                            {{ session('msg') }}
+                            <?php echo e(session('msg')); ?>
+
                         </div>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\new\HIS_Project_Kovido\resources\views/admin/admin_doc_data.blade.php ENDPATH**/ ?>

@@ -139,10 +139,10 @@ class adminController extends Controller
             $dose_data = DB::select('select * from Dose_patient');
             if ($dose_data) {
                 session(['dose_data' => $dose_data]);
-                return redirect('admin_doc_data');
+                return redirect('admin_dose_data');
             } else {
                 session(['dose_data' => '']);
-                return redirect('admin_doc_data');
+                return redirect('admin_dose_data');
             }
         } else {
             return view('admin.admin_dose_data')->with('error_msg', 'Can\'t Delete This Reservation');
@@ -151,21 +151,45 @@ class adminController extends Controller
 
     public function update_dose($pat_id)
     {
-        // $update_dose = DB::update('delete from Dose_patient where pat_id = ?', [$pat_id]);
-        // if ($update_dose) {
-        //     $dose_data = DB::select('select * from Dose_patient');
-        //     if ($dose_data) {
-        //         session(['dose_data' => $dose_data]);
-        //         return redirect('admin_doc_data');
-        //     } else {
-        //         session(['dose_data' => '']);
-        //         return redirect('admin_doc_data');
-        //     }
-        // } else {
-        //     return view('admin.admin_dose_data')->with('error_msg', 'Can\'t Delete This Reservation');
-        // }
-    }
+        $dose_data = DB::select('select Dose_patient.pat_dose_date, Dose_patient.pat_dose_time, Dose_patient.pat_id,
+        patient.pat_fname, patient.pat_lname,
+        dose.vaccine_name, dose.dose_id,
+        healthcare_center.hc_name, healthcare_center.hc_address,healthcare_center.hc_id
+        from Dose_patient
+        inner join patient ON Dose_patient.pat_id = patient.pat_id
+        inner join dose ON Dose_patient.dose_id = dose.dose_id
+        inner join healthcare_center ON Dose_patient.dose_patient_health = healthcare_center.hc_id where Dose_patient.pat_id = ?', [$pat_id]);
 
+        $doses = DB::select('select * from dose');
+        $hec = DB::select('select * from healthcare_center');
+        return view('admin.admin_update_dose_res')->with(
+            [
+                'dose_data' => $dose_data[0],
+                'doses' => $doses,
+                'hecs' => $hec,
+            ]
+        );
+    }
+    public function update_dose_data(Request $request)
+    {
+        DB::update(
+            'update Dose_patient set
+            dose_patient_health = ?,
+            dose_id = ?,
+            pat_dose_date = ?,
+            pat_dose_time = ?
+            where pat_id = ?',
+            [
+                $request->hc_name,
+                $request->dose_name,
+                $request->first_dose,
+                $request->time_dose,
+                $request->pat_id,
+            ]
+        );
+
+        return redirect('/admin_dose_data');
+    }
     // End Functions Of Dose Reservation
 
     public function show_admin_test_data()
@@ -275,4 +299,3 @@ class adminController extends Controller
         }
     }
 }
-

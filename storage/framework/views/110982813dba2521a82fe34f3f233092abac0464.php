@@ -1,23 +1,22 @@
-@extends('admin.admin-dashbord-temp')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
-            @if (session('patient_deleted'))
+            <?php if(session('patient_deleted')): ?>
                 <div class="alerto info">
                     <span class="closebtn">&times;</span>
-                    <strong>Info!</strong> {{ Session::get('patient_deleted') }}.
+                    <strong>Info!</strong> <?php echo e(Session::get('patient_deleted')); ?>.
                 </div>
-            @endif
+            <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
                     Get Patient Data Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
                 </button>
             </p>
-            @if (session('patientData'))
+            <?php if(session('patientData')): ?>
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
-                        <p class="head">Data About <span>{{ count(session('patientData')) }}</span> Patients in System
+                        <p class="head">Data About <span><?php echo e(count(session('patientData'))); ?></span> Patients in System
                             <br />
                             Date : <?php $date = date('d-m-y h:i:s');
                             echo $date; ?>
@@ -41,36 +40,38 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (session('patientData') as $patient)
+                                    <?php $__currentLoopData = session('patientData'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td> {{ $patient->pat_id }} </td>
-                                            <td> {{ $patient->pat_fname . ' ' . $patient->pat_lname }} </td>
-                                            <td> {{ $patient->pat_email }} </td>
-                                            <td> {{ $patient->pat_address }} </td>
-                                            <td> {{ $patient->pat_phone }} </td>
-                                            <td> {{ $patient->pat_SSN }} </td>
-                                            <td> {{ $patient->pat_DOF }} </td>
-                                            <td> {{ $patient->pat_age }} </td>
+                                            <td> <?php echo e($patient->pat_id); ?> </td>
+                                            <td> <?php echo e($patient->pat_fname . ' ' . $patient->pat_lname); ?> </td>
+                                            <td> <?php echo e($patient->pat_email); ?> </td>
+                                            <td> <?php echo e($patient->pat_address); ?> </td>
+                                            <td> <?php echo e($patient->pat_phone); ?> </td>
+                                            <td> <?php echo e($patient->pat_SSN); ?> </td>
+                                            <td> <?php echo e($patient->pat_DOF); ?> </td>
+                                            <td> <?php echo e($patient->pat_age); ?> </td>
                                             <td class="report-icon">
                                                 <a href="">
                                                     <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                                 </a>
                                             </td>
                                             <td class="report-icon">
-                                                <a href="/admin_patient_data_show/delete_doc/{{ $patient->pat_id }}">
+                                                <a href="/admin_patient_data_show/delete_doc/<?php echo e($patient->pat_id); ?>">
                                                     <i class="del-icon fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
                         </form>
                     </div>
                 </div>
-            @else
+            <?php else: ?>
                 <p>does not exist</p>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\new\HIS_Project_Kovido\resources\views/admin/patient_data_show.blade.php ENDPATH**/ ?>
