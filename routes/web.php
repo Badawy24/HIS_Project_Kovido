@@ -75,9 +75,13 @@ Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc
 
 
 Route::get('/admin-dashbord', [adminController::class, 'admin_dashbord'])->middleware('loginmiddle');
+
 Route::get('/admin_doc_data', [adminController::class, 'admin_doc_data'])->middleware('loginmiddle');
+Route::post('/admin_doc_data/{doc_id}', [adminController::class, 'update_doc_data'])->middleware('loginmiddle');
 Route::get('/admin_doc_data/{doc_id}', [adminController::class, 'delete_doc'])->middleware('loginmiddle');
+Route::get('/admin_doc_data_update/{doc_id}', [adminController::class, 'update_doc'])->middleware('loginmiddle');
 Route::get('/admin_doc_msg', [adminController::class, 'Show_admin_doc_msg'])->middleware('loginmiddle');
+Route::get('/admin_doc_msg/{msg_id}', [adminController::class, 'delete_msg'])->middleware('loginmiddle');
 Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg'])->middleware('loginmiddle');
 Route::get('/admin_add_doc', [adminController::class, 'show_admin_add_doc_form'])->middleware('loginmiddle');
 Route::post('/admin_add_doc', [adminController::class, 'admin_add_doc'])->middleware('loginmiddle');

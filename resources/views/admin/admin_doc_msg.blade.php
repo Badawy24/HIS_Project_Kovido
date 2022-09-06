@@ -32,21 +32,38 @@ use Illuminate\Support\Facades\DB;
                 </p>
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
-                        <div class="row">
-                            <h4 class='p-2'>There is {{ count(Session::get('doc_msg')) }} Message For Doctor
-                                <?php $dname = DB::select('select * from doctor where doc_email = ?', [Session::get('doc_email')]);
-                                echo $dname[0]->doc_fname . ' ' . $dname[0]->doc_lname; ?> : </h4>
-                            <p class="lead"><b>Time :</b> <?php $date = date('d-m-y h:i:s');
-                            echo $date; ?></pclass->
-
-                                @foreach (Session::get('doc_msg') as $doc)
-                                    <div class="doc col-12">
-                                        <h5>Patient Name : <?php $name = DB::select('select * from patient where pat_id = ?', [$doc->pat_id]);
-                                        echo $name[0]->pat_fname . ' ' . $name[0]->pat_lname; ?> </h5>
-                                        <p class="lead"> {{ $doc->message }} </p>
-                                    </div>
+                        <p class="head">There id {{count(Session::get('doc_msg'))}} Message For Doctor <?php $dname = DB::select('select * from doctor where doc_email = ?', [Session::get('doc_email')]);
+                            echo $dname[0]->doc_fname . ' ' . $dname[0]->doc_lname; ?> <br />
+                            Date : <?php $date = date('d-m-y h:i:s');
+                            echo $date; ?></p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Message ID</th>
+                                    <th>Doctor ID</th>
+                                    <th>Patient ID</th>
+                                    <th>Message</th>
+                                    <th>Reply</th>
+                                    <th>Del</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (session('doc_msg') as $msg)
+                                    <tr>
+                                        <td>{{ $msg->msg_id }}</td>
+                                        <td>{{ $msg->doc_id }}</td>
+                                        <td>{{ $msg->pat_id }}</td>
+                                        <td>{{ $msg->message }}</td>
+                                        <td>{{ $msg->reply }}</td>
+                                        <td class="report-icon">
+                                            <a href="/admin_doc_msg/{{ $msg->msg_id }}">
+                                                <i class="del-icon fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 @endforeach
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             @endif
