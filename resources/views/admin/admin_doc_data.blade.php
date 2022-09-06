@@ -38,7 +38,7 @@
                                         <td>{{ $doc->doc_email }}</td>
                                         <td>{{ $doc->doc_pass }}</td>
                                         <td class="report-icon">
-                                            <a href=""><i class="edit-icon fa-solid fa-pen-to-square"></i></a>
+                                            <a href="/admin_doc_data_update/{{ $doc->doc_id }}"><i class="edit-icon fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                         <td class="report-icon">
                                             <a href="/admin_doc_data/{{ $doc->doc_id }}">

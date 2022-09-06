@@ -46,6 +46,37 @@ class adminController extends Controller
         }
     }
 
+
+
+    public function update_doc($doc_id)
+    {
+        $id_doc = $doc_id; 
+        $doctor_data = DB::select('select * from doctor where doc_id = ?', [$id_doc]);
+        return view('admin.admin_doc_data_update')->with('doctor', $doctor_data[0]);
+    }
+
+    public function update_doc_data(Request $request, $doc_id){
+        $update_data = DB::update(
+            'update doctor set
+            doc_phone = ?,
+            doc_email = ?,
+            doc_pass = ? where doc_id = ?',
+            [
+                $request->doc_phone,
+                $request->doc_email,
+                $request->doc_pass,
+                $doc_id,
+            ]
+        );
+        if($update_data) {
+            return redirect('/admin_doc_data');
+        } else {
+            return redirect()->back()->with('fail', 'Something Wrong');
+        }
+    }
+
+
+
     public function show_admin_add_doc_form()
     {
         return view('admin.admin_add_doc');
@@ -100,6 +131,8 @@ class adminController extends Controller
     }
     public function admin_doc_msg(Request $request)
     {
+        $doc_name = DB::select('select * from doctor');
+        session(['doc_name' => $doc_name]);
         $email = $request->get('doc_mail');
         $doc_id = DB::select('select doc_id from doctor where doc_email = ?', [$email]);
         $doc_msg = DB::select('select * from doc_pat where doc_id = ?', [$doc_id[0]->doc_id]);
@@ -111,6 +144,23 @@ class adminController extends Controller
             return redirect()->back()->with('message', 'There is No Message For This Doctor!');
         }
     }
+
+    public function delete_msg($msg_id){
+        $delete_msg = DB::delete('delete from doc_pat where msg_id = ?', [$msg_id]);
+        if ($delete_msg) {
+            $doc_msg = DB::select('select * from doc_pat');
+            $doc_name = DB::select('select * from doctor');
+            session(['doc_name' => $doc_name]);
+            if ($doc_msg) {
+                return redirect('admin_doc_msg')->with('doc_msg', $doc_msg);
+            } 
+        } else {
+            return view('admin.admin_doc_msg')->with('error_msg', 'Can\'t Delete This Message');
+        }
+    }
+
+
+
     // Start Functions Of Dose Reservation
     public function admin_dose_data()
     {
