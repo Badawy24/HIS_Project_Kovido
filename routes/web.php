@@ -90,6 +90,8 @@ Route::post('/dose_add', [adminController::class, 'dose_add'])->middleware('logi
 Route::get('/update_data_dose/{dose_id}', [adminController::class, 'update_data_dose'])->middleware('loginmiddle');
 Route::get('/del_data_dose/{dose_id}', [adminController::class, 'del_data_dose'])->middleware('loginmiddle');
 
+Route::get('/update_pat/{pat_id}', [adminController::class, 'show_update_patient'])->middleware('loginmiddle');
+Route::post('/update_pat_data/{pat_id}', [adminController::class, 'update_patient'])->middleware('loginmiddle');
 
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
 Route::get('/admin_dose_data_update/{pat_id}', [adminController::class, 'update_dose'])->middleware('loginmiddle');

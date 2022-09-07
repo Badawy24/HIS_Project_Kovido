@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function admin_dashbord()
     {
         return view('admin.admin-dashbord');
@@ -311,7 +313,35 @@ class adminController extends Controller
     {
         return view('admin.admin_add_patient');
     }
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function show_update_patient($pat_id)
+    {
+        $pat_data = DB::select('select * from patient where pat_id = ?', [$pat_id]);
+        return view('admin.admin_update_patient')->with(['pat' => $pat_data[0]]);
+    }
+    public function update_patient(Request $request, $pat_id)
+    {
+        $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+
+        DB::update(
+            'update patient set
+            pat_phone = ?,
+            pat_email = ?,
+            pat_address = ?,
+            pat_DOF = ?,
+            pat_age = ?
+            where pat_id = ?',
+            [
+                $request->pat_phone,
+                $request->pat_email,
+                $request->pat_address,
+                $request->pat_DOF,
+                $age,
+                $pat_id,
+            ]
+        );
+        return redirect('/admin_patient_data_show')->with('updated', 'Patient Data Updated successfully');
+    }
 
     public function admin_registration(Request $request)
     {
@@ -330,9 +360,6 @@ class adminController extends Controller
         // return dd('aloo');
 
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
-
-
-
 
         $user = DB::insert(
             'insert into patient(
@@ -358,11 +385,6 @@ class adminController extends Controller
                 $request->pat_DOF,
             ]
         );
-
-
-
-
-
 
         if ($user) {
 
