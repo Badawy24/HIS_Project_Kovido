@@ -106,7 +106,8 @@ Route::get('/admin_test_data', [adminController::class, 'show_admin_test_data'])
 Route::post('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
 
 
-
+Route::get('/admin_live', [adminController::class, 'admin_live'])->middleware('loginmiddle');
+Route::get('/admin_live_meet', [adminController::class, 'admin_live_meet'])->middleware('loginmiddle');
 
 // test_forms_routs
 

@@ -399,4 +399,29 @@ class adminController extends Controller
             return redirect()->back()->with('a_i_msg', false);
         }
     }
+    /**Strat Live Consultation */
+    public function admin_live()
+    {
+        $con_data = DB::select('select pat_consultation.*,
+        patient.pat_fname, patient.pat_lname,
+        doctor.doc_fname, doctor.doc_lname
+        from pat_consultation
+        inner join patient ON pat_consultation.pat_id = patient.pat_id
+        inner join doctor ON pat_consultation.doc_id = doctor.doc_id');
+
+        session(['con_data' => $con_data]);
+        return view('admin.admin_live');
+    }
+    public function admin_live_meet()
+    {
+        $meet_data = DB::select('select meeting.*,
+        doctor.doc_fname, doctor.doc_lname
+        from meeting
+        inner join doctor ON meeting.host_doc_id = doctor.doc_id');
+
+        session(['meet_data' => $meet_data]);
+
+        return view('admin.admin_live_meet');
+    }
+    /**End Live Consultation */
 }
