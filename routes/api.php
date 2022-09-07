@@ -490,6 +490,8 @@ Route::group(['middleware'=>'MyAuthAPI'],function(){
 
         $query = DB::select('select doc_id from doctor where doc_email = ?',[$doctor_email]);
 
+
+
         $doctor_id = $query[0]->doc_id;
 
         $number_of_msg = DB::select("select count(*) as num_msgs from doc_pat");
