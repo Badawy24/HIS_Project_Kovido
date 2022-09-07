@@ -378,3 +378,13 @@ tbody tr:nth-child(even) {
     border: none;
     padding: 7px;
 }
+
+
+/* admin_add_test start */
+.admin_add_test_button
+{
+    margin-left: 200px;
+    margin-top: 15px;
+}
+
+/* admin_add_test end */

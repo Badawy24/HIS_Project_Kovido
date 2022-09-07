@@ -114,6 +114,12 @@
                 </div>
             </div>
 
+
+
+
+
+
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -128,23 +134,38 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-vials"></i> Test
+                                ]) href="/admin_all_tests"><i class="fa-solid fa-vials"></i> Test
                                     data</a>
                             </li>
+
+
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-circle-plus"></i>
-                                    Add Dose </a>
+                                ]) href="/admin_existed_test"><i class="fa-solid fa-circle-plus"></i>
+                                    Add Test </a>
+                            </li>
+
+                            <li>
+                                <a @class([
+                                    'active' => Request::is('admin_test_data'),
+                                    'nav-link' => true,
+                                ]) href="/admin_test_data"><i class="fa-solid fa-street-view"></i>
+                                    View Patient tests </a>
                             </li>
 
                             <ul>
                     </div>
                 </div>
             </div>
+
+
+
+
+
 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFive">

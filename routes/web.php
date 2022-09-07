@@ -89,15 +89,71 @@ Route::post('/admin_add_doc', [adminController::class, 'admin_add_doc'])->middle
 
 Route::get('/admin_dose_data', [adminController::class, 'admin_dose_data'])->middleware('loginmiddle');
 Route::get('/admin_dose_data_update/{pat_id}', [adminController::class, 'update_dose'])->middleware('loginmiddle');
+
 Route::post('/admin_update_dose', [adminController::class, 'update_dose_data'])->middleware('loginmiddle');
 Route::get('/admin_dose_data_del/{pat_id}', [adminController::class, 'delete_dose'])->middleware('loginmiddle');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------START ADMIN_TEST CONTROLLERS--------------------------------------------------------------------------- 
+
+
+Route::get('/admin_all_tests', [adminController::class, 'admin_all_tests'])->middleware('loginmiddle');
+
 Route::get('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
-
-
 Route::get('/admin_test_data', [adminController::class, 'show_admin_test_data'])->middleware('loginmiddle');
 Route::post('/admin_test_data', [adminController::class, 'admin_test_data'])->middleware('loginmiddle');
+
+
+  //Route::get('/admin_add_test', [adminController::class, 'admin_add_test'])->middleware('loginmiddle');
+
+Route::get('/admin_existed_test', [adminController::class, 'admin_get_tests_names'])->middleware('loginmiddle');
+Route::get('/admin_test_del/{test_id}', [adminController::class, 'admin_delete_test'])->middleware('loginmiddle');
+
+
+
+Route::get('/admin_test_re_del/{res_id}', [adminController::class, 'admin_delete_test_res'])->middleware('loginmiddle');
+
+
+Route::get('/admin_add_test_details', [adminController::class, 'admin_add_new_test_view'])->middleware('loginmiddle');
+Route::post('/admin_add_test_details', [adminController::class, 'admin_add_new_test_details'])->middleware('loginmiddle');
+
+
+
+
+Route::get('/admin_test_data_update/{res_id}', [adminController::class, 'test_resv_data'])->middleware('loginmiddle');
+Route::post('/update_testres_data', [adminController::class, 'update_testres_data'])->middleware('loginmiddle');
+
+
+//-------------------------------------------------------------------------END ADMIN_TEST CONTROLLERS--------------------------------------------------------------------------- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
