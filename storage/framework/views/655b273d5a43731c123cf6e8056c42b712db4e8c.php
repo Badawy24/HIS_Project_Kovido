@@ -37,7 +37,6 @@
                                         <td><?php echo e($meet->meet_time); ?></td>
                                         <td><?php echo e($meet->meet_duration); ?></td>
                                         <td><?php echo e($meet->doc_fname . ' ' . $meet->doc_lname); ?></td>
-
                                         <td class="report-icon">
                                             <a href="/admin_dose_data_update/<?php echo e($meet->meet_id); ?>">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>

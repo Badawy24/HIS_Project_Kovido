@@ -384,7 +384,6 @@ class adminController extends Controller
             return redirect()->back()->with('a_i_msg', false);
         }
     }
-<<<<<<< HEAD
 
 
 
@@ -393,7 +392,7 @@ class adminController extends Controller
 
 
 
-    //-----------------------------------------------------------------START ADMIN_TEST----------------------------------------------------- 
+    //-----------------------------------------------------------------START ADMIN_TEST-----------------------------------------------------
 
 
     public function admin_all_tests()
@@ -433,8 +432,8 @@ class adminController extends Controller
     /*public function show_admin_test_data()
     {
         $pat_names = DB::select('select * from patient');
-       
-        if ($pat_names) 
+
+        if ($pat_names)
         {
             session(['pat_names' => $pat_names]);
             return view('admin.admin_test_data');
@@ -448,7 +447,7 @@ class adminController extends Controller
         $pat_tests = DB::select('select * from test_patient where pat_id = ?', [$pat_id]);
 
 
-        if ($pat_tests) 
+        if ($pat_tests)
         {
            // session(['pat_tests' => $pat_tests]);
             //return view('admin.admin_test_data');
@@ -535,16 +534,15 @@ class adminController extends Controller
 
 
 
-    
+
 
 
     public function admin_add_new_test_details(request $request)
     {
 
-        $request->validate
-        ([
+        $request->validate([
                 'test_name' => 'required',
-        ]);
+            ]);
 
 
         $existed_tests = DB::select('select * from test');
@@ -569,29 +567,25 @@ class adminController extends Controller
         // if ($hcc && $test &&  $patient_id) {
         //     $test_re = DB::insert('insert into test_patient (pat_id,test_id,pat_test_date,pat_test_time,test_patient_health)
         //     values(?,?,?,?,?)', [$patient_id, $test[0]->test_id, $request->test_date, $request->test_time, $hcc[0]->hc_id]);
-        // } else 
+        // } else
         // {
         // }
 
-        if ($test_re) 
-        {
+        if ($test_re) {
 
-            return redirect('admin_existed_test')->with('success', 'You have successfully added a new test named ' . $request->test_name );
-        } 
-        else 
-        {
+            return redirect('admin_existed_test')->with('success', 'You have successfully added a new test named ' . $request->test_name);
+        } else {
             return redirect('admin_existed_test')->with('fail', 'Something wrong');
         }
     }
 
 
-    
+
 
     public function admin_delete_test_res($res_id)
     {
         $delete_test_res = DB::delete('delete from test_patient where res_id = ?', [$res_id]);
-        if ($delete_test_res) 
-        {
+        if ($delete_test_res) {
             $alltests = DB::select('select * from test_patient');
             if ($alltests) {
                 session(['alltests' => $alltests]);
@@ -605,9 +599,9 @@ class adminController extends Controller
         }
     }
 
-   
 
-    
+
+
     public function test_resv_data($res_id)
     {
         /*$dose_data = DB::select('select Dose_patient.pat_dose_date, Dose_patient.pat_dose_time, Dose_patient.pat_id,
@@ -648,60 +642,58 @@ class adminController extends Controller
                 'patient.pat_lname',
                 'patient.pat_id'
             )
-            ->where('test_patient.res_id','=',$res_id)
+            ->where('test_patient.res_id', '=', $res_id)
             ->orderBy('test_patient.pat_test_date', 'desc')
             ->get();
 
 
-            $alltes = DB::select('select * from test');
-            $hecs = DB::select('select * from healthcare_center');
-            return view('admin.admin_update_test_res')->with(
+        $alltes = DB::select('select * from test');
+        $hecs = DB::select('select * from healthcare_center');
+        return view('admin.admin_update_test_res')->with(
             [
                 'resv_tests' => $resv_tests[0],
                 'alltes' => $alltes,
                 'hecs' => $hecs,
-            ]);
+            ]
+        );
+    }
 
-        }
+    public function update_testres_data(Request $request)
+    {
 
-        public function update_testres_data(Request $request)
-        {
-            
-            
-            DB::update(
-                'update test_patient set
+
+        DB::update(
+            'update test_patient set
                 test_patient_health = ?,
                 test_id = ?,
                 pat_test_date = ?,
                 pat_test_time = ?
                 where res_id = ?',
-                [
-                    $request->hc_name,
-                    $request->test_name,
-                    $request->test_date,
-                    $request->test_time,
-                    $request->res_id,
-                ]
-            );
-            return redirect('/admin_all_tests');
+            [
+                $request->hc_name,
+                $request->test_name,
+                $request->test_date,
+                $request->test_time,
+                $request->res_id,
+            ]
+        );
+        return redirect('/admin_all_tests');
 
-            /*$checked=DB::table('test_patient')
+        /*$checked=DB::table('test_patient')
                 ->where('res_id', $request->res_id)
                 ->update(['pat_test_date'=>$request->test_date, 'pat_test_time'=> $request->test_time, 'test_id'=> $request->test_name, 'test_patient_health'=> $request->hc_id]);
-                
-                if ($checked) 
+
+                if ($checked)
                 {
-        
+
                     return redirect('admin_all_tests')->with('success', 'Reservation Data Successfully Updated' );
-                } 
-                else 
+                }
+                else
                 {
                     return "hello";
                 }
 
             }*/
-
-        
     }
     //---------------------------------------------------------------END ADMIN_TEST-------------------------------------------------------------
 
@@ -711,7 +703,6 @@ class adminController extends Controller
 
 
 
-=======
     /**Strat Live Consultation */
     public function admin_live()
     {
@@ -737,5 +728,4 @@ class adminController extends Controller
         return view('admin.admin_live_meet');
     }
     /**End Live Consultation */
->>>>>>> 798a9748286385f99bb4a8b37caee81ef8f21224
 }

@@ -104,16 +104,7 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
 
-
-
-
-
-
-            
-=======
->>>>>>> 798a9748286385f99bb4a8b37caee81ef8f21224
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -130,7 +121,8 @@
                                 <a @class([
                                     'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href="/admin_all_tests"><i class="fa-solid fa-vials"></i> Test
+                                ]) href="/admin_all_tests"><i
+                                        class="fa-solid fa-vials"></i> Test
                                     data</a>
                             </li>
 
@@ -139,7 +131,8 @@
                                 <a @class([
                                     'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href="/admin_existed_test"><i class="fa-solid fa-circle-plus"></i>
+                                ]) href="/admin_existed_test"><i
+                                        class="fa-solid fa-circle-plus"></i>
                                     Add Test </a>
                             </li>
 
@@ -147,22 +140,14 @@
                                 <a @class([
                                     'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href="/admin_test_data"><i class="fa-solid fa-street-view"></i>
+                                ]) href="/admin_test_data"><i
+                                        class="fa-solid fa-street-view"></i>
                                     View Patient tests </a>
                             </li>
                             <ul>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
->>>>>>> 798a9748286385f99bb4a8b37caee81ef8f21224
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
