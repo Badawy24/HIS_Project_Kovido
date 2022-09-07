@@ -8,6 +8,12 @@
                     <strong>Info!</strong> {{ Session::get('patient_deleted') }}.
                 </div>
             @endif
+            @if (session('updated'))
+                <div class="alerto info">
+                    <span class="closebtn">&times;</span>
+                    <strong>Info!</strong> {{ Session::get('updated') }}.
+                </div>
+            @endif
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -52,7 +58,7 @@
                                             <td> {{ $patient->pat_DOF }} </td>
                                             <td> {{ $patient->pat_age }} </td>
                                             <td class="report-icon">
-                                                <a href="">
+                                                <a href="/update_pat/{{ $patient->pat_id }}">
                                                     <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                                 </a>
                                             </td>

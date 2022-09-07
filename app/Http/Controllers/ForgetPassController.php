@@ -70,7 +70,7 @@ class ForgetPassController extends Controller
         ]);
         if (Hash::check($request->code, $request->hash_num)) {
             DB::update('update patient set patient_password = ? where pat_email = ?', [$request->password, $request->email]);
-            return redirect('/login')->with('updated', 'Password Changed Successfuly You Can Login Know');
+            return redirect('/login')->with('updated', 'Password Changed Successfuly You Can Login Now');
         } else {
             return view('forget-send-mail')->with('error', 'Check Code In Your Email!');
         }

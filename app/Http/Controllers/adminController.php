@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function admin_dashbord()
     {
         return view('admin.admin-dashbord');
@@ -244,6 +246,33 @@ class adminController extends Controller
 
         return redirect('/admin_dose_data');
     }
+
+    public function admin_add_dose()
+    {
+        $dose_type = DB::select('select * from dose');
+        session(['dose_type' => $dose_type]);
+        return view('admin.admin_add_dose');
+    }
+
+    public function dose_add(Request $request)
+    {
+        $request->validate(['dose_name' => 'required']);
+        $check = DB::select('select vaccine_name from dose where vaccine_name= ?', [$request->dose_name]);
+        if ($check) {
+            return redirect()->back()->with(['error' => 'This Vaccine Already Exists!']);
+        } else {
+            DB::insert('insert into dose (vaccine_name) values (?)', [$request->dose_name]);
+            return redirect()->back()->with([
+                'success' => 'Vaccine Added Successfuly',
+            ]);
+        }
+    }
+
+    public function del_data_dose($dose_id)
+    {
+        DB::delete('delete from dose where dose_id = ?', [$dose_id]);
+        return redirect()->back()->with(['del' => 'Data Deleted Successfuly']);
+    }
     // End Functions Of Dose Reservation
 
 
@@ -269,7 +298,35 @@ class adminController extends Controller
     {
         return view('admin.admin_add_patient');
     }
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function show_update_patient($pat_id)
+    {
+        $pat_data = DB::select('select * from patient where pat_id = ?', [$pat_id]);
+        return view('admin.admin_update_patient')->with(['pat' => $pat_data[0]]);
+    }
+    public function update_patient(Request $request, $pat_id)
+    {
+        $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+
+        DB::update(
+            'update patient set
+            pat_phone = ?,
+            pat_email = ?,
+            pat_address = ?,
+            pat_DOF = ?,
+            pat_age = ?
+            where pat_id = ?',
+            [
+                $request->pat_phone,
+                $request->pat_email,
+                $request->pat_address,
+                $request->pat_DOF,
+                $age,
+                $pat_id,
+            ]
+        );
+        return redirect('/admin_patient_data_show')->with('updated', 'Patient Data Updated successfully');
+    }
 
     public function admin_registration(Request $request)
     {
@@ -288,9 +345,6 @@ class adminController extends Controller
         // return dd('aloo');
 
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
-
-
-
 
         $user = DB::insert(
             'insert into patient(
@@ -317,11 +371,6 @@ class adminController extends Controller
             ]
         );
 
-
-
-
-
-
         if ($user) {
 
             session(['added' => True]);
@@ -335,6 +384,7 @@ class adminController extends Controller
             return redirect()->back()->with('a_i_msg', false);
         }
     }
+<<<<<<< HEAD
 
 
 
@@ -661,4 +711,31 @@ class adminController extends Controller
 
 
 
+=======
+    /**Strat Live Consultation */
+    public function admin_live()
+    {
+        $con_data = DB::select('select pat_consultation.*,
+        patient.pat_fname, patient.pat_lname,
+        doctor.doc_fname, doctor.doc_lname
+        from pat_consultation
+        inner join patient ON pat_consultation.pat_id = patient.pat_id
+        inner join doctor ON pat_consultation.doc_id = doctor.doc_id');
+
+        session(['con_data' => $con_data]);
+        return view('admin.admin_live');
+    }
+    public function admin_live_meet()
+    {
+        $meet_data = DB::select('select meeting.*,
+        doctor.doc_fname, doctor.doc_lname
+        from meeting
+        inner join doctor ON meeting.host_doc_id = doctor.doc_id');
+
+        session(['meet_data' => $meet_data]);
+
+        return view('admin.admin_live_meet');
+    }
+    /**End Live Consultation */
+>>>>>>> 798a9748286385f99bb4a8b37caee81ef8f21224
 }
