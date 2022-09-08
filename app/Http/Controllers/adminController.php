@@ -134,8 +134,8 @@ class adminController extends Controller
     }
     public function admin_doc_msg(Request $request)
     {
-        $doc_name = DB::select('select * from doctor');
-        session(['doc_name' => $doc_name]);
+        // $doc_name = DB::select('select * from doctor');
+        // session(['doc_name' => $doc_name]);
         $email = $request->get('doc_mail');
         $doc_id = DB::select('select doc_id from doctor where doc_email = ?', [$email]);
         $doc_msg = DB::select('select * from doc_pat where doc_id = ?', [$doc_id[0]->doc_id]);
@@ -148,18 +148,19 @@ class adminController extends Controller
         }
     }
 
-    public function delete_msg($msg_id)
+    public function delete_msg($msg_id, $doc_id)
     {
         $delete_msg = DB::delete('delete from doc_pat where msg_id = ?', [$msg_id]);
         if ($delete_msg) {
             $doc_msg = DB::select('select * from doc_pat');
-            $doc_name = DB::select('select * from doctor');
-            session(['doc_name' => $doc_name]);
+            $doc_email = DB::select('select doc_email from doctor where doc_id = ?', [$doc_id]);
             if ($doc_msg) {
-                return redirect('admin_doc_msg')->with('doc_msg', $doc_msg);
+                return redirect('admin_doc_msg')->with('doc_msg', $doc_msg)->with('doc_email', $doc_email);
+            } else {
+                return redirect('admin_doc_msg')->with('message', 'There is No Message For This Doctor!');
             }
         } else {
-            return view('admin.admin_doc_msg')->with('error_msg', 'Can\'t Delete This Message');
+            return redirect()->back()->with('error_msg', 'Can\'t Delete This Message');
         }
     }
 
@@ -541,8 +542,8 @@ class adminController extends Controller
     {
 
         $request->validate([
-                'test_name' => 'required',
-            ]);
+            'test_name' => 'required',
+        ]);
 
 
         $existed_tests = DB::select('select * from test');

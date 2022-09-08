@@ -1,18 +1,18 @@
 <?php
 use Illuminate\Support\Facades\DB;
 ?>
-@extends('admin.admin-dashbord-temp')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class='form'>
         <div class="container">
             <form action='admin_doc_msg' method='post' class="row">
                 <div class="col-md-8">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                     <select class="form-select" aria-label="Default select example" name="doc_mail">
                         <option selected disabled>Choose Doctor Name</option>
-                        @foreach (session('doc_name') as $doc)
-                            <option value="{{ $doc->doc_email }}"> {{ $doc->doc_fname . ' ' . $doc->doc_lname }} </option>
-                        @endforeach
+                        <?php $__currentLoopData = session('doc_name'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($doc->doc_email); ?>"> <?php echo e($doc->doc_fname . ' ' . $doc->doc_lname); ?> </option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-4">
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\DB;
     </div>
     <div class="doc-data">
         <div class="container">
-            @if (Session::has('doc_msg'))
+            <?php if(Session::has('doc_msg')): ?>
                 <p class="doc-btn">
                     <button class="btn btn-primary" type="submit" data-bs-toggle="collapse"
                         data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\DB;
                 </p>
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
-                        <p class="head">There id {{count(Session::get('doc_msg'))}} Message For Doctor <?php $dname = DB::select('select * from doctor where doc_email = ?', [Session::get('doc_email')]);
+                        <p class="head">There id <?php echo e(count(Session::get('doc_msg'))); ?> Message For Doctor <?php $dname = DB::select('select * from doctor where doc_email = ?', [Session::get('doc_email')]);
                             echo $dname[0]->doc_fname . ' ' . $dname[0]->doc_lname; ?> <br />
                             Date : <?php $date = date('d-m-y h:i:s');
                             echo $date; ?></p>
@@ -48,30 +48,33 @@ use Illuminate\Support\Facades\DB;
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (session('doc_msg') as $msg)
+                                <?php $__currentLoopData = session('doc_msg'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td>{{ $msg->msg_id }}</td>
-                                        <td>{{ $msg->doc_id }}</td>
-                                        <td>{{ $msg->pat_id }}</td>
-                                        <td>{{ $msg->message }}</td>
-                                        <td>{{ $msg->reply }}</td>
+                                        <td><?php echo e($msg->msg_id); ?></td>
+                                        <td><?php echo e($msg->doc_id); ?></td>
+                                        <td><?php echo e($msg->pat_id); ?></td>
+                                        <td><?php echo e($msg->message); ?></td>
+                                        <td><?php echo e($msg->reply); ?></td>
                                         <td class="report-icon">
-                                            <a href="/admin_doc_msg/{{ $msg->msg_id }}/{{ $msg->doc_id }}">
+                                            <a href="/admin_doc_msg/<?php echo e($msg->msg_id); ?>/<?php echo e($msg->doc_id); ?>">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            @endif
-            @if (Session::has('message'))
+            <?php endif; ?>
+            <?php if(Session::has('message')): ?>
                 <div class="alert alert-danger" role="alert">
-                    {{ Session::get('message') }}
+                    <?php echo e(Session::get('message')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DELL\OneDrive\Desktop\3rd_training_project\new\HIS_Project_Kovido\resources\views/admin/admin_doc_msg.blade.php ENDPATH**/ ?>
