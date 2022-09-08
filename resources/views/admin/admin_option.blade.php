@@ -1,6 +1,5 @@
 <div class="admin-options p-3 bg-dark">
     <div class="container">
-
         <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -10,7 +9,8 @@
                         Doctors
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                <div id="panelsStayOpen-collapseOne"
+                    class="accordion-collapse collapse {{ Request::is('admin_doc_data') ? 'show' : '' }} {{ Request::is('admin_add_doc') ? 'show' : '' }} {{ Request::is('admin_doc_msg') ? 'show' : '' }}"
                     aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
@@ -47,7 +47,8 @@
                         Patient
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse {{Request::is('admin_patient_data_show')?'show':''}} {{Request::is('admin_add_patient')?'show':''}}"
+                <div id="panelsStayOpen-collapseTwo"
+                    class="accordion-collapse collapse {{ Request::is('admin_patient_data_show') ? 'show' : '' }} {{ Request::is('admin_add_patient') ? 'show' : '' }}"
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
@@ -55,22 +56,21 @@
                                 <a @class([
                                     'active' => Request::is('admin_patient_data_show'),
                                     'nav-link' => true,
-                                ]) href="admin_patient_data_show"><i
+                                ]) href="/admin_patient_data_show"><i
                                         class="fa-solid fa-calendar-minus"></i> Patient Data</a>
                             </li>
                             <li>
                                 <a @class([
                                     'active' => Request::is('admin_add_patient'),
                                     'nav-link' => true,
-                                ]) href="admin_add_patient"><i class="fa-solid fa-user-plus"></i> Add
+                                ]) href="/admin_add_patient"><i
+                                        class="fa-solid fa-user-plus"></i> Add
                                     Patient </a>
                             </li>
-
                             <ul>
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -79,7 +79,8 @@
                         Dose
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                <div id="panelsStayOpen-collapseThree"
+                    class="accordion-collapse collapse {{ Request::is('admin_dose_data') ? 'show' : '' }} {{ Request::is('admin_add_dose') ? 'show' : '' }}"
                     aria-labelledby="panelsStayOpen-headingThree">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
@@ -93,17 +94,11 @@
                             </li>
                             <li>
                                 <a @class([
-                                    'active' => Request::is('admin_doc_data'),
+                                    'active' => Request::is('admin_add_dose'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-circle-plus"></i>
+                                ]) href="/admin_add_dose"><i
+                                        class="fa-solid fa-circle-plus"></i>
                                     Add Dose </a>
-                            </li>
-                            <li>
-                                <a @class([
-                                    'active' => Request::is('admin_doc_data'),
-                                    'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-street-view"></i>
-                                    View Patient Dose </a>
                             </li>
                             <ul>
                     </div>
@@ -124,40 +119,66 @@
                         <ul class="list-unstyled">
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-vials"></i> Test
+                                ]) href="/admin_all_tests"><i
+                                        class="fa-solid fa-vials"></i> Test
                                     data</a>
                             </li>
+
+
                             <li>
                                 <a @class([
-                                    'active' => Request::is(''),
+                                    'active' => Request::is('admin_test_data'),
                                     'nav-link' => true,
-                                ]) href=""><i class="fa-solid fa-circle-plus"></i>
-                                    Add Dose </a>
+                                ]) href="/admin_existed_test"><i
+                                        class="fa-solid fa-circle-plus"></i>
+                                    Add Test </a>
                             </li>
 
+                            <li>
+                                <a @class([
+                                    'active' => Request::is('admin_test_data'),
+                                    'nav-link' => true,
+                                ]) href="/admin_test_data"><i
+                                        class="fa-solid fa-street-view"></i>
+                                    View Patient tests </a>
+                            </li>
                             <ul>
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseFive">
-                        Radiology
+                        Live Conversation
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                <div id="panelsStayOpen-collapseFive"
+                    class="accordion-collapse collapse {{ Request::is('admin_live') ? 'show' : '' }} {{ Request::is('admin_live_meet') ? 'show' : '' }}"
                     aria-labelledby="panelsStayOpen-headingFive">
                     <div class="accordion-body">
-
+                        <ul class="list-unstyled">
+                            <li>
+                                <a @class([
+                                    'active' => Request::is('admin_live'),
+                                    'nav-link' => true,
+                                ]) href="/admin_live">
+                                    <i class="fa-solid fa-forward-fast"></i> Live Consultation</a>
+                            </li>
+                            <li>
+                                <a @class([
+                                    'active' => Request::is('admin_live_meet'),
+                                    'nav-link' => true,
+                                ]) href="/admin_live_meet">
+                                    <i class="fa-sharp fa-solid fa-video"></i> Live Meeting </a>
+                            </li>
+                            <ul>
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingsix">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -169,13 +190,23 @@
                 <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
                     aria-labelledby="panelsStayOpen-headingSix">
                     <div class="accordion-body">
-
                     </div>
                 </div>
             </div>
-
-
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSeven">
+                        Radiology
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingSeven">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>

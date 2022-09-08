@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style-admin.css">
     <link rel="stylesheet" href="/css/all.min.css">
-    <link rel="stylesheet" href="/css/patient_data_show.css">
+    {{-- <link rel="stylesheet" href="/css/patient_data_show.css"> --}}
     <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 </head>
 

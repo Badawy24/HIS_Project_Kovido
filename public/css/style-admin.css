@@ -216,14 +216,14 @@ body {
 
 .doc-data th,
 td {
-    padding: 0 7px 7px;
+    padding: 10px;
 }
 
-.doc-data th {
+/* .doc-data th {
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-}
-
+} */
+/*
 .doc-data th:first-of-type {
     border-left: none
 }
@@ -234,7 +234,7 @@ td {
 
 .doc-data td {
     border: 1px solid #ccc
-}
+} */
 
 .doc-data .head {
     margin-bottom: 5px;
@@ -261,3 +261,130 @@ td {
 .edit-icon {
     color: green;
 }
+
+/* Style Table Of Lotfy */
+table {
+    /* table-layout: fixed; */
+    width: 100%;
+    /* margin: 0 auto; */
+    border-collapse: collapse;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    padding-right: 10px;
+    /* border: 3px solid purple; */
+}
+
+
+
+table thead tr th {
+    text-align: center;
+}
+
+table tbody tr td {
+    text-align: center;
+}
+
+
+table tbody tr td {
+    border-right: 1px solid #003971;
+    border-bottom: 1px solid #003971;
+}
+
+thead th,
+tfoot th,
+tfoot td {
+    border-bottom: 3px solid #003971;
+}
+
+thead th {
+    border-right: 1px solid #003971;
+}
+
+table tbody td:last-child {
+    padding: 5px;
+}
+
+table tbody tr:first-child td:last-child {
+    border-top: 3px solid #003971;
+}
+
+/* tbody tr:nth-child(odd) {
+    background-color: #ec919d;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #569ef7;
+} */
+.alerto {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    WIDTH: 90%;
+    MARGIN: 0 AUTO 20PX;
+}
+
+.alerto.success {
+    background-color: #04AA6D;
+}
+
+.alerto.info {
+    background-color: #2196F3;
+}
+
+.alerto.warning {
+    background-color: #ff9800;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+/* /****************** */
+#admin_patient {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#admin_patient .col-lg-12,
+#admin_patient .col-md-6 {
+    padding: 10px;
+}
+
+/* udate form*/
+.update-inp {
+    margin-bottom: 10px;
+}
+
+.update-btn {
+    min-width: 150px;
+    max-width: 250px;
+    background-color: #003971;
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+    border: none;
+    padding: 7px;
+}
+
+
+/* admin_add_test start */
+.admin_add_test_button
+{
+    margin-left: 200px;
+    margin-top: 15px;
+}
+
+/* admin_add_test end */

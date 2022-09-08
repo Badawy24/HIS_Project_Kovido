@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\DB;
 @section('content')
     <div class='form'>
         <div class="container">
+
             <form action='admin_test_data' method='post' class="row">
+
                 <div class="col-md-8">
                     @csrf
                     <select class="form-select" aria-label="Default select example" name="pat_id">
@@ -15,27 +17,39 @@ use Illuminate\Support\Facades\DB;
                         @endforeach
                     </select>
                 </div>
+
                 <div class="col-md-4">
                     <input type="submit" class="btn btn mb-3 submit search-btn" value="Search">
                 </div>
+
             </form>
+
         </div>
+
     </div>
+
     <div class="doc-data">
+
         <div class="container">
+
             @if (Session::has('tests'))
+
                 <p class="doc-btn">
                     <button class="btn btn-primary" type="submit" data-bs-toggle="collapse"
                         data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Get Message Know <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
+                        Get Patient Reservations Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
                     </button>
                 </p>
+
                 <div class="report collapse" id="collapseExample">
+
                     <div class="card card-body">
+
                         <div class="row">
                             <h4 class='p-2'>There is {{ count(Session::get('tests')) }} Tests For <?php $pname = DB::select('select * from patient where pat_id = ?', [Session::get('tests')[0]->pat_id]);
                             echo $pname[0]->pat_fname . ' ' . $pname[0]->pat_lname; ?> :
                             </h4>
+
                             <p class="lead"><b>Time :</b> <?php $date = date('d-m-y h:i:s');
                             echo $date; ?></pclass->
 
@@ -51,10 +65,14 @@ use Illuminate\Support\Facades\DB;
                                         </p>
                                     </div>
                                 @endforeach
+                                
                         </div>
+
                     </div>
                 </div>
+
             @endif
+
             @if (Session::has('message'))
                 <div class="alert alert-danger" role="alert">
                     {{ Session::get('message') }}
