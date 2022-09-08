@@ -41,6 +41,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
+                            
 
                             <div class="col-md-12">
                                 <label class="card-text">Choose Health Care Center</label>
