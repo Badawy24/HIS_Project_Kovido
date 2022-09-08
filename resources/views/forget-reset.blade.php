@@ -47,7 +47,6 @@
 
     <form action='/reset' method='post'>
         @csrf
-        <h2>Nest</h2>
         <input type="hidden" name="email" value="{{ Session::get('email') }}">
         <input type="hidden" name="hash_num" value="{{ Session::get('hasing_num') }}">
         {{-- <input type="submit"> --}}

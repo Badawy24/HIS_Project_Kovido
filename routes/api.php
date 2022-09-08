@@ -667,8 +667,30 @@ Route::get('/available-vaccines-no-middleware', function () {
     return response($data, 200);
 });
 
-Route::get('/all-doctors',function(){
-    
+ // get available doctors                    [tested and documented]
+Route::get('/available-doctors', function () {
+    $result = DB::select('select * from doctor');
+    // declare $data array
+    $data = [];
+
+    // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+    foreach ($result as $childCat) {
+        $data[] =
+            [
+                'doc_id' =>  $childCat->doc_id,
+                'doc_fname' =>  $childCat->doc_fname,
+                'doc_lname' =>  $childCat->doc_lname,
+                'doc_phone' =>  $childCat->doc_phone,
+                'doc_email' =>  $childCat->doc_email,
+                'doc_sex' =>  $childCat->doc_sex,
+                'doc_age' =>  $childCat->doc_age,
+                'doc_pass' => $childCat->doc_pass,
+            ];
+    }
+
+
+    // retrieve json object -> $data in not in [] because it is already an array
+    return response($data, 200);
 });
 
 Route::get('/available-tests-no-middleware', function () {

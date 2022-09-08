@@ -56,7 +56,7 @@ use Illuminate\Support\Facades\DB;
                                         <td>{{ $msg->message }}</td>
                                         <td>{{ $msg->reply }}</td>
                                         <td class="report-icon">
-                                            <a href="/admin_doc_msg/{{ $msg->msg_id }}">
+                                            <a href="/admin_doc_msg/{{ $msg->msg_id }}/{{ $msg->doc_id }}">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>

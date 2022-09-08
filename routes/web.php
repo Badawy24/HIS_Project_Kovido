@@ -103,7 +103,7 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     Route::get('/admin_doc_data/{doc_id}', [adminController::class, 'delete_doc']);
     Route::get('/admin_doc_data_update/{doc_id}', [adminController::class, 'update_doc']);
     Route::get('/admin_doc_msg', [adminController::class, 'Show_admin_doc_msg']);
-    Route::get('/admin_doc_msg/{msg_id}', [adminController::class, 'delete_msg']);
+    Route::get('/admin_doc_msg/{msg_id}/{doc_id}', [adminController::class, 'delete_msg']);
     Route::post('/admin_doc_msg', [adminController::class, 'admin_doc_msg']);
     Route::get('/admin_add_doc', [adminController::class, 'show_admin_add_doc_form']);
     Route::post('/admin_add_doc', [adminController::class, 'admin_add_doc']);
