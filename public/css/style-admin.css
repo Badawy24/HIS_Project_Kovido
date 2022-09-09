@@ -387,4 +387,11 @@ tbody tr:nth-child(even) {
     margin-top: 15px;
 }
 
+.test_names
+{
+    box-shadow : 5px 5px 20px rgba(0,0,0,.2) !important ;
+    border-radius: 5px;
+    padding: 20px;
+
+}
 /* admin_add_test end */

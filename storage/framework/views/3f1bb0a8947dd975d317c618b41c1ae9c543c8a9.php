@@ -1,1 +1,0 @@
-<?php /**PATH C:\Users\Badawy\Desktop\New folder\HIS_Project_Kovido\resources\views/new_test.blade.php ENDPATH**/ ?>
