@@ -399,7 +399,7 @@ tbody tr:nth-child(even) {
 .con_add input, .con_add select, .con_add textarea{
     margin-bottom: 10px;
 }
-.con_add_btn{text-align: right;}
+/* .con_add_btn{text-align: right;} */
 .con_add_btn button,  .con_add_btn button:hover{
     background-color: rgb(188, 73, 73);
     color: #fff;
@@ -419,4 +419,23 @@ tbody tr:nth-child(even) {
     background-color: #BC4949;
     border-color: none;
     box-shadow: 0 0 0 0.25rem rgb(188 73 73 / 50%);
+}
+
+/* dash bord style */
+.main-data {margin-right:20px ;}
+.main-data .data {
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    color: #555;
+    margin-bottom: 20px;
+}
+.main-data .data i {
+    font-size:35px;
+    position: absolute;
+    right: 15px;
+    top: 30%;
 }

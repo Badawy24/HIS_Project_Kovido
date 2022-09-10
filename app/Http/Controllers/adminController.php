@@ -773,5 +773,36 @@ class adminController extends Controller
 
         return view('admin.admin_live_meet');
     }
+    public function admin_add_meet(Request $request)
+    {
+        $request->validate([
+            'meet_duration' => 'required',
+            'doc_id' => 'required',
+            'meet_date' => 'required',
+            'meet_time' => 'required',
+            'meet_desc' => 'required',
+        ]);
+        $meet = DB::insert(
+            'insert into meeting(
+            meet_date,
+            meet_duration,
+            meet_desc,
+            meet_time,
+            host_doc_id)
+            values(?,?,?,?,?)',
+            [
+                $request->meet_date,
+                $request->meet_duration,
+                $request->meet_desc,
+                $request->meet_time,
+                $request->doc_id,
+            ]
+        );
+        if ($meet) {
+            return redirect('admin_live_meet')->with('success', 'Data Added successfully');
+        } else {
+            return redirect('admin_live_meet')->with('fail', 'Something Wrong');
+        }
+    }
     /**End Live Consultation */
 }

@@ -149,6 +149,7 @@ Route::group(['middleware' => 'loginmiddle'], function () {
 
     /* Start Live Meeting Route In Admin */
     Route::get('/admin_live_meet', [adminController::class, 'admin_live_meet']);
+    Route::post('/admin_live_meet', [adminController::class, 'admin_add_meet']);
     /* End Live Meeting Route In Admin */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

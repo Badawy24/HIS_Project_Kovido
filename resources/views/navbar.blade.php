@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\DB;
 @elseif(Session::get('adminLogin'))
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark adm-nav">
         <div class="container">
-            <a class="navbar-brand admin-nav" href="#">
+            <a class="navbar-brand admin-nav" href="/admin-dashbord">
                 <i class="fa-solid fa-gear fa-spin"></i> Dashboard
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

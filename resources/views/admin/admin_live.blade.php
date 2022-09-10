@@ -21,14 +21,14 @@ use Illuminate\Support\Facades\DB;
             @if (session('con_data'))
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
-                        <div class="row">
+                        <div class="row justify-content-between">
                             <div class="col-md-8">
                                 <p class="head">Data About <span>{{ count(session('con_data')) }}</span> Consultation in
                                     System <br />
                                     Date : <?php $date = date('d-m-y h:i:s');
                                     echo $date; ?></p>
                             </div>
-                            <div class="col-md-4 con_add_btn">
+                            <div class="col-md-2  con_add_btn">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
