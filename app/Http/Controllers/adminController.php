@@ -88,43 +88,48 @@ class adminController extends Controller
     }
     public function admin_add_doc(Request $request)
     {
-        $request->validate([
-            'f_name' => 'required',
-            'l_name' => 'required',
-            'gender' => 'required',
-            'email' => 'required|email|unique:doctor',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required_with:password|same:password',
-            'phone' => 'required|size:11',
-            'age' => 'required',
-        ]);
-        $password = Hash::make($request->password);
-
-        $doctor = DB::insert(
-            'insert into doctor(
-            doc_fname,
-            doc_lname,
-            doc_phone,
-            doc_email,
-            doc_sex,
-            doc_age,
-            doc_pass)
-            values(?,?,?,?,?,?,?)',
-            [
-                $request->f_name,
-                $request->l_name,
-                $request->phone,
-                $request->email,
-                $request->gender,
-                $request->age,
-                $password,
-            ]
-        );
-
-        if ($doctor) {
-            return back()->with('success', 'Doctor Added successfully');
+        $pat =  DB::select('select * from patient where pat_email = ?', [$request->email]);
+        if ($pat) {
+            return back()->with('fail', 'Email Was Registered in patient Data');
         } else {
-            return back()->with('fail', 'Something Wrong');
+            $request->validate([
+                'f_name' => 'required',
+                'l_name' => 'required',
+                'gender' => 'required',
+                'email' => 'required|email|unique:doctor',
+                'password' => 'required|min:8',
+                'password_confirmation' => 'required_with:password|same:password',
+                'phone' => 'required|size:11',
+                'age' => 'required',
+            ]);
+            $password = Hash::make($request->password);
+
+            $doctor = DB::insert(
+                'insert into doctor(
+                doc_fname,
+                doc_lname,
+                doc_phone,
+                doc_email,
+                doc_sex,
+                doc_age,
+                doc_pass)
+                values(?,?,?,?,?,?,?)',
+                [
+                    $request->f_name,
+                    $request->l_name,
+                    $request->phone,
+                    $request->email,
+                    $request->gender,
+                    $request->age,
+                    $password,
+                ]
+            );
+
+            if ($doctor) {
+                return back()->with('success', 'Doctor Added successfully');
+            } else {
+                return back()->with('fail', 'Something Wrong');
+            }
         }
     }
     public function Show_admin_doc_msg()
