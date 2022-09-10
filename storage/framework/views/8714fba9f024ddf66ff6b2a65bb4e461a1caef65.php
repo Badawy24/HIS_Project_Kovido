@@ -1,26 +1,25 @@
-@extends('admin.admin-dashbord-temp')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
-            @if (Session::has('success'))
-                <div class="alert alert-success"><span class="closebtn">×</span>{{ Session::get('success') }}</div>
-            @endif
+            <?php if(Session::has('success')): ?>
+                <div class="alert alert-success"><span class="closebtn">×</span><?php echo e(Session::get('success')); ?></div>
+            <?php endif; ?>
 
-            @if (Session::has('fail'))
-                <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
-            @endif
+            <?php if(Session::has('fail')): ?>
+                <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
+            <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
                     Get Live Meeting Data Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
                 </button>
             </p>
-            @if (session('meet_data'))
+            <?php if(session('meet_data')): ?>
                 <div class="report collapse" id="collapseExample">
                     <div class="card card-body">
                         <div class="row justify-content-between">
                             <div class="col-md-8">
-                                <p class="head">Data About <span>{{ count(session('meet_data')) }}</span> Meeting in
+                                <p class="head">Data About <span><?php echo e(count(session('meet_data'))); ?></span> Meeting in
                                     System <br />
                                     Date : <?php $date = date('d-m-y h:i:s');
                                     echo $date; ?></p>
@@ -43,26 +42,34 @@
                                             </div>
                                             <div class="modal-body">
                                                 <form class="con_add" action="admin_live_meet" method="post">
-                                                    @csrf
+                                                    <?php echo csrf_field(); ?>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <select class="form-select" aria-label="Default select example"
                                                                 name="doc_id">
                                                                 <option selected disabled>Choose Host Doctor Name</option>
                                                                 <?php $docs = DB::select('select * from doctor'); ?>
-                                                                @foreach ($docs as $doc)
-                                                                    <option value="{{ $doc->doc_id }}">
-                                                                        {{ $doc->doc_fname . ' ' . $doc->doc_lname }}
+                                                                <?php $__currentLoopData = $docs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                    <option value="<?php echo e($doc->doc_id); ?>">
+                                                                        <?php echo e($doc->doc_fname . ' ' . $doc->doc_lname); ?>
+
                                                                     </option>
-                                                                @endforeach
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             </select>
-                                                            @error('doc_id')
+                                                            <?php $__errorArgs = ['doc_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
+                                                                    <div> <?php echo e($message); ?> </div>
                                                                 </div>
-                                                            @enderror
+                                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                         </div>
 
                                                         <div class="col-md-12 ">
@@ -70,52 +77,80 @@
                                                             <input class="form-control" name="meet_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
-                                                                value="{{ old('meet_date') }}" min="<?php echo date('Y-m-d'); ?>">
-                                                            @error('meet_date')
+                                                                value="<?php echo e(old('meet_date')); ?>" min="<?php echo date('Y-m-d'); ?>">
+                                                            <?php $__errorArgs = ['meet_date'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                                 <div class="alert
                                                                 alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
+                                                                    <div> <?php echo e($message); ?> </div>
                                                                 </div>
-                                                            @enderror
+                                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                         </div>
                                                         <div class="col-md-12 ">
                                                             <label for="">Meeting Time</label>
                                                             <input class="form-control" name="meet_time" type="time"
                                                                 placeholder="Consultation Time"
                                                                 aria-label="default input example"
-                                                                value="{{ old('meet_time') }}">
-                                                            @error('meet_time')
+                                                                value="<?php echo e(old('meet_time')); ?>">
+                                                            <?php $__errorArgs = ['meet_time'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
+                                                                    <div> <?php echo e($message); ?> </div>
                                                                 </div>
-                                                            @enderror
+                                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                         </div>
                                                         <div class="col-md-12 ">
                                                             <input class="form-control" name="meet_duration" type="number"
                                                                 placeholder="Meeting Duration"
                                                                 aria-label="default input example"
-                                                                value="{{ old('con_duration') }}">
-                                                            @error('meet_duration')
+                                                                value="<?php echo e(old('con_duration')); ?>">
+                                                            <?php $__errorArgs = ['meet_duration'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
+                                                                    <div> <?php echo e($message); ?> </div>
                                                                 </div>
-                                                            @enderror
+                                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <textarea class="form-control" name="meet_desc" placeholder="Meeting Description"></textarea>
-                                                            @error('meet_desc')
+                                                            <?php $__errorArgs = ['meet_desc'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
+                                                                    <div> <?php echo e($message); ?> </div>
                                                                 </div>
-                                                            @enderror
+                                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input type="submit" class="update-btn" name="submit"
@@ -124,10 +159,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            {{-- <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div> --}}
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -151,39 +183,42 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (session('meet_data') as $meet)
+                                <?php $__currentLoopData = session('meet_data'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meet): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td>{{ $meet->meet_id }}</td>
-                                        <td>{{ $meet->meet_desc }}</td>
-                                        <td>{{ $meet->meet_date }}</td>
-                                        <td>{{ $meet->meet_time }}</td>
-                                        <td>{{ $meet->meet_duration }}</td>
-                                        <td>{{ $meet->doc_fname . ' ' . $meet->doc_lname }}</td>
+                                        <td><?php echo e($meet->meet_id); ?></td>
+                                        <td><?php echo e($meet->meet_desc); ?></td>
+                                        <td><?php echo e($meet->meet_date); ?></td>
+                                        <td><?php echo e($meet->meet_time); ?></td>
+                                        <td><?php echo e($meet->meet_duration); ?></td>
+                                        <td><?php echo e($meet->doc_fname . ' ' . $meet->doc_lname); ?></td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_update/{{ $meet->meet_id }}">
+                                            <a href="/admin_dose_data_update/<?php echo e($meet->meet_id); ?>">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_del/{{ $meet->meet_id }}">
+                                            <a href="/admin_dose_data_del/<?php echo e($meet->meet_id); ?>">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            @else
+            <?php else: ?>
                 <div class="no-doc collapse" id="collapseExample">
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <div>
-                            {{ session('message') }}
+                            <?php echo e(session('message')); ?>
+
                         </div>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido\resources\views/admin/admin_live_meet.blade.php ENDPATH**/ ?>

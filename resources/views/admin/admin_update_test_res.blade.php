@@ -1,6 +1,6 @@
 @extends('admin.admin-dashbord-temp')
 @section('content')
-<!-- ////////////// -->
+    <!-- ////////////// -->
     <div class="form-add-doc">
         <div class="container">
             <div class="doc-data ">
@@ -33,7 +33,7 @@
                     <input type="hidden" value="{{ $resv_tests->res_id }}" name="res_id">
 
                     <div class="col-md-6 update-inp">
-                    <label for="patient_name">Patient Name </label>
+                        <label for="patient_name">Patient Name </label>
                         <input class="form-control" name="patient_name" type="text" aria-label="default input example"
                             value="{{ $resv_tests->pat_fname . ' ' . $resv_tests->pat_lname }}" disabled>
                         @error('patient_name')
@@ -47,7 +47,7 @@
 
 
                     <div class="col-md-6 update-inp">
-                    <label for="test name">Test Name </label>
+                        <label for="test name">Test Name </label>
                         <select class="form-select" aria-label="Default select example" name="test_name">
                             <option selected hidden value="{{ $resv_tests->test_id }}">{{ $resv_tests->test_name }}
                             </option>
@@ -68,9 +68,10 @@
 
 
                     <div class="col-md-6 update-inp">
-                    <label for="test_date">Test Date </label>
+                        <label for="test_date">Test Date </label>
                         <input class="form-control" name="test_date" type="date" placeholder="test_date"
-                            aria-label="default input example" value="{{ $resv_tests->pat_test_date }}">
+                            aria-label="default input example" value="{{ $resv_tests->pat_test_date }}"
+                            min="<?php echo date('Y-m-d'); ?>">
 
                         @error('test_date')
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -83,7 +84,7 @@
 
 
                     <div class="col-md-6 update-inp">
-                    <label for="test_time">Test Time </label>
+                        <label for="test_time">Test Time </label>
                         <input class="form-control" name="test_time" type="time" placeholder="test_time"
                             aria-label="default input example" value="{{ $resv_tests->pat_test_time }}">
 
@@ -95,11 +96,11 @@
                         @enderror
 
                     </div>
-                    
+
 
 
                     <div class="col-md-6 update-inp">
-                    <label for="hc_name">Health Care Center </label>
+                        <label for="hc_name">Health Care Center </label>
                         <select class="form-select" aria-label="Default select example" name="hc_name">
 
                             <option selected hidden value="{{ $resv_tests->hc_id }}">{{ $resv_tests->hc_name }}</option>
@@ -125,7 +126,7 @@
                     <div class="col-md-6">
                         <input type="submit" class="update-btn " name="submit" value="Update Reservation">
                     </div>
-                    
+
                 </div>
             </form>
         </div>
