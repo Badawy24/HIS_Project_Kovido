@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div>
         <div class="container">
@@ -130,6 +129,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
+                                <?php
+                                $dateBrith = date_create(date('Y-m-d'));
+                                date_sub($dateBrith, date_interval_create_from_date_string('15 years'));
+                                ?>
                                 <div class="col-lg-8">
                                     <label for="birthday"
                                         class="form-label
@@ -137,7 +140,8 @@ unset($__errorArgs, $__bag); ?>
                                     <input class=" form-control" type="date" value="<?php echo e($patient->pat_DOF); ?>"
                                         name="birthday" id="birthday"
                                         aria-label="default input
-                                example">
+                                example"
+                                        max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
                                     <?php $__errorArgs = ['birthday'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

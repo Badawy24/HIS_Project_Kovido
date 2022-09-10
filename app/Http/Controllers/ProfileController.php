@@ -27,7 +27,7 @@ class ProfileController extends Controller
         $request->validate([
             'pat_email' => 'required|email',
             'pat_address' => 'required',
-            'pat_phone' => 'required|min:11|max:11',
+            'pat_phone' => 'required|size:11',
             'birthday' => 'required',
         ]);
         $age = Carbon::parse($request->birthday)->diff(Carbon::now())->y;
