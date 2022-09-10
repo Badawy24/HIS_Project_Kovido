@@ -108,3 +108,8 @@ body {
     color: #fff;
     border: none;
 }
+
+
+.con_add input {
+    margin-bottom: 20px;
+}

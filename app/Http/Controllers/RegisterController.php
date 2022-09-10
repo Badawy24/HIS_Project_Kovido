@@ -36,7 +36,6 @@ class RegisterController extends BaseController
             $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
             $password = Hash::make($request->p_pass);
 
-
             $user = DB::insert(
                 'insert into patient(
                 pat_fname,

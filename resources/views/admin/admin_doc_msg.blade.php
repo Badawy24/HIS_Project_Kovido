@@ -40,8 +40,8 @@ use Illuminate\Support\Facades\DB;
                             <thead>
                                 <tr>
                                     <th>Message ID</th>
-                                    <th>Doctor ID</th>
-                                    <th>Patient ID</th>
+                                    <th>Doctor Name</th>
+                                    <th>Patient Name</th>
                                     <th>Message</th>
                                     <th>Reply</th>
                                     <th>Del</th>
@@ -51,8 +51,12 @@ use Illuminate\Support\Facades\DB;
                                 @foreach (session('doc_msg') as $msg)
                                     <tr>
                                         <td>{{ $msg->msg_id }}</td>
-                                        <td>{{ $msg->doc_id }}</td>
-                                        <td>{{ $msg->pat_id }}</td>
+                                        {{-- <td>{{ $msg->doc_id }}</td> --}}
+                                        <td><?php $doc_name = DB::select('select doc_fname, doc_lname from doctor where doc_id = ?', [$msg->doc_id]);
+                                        echo $doc_name[0]->doc_fname . ' ' . $doc_name[0]->doc_lname ?></td>
+                                        {{-- <td>{{ $msg->pat_id }}</td> --}}
+                                        <td><?php $pat_name = DB::select('select pat_fname, pat_lname from patient where pat_id = ?', [$msg->pat_id]);
+                                            echo $pat_name[0]->pat_fname . ' ' . $pat_name[0]->pat_lname ?></td>
                                         <td>{{ $msg->message }}</td>
                                         <td>{{ $msg->reply }}</td>
                                         <td class="report-icon">

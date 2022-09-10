@@ -725,6 +725,43 @@ class adminController extends Controller
         session(['con_data' => $con_data]);
         return view('admin.admin_live');
     }
+
+    public function admin_add_consultation(Request $request)
+    {
+        $request->validate([
+            'con_title' => 'required',
+            'pat_id' => 'required',
+            'doc_id' => 'required',
+            'con_date' => 'required',
+            'con_time' => 'required',
+            'con_duration' => 'required',
+        ]);
+        $con = DB::insert(
+            'insert into pat_consultation(
+            con_title,
+            con_date,
+            con_duration,
+            pat_id,
+            doc_id,
+            con_desc,
+            con_time)
+            values(?,?,?,?,?,?,?)',
+            [
+                $request->con_title,
+                $request->con_date,
+                $request->con_duration,
+                $request->pat_id,
+                $request->doc_id,
+                $request->con_desc,
+                $request->con_time,
+            ]
+        );
+        if ($con) {
+            return redirect('admin_live')->with('success', 'Data Added successfully');
+        } else {
+            return redirect('admin_live')->with('fail', 'Something Wrong');
+        }
+    }
     public function admin_live_meet()
     {
         $meet_data = DB::select('select meeting.*,

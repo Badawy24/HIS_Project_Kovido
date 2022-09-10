@@ -395,3 +395,28 @@ tbody tr:nth-child(even) {
 
 }
 /* admin_add_test end */
+
+.con_add input, .con_add select, .con_add textarea{
+    margin-bottom: 10px;
+}
+.con_add_btn{text-align: right;}
+.con_add_btn button,  .con_add_btn button:hover{
+    background-color: rgb(188, 73, 73);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgb(188 73 73 / 50%);
+}
+.con_add_btn  .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #BC4949;
+    border-color: none;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #BC4949;
+    border-color: none;
+    box-shadow: 0 0 0 0.25rem rgb(188 73 73 / 50%);
+}
