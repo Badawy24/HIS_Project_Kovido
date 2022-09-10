@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('image'); ?>
     <img id="img-send-forgetPass" src="/images/Forgot password-bro.png" class="img-fluid" />
 <?php $__env->stopSection(); ?>

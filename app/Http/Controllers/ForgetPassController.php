@@ -73,7 +73,8 @@ class ForgetPassController extends Controller
             DB::update('update patient set patient_password = ? where pat_email = ?', [$password, $request->email]);
             return redirect('/login')->with('updated', 'Password Changed Successfuly You Can Login Now');
         } else {
-            return view('forget-send-mail')->with('error', 'Check Code In Your Email!');
+            // return view('forget-send-mail')->with('invaild', 'Code Is Invalid!');
+            return redirect('/forgetPassword')->with('codeinvaild', 'Code Is Invalid!');
         }
     }
 }
