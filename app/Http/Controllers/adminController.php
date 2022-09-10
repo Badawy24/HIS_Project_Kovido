@@ -10,6 +10,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class adminController extends Controller
 {
@@ -96,6 +98,7 @@ class adminController extends Controller
             'phone' => 'required|size:11',
             'age' => 'required',
         ]);
+        $password = Hash::make($request->password);
 
         $doctor = DB::insert(
             'insert into doctor(
@@ -114,7 +117,7 @@ class adminController extends Controller
                 $request->email,
                 $request->gender,
                 $request->age,
-                $request->password,
+                $password,
             ]
         );
 

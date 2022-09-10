@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends BaseController
 {
@@ -30,6 +30,7 @@ class RegisterController extends BaseController
         ]);
 
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+        $password = Hash::make($request->p_pass);
 
 
         $user = DB::insert(
@@ -49,7 +50,7 @@ class RegisterController extends BaseController
                 $request->pat_lname,
                 $request->pat_SSN,
                 $request->pat_email,
-                $request->p_pass,
+                $password,
                 $request->pat_address,
                 $request->pat_phone,
                 $age,

@@ -174,10 +174,10 @@ unset($__errorArgs, $__bag); ?>
                             <div class="col-lg-12">
                                 <label class="head-fog">Birth Of Date</label>
                                 <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF"
-                                    id="BOD" value="<?php echo e(old('pat_BOF')); ?>" aria-label="default input example"
+                                    id="BOD" value="<?php echo e(old('pat_DOF')); ?>" aria-label="default input example"
                                     max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
 
-                                <?php $__errorArgs = ['pat_BOF'];
+                                <?php $__errorArgs = ['pat_DOF'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
