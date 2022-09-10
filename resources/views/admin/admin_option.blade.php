@@ -105,6 +105,8 @@
                 </div>
             </div>
 
+
+
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -113,8 +115,9 @@
                         Test
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-                    aria-labelledby="panelsStayOpen-headingFour">
+                <div id="panelsStayOpen-collapseFour"   
+                    class="accordion-collapse collapse {{ Request::is('admin_all_tests') ? 'show' : '' }} {{ Request::is('admin_existed_test') ? 'show' : '' }} {{ Request::is('admin_test_data') ? 'show' : '' }}"
+                    aria-labelledby="panelsStayOpen-headingfour">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
@@ -148,6 +151,8 @@
                     </div>
                 </div>
             </div>
+
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

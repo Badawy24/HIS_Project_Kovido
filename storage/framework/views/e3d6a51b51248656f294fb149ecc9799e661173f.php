@@ -11,6 +11,7 @@
                     Date : <?php $date = date('d-m-y h:i:s');
                     echo $date; ?>
                 </p>
+                <hr>
 
             </div>
 
@@ -32,6 +33,7 @@
                     <input type="hidden" value="<?php echo e($resv_tests->res_id); ?>" name="res_id">
 
                     <div class="col-md-6 update-inp">
+                    <label for="patient_name">Patient Name </label>
                         <input class="form-control" name="patient_name" type="text" aria-label="default input example"
                             value="<?php echo e($resv_tests->pat_fname . ' ' . $resv_tests->pat_lname); ?>" disabled>
                         <?php $__errorArgs = ['patient_name'];
@@ -52,7 +54,7 @@ unset($__errorArgs, $__bag); ?>
 
 
                     <div class="col-md-6 update-inp">
-
+                    <label for="test name">Test Name </label>
                         <select class="form-select" aria-label="Default select example" name="test_name">
                             <option selected hidden value="<?php echo e($resv_tests->test_id); ?>"><?php echo e($resv_tests->test_name); ?>
 
@@ -81,7 +83,7 @@ unset($__errorArgs, $__bag); ?>
 
 
                     <div class="col-md-6 update-inp">
-
+                    <label for="test_date">Test Date </label>
                         <input class="form-control" name="test_date" type="date" placeholder="test_date"
                             aria-label="default input example" value="<?php echo e($resv_tests->pat_test_date); ?>">
 
@@ -103,7 +105,7 @@ unset($__errorArgs, $__bag); ?>
 
 
                     <div class="col-md-6 update-inp">
-
+                    <label for="test_time">Test Time </label>
                         <input class="form-control" name="test_time" type="time" placeholder="test_time"
                             aria-label="default input example" value="<?php echo e($resv_tests->pat_test_time); ?>">
 
@@ -126,7 +128,7 @@ unset($__errorArgs, $__bag); ?>
 
 
                     <div class="col-md-6 update-inp">
-
+                    <label for="hc_name">Health Care Center </label>
                         <select class="form-select" aria-label="Default select example" name="hc_name">
 
                             <option selected hidden value="<?php echo e($resv_tests->hc_id); ?>"><?php echo e($resv_tests->hc_name); ?></option>
