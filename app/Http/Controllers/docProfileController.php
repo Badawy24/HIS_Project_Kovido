@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class docProfileController extends Controller
 {
@@ -38,7 +39,7 @@ class docProfileController extends Controller
 
     public function edit_profile_doc_data(Request $request){
         $request->validate([
-            'doc_email' => 'required|unique:doctor',
+            'doc_email' => 'required|email',
             'doc_phone' => 'required|size:11',
         ]);
         $doc_id = session('doc_user_id');
@@ -48,8 +49,38 @@ class docProfileController extends Controller
             return redirect('doc_profile')->with(['doctor' => $doctor, 'success' => 'Your Data Updated']);
         } else {
             $doctor = DB::select('select * from doctor where doc_id = ?', [$doc_id]);
-            return redirect('doc_profile')->with(['doctor' => $doctor, 'fail' => 'Something Wrong']);
+            return redirect('doc_profile')->with(['doctor' => $doctor, 'error' => 'Something Wrong']);
         }
         
+    }
+
+    public function change_pass_doc()
+    {
+        return view('change_pass_doc');
+    }
+
+    public function change_passDoc(Request $request )
+    {
+        $doctor_id = session('doc_user_id');
+        $request->validate([
+            'old_pass' => 'required',
+        ]);
+        $old_password =DB::select('select doc_pass from doctor where doc_id = ?', [$doctor_id]);
+        if(Hash::check($request->old_pass, $old_password[0]->doc_pass)){
+            $request->validate([
+                'new_pass' => 'required|min:8',
+                'password_confirmation' => 'required_with:new_pass|same:new_pass',
+            ]);
+            $password = Hash::make($request->new_pass);
+            $reset = DB::update('update doctor set doc_pass = ?', [$password]);
+            if($reset){
+                return redirect('change_pass_doc')->with('success', 'Password Reset Succesfully');
+            } else{
+                return redirect('change_pass_doc')->with('fail', 'Something Wrong');
+            }
+        } else {
+            return redirect('change_pass_doc')->with('not_same', 'Password Can\'t match Old Password');
+        }
+            
     }
 }

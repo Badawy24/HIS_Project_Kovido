@@ -69,7 +69,7 @@ use Illuminate\Support\Facades\DB;
                             Profile</a>
                     </div>
                     <div class="card-body d-inline-block">
-                        <a href="#" class="card-btn btn btn-front btn-primary btn-pro mb-1 py-2"> Change
+                        <a href="/change_pass_doc" class="card-btn btn btn-front btn-primary btn-pro mb-1 py-2"> Change
                             Password</a>
                     </div>
                 </div>

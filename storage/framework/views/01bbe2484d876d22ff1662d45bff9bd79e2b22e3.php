@@ -16,19 +16,20 @@
                                 <div>
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     &nbsp;
-                                    <?php echo e(Session::get('error')); ?>
-
+                                    <?php echo e(Session::get('error')); ?> <span class="closebtn">×</span>
                                 </div>
+                                
                             </div>
+                            
                         <?php endif; ?>
                         <?php if(Session::has('success')): ?>
                             <div class="alert alert-success d-flex align-items-center" role="alert">
                                 <i class="fa-regular fa-circle-check"></i>
                                 &nbsp;
                                 <div>
-                                    <?php echo e(Session::get('success')); ?>
-
+                                    <?php echo e(Session::get('success')); ?> <span class="closebtn">×</span>
                                 </div>
+                                
                             </div>
                         <?php endif; ?>
                         <form action="/edit_profile_doc" method="POST">

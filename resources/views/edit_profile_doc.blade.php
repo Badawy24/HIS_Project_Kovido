@@ -15,17 +15,20 @@
                                 <div>
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     &nbsp;
-                                    {{ Session::get('error') }}
+                                    {{ Session::get('error') }} 
                                 </div>
+                                <span class="closebtn">×</span>
                             </div>
+                            
                         @endif
                         @if (Session::has('success'))
                             <div class="alert alert-success d-flex align-items-center" role="alert">
                                 <i class="fa-regular fa-circle-check"></i>
                                 &nbsp;
                                 <div>
-                                    {{ Session::get('success') }}
+                                    {{ Session::get('success') }} 
                                 </div>
+                                <span class="closebtn">×</span>
                             </div>
                         @endif
                         <form action="/edit_profile_doc" method="POST">
