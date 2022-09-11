@@ -3,113 +3,97 @@ use Illuminate\Support\Facades\DB;
 ?>
 
 <?php $__env->startSection('content'); ?>
-<div  class = "doc-content">
+<?php $doc = DB::select('select * from doctor where doc_id = ?', [session('doc_user_id')]) ?>
+<div class="profile-page">
     <div class="container">
+        <h2 class="head-cards h1 py-5 text-center">Welcome <span class="user-name">
+                    <?php echo e($doc[0]->doc_fname); ?>
+
+            </span> To Kovidio
+
+        </h2>
         <div class="row">
-            <div class="col-md-6">
-                <div class="avatar">
-                    <img src="/images_dark/doc_online.png" class="img-doc img-fluid" /> 
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="doc-content-msg">
-                    <h3>Hello D/ <?php echo e($doctor[0]->doc_fname . ' ' . $doctor[0]->doc_lname); ?></h3>
-                    <?php
-                        $msgs = DB::select('select * from doc_pat where doc_id = ?', [$doctor[0]->doc_id]);
-                        $collname = 'fluch-collapse';
-                        $collapseName = array();
-                        for($i = 0; $i<count($msgs); $i+=1){
-                            $collapseName[$i] = $collname . $i+1;
-                        }
-                        $x = 0;
-                    ?>
-                    <p class="lead">You Have got <?php echo e(count($msgs)); ?> messages..</p>
-                    <div class="msgs">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="user-data col-md-5">
 
-                            <?php $__currentLoopData = $msgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                
-                            <div class="accordion-item">
+                <h2 class="text-center head-cards">Personal Data</h2>
+                <?php if(Session::has('error')): ?>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            &nbsp;
+                            <?php echo e(Session::get('error')); ?>
 
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<?php echo e("#" . $collapseName[$x]); ?> aria-expanded="false" aria-controls=<?php echo e($collapseName[$x]); ?>>
-                                    <?php if($msg->reply == ''): ?>
-                                        <i class="not-rp rp-icon fa-brands fa-replyd"></i>
-                                    <?php else: ?>
-                                    <i class="rp rp-icon fa-solid fa-circle-check"></i>
-                                    <?php endif; ?>
-                                    Message Number #<?php $r = $x + 1; echo $r; ?> :
-                                </button>
-                                </h2>
-                                <div id=<?php echo e($collapseName[$x]); ?> class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <h5>Patient Name : <?php 
-                                        $pat_id = $msg->pat_id;
-                                        $pat_name = DB::select('select pat_fname, pat_lname from patient where pat_id = ?', [$pat_id]);
-                                        ?><?php echo e($pat_name[0]->pat_fname . ' ' . $pat_name[0]->pat_lname); ?></h5>
-                                    <p class="lead msg-content">
-                                        <span>Message Content : </span>
-                                        <?php echo e($msg->message); ?>
-
-                                    </p>
-                                    <?php if($msg->reply == ''): ?>
-                                    <p class="comment">
-                                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="fa-solid fa-comment-dots"></i>
-                                        </a>
-                                    </p>
-                                    <div class="collapse text-comment" id="collapseExample">
-                                        <div class="card-body">
-                                        <form action=<?php $act = '/saveReply'; $act.= '/' . $msg->msg_id; echo $act; ?> method="post">
-                                            <?php echo csrf_field(); ?>
-                                            <div class="row">
-                                                <div class="col-md-10">
-                                                    <textarea name="reply"></textarea>
-                                                    <?php $__errorArgs = ['reply'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                        <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                                            <div><?php echo e($message); ?> </div>
-                                                        </div>
-                                                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <input type ="submit" value="Save"/>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        </div>
-                                    </div>
-                                    <?php else: ?>
-                                        <p class="lead msg-reply">
-                                            <span>your Reply : </span>
-                                            <?php echo e($msg->reply); ?>
-
-                                            
-                                        </p>
-                                    <?php endif; ?>
-                                        
-                                </div>
-                                </div>
-
-                            </div>
-
-                            <?php $x+= 1; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                     </div>
+                <?php endif; ?>
+                <?php if(Session::has('success')): ?>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-regular fa-circle-check"></i>
+                        &nbsp;
+                        <div>
+                            <?php echo e(Session::get('success')); ?>
+
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="real-data">
+                    <h5>First Name :</h5>
+                    <span class="h5">
+                            <?php echo e($doc[0]->doc_fname); ?>
+
+                    </span>
+                </div>
+                <div class="real-data">
+                    <h5>Last Name :</h5>
+                    <span class="h5">
+                            <?php echo e($doc[0]->doc_lname); ?>
+
+                    </span>
+                </div>
+                <div class="real-data">
+                    <h5>Email :</h5>
+                    <span class="h5">
+                            <?php echo e($doc[0]->doc_email); ?>
+
+                    </span>
+                </div>
+                <div class="real-data">
+                    <h5>Phone :</h5>
+                    <span class="h5">
+                            <?php echo e($doc[0]->doc_phone); ?>
+
+                    </span>
+                </div>
+                <div class="real-data">
+                    <h5>Age :</h5>
+                    <span class="h5">
+                            <?php echo e($doc[0]->doc_age); ?>
+
+                    </span>
+                </div>
+                <div class="text-center">
+                    <div class="card-body d-inline-block">
+                        <a href="#" class="card-btn btn btn-front btn-primary btn-pro mb-3 py-2">Edit
+                            Your
+                            Profile</a>
+                    </div>
+                    <div class="card-body d-inline-block">
+                        <a href="#" class="card-btn btn btn-front btn-primary btn-pro mb-1 py-2"> Change
+                            Password</a>
                     </div>
                 </div>
             </div>
-            
+            <div class="img-profile col-md-7 text-center">
+                <div class="profile-img ">
+                    <img id="profile" src="/images/profile.png" class="img-fluid" />
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+
+
+
+
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('main-template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\DELL\OneDrive\Desktop\3rd_p\HIS_Project_Kovido\resources\views/doc_profile.blade.php ENDPATH**/ ?>
