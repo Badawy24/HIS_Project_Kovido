@@ -47,8 +47,9 @@ use Illuminate\Support\Facades\DB;
                                         $pat_id = $msg->pat_id;
                                         $pat_name = DB::select('select pat_fname, pat_lname from patient where pat_id = ?', [$pat_id]);
                                         ?><?php echo e($pat_name[0]->pat_fname . ' ' . $pat_name[0]->pat_lname); ?></h5>
-                                    <p class="lead msg-cont">
-                                        <strong>Message Content : </strong> <?php echo e($msg->message); ?>
+                                    <p class="lead msg-content">
+                                        <span>Message Content : </span>
+                                        <?php echo e($msg->message); ?>
 
                                     </p>
                                     <?php if($msg->reply == ''): ?>
@@ -86,13 +87,12 @@ unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
                                     <?php else: ?>
-                                        <div class="reply">
-                                            <p class="lead">
-                                                <strong>your Reply : </strong>
-                                                <?php echo e($msg->reply); ?>
+                                        <p class="lead msg-reply">
+                                            <span>your Reply : </span>
+                                            <?php echo e($msg->reply); ?>
 
-                                            </p>
-                                        </div>
+                                            
+                                        </p>
                                     <?php endif; ?>
                                         
                                 </div>

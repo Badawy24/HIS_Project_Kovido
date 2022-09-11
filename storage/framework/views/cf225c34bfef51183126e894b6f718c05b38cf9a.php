@@ -116,6 +116,10 @@
                                 <a href="/service" class="card-btn btn btn-front btn-primary btn-pro mb-3 py-2">Check
                                     Service</a>
                             </div>
+                            <div class="card-body d-inline-block">
+                                <a href="/change_pass_patient/<?php echo e($patients[0]->pat_id); ?>" class="card-btn btn btn-front btn-primary btn-pro mb-1 py-2"> Change
+                                    Password</a>
+                            </div>
                         </div>
                     </div>
                     <div class="img-profile col-md-7 text-center">
@@ -136,27 +140,28 @@
                             ?> Messages : </h3>
                             <div class="all-msgs">
                                 <?php $__currentLoopData = $msgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $m): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="one-msg row">
-                                    <div class="col-md-8">
-                                        <div class="msg-content">
-                                            <span>Message #<?php echo $i;  $i++; ?> :</span>
-                                            <?php echo e($m->message); ?>
+                                    <div class="one-msg row">
+                                        <div class="col-md-8">
+                                            <div class="msg-content">
+                                                <span>Message #<?php echo $i;
+                                                $i++; ?> :</span>
+                                                <?php echo e($m->message); ?>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 offset-md-4">
-                                        <?php if($m->reply == ''): ?>
-                                            <div class="alert alert-danger" role="alert">
-                                                <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
                                             </div>
-                                        <?php else: ?>
-                                        <div class="msg-reply">
-                                            <?php echo e($m->reply); ?>
-
                                         </div>
-                                        <?php endif; ?>
+                                        <div class="col-md-8 offset-md-4">
+                                            <?php if($m->reply == ''): ?>
+                                                <div class="alert alert-danger" role="alert">
+                                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
+                                                </div>
+                                            <?php else: ?>
+                                                <div class="msg-reply">
+                                                    <?php echo e($m->reply); ?>
+
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
-                                </div>
 
                                     
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

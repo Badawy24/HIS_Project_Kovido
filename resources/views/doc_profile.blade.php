@@ -47,8 +47,9 @@ use Illuminate\Support\Facades\DB;
                                         $pat_id = $msg->pat_id;
                                         $pat_name = DB::select('select pat_fname, pat_lname from patient where pat_id = ?', [$pat_id]);
                                         ?>{{$pat_name[0]->pat_fname . ' ' . $pat_name[0]->pat_lname}}</h5>
-                                    <p class="lead msg-cont">
-                                        <strong>Message Content : </strong> {{$msg->message}}
+                                    <p class="lead msg-content">
+                                        <span>Message Content : </span>
+                                        {{$msg->message}}
                                     </p>
                                     @if ($msg->reply == '')
                                     <p class="comment">
@@ -78,12 +79,11 @@ use Illuminate\Support\Facades\DB;
                                         </div>
                                     </div>
                                     @else
-                                        <div class="reply">
-                                            <p class="lead">
-                                                <strong>your Reply : </strong>
-                                                {{$msg->reply}}
-                                            </p>
-                                        </div>
+                                        <p class="lead msg-reply">
+                                            <span>your Reply : </span>
+                                            {{$msg->reply}}
+                                            
+                                        </p>
                                     @endif
                                         
                                 </div>

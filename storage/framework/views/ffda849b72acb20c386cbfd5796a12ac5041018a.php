@@ -1,13 +1,12 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
             <?php if(Session::has('success')): ?>
-            <div class="alert alert-success"><span class="closebtn">×</span><?php echo e(Session::get('success')); ?></div>
+                <div class="alert alert-success"><span class="closebtn">×</span><?php echo e(Session::get('success')); ?></div>
             <?php endif; ?>
 
             <?php if(Session::has('fail')): ?>
-            <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
+                <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
             <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -37,7 +36,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Add New Consultation</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Add New Meeting</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -72,19 +71,20 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-12 ">
                                                             <label for="">Meeting Date</label>
                                                             <input class="form-control" name="meet_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
-                                                                value="<?php echo e(old('meet_date')); ?>">
+                                                                value="<?php echo e(old('meet_date')); ?>" min="<?php echo date('Y-m-d'); ?>">
                                                             <?php $__errorArgs = ['meet_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                                                <div class="alert alert-danger d-flex align-items-center"
+                                                                <div class="alert
+                                                                alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                                                     <div> <?php echo e($message); ?> </div>

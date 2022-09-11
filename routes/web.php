@@ -168,6 +168,8 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     Route::get('/profile', [ProfileController::class, 'getData']);
     Route::get('/Editprofile', [ProfileController::class, 'getEditData']);
     Route::post('/updateprofile', [ProfileController::class, 'updateprofile']);
+    Route::get('/change_pass_patient/{pat_id}', [ProfileController::class, 'change_pass_form']);
+    Route::post('/change_pass_patient/{pat_id}', [ProfileController::class, 'change_pass']);
     /* End Profile Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

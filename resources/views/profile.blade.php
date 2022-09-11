@@ -106,6 +106,10 @@
                                 <a href="/service" class="card-btn btn btn-front btn-primary btn-pro mb-3 py-2">Check
                                     Service</a>
                             </div>
+                            <div class="card-body d-inline-block">
+                                <a href="/change_pass_patient/{{$patients[0]->pat_id}}" class="card-btn btn btn-front btn-primary btn-pro mb-1 py-2"> Change
+                                    Password</a>
+                            </div>
                         </div>
                     </div>
                     <div class="img-profile col-md-7 text-center">
@@ -126,29 +130,31 @@
                             ?> Messages : </h3>
                             <div class="all-msgs">
                                 @foreach ($msgs as $m)
-                                <div class="one-msg row">
-                                    <div class="col-md-8">
-                                        <div class="msg-content">
-                                            <span>Message #<?php echo $i;  $i++; ?> :</span>
-                                            {{$m->message}}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 offset-md-4">
-                                        @if ($m->reply == '')
-                                            <div class="alert alert-danger" role="alert">
-                                                <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
+                                    <div class="one-msg row">
+                                        <div class="col-md-8">
+                                            <div class="msg-content">
+                                                <span>Message #<?php echo $i;
+                                                $i++; ?> :</span>
+                                                {{ $m->message }}
                                             </div>
-                                        @else
-                                        <div class="msg-reply">
-                                            {{$m->reply}}
                                         </div>
-                                        @endif
+                                        <div class="col-md-8 offset-md-4">
+                                            @if ($m->reply == '')
+                                                <div class="alert alert-danger" role="alert">
+                                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
+                                                </div>
+                                            @else
+                                                <div class="msg-reply">
+                                                    {{ $m->reply }}
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
 
                                     {{-- <div class="one-msg row">
                                         <div class="col-md-6">
-                                            Message #<?php echo $i;  $i++; ?> :
+                                            Message #<?php echo $i;
+                                            $i++; ?> :
                                             <div class="msg-content">
                                                 {{$m->message}}
                                             </div>

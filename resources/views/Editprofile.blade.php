@@ -114,7 +114,7 @@
                                     <label for="birthday"
                                         class="form-label
                                 profile_label_style">Birthday</label>
-                                    <input class=" form-control" type="date" value="{{ $patient->pat_DOF }}"
+                                    <input class=" form-control "  type="date" value="{{ $patient->pat_DOF }}"
                                         name="birthday" id="birthday"
                                         aria-label="default input
                                 example"

@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
@@ -23,7 +22,6 @@
                                     <th>Age</th>
                                     <th>Phone Number</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>Edit</th>
                                     <th>Del</th>
                                 </tr>
@@ -36,7 +34,6 @@
                                         <td><?php echo e($doc->doc_age); ?></td>
                                         <td><?php echo e($doc->doc_phone); ?></td>
                                         <td><?php echo e($doc->doc_email); ?></td>
-                                        <td><?php echo e($doc->doc_pass); ?></td>
                                         <td class="report-icon">
                                             <a href="/admin_doc_data_update/<?php echo e($doc->doc_id); ?>"><i class="edit-icon fa-solid fa-pen-to-square"></i></a>
                                         </td>
