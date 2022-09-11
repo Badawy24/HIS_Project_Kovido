@@ -124,11 +124,14 @@ use Illuminate\Support\Facades\DB;
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active"><?php
+                        <a @class(['active' => Request::is('doc_profile'), 'nav-link' => true]) href="/doc_profile"><?php
                         $id = Session::get('doc_user_id');
                         $doc = DB::select('select doc_fname, doc_lname from doctor where doc_id = ?', [$id]);
                         ?>{{ 'D/ ' . $doc[0]->doc_fname . ' ' . $doc[0]->doc_lname }}
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class(['active' => Request::is('doc_profile_msg'), 'nav-link' => true]) class="nav-link" href="/doc_profile_msg">Message</a>
                     </li>
 
                     <li class="nav-item ">

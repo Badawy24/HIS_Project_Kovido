@@ -225,6 +225,9 @@ Route::group(['middleware' => 'loginmiddle'], function () {
 Route::group(['middleware' => 'loginmiddle'], function () {
     /* Start Profile Doctor*/
     Route::get('/doc_profile', [docProfileController::class, 'docProfile']);
+    Route::get('/doc_profile_msg', [docProfileController::class, 'doc_profile_msg']);
+    Route::get('/edit_profile_doc', [docProfileController::class, 'get_edit_profile_data']);
+    Route::post('/edit_profile_doc', [docProfileController::class, 'edit_profile_doc_data']);
     /* End Profile Doctor*/
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

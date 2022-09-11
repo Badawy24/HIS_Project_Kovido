@@ -3,16 +3,15 @@ use Illuminate\Support\Facades\DB;
 ?>
 
 <?php $__env->startSection('content'); ?>
-<?php $doc = DB::select('select * from doctor where doc_id = ?', [session('doc_user_id')]) ?>
 <div class="profile-page">
     <div class="container">
         <h2 class="head-cards h1 py-5 text-center">Welcome <span class="user-name">
-                    <?php echo e($doc[0]->doc_fname); ?>
+                    <?php echo e($doctor[0]->doc_fname); ?>
 
             </span> To Kovidio
 
         </h2>
-        <div class="row">
+        <div class="row pb-5">
             <div class="user-data col-md-5">
 
                 <h2 class="text-center head-cards">Personal Data</h2>
@@ -39,41 +38,41 @@ use Illuminate\Support\Facades\DB;
                 <div class="real-data">
                     <h5>First Name :</h5>
                     <span class="h5">
-                            <?php echo e($doc[0]->doc_fname); ?>
+                            <?php echo e($doctor[0]->doc_fname); ?>
 
                     </span>
                 </div>
                 <div class="real-data">
                     <h5>Last Name :</h5>
                     <span class="h5">
-                            <?php echo e($doc[0]->doc_lname); ?>
+                            <?php echo e($doctor[0]->doc_lname); ?>
 
                     </span>
                 </div>
                 <div class="real-data">
                     <h5>Email :</h5>
                     <span class="h5">
-                            <?php echo e($doc[0]->doc_email); ?>
+                            <?php echo e($doctor[0]->doc_email); ?>
 
                     </span>
                 </div>
                 <div class="real-data">
                     <h5>Phone :</h5>
                     <span class="h5">
-                            <?php echo e($doc[0]->doc_phone); ?>
+                            <?php echo e($doctor[0]->doc_phone); ?>
 
                     </span>
                 </div>
                 <div class="real-data">
                     <h5>Age :</h5>
                     <span class="h5">
-                            <?php echo e($doc[0]->doc_age); ?>
+                            <?php echo e($doctor[0]->doc_age); ?>
 
                     </span>
                 </div>
                 <div class="text-center">
                     <div class="card-body d-inline-block">
-                        <a href="#" class="card-btn btn btn-front btn-primary btn-pro mb-3 py-2">Edit
+                        <a href="/edit_profile_doc" class="card-btn btn btn-front btn-primary btn-pro mb-3 py-2">Edit
                             Your
                             Profile</a>
                     </div>
