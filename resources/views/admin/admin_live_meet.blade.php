@@ -3,11 +3,11 @@
     <div class="doc-data">
         <div class="container">
             @if (Session::has('success'))
-            <div class="alert alert-success"><span class="closebtn">×</span>{{ Session::get('success') }}</div>
+                <div class="alert alert-success"><span class="closebtn">×</span>{{ Session::get('success') }}</div>
             @endif
 
             @if (Session::has('fail'))
-            <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
+                <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
             @endif
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -64,15 +64,16 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                         <div class="col-md-12 ">
                                                             <label for="">Meeting Date</label>
                                                             <input class="form-control" name="meet_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
-                                                                value="{{ old('meet_date') }}">
+                                                                value="{{ old('meet_date') }}" min="<?php echo date('Y-m-d'); ?>">
                                                             @error('meet_date')
-                                                                <div class="alert alert-danger d-flex align-items-center"
+                                                                <div class="alert
+                                                                alert-danger d-flex align-items-center"
                                                                     role="alert">
                                                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                                                     <div> {{ $message }} </div>

@@ -63,16 +63,18 @@ class ForgetPassController extends Controller
     public function ResetPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
             'password_confirmation' => 'required_with:password|same:password',
             'code' => 'required',
         ]);
+        $password = Hash::make($request->password);
         if (Hash::check($request->code, $request->hash_num)) {
-            DB::update('update patient set patient_password = ? where pat_email = ?', [$request->password, $request->email]);
+            DB::update('update patient set patient_password = ? where pat_email = ?', [$password, $request->email]);
             return redirect('/login')->with('updated', 'Password Changed Successfuly You Can Login Now');
         } else {
-            return view('forget-send-mail')->with('error', 'Check Code In Your Email!');
+            // return view('forget-send-mail')->with('invaild', 'Code Is Invalid!');
+            return redirect('/forgetPassword')->with('codeinvaild', 'Code Is Invalid!');
         }
     }
 }

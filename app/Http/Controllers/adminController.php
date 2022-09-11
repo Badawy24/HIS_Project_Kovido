@@ -343,17 +343,18 @@ class adminController extends Controller
         $request->validate([
             'pat_fname' => 'required',
             'pat_lname' => 'required',
-            'pat_SSN' => 'required',
-            'p_pass' => 'required',
+            'pat_SSN' => 'required|size:14',
+            'p_pass' => 'required|min:8',
             'pat_email' => 'required|email|unique:patient',
             'password_confirmation' => 'required_with:p_pass|same:p_pass',
             'pat_address' => 'required',
-            'pat_phone' => 'required',
+            'pat_phone' => 'required|size:11',
             'pat_DOF' => 'required',
         ]);
         // return dd('aloo');
 
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+        $password = Hash::make($request->p_pass);
 
         $user = DB::insert(
             'insert into patient(
@@ -372,7 +373,7 @@ class adminController extends Controller
                 $request->pat_lname,
                 $request->pat_SSN,
                 $request->pat_email,
-                $request->p_pass,
+                $password,
                 $request->pat_address,
                 $request->pat_phone,
                 $age,

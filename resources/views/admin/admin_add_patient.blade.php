@@ -117,13 +117,18 @@
     @enderror
 
     </div> --}}
+        <?php
+        $dateBrith = date_create(date('Y-m-d'));
+        date_sub($dateBrith, date_interval_create_from_date_string('15 years'));
+        ?>
         <div class="col-lg-12">
             <label class="head-fog">Birth Of Date</label>
             <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF" id="BOD"
-                value="{{ old('pat_BOF') }}" aria-label="default input example">
+                value="{{ old('pat_DOF') }}" aria-label="default input example" max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
 
-            @error('pat_BOF')
-                <div class="alert alert-danger d-flex align-items-center" role="alert">
+            @error('pat_DOF')
+                <div class="alert alert-danger d-flex
+                align-items-center" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <div> {{ $message }} </div>
                 </div>

@@ -126,39 +126,40 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-md-center">
-                    <div class="col-md-8">
-                        <div class="msg-content">
-                            <h4>You have Sent #<?php
+                <div class="row justify-content-md-center msg-rep">
+                    <div class="col-md-8 ">
+                        <div class="msg-content msgs-box">
+                            <h3>You have Sent <?php
                             $pat_id = $patients[0]->pat_id;
                             $msgs = DB::select('select * from doc_pat where pat_id = ?', [$pat_id]);
                             echo count($msgs);
                             $i = 1;
-                            ?> Messages : </h4>
+                            ?> Messages : </h3>
                             <div class="all-msgs">
                                 <?php $__currentLoopData = $msgs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $m): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <div class="one-msg row">
-                                        <div class="col-md-6">
-                                            Message #<?php echo $i;  $i++; ?> :
-                                            <div class="msg-content">
-                                                <?php echo e($m->message); ?>
+                                <div class="one-msg row">
+                                    <div class="col-md-8">
+                                        <div class="msg-content">
+                                            <span>Message #<?php echo $i;  $i++; ?> :</span>
+                                            <?php echo e($m->message); ?>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 icon">
-                                            Doctor Reply :
-                                            <?php if($m->reply == ''): ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                    A simple danger alert—check it out!
-                                                </div>
-                                            <?php else: ?>
-                                            <div class="msg-reply">
-                                                <?php echo e($m->reply); ?>
-
-                                            </div>
-                                            <?php endif; ?>
                                         </div>
                                     </div>
+                                    <div class="col-md-8 offset-md-4">
+                                        <?php if($m->reply == ''): ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
+                                            </div>
+                                        <?php else: ?>
+                                        <div class="msg-reply">
+                                            <?php echo e($m->reply); ?>
+
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                                    
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>

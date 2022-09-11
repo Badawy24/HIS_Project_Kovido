@@ -115,7 +115,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-lg-6">
                                 <input class=" form-control" type="date" name="dose_date" id="dose_date"
-                                    aria-label="default input example">
+                                    aria-label="default input example " min="<?php echo date('Y-m-d'); ?>">
                                 <?php $__errorArgs = ['dose_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

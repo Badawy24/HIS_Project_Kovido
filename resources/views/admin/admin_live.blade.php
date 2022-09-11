@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\DB;
     <div class="doc-data">
         <div class="container">
             @if (Session::has('success'))
-            <div class="alert alert-success"><span class="closebtn">×</span>{{ Session::get('success') }}</div>
+                <div class="alert alert-success"><span class="closebtn">×</span>{{ Session::get('success') }}</div>
             @endif
 
             @if (Session::has('fail'))
-            <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
+                <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
             @endif
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -104,7 +104,7 @@ use Illuminate\Support\Facades\DB;
                                                             <input class="form-control" name="con_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
-                                                                value="{{ old('col_date') }}">
+                                                                value="{{ old('col_date') }}" min="<?php echo date('Y-m-d'); ?>">
                                                             @error('con_date')
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">

@@ -22,10 +22,7 @@
                                     @foreach ($tests_list as $test)
                                         <option value="{{ $test->test_name }}">{{ $test->test_name }}</option>
                                     @endforeach
-                                    <!-- <option value="RT-PCR">RT-PCR</option>
-                                                                                                        <option value="Antigen">Antigen</option>
-                                                                                                        <option value="X-ray">X-ray</option>
-                                                                                                        <option value="CBC">CBC</option> -->
+
                                 </select>
                                 @error('test')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -34,7 +31,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            
+
 
                             <div class="col-md-12">
                                 <label class="card-text">Choose Health Care Center</label>
@@ -43,11 +40,7 @@
                                     @foreach ($hc_list as $hc)
                                         <option value="{{ $hc->hc_name }}">{{ $hc->hc_name }}</option>
                                     @endforeach
-                                    <!-- <option selected disabled> Choose Health Care Center </option> -->
-                                    <!-- <option value="benha">benha</option>
-                                                                                                        <option value="tanta">tanta</option>
-                                                                                                        <option value="giza">giza</option>
-                                                                                                        <option value="cairo hcc">cairo hcc</option> -->
+
                                 </select>
                                 @error('health_cc')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -60,7 +53,8 @@
                             <div class="col-lg-12">
                                 <label class="card-text">Date</label>
                                 <input class="inp-form form-control" type="date" placeholder="test_date" name="test_date"
-                                    id="test_date" aria-label="default input example" value="{{ old('test_date') }}">
+                                    id="test_date" aria-label="default input example" value="{{ old('test_date') }}"
+                                    min="<?php echo date('Y-m-d'); ?>">
                                 @error('test_date')
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                                         <i class="fa-solid fa-triangle-exclamation"></i>

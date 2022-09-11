@@ -48,7 +48,6 @@ Route::get('/forgetPassword', function () {
 Route::post('/forgetsend', [ForgetPassController::class, 'forgetSendMail']);
 Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
 Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
-Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
 /*End Forget Password Routes */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

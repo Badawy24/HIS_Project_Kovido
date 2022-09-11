@@ -22,7 +22,7 @@
                 @endif
                 <div class="row">
                     <div class="col-md-6 update-inp">
-                    <label for="pat_name">Patient Name </label>
+                        <label for="pat_name">Patient Name </label>
                         <input class="form-control" name="pat_name" type="text" aria-label="default input example"
                             value="{{ $pat->pat_fname . ' ' . $pat->pat_lname }}" disabled>
                         @error('pat_name')
@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_phone">Phone num </label>
+                        <label for="pat_phone">Phone num </label>
                         <input class="form-control" name="pat_phone" type="text" aria-label="default input example"
                             value="{{ $pat->pat_phone }}">
                         @error('pat_phone')
@@ -44,7 +44,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_email">Email </label>
+                        <label for="pat_email">Email </label>
                         <input class="form-control" name="pat_email" type="text" aria-label="default input example"
                             value="{{ $pat->pat_email }}">
                         @error('pat_email')
@@ -55,7 +55,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_address">Address </label>
+                        <label for="pat_address">Address </label>
                         <input class="form-control" name="pat_address" type="text" aria-label="default input example"
                             value="{{ $pat->pat_address }}">
                         @error('pat_address')
@@ -66,7 +66,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_SSN">SSN </label>
+                        <label for="pat_SSN">SSN </label>
                         <input disabled class="form-control" name="pat_SSN" type="text"
                             aria-label="default input example" value="{{ $pat->pat_SSN }}">
                         @error('pat_SSN')
@@ -77,9 +77,13 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_DOF">Date Of Birth </label>
+                        <?php
+                        $dateBrith = date_create(date('Y-m-d'));
+                        date_sub($dateBrith, date_interval_create_from_date_string('15 years'));
+                        ?>
+                        <label for="pat_DOF">Date Of Birth </label>
                         <input class="form-control" name="pat_DOF" type="date" placeholder="pat_DOF"
-                            aria-label="default input example" value="{{ $pat->pat_DOF }}">
+                            aria-label="default input example" value="{{ $pat->pat_DOF }}" max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
                         @error('pat_DOF')
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -88,7 +92,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="pat_age">Age </label>
+                        <label for="pat_age">Age </label>
                         <input class="form-control" name="pat_age" type="text" aria-label="default input example"
                             disabled value="{{ $pat->pat_age }}">
                         @error('pat_age')
