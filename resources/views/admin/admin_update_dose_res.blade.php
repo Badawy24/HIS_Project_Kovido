@@ -24,7 +24,7 @@
                     
                     <input type="hidden" value="{{ $dose_data->pat_id }}" name="pat_id">
                     <div class="col-md-6 update-inp">
-                    <label for="patient_name">Patient_Name </label>
+                    <label for="patient_name">Patient Name </label>
                         <input class="form-control" name="patient_name" type="text" aria-label="default input example"
                             value="{{ $dose_data->pat_fname . ' ' . $dose_data->pat_lname }}" disabled>
                         @error('patient_name')
@@ -35,7 +35,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
-                    <label for="dose_name">Dose_Name </label>
+                    <label for="dose_name">Dose Name </label>
                         <select class="form-select" aria-label="Default select example" name="dose_name">
                             <option selected hidden value="{{ $dose_data->dose_id }}">{{ $dose_data->vaccine_name }}
                             </option>

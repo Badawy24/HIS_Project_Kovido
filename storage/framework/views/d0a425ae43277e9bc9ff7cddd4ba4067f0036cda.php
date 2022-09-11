@@ -3,7 +3,7 @@
 <div class="main-div-login">
     <div class="container">
         <div class="row">
-        <h6 style="text-align: center;">Here, you can add a petient</h6>
+        <h6 style="text-align: center;">Here, you can add a New Test to the System </h6>
         <hr>
             <div class="register-form">
                 <!-- ////////////// -->
