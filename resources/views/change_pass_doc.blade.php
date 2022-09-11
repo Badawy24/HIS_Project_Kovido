@@ -39,7 +39,7 @@
                                 <div>{{ $message }} </div>
                             </div>
                         @enderror
-                        <input type="submit" class="btn-front card-btn btn btn-primary mb-3 py-2" name="submit" value="Reset Password">
+                        <input type="submit" class="reset-pass btn-front card-btn btn btn-primary mb-3 py-2" name="submit" value="Reset Password">
                     </div>
                 </div>
             </form>

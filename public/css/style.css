@@ -729,3 +729,19 @@ table.display td {
     margin-top: 50px
 }
 
+
+.inp-form {
+    display: block !important;
+    margin-bottom: 25px !important;
+    font-size: 20px !important;
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.reset-pass {
+    font-weight: bold !important;
+    font-size: 18px;
+    background-color: #003971 !important;
+    color: #fff !important;
+    margin: 10px auto;
+}

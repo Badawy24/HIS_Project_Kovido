@@ -16,9 +16,9 @@
                                 <div>
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     &nbsp;
-                                    <?php echo e(Session::get('error')); ?> <span class="closebtn">×</span>
+                                    <?php echo e(Session::get('error')); ?> 
                                 </div>
-                                
+                                <span class="closebtn">×</span>
                             </div>
                             
                         <?php endif; ?>
@@ -27,9 +27,9 @@
                                 <i class="fa-regular fa-circle-check"></i>
                                 &nbsp;
                                 <div>
-                                    <?php echo e(Session::get('success')); ?> <span class="closebtn">×</span>
+                                    <?php echo e(Session::get('success')); ?> 
                                 </div>
-                                
+                                <span class="closebtn">×</span>
                             </div>
                         <?php endif; ?>
                         <form action="/edit_profile_doc" method="POST">
