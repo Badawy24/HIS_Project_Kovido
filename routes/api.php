@@ -8,6 +8,7 @@ use App\Mail\DoctortContact;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 
 use function GuzzleHttp\Promise\queue;
 
@@ -74,40 +75,56 @@ Route::post('/login', function (Request $request) {
     $email = $request->email;
     $password = $request->password;
 
-    // search for patient in DB
-    $result = DB::select(
-        'select * from patient where pat_email = ? and patient_password = ?',
-        [$email, $password]
-    );
+    // $password = $request->password;
 
-    $doctorResult = DB::select('select * from doctor where doc_email = ? and doc_pass = ?', [$email, $password]);
+    // search for patient in DB
+    // $result = DB::select(
+    //     'select * from patient where pat_email = ?',
+    //     [$email]
+    // )[0]->patient_password;
+
+
+
+    $users = DB::select('select * from patient where pat_email = ?', [$email]);
+
+    $doc_users = DB::select('select * from doctor where doc_email = ?', [$email]);
+
 
 
     // if patient exist [correct email and password ]
-    if ($result) {
+    if ($users) {
         // because the result is a list of only one element, we store that element in patient variable
-        $patient = $result[0];
-
-        // create new token for patient
-        $token = MyTokenManager::createPatientToken($patient->pat_id);
-
-
+        if(Hash::check($password, $users[0]->patient_password)){
+            $token = MyTokenManager::createPatientToken($users[0]->pat_id);
 
         // return token like  [3|dkjfbvjfkbvdfkjbv89yrhfb]
-        return [
-            'msg' => 'logged In successfully',
-            'user' => 'patient',
-            'token' => $token,
-        ];
-    } else if ($doctorResult) {
-        $doctor = $doctorResult[0];
-        $doctorToken = DoctorsTokenManager::createDoctorToken($doctor->doc_id);
+            return [
+                'msg' => 'logged In successfully',
+                'user' => 'patient',
+                'token' => $token,
+            ];
+        }
+        else {
+            return [
+                'error' => 'wrong email or password'
+            ];
+        }
+        // create new token for patient
 
-        return [
-            'msg' => 'Logged In successfully',
-            'user' => 'doctor',
-            'token' => $doctorToken,
-        ];
+    } else if ($doc_users) {
+        if (Hash::check($request->password, $doc_users[0]->doc_pass)) {
+            $doctorToken = DoctorsTokenManager::createDoctorToken($doc_users[0]->doc_id);
+
+            return [
+                'msg' => 'Logged In successfully',
+                'user' => 'doctor',
+                'token' => $doctorToken,
+            ];
+        } else {
+            return [
+                'error' => 'wrong email or password'
+            ];
+        }
     }
     // if patient does not exist [0 rows returned]
     else {
@@ -115,6 +132,7 @@ Route::post('/login', function (Request $request) {
             'error' => 'wrong email or password'
         ];
     }
+
 });
 
 
@@ -538,14 +556,95 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         return response($messagesData, 200);
     });
 
-    Route::post('/meeting-with-doctor',function(Request $request){
+    Route::post('/meeting-with-doctor', function (Request $request) {
         // patient Id
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
 
-        // 
+        // data from form
+        $con_title = $request->con_title;
+        $con_date = $request->con_date;
+        $con_meet_id = $request->con_meet_id;
+        $patient_id = $patientId;
+        $doc_fname = $request->doc_fname;
+        $doc_lname = $request->doc_lname;
+        $con_desc = $request->con_desc;
+
+        $doctorId = DB::select(
+            "select doc_id
+        from doctor where doc_fname = ?
+        and doc_lname = ?",
+            [$doc_fname, $doc_lname]
+        )[0]->doc_id;
 
 
+        $result = DB::insert("insert into pat_consultation(
+            con_title,
+            con_date,
+            con_meet_id,
+            pat_id,
+            doc_id,
+            con_desc,
+            con_time)
+            values(?,?,?,?,?,?,?)", [
+            $con_title,
+            $con_date,
+            $con_meet_id,
+            $patient_id,
+            $doctorId,
+            $con_desc,
+            '20:00',
+        ]);
+
+
+        if ($result) {
+            return [
+                'msg' => 'successfully'
+            ];
+        } else {
+            return [
+                'msg' => 'failed'
+            ];
+        }
     });
+
+    Route::get('/patient-consultation', function (Request $request) {
+        // patient Id
+        $patientId = MyTokenManager::currentPatient($request)->pat_id;
+
+        $result = DB::select("
+        select con_title,
+        con_date,
+        con_meet_id,
+        doctor.doc_id,
+        con_desc,
+        doc_fname,doc_lname,doc_email
+        from pat_consultation,doctor
+        where pat_consultation.doc_id = doctor.doc_id and
+        pat_id = ?", [$patientId]);
+
+        // declare $data array
+        $meetings = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ($result as $childCat) {
+            $meetings[] =
+                [
+                    'con_title' =>  $childCat->con_title,
+                    'con_date' =>  $childCat->con_date,
+                    'con_meet_id' =>  $childCat->con_meet_id,
+                    'con_desc' =>  $childCat->con_desc,
+                    'doc_fname' => $childCat->doc_fname,
+                    'doc_lname' => $childCat->doc_lname,
+                    'doc_email' => $childCat->doc_email,
+                ];
+        }
+        // retrieve json object -> $data in not in [] because it is already an array
+        return response($meetings, 200);
+    });
+
+
+
+
     //  end of middleware group
 });
 
@@ -620,6 +719,45 @@ Route::group(['middleware' => 'DoctorAuthAPI'], function () {
             'msg' => 'doctor, loggout successfully'
         ];
     });
+
+
+    Route::get('/doctor_consultation', function (Request $request) {
+        // get doctor_id to search for his patient's messages
+        $doctor_id = DoctorsTokenManager::currentDoctor($request)->doc_id;
+
+        $result = DB::select("
+        select con_title,
+        con_date,
+        con_meet_id,
+        patient.pat_id,
+		doc_id,
+        con_desc,
+        pat_fname,pat_lname,pat_age,pat_email
+        from pat_consultation,patient
+        where pat_consultation.pat_id = patient.pat_id and
+        pat_consultation.doc_id = ?
+        ",[$doctor_id]);
+
+        // declare $data array
+        $meetings = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ($result as $childCat) {
+            $meetings[] =
+                [
+                    'con_title' =>  $childCat->con_title,
+                    'con_date' =>  $childCat->con_date,
+                    'con_meet_id' =>  $childCat->con_meet_id,
+                    'con_desc' =>  $childCat->con_desc,
+                    'pat_fname' => $childCat->pat_fname,
+                    'pat_lname' => $childCat->pat_lname,
+                    'pat_age' => $childCat->pat_age,
+                    'pat_email'=> $childCat->pat_email,
+                ];
+        }
+        // retrieve json object -> $data in not in [] because it is already an array
+        return response($meetings, 200);
+    });
 });
 
 //                                              [tested and documented]
@@ -668,7 +806,7 @@ Route::get('/available-vaccines-no-middleware', function () {
     return response($data, 200);
 });
 
- // get available doctors                    [tested and documented]
+// get available doctors                    [tested and documented]
 Route::get('/available-doctors', function () {
     $result = DB::select('select * from doctor');
     // declare $data array
