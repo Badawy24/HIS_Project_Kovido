@@ -38,6 +38,8 @@ Route::post('/register', function (Request $request) {
     $patient_SSN = $request->patient_SSN;
     $patient_password = $request->patient_password;
 
+    $password = Hash::make($patient_password);
+
     // check if SSN or email exist
     $query = DB::select(
         'select pat_id from patient where pat_SSN = ? or pat_email = ?',
@@ -53,7 +55,7 @@ Route::post('/register', function (Request $request) {
     $result = DB::insert('insert into patient (pat_fname,pat_lname,pat_age,pat_address,pat_phone,pat_email,pat_DOF,pat_SSN,patient_password)
     VALUES (?,?,?,?,?,?,?,?,?)', [
         $patient_first_name, $patinet_last_name, $patinet_age, $patinet_address, $patient_phone, $patient_email,
-        $patient_date_of_birth, $patient_SSN, $patient_password
+        $patient_date_of_birth, $patient_SSN, $password
     ]);
 
     if ($result) {
@@ -564,7 +566,6 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         $con_title = $request->con_title;
         $con_date = $request->con_date;
         $con_meet_id = $request->con_meet_id;
-        $patient_id = $patientId;
         $doc_fname = $request->doc_fname;
         $doc_lname = $request->doc_lname;
         $con_desc = $request->con_desc;
@@ -589,7 +590,7 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
             $con_title,
             $con_date,
             $con_meet_id,
-            $patient_id,
+            $patientId,
             $doctorId,
             $con_desc,
             '20:00',
