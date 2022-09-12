@@ -91,7 +91,7 @@
                                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="/live" class="btn-front card-btn btn btn-primary mb-3 py-2">Book
+                                            <a href="/live_con" class="btn-front card-btn btn btn-primary mb-3 py-2">Book
                                                 Now</a>
                                         </div>
                                     </div>

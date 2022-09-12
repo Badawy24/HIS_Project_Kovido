@@ -11,6 +11,7 @@ use App\Http\Controllers\TestFormController;
 use App\Http\Controllers\MyTestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\docProfileController;
+use App\Http\Controllers\LiveController;
 //use App\Http\Controllers\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -209,6 +210,13 @@ Route::group(['middleware' => 'loginmiddle'], function () {
         return view('contact_doc')->with('doc_names', $doc_name);
     });
     Route::post('/sendDoc', [ContactDocController::class, 'sendDoc'])->name('sendDoc.email');
+    /* End Contact Routes */
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /* Start Live Routes */
+    Route::get('/live_con', [LiveController::class, 'showAvilableAppo']);
+    Route::get('/confirm_con/{doc_id}', [LiveController::class, 'confirm_con']);
     /* End Contact Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
