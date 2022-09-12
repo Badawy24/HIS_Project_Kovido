@@ -538,6 +538,14 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         return response($messagesData, 200);
     });
 
+    Route::post('/',function(Request $request){
+        // patient Id
+        $patientId = MyTokenManager::currentPatient($request)->pat_id;
+
+        // 
+
+
+    });
     //  end of middleware group
 });
 
@@ -632,13 +640,6 @@ Route::post('/send-reset-email', function (Request $request) {
         'msg' => 'Email sent Successfully'
     ];
 });
-
-
-
-
-
-
-
 
 
 // ********************* GLOBAL ****************************** //
