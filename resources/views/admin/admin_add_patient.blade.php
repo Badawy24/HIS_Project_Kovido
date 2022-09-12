@@ -4,7 +4,7 @@
     <form action="admin_add_patient" method="post" class="row" id="admin_patient">
         @if (session('a_i_msg'))
             <div class="alert alert-success">Patient added successfully</div>
-        @else
+        @elseif (session('a_r_msg'))
             <div class="alert alert-danger">The operation is unsuccessful</div>
         @endif
 

@@ -217,6 +217,7 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     /* Start Live Routes */
     Route::get('/live_con', [LiveController::class, 'showAvilableAppo']);
     Route::get('/confirm_con/{doc_id}', [LiveController::class, 'confirm_con']);
+    Route::post('/confirmLive', [LiveController::class, 'confirmLive']);
     /* End Contact Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

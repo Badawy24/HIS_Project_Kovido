@@ -177,7 +177,7 @@ use Illuminate\Support\Facades\DB;
                                     <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
-                                    <th>Duration</th>
+                                    <th>Meeting ID</th>
                                     <th>patient Name</th>
                                     <th>Doctor Name</th>
                                     <th>Edit</th>
@@ -192,7 +192,7 @@ use Illuminate\Support\Facades\DB;
                                         <td>{{ $con->con_desc }}</td>
                                         <td>{{ $con->con_date }}</td>
                                         <td>{{ $con->con_time }}</td>
-                                        <td>{{ $con->con_duration }}</td>
+                                        <td>{{ $con->con_meet_id }}</td>
                                         <td>{{ $con->pat_fname . ' ' . $con->pat_lname }}</td>
                                         <td>{{ $con->doc_fname . ' ' . $con->doc_lname }}</td>
                                         <td class="report-icon">

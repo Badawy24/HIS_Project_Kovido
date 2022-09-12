@@ -391,7 +391,7 @@ class adminController extends Controller
 
             return redirect()->back()->with('a_i_msg', true);
         } else {
-            return redirect()->back()->with('a_i_msg', false);
+            return redirect()->back()->with('a_r_msg', true);
         }
     }
 

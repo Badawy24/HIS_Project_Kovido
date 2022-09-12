@@ -538,7 +538,7 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         return response($messagesData, 200);
     });
 
-    Route::post('/',function(Request $request){
+    Route::post('/meeting-with-doctor',function(Request $request){
         // patient Id
         $patientId = MyTokenManager::currentPatient($request)->pat_id;
 
