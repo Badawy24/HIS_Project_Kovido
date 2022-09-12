@@ -387,4 +387,55 @@ tbody tr:nth-child(even) {
     margin-top: 15px;
 }
 
+.test_names
+{
+    box-shadow : 5px 5px 20px rgba(0,0,0,.2) !important ;
+    border-radius: 5px;
+    padding: 20px;
+
+}
 /* admin_add_test end */
+
+.con_add input, .con_add select, .con_add textarea{
+    margin-bottom: 10px;
+}
+/* .con_add_btn{text-align: right;} */
+.con_add_btn button,  .con_add_btn button:hover{
+    background-color: rgb(188, 73, 73);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgb(188 73 73 / 50%);
+}
+.con_add_btn  .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #BC4949;
+    border-color: none;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #BC4949;
+    border-color: none;
+    box-shadow: 0 0 0 0.25rem rgb(188 73 73 / 50%);
+}
+
+/* dash bord style */
+.main-data {margin-right:20px ;}
+.main-data .data {
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    color: #555;
+    margin-bottom: 20px;
+}
+.main-data .data i {
+    font-size:35px;
+    position: absolute;
+    right: 15px;
+    top: 30%;
+}

@@ -21,8 +21,10 @@
                     <div class="alert alert-danger">{{ Session::get('fail') }}</div>
                 @endif
                 <div class="row">
+
                     <input type="hidden" value="{{ $dose_data->pat_id }}" name="pat_id">
                     <div class="col-md-6 update-inp">
+                    <label for="patient_name">Patient Name </label>
                         <input class="form-control" name="patient_name" type="text" aria-label="default input example"
                             value="{{ $dose_data->pat_fname . ' ' . $dose_data->pat_lname }}" disabled>
                         @error('patient_name')
@@ -33,6 +35,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="dose_name">Dose Name </label>
                         <select class="form-select" aria-label="Default select example" name="dose_name">
                             <option selected hidden value="{{ $dose_data->dose_id }}">{{ $dose_data->vaccine_name }}
                             </option>
@@ -48,8 +51,10 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
+                        <label for="first_dose">First Dose Date </label>
                         <input class="form-control" name="first_dose" type="date" placeholder="first_dose"
-                            aria-label="default input example" value="{{ $dose_data->pat_dose_date }}">
+                            aria-label="default input example" value="{{ $dose_data->pat_dose_date }}"
+                            min="<?php echo date('Y-m-d'); ?>">
                         @error('first_dose')
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -58,6 +63,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
+                        <label for="time_dose">Dose Time</label>
                         <input class="form-control" name="time_dose" type="time" placeholder="time_dose"
                             aria-label="default input example" value="{{ $dose_data->pat_dose_time }}">
                         @error('time_dose')
@@ -68,6 +74,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
+                        <label for="second_dose">Second Dose Date </label>
                         <input class="form-control" name="second_dose" type="date" placeholder="second_dose"
                             aria-label="default input example"
                             value="{{ date('Y-m-d', strtotime($dose_data->pat_dose_date . '+ 14 days')) }}" disabled>
@@ -79,6 +86,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6 update-inp">
+                        <label for="hc_name">Health Care Center </label>
                         <select class="form-select" aria-label="Default select example" name="hc_name">
                             <option selected hidden value="{{ $dose_data->hc_id }}">{{ $dose_data->hc_name }}</option>
                             @foreach ($hecs as $hec)

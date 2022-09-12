@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Facades\Crypt;
+?>
 @extends('admin.admin-dashbord-temp')
 @section('content')
 <div class="form-doc-update">
@@ -22,6 +25,7 @@
             @endif
             <div class="row">
                 <div class="col-md-6 update-inp">
+                    <label>Doctor Name </label>
                     <input class="form-control" name="doc_name" type="text" aria-label="default input example"
                         value="{{ $doctor->doc_fname . ' ' . $doctor->doc_lname }}" disabled>
                     @error('doc_name')
@@ -32,6 +36,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 update-inp">
+                    <label>Phone Number </label>
                     <input class="form-control" name="doc_phone" type="text" aria-label="default input example"
                         value="{{ $doctor->doc_phone }}">
                     @error('doc_phone')
@@ -42,6 +47,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 update-inp">
+                    <label>Email </label>
                     <input class="form-control" name="doc_email" type="text" aria-label="default input example"
                         value="{{ $doctor->doc_email }}">
                     @error('doc_email')
@@ -52,6 +58,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 update-inp">
+                    <label>password </label>
                     <input class="form-control" name="doc_pass" type="text" aria-label="default input example"
                         value="{{ $doctor->doc_pass }}">
                     @error('doc_pass')
@@ -62,6 +69,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 update-inp">
+                    <label>Age </label>
                     <input class="form-control" name="doc_age" type="text" aria-label="default input example" disabled
                         value="{{ $doctor->doc_age }}">
                     @error('doc_age')
@@ -72,6 +80,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 update-inp">
+                    <label>Gender </label>
                     <select class="form-select" aria-label="Default select example" name="doc_sex">
                         <option selected hidden value="{{ $doctor->doc_sex }}">{{ $doctor->doc_sex }}
                         </option>

@@ -21,8 +21,10 @@
                     <div class="alert alert-danger"><?php echo e(Session::get('fail')); ?></div>
                 <?php endif; ?>
                 <div class="row">
+                    
                     <input type="hidden" value="<?php echo e($dose_data->pat_id); ?>" name="pat_id">
                     <div class="col-md-6 update-inp">
+                    <label for="patient_name">Patient_Name </label>
                         <input class="form-control" name="patient_name" type="text" aria-label="default input example"
                             value="<?php echo e($dose_data->pat_fname . ' ' . $dose_data->pat_lname); ?>" disabled>
                         <?php $__errorArgs = ['patient_name'];
@@ -40,6 +42,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="dose_name">Dose_Name </label>
                         <select class="form-select" aria-label="Default select example" name="dose_name">
                             <option selected hidden value="<?php echo e($dose_data->dose_id); ?>"><?php echo e($dose_data->vaccine_name); ?>
 
@@ -63,6 +66,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="first_dose">First Dose Date </label>
                         <input class="form-control" name="first_dose" type="date" placeholder="first_dose"
                             aria-label="default input example" value="<?php echo e($dose_data->pat_dose_date); ?>">
                         <?php $__errorArgs = ['first_dose'];
@@ -80,6 +84,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="time_dose">Dose Time</label>
                         <input class="form-control" name="time_dose" type="time" placeholder="time_dose"
                             aria-label="default input example" value="<?php echo e($dose_data->pat_dose_time); ?>">
                         <?php $__errorArgs = ['time_dose'];
@@ -97,6 +102,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="second_dose">Second Dose Date </label>
                         <input class="form-control" name="second_dose" type="date" placeholder="second_dose"
                             aria-label="default input example"
                             value="<?php echo e(date('Y-m-d', strtotime($dose_data->pat_dose_date . '+ 14 days'))); ?>" disabled>
@@ -115,6 +121,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 update-inp">
+                    <label for="hc_name">Health Care Center </label>
                         <select class="form-select" aria-label="Default select example" name="hc_name">
                             <option selected hidden value="<?php echo e($dose_data->hc_id); ?>"><?php echo e($dose_data->hc_name); ?></option>
                             <?php $__currentLoopData = $hecs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

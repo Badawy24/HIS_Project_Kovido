@@ -8,6 +8,12 @@
                     <strong>Info!</strong> <?php echo e(Session::get('patient_deleted')); ?>.
                 </div>
             <?php endif; ?>
+            <?php if(session('updated')): ?>
+                <div class="alerto info">
+                    <span class="closebtn">&times;</span>
+                    <strong>Info!</strong> <?php echo e(Session::get('updated')); ?>.
+                </div>
+            <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -52,7 +58,7 @@
                                             <td> <?php echo e($patient->pat_DOF); ?> </td>
                                             <td> <?php echo e($patient->pat_age); ?> </td>
                                             <td class="report-icon">
-                                                <a href="">
+                                                <a href="/update_pat/<?php echo e($patient->pat_id); ?>">
                                                     <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                                 </a>
                                             </td>

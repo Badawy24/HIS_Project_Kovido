@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style-admin.css">
     <link rel="stylesheet" href="/css/all.min.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -31,6 +33,7 @@
         </div>
     </div>
 
+    <script src="/js/dark_light_admin.js"></script>
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/file.js"></script>

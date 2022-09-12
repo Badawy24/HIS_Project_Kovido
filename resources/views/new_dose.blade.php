@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <input class=" form-control" type="date" name="dose_date" id="dose_date"
-                                    aria-label="default input example">
+                                    aria-label="default input example " min="<?php echo date('Y-m-d'); ?>">
                                 @error('dose_date')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -107,7 +107,7 @@
                             <div class="col-lg-6">
                                 <input class=" form-control" type="time" name="dose_time" id="dose_time"
                                     aria-label="default input example">
-                                @error('doc_name')
+                                @error('dose_time')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

@@ -47,7 +47,6 @@
 
     <form action='/reset' method='post'>
         <?php echo csrf_field(); ?>
-        <h2>Nest</h2>
         <input type="hidden" name="email" value="<?php echo e(Session::get('email')); ?>">
         <input type="hidden" name="hash_num" value="<?php echo e(Session::get('hasing_num')); ?>">
         

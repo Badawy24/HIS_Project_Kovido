@@ -21,10 +21,7 @@
                                     <?php $__currentLoopData = $tests_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $test): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($test->test_name); ?>"><?php echo e($test->test_name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <!-- <option value="RT-PCR">RT-PCR</option>
-                                                                                                        <option value="Antigen">Antigen</option>
-                                                                                                        <option value="X-ray">X-ray</option>
-                                                                                                        <option value="CBC">CBC</option> -->
+
                                 </select>
                                 <?php $__errorArgs = ['test'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -41,6 +38,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
+
                             <div class="col-md-12">
                                 <label class="card-text">Choose Health Care Center</label>
                                 <select class="inp-form form-select" aria-label="Default select example" name="health_cc"
@@ -48,11 +46,7 @@ unset($__errorArgs, $__bag); ?>
                                     <?php $__currentLoopData = $hc_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($hc->hc_name); ?>"><?php echo e($hc->hc_name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <!-- <option selected disabled> Choose Health Care Center </option> -->
-                                    <!-- <option value="benha">benha</option>
-                                                                                                        <option value="tanta">tanta</option>
-                                                                                                        <option value="giza">giza</option>
-                                                                                                        <option value="cairo hcc">cairo hcc</option> -->
+
                                 </select>
                                 <?php $__errorArgs = ['health_cc'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -72,7 +66,8 @@ unset($__errorArgs, $__bag); ?>
                             <div class="col-lg-12">
                                 <label class="card-text">Date</label>
                                 <input class="inp-form form-control" type="date" placeholder="test_date" name="test_date"
-                                    id="test_date" aria-label="default input example" value="<?php echo e(old('test_date')); ?>">
+                                    id="test_date" aria-label="default input example" value="<?php echo e(old('test_date')); ?>"
+                                    min="<?php echo date('Y-m-d'); ?>">
                                 <?php $__errorArgs = ['test_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

@@ -3,7 +3,8 @@
 <div class="main-div-login">
     <div class="container">
         <div class="row">
-
+        <h6 style="text-align: center;">Here, you can add a New Test to the System </h6>
+        <hr>
             <div class="register-form">
                 <!-- ////////////// -->
                 <form action="admin_add_test_details" method="POST" class="row">
@@ -27,7 +28,7 @@
 
 
                     <div class="col-md-6">
-                        <input type="submit" class="btn btn-primary mb-3 submit " value="Add Test" name="add_test">
+                        <input type="submit" class=" update-btn  btn btn-primary mb-3 submit " value="Add Test" name="add_test">
                     </div>
 
                 </form>

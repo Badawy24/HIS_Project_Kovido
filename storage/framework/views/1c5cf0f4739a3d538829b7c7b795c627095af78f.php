@@ -1,45 +1,73 @@
-<?php 
-use Illuminate\Support\Facades\DB;
-?>
 
 <?php $__env->startSection('content'); ?>
-
-<div class="doc-data">
-    <div class="container">
-        <?php if(session('dose_data')): ?>
-        <p class="doc-btn">
-            <button class="btn btn-primary" type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Get Data Know <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
-            </button>
-        </p>
-        <div class="report collapse" id="collapseExample">
-            <div class="card card-body">
-                <div class="row">
-                    <h4 class='p-2'>There is <?php echo e(count(session('dose_data'))); ?> Dose Reservation : </h4>
-                    <p class="lead"><b>Time :</b> <?php $date = date('d-m-y h:i:s'); echo $date; ?></pclass->
-                    <?php $__currentLoopData = session('dose_data'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dose): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="doc col-12">
-                        <h5>Patient Name : <?php $name = DB::select('select * from patient where pat_id = ?',[$dose->pat_id]);
-                        echo $name[0]->pat_fname . ' ' . $name[0]->pat_lname; ?> </h5>
-                        <p class="lead"><strong>Dose Name : </strong><?php $dname = DB::select('select * from dose where dose_id = ?',[$dose->dose_id]);
-                            echo $dname[0]->vaccine_name; ?></p>
-                        <p class="lead"><strong>Date : </strong> <?php echo e($dose->pat_dose_date . ' ' . $dose->pat_dose_time); ?> </p>
-                        <p class="lead"><strong>Health Care Center Name: </strong><?php $hname = DB::select('select * from healthcare_center where hc_id = ?',[$dose->dose_patient_health]);
-                            echo $hname[0]->hc_name; ?></p>
-                        <p class="lead"><strong>Health Care Center Address: </strong><?php echo $hname[0]->hc_address; ?></p> 
+    <div class="doc-data">
+        <div class="container">
+            <p class="doc-btn">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    Get Dose Data Now <i class="fa-solid fa-arrow-turn-down fa-bounce"></i>
+                </button>
+            </p>
+            <?php if(session('dose_data')): ?>
+                <div class="report collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <p class="head">Data About <span><?php echo e(count(session('dose_data'))); ?></span> Reservation Doses in
+                            System <br />
+                            Date : <?php $date = date('d-m-y h:i:s');
+                            echo $date; ?></p>
+                        <hr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Dose Name</th>
+                                    <th>First Dose</th>
+                                    <th>Second Dose</th>
+                                    <th>Time Dose</th>
+                                    <th>Health Care Center</th>
+                                    <th>HC Address</th>
+                                    <th>Edit</th>
+                                    <th>Del</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $__currentLoopData = session('dose_data'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dose): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td><?php echo e($dose->pat_fname . ' ' . $dose->pat_lname); ?></td>
+                                        <td><?php echo e($dose->vaccine_name); ?></td>
+                                        <td><?php echo e($dose->pat_dose_date); ?></td>
+                                        <td><?php echo e(date('Y-m-d', strtotime($dose->pat_dose_date . '+ 14 days'))); ?></td>
+                                        <td><?php echo e($dose->pat_dose_time); ?></td>
+                                        <td><?php echo e($dose->hc_name); ?></td>
+                                        <td><?php echo e($dose->hc_address); ?></td>
+                                        <td class="report-icon">
+                                            <a href="/admin_dose_data_update/<?php echo e($dose->pat_id); ?>">
+                                                <i class="edit-icon fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                        </td>
+                                        <td class="report-icon">
+                                            <a href="/admin_dose_data_del/<?php echo e($dose->pat_id); ?>">
+                                                <i class="del-icon fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-            </div>
-        </div>
-        <?php endif; ?>
-        <?php if(Session::has('message')): ?>
-        <div class="alert alert-danger" role="alert">
-            <?php echo e(Session::get('message')); ?>
+            <?php else: ?>
+                <div class="no-doc collapse" id="collapseExample">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <div>
+                            <?php echo e(session('message')); ?>
 
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
     </div>
-</div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\HIS_Project_Kovido\resources\views/admin/admin_dose_data.blade.php ENDPATH**/ ?>

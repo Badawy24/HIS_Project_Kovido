@@ -11,6 +11,7 @@ use App\Http\Controllers\TestFormController;
 use App\Http\Controllers\MyTestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\docProfileController;
+use App\Http\Controllers\LiveController;
 //use App\Http\Controllers\Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,7 +48,6 @@ Route::get('/forgetPassword', function () {
 });
 Route::post('/forgetsend', [ForgetPassController::class, 'forgetSendMail']);
 Route::get('/resetpass', [ForgetPassController::class, 'showResetPassword']);
-Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
 Route::post('/reset', [ForgetPassController::class, 'ResetPassword']);
 /*End Forget Password Routes */
 
@@ -142,12 +142,14 @@ Route::group(['middleware' => 'loginmiddle'], function () {
 
     /* Start Live Consultation Route In Admin */
     Route::get('/admin_live', [adminController::class, 'admin_live']);
+    Route::post('/admin_live', [adminController::class, 'admin_add_consultation']);
     /* End Live Consultation  Route In Admin */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /* Start Live Meeting Route In Admin */
     Route::get('/admin_live_meet', [adminController::class, 'admin_live_meet']);
+    Route::post('/admin_live_meet', [adminController::class, 'admin_add_meet']);
     /* End Live Meeting Route In Admin */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,6 +169,8 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     Route::get('/profile', [ProfileController::class, 'getData']);
     Route::get('/Editprofile', [ProfileController::class, 'getEditData']);
     Route::post('/updateprofile', [ProfileController::class, 'updateprofile']);
+    Route::get('/change_pass_patient/{pat_id}', [ProfileController::class, 'change_pass_form']);
+    Route::post('/change_pass_patient/{pat_id}', [ProfileController::class, 'change_pass']);
     /* End Profile Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -209,6 +213,13 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     /* End Contact Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /* Start Live Routes */
+    Route::get('/live_con', [LiveController::class, 'showAvilableAppo']);
+    Route::get('/confirm_con/{doc_id}', [LiveController::class, 'confirm_con']);
+    /* End Contact Routes */
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 });
 /* End Login Patient Routes */
 /*=========================================================================================================================== */
@@ -222,6 +233,11 @@ Route::group(['middleware' => 'loginmiddle'], function () {
 Route::group(['middleware' => 'loginmiddle'], function () {
     /* Start Profile Doctor*/
     Route::get('/doc_profile', [docProfileController::class, 'docProfile']);
+    Route::get('/doc_profile_msg', [docProfileController::class, 'doc_profile_msg']);
+    Route::get('/edit_profile_doc', [docProfileController::class, 'get_edit_profile_data']);
+    Route::post('/edit_profile_doc', [docProfileController::class, 'edit_profile_doc_data']);
+    Route::get('/change_pass_doc', [docProfileController::class, 'change_pass_doc']);
+    Route::post('/change_pass_doc', [docProfileController::class, 'change_passDoc']);
     /* End Profile Doctor*/
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

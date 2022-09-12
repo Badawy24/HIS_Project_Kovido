@@ -182,7 +182,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
 
         </div>
-        <input type="submit" class="btn btn-primary mb-3 submit " value="Register" name="register-user">
+        <input type="submit" class="btn update-btn btn-primary mb-3 submit " value="Register" name="register-user">
     </form>
 <?php $__env->stopSection(); ?>
 

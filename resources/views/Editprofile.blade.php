@@ -106,14 +106,19 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <?php
+                                $dateBrith = date_create(date('Y-m-d'));
+                                date_sub($dateBrith, date_interval_create_from_date_string('15 years'));
+                                ?>
                                 <div class="col-lg-8">
                                     <label for="birthday"
                                         class="form-label
                                 profile_label_style">Birthday</label>
-                                    <input class=" form-control" type="date" value="{{ $patient->pat_DOF }}"
+                                    <input class=" form-control "  type="date" value="{{ $patient->pat_DOF }}"
                                         name="birthday" id="birthday"
                                         aria-label="default input
-                                example">
+                                example"
+                                        max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
                                     @error('birthday')
                                         <div class="alert alert-danger d-flex align-items-center" role="alert">
                                             <i class="fa-solid fa-triangle-exclamation"></i>

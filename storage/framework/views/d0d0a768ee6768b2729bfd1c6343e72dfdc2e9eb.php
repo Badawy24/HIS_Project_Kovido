@@ -22,41 +22,12 @@
                         </div>
 
 
-                        <div class="col-md-12">
-                            <!-- <label class="card-text">Test</label> -->
-                            <!-- <select class="inp-form form-select update_from_select" aria-label="Default select example" name="test_name"> -->
-                            <!-- <option selected disabled value="<?php echo e($my_test); ?>"> <?php echo e($my_test); ?></option>
-                                                    <?php $__currentLoopData = $tests_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $test): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <option value="<?php echo e($test->test_name); ?>"><?php echo e($test->test_name); ?></option>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
-                            <!-- <option selected disabled> Choose test </option>
-                                                    <option value="RT-PCR test">RT-PCR test</option>
-                                                    <option value="Antigen test">Antigen test</option>
-                                                    <option value="X-ray">X-ray</option>
-                                                    <option value="CBC">CBC</option>
-                                                    </select> -->
-                        </div>
-
-
-                        <div class="col-md-12">
-                            <!-- <label class="card-text">Health Care Center</label> -->
-                            <!-- <select class="form-select update_from_select" aria-label="Default select example" name="health_cc"> -->
-                            <!-- <option selected disabled value="<?php echo e($my_hcc); ?>"> <?php echo e($my_hcc); ?></option>
-                                                    <?php $__currentLoopData = $hc_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <option value="<?php echo e($hc->hc_name); ?>"><?php echo e($hc->hc_name); ?></option>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> -->
-                            <!-- <option selected disabled> Choose Health Care Center </option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                </select> -->
-                        </div>
 
                         <div class="col-md-12">
                             <label class="card-text">Date</label>
                             <input class="inp-form form-control" type="date" value="<?php echo e($my_date); ?>"
-                                placeholder="test_date" name="test_date" id="test_date" aria-label="default input example">
+                                placeholder="test_date" name="test_date" id="test_date" aria-label="default input example"
+                                min="<?php echo date('Y-m-d'); ?>">
                         </div>
 
                         <div class="col-md-12">

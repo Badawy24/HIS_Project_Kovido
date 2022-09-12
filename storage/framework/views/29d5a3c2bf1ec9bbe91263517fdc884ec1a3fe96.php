@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" />
+                <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" onclick="window.location.href = '/service';"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,12 +36,10 @@ use Illuminate\Support\Facades\DB;
             </div>
         </div>
     </nav>
-
-
 <?php elseif(Session::get('adminLogin')): ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark adm-nav">
         <div class="container">
-            <a class="navbar-brand admin-nav" href="#">
+            <a class="navbar-brand admin-nav" href="/admin-dashbord">
                 <i class="fa-solid fa-gear fa-spin"></i> Dashboard
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -57,18 +55,12 @@ use Illuminate\Support\Facades\DB;
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="/logout">Log Out</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#" id="ToggleDarkLight">Dark Mode</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     
-
-
-
 <?php elseif(Session::get('doc_Logged_In')): ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -102,7 +94,7 @@ use Illuminate\Support\Facades\DB;
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" />
+                <img id="dark-light-logo" class="logo-img" src="/images/logo/logo-dark2x.png" onclick="window.location.href = '/';"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

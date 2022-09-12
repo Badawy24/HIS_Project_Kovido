@@ -853,3 +853,96 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+
+/* message and reply style */
+.msg-rep {
+    margin-top: 50px;
+    color: #fff;
+    padding-bottom: 40px;
+}
+
+.msg-rep .msgs-box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, .2)
+}
+
+.msg-rep h3 {
+    margin-bottom: 30px
+}
+
+.msg-content span,
+.msg-reply span {
+    display: block;
+    font-weight: bold;
+}
+
+.msg-content,
+.msg-reply {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* .msg-rep .one-msg .msg-content { */
+.msg-content {
+    background-color: #CCD7E3;
+    color: #003971;
+    border-radius: 0 20px 20px 20px;
+}
+
+.msg-reply {
+    background-color: #003971;
+    color: #CCD7E3;
+    border-radius: 20px 0 20px 20px;
+}
+
+.msg-rep .one-msg:not(:last-of-type) {
+    border-bottom: 1px solid rgb(139, 139, 139);
+    margin-bottom: 20px
+}
+
+/* close btn */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
+/* change password */
+.change-pass {
+    margin-top: 50px
+}
+
+/* Live */
+.live-img {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.live-img img {
+    width: 100%;
+}
+
+.live-doc-card {
+    font-size: 16px;
+}
+
+.live-doc {
+    padding: 0px;
+}

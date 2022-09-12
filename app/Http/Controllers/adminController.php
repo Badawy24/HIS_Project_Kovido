@@ -10,6 +10,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class adminController extends Controller
 {
@@ -86,42 +88,48 @@ class adminController extends Controller
     }
     public function admin_add_doc(Request $request)
     {
-        $request->validate([
-            'f_name' => 'required',
-            'l_name' => 'required',
-            'gender' => 'required',
-            'email' => 'required|email|unique:doctor',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required_with:password|same:password',
-            'phone' => 'required|size:11',
-            'age' => 'required',
-        ]);
-
-        $doctor = DB::insert(
-            'insert into doctor(
-            doc_fname,
-            doc_lname,
-            doc_phone,
-            doc_email,
-            doc_sex,
-            doc_age,
-            doc_pass)
-            values(?,?,?,?,?,?,?)',
-            [
-                $request->f_name,
-                $request->l_name,
-                $request->phone,
-                $request->email,
-                $request->gender,
-                $request->age,
-                $request->password,
-            ]
-        );
-
-        if ($doctor) {
-            return back()->with('success', 'Doctor Added successfully');
+        $pat =  DB::select('select * from patient where pat_email = ?', [$request->email]);
+        if ($pat) {
+            return back()->with('fail', 'Email Was Registered in patient Data');
         } else {
-            return back()->with('fail', 'Something Wrong');
+            $request->validate([
+                'f_name' => 'required',
+                'l_name' => 'required',
+                'gender' => 'required',
+                'email' => 'required|email|unique:doctor',
+                'password' => 'required|min:8',
+                'password_confirmation' => 'required_with:password|same:password',
+                'phone' => 'required|size:11',
+                'age' => 'required',
+            ]);
+            $password = Hash::make($request->password);
+
+            $doctor = DB::insert(
+                'insert into doctor(
+                doc_fname,
+                doc_lname,
+                doc_phone,
+                doc_email,
+                doc_sex,
+                doc_age,
+                doc_pass)
+                values(?,?,?,?,?,?,?)',
+                [
+                    $request->f_name,
+                    $request->l_name,
+                    $request->phone,
+                    $request->email,
+                    $request->gender,
+                    $request->age,
+                    $password,
+                ]
+            );
+
+            if ($doctor) {
+                return back()->with('success', 'Doctor Added successfully');
+            } else {
+                return back()->with('fail', 'Something Wrong');
+            }
         }
     }
     public function Show_admin_doc_msg()
@@ -335,17 +343,18 @@ class adminController extends Controller
         $request->validate([
             'pat_fname' => 'required',
             'pat_lname' => 'required',
-            'pat_SSN' => 'required',
-            'p_pass' => 'required',
+            'pat_SSN' => 'required|size:14',
+            'p_pass' => 'required|min:8',
             'pat_email' => 'required|email|unique:patient',
             'password_confirmation' => 'required_with:p_pass|same:p_pass',
             'pat_address' => 'required',
-            'pat_phone' => 'required',
+            'pat_phone' => 'required|size:11',
             'pat_DOF' => 'required',
         ]);
         // return dd('aloo');
 
         $age = Carbon::parse($request->pat_DOF)->diff(Carbon::now())->y;
+        $password = Hash::make($request->p_pass);
 
         $user = DB::insert(
             'insert into patient(
@@ -364,7 +373,7 @@ class adminController extends Controller
                 $request->pat_lname,
                 $request->pat_SSN,
                 $request->pat_email,
-                $request->p_pass,
+                $password,
                 $request->pat_address,
                 $request->pat_phone,
                 $age,
@@ -717,6 +726,43 @@ class adminController extends Controller
         session(['con_data' => $con_data]);
         return view('admin.admin_live');
     }
+
+    public function admin_add_consultation(Request $request)
+    {
+        $request->validate([
+            'con_title' => 'required',
+            'pat_id' => 'required',
+            'doc_id' => 'required',
+            'con_date' => 'required',
+            'con_time' => 'required',
+            'con_duration' => 'required',
+        ]);
+        $con = DB::insert(
+            'insert into pat_consultation(
+            con_title,
+            con_date,
+            con_duration,
+            pat_id,
+            doc_id,
+            con_desc,
+            con_time)
+            values(?,?,?,?,?,?,?)',
+            [
+                $request->con_title,
+                $request->con_date,
+                $request->con_duration,
+                $request->pat_id,
+                $request->doc_id,
+                $request->con_desc,
+                $request->con_time,
+            ]
+        );
+        if ($con) {
+            return redirect('admin_live')->with('success', 'Data Added successfully');
+        } else {
+            return redirect('admin_live')->with('fail', 'Something Wrong');
+        }
+    }
     public function admin_live_meet()
     {
         $meet_data = DB::select('select meeting.*,
@@ -727,6 +773,37 @@ class adminController extends Controller
         session(['meet_data' => $meet_data]);
 
         return view('admin.admin_live_meet');
+    }
+    public function admin_add_meet(Request $request)
+    {
+        $request->validate([
+            'meet_duration' => 'required',
+            'doc_id' => 'required',
+            'meet_date' => 'required',
+            'meet_time' => 'required',
+            'meet_desc' => 'required',
+        ]);
+        $meet = DB::insert(
+            'insert into meeting(
+            meet_date,
+            meet_duration,
+            meet_desc,
+            meet_time,
+            host_doc_id)
+            values(?,?,?,?,?)',
+            [
+                $request->meet_date,
+                $request->meet_duration,
+                $request->meet_desc,
+                $request->meet_time,
+                $request->doc_id,
+            ]
+        );
+        if ($meet) {
+            return redirect('admin_live_meet')->with('success', 'Data Added successfully');
+        } else {
+            return redirect('admin_live_meet')->with('fail', 'Something Wrong');
+        }
     }
     /**End Live Consultation */
 }

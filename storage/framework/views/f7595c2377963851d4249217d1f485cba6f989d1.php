@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="menu">
         <div class="container">

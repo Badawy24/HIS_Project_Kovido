@@ -23,41 +23,12 @@
                         </div>
 
 
-                        <div class="col-md-12">
-                            <!-- <label class="card-text">Test</label> -->
-                            <!-- <select class="inp-form form-select update_from_select" aria-label="Default select example" name="test_name"> -->
-                            <!-- <option selected disabled value="{{ $my_test }}"> {{ $my_test }}</option>
-                                                    @foreach ($tests_list as $test)
-    <option value="{{ $test->test_name }}">{{ $test->test_name }}</option>
-    @endforeach -->
-                            <!-- <option selected disabled> Choose test </option>
-                                                    <option value="RT-PCR test">RT-PCR test</option>
-                                                    <option value="Antigen test">Antigen test</option>
-                                                    <option value="X-ray">X-ray</option>
-                                                    <option value="CBC">CBC</option>
-                                                    </select> -->
-                        </div>
-
-
-                        <div class="col-md-12">
-                            <!-- <label class="card-text">Health Care Center</label> -->
-                            <!-- <select class="form-select update_from_select" aria-label="Default select example" name="health_cc"> -->
-                            <!-- <option selected disabled value="{{ $my_hcc }}"> {{ $my_hcc }}</option>
-                                                    @foreach ($hc_list as $hc)
-    <option value="{{ $hc->hc_name }}">{{ $hc->hc_name }}</option>
-    @endforeach -->
-                            <!-- <option selected disabled> Choose Health Care Center </option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                    <option value="HCC">HCC</option>
-                                                </select> -->
-                        </div>
 
                         <div class="col-md-12">
                             <label class="card-text">Date</label>
                             <input class="inp-form form-control" type="date" value="{{ $my_date }}"
-                                placeholder="test_date" name="test_date" id="test_date" aria-label="default input example">
+                                placeholder="test_date" name="test_date" id="test_date" aria-label="default input example"
+                                min="<?php echo date('Y-m-d'); ?>">
                         </div>
 
                         <div class="col-md-12">
