@@ -16,7 +16,6 @@ request: <strong> POST </strong>
     'con_meet_id': userInput
     'doc_fname': userInput
     'doc_lname': userInput
-    'patientId': userInput
     'con_desc': userInput
 }
 </code>
