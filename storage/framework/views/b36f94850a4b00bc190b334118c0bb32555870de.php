@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css" id="cssToggle">
     <link rel="stylesheet" href="/css/all.min.css">
+    <?php echo $__env->yieldContent('links'); ?>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/file.js"></script>
     <script src="/js/all.min.js"></script>
-
+    <?php echo $__env->yieldContent('scripts'); ?>
 </body>
 
 </html>
