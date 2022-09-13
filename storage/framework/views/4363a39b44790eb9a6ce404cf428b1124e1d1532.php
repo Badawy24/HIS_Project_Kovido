@@ -91,7 +91,7 @@
                                                 laboriosam deserunt dicta necessitatibus ullam. </p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="/live" class="btn-front card-btn btn btn-primary mb-3 py-2">Book
+                                            <a href="/live_con" class="btn-front card-btn btn btn-primary mb-3 py-2">Book
                                                 Now</a>
                                         </div>
                                     </div>
@@ -101,12 +101,12 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon arrow_nav" aria-hidden="true"></span>
+                        <span class="visually-hidden ">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-next-icon arrow_nav" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>

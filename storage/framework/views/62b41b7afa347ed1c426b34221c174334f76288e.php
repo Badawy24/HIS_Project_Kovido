@@ -115,14 +115,14 @@
                         Test
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseFour"   
+                <div id="panelsStayOpen-collapseFour"
                     class="accordion-collapse collapse <?php echo e(Request::is('admin_all_tests') ? 'show' : ''); ?> <?php echo e(Request::is('admin_existed_test') ? 'show' : ''); ?> <?php echo e(Request::is('admin_test_data') ? 'show' : ''); ?>"
                     aria-labelledby="panelsStayOpen-headingfour">
                     <div class="accordion-body">
                         <ul class="list-unstyled">
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                    'active' => Request::is('admin_test_data'),
+                                    'active' => Request::is('admin_all_tests'),
                                     'nav-link' => true,
                                 ]) ?>" href="/admin_all_tests"><i
                                         class="fa-solid fa-vials"></i> Test
@@ -132,7 +132,7 @@
 
                             <li>
                                 <a class="<?php echo \Illuminate\Support\Arr::toCssClasses([
-                                    'active' => Request::is('admin_test_data'),
+                                    'active' => Request::is('admin_existed_test'),
                                     'nav-link' => true,
                                 ]) ?>" href="/admin_existed_test"><i
                                         class="fa-solid fa-circle-plus"></i>
@@ -152,7 +152,7 @@
                 </div>
             </div>
 
-            
+
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"

@@ -784,3 +784,22 @@ table.display td {
 .live-doc {
     padding: 0px;
 }
+
+
+
+
+/* start servise  navigation arrow  */
+.arrow_nav
+{
+    background-color: rgba(10, 93, 235, 0.8);
+  
+    border-radius: 6px;
+    margin:auto;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, .2);
+    margin-top: 250px;
+    height :50px;
+    width :30px;
+}
+
+/* end servise  navigation arrow  */
+

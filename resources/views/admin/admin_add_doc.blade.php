@@ -96,7 +96,7 @@
                         @enderror
                     </div>
                     <div class="col-md-6">
-                        <input type="submit" class="update-btn" name="submit" value="Save Doctor">
+                        <input type="submit" class="update-btn" style="margin-left:360px" name="submit" value="Save Doctor">
                     </div>
                 </div>
             </form>
