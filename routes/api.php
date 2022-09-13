@@ -982,3 +982,36 @@ Route::get('/get-all-dose-reservation', function () {
     // retrieve json object -> $data in not in [] because it is already an array
     return response($tests);
 });
+
+
+Route::get('/messages-of-patient-doctors',function(){
+    $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name
+	from patient p
+	inner join test_patient tp
+    on p.pat_id = tp.pat_id
+    inner join test t
+    on  tp.test_id = t.test_id
+    inner join healthcare_center hc
+    on hc.hc_id = tp.test_patient_health');
+
+    // declare $data array
+    $tests = [];
+
+    // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+    foreach ($result as $childCat) {
+        $tests[] =
+            [
+                'pat_fname' =>  $childCat->pat_fname,
+                'pat_lname' =>  $childCat->pat_lname,
+                'pat_email' =>  $childCat->pat_email,
+                'test_name' =>  $childCat->test_name,
+                'pat_test_date' =>  $childCat->pat_test_date,
+                'pat_test_time' =>  $childCat->pat_test_time,
+                'hc_name' =>  $childCat->hc_name,
+            ];
+    }
+
+
+    // retrieve json object -> $data in not in [] because it is already an array
+    return response($tests, 200);
+});
