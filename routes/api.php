@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 use function GuzzleHttp\Promise\queue;
 
@@ -30,7 +31,7 @@ Route::post('/register', function (Request $request) {
     // get request body
     $patient_first_name = $request->patient_first_name;
     $patinet_last_name = $request->patient_last_name;
-    $patinet_age = $request->patient_age;
+    $age = Carbon::parse($request->patient_date_of_birth)->diff(Carbon::now())->y;
     $patinet_address = $request->patienet_address;
     $patient_phone = $request->patient_phone;
     $patient_email = $request->patient_email;
@@ -54,7 +55,7 @@ Route::post('/register', function (Request $request) {
 
     $result = DB::insert('insert into patient (pat_fname,pat_lname,pat_age,pat_address,pat_phone,pat_email,pat_DOF,pat_SSN,patient_password)
     VALUES (?,?,?,?,?,?,?,?,?)', [
-        $patient_first_name, $patinet_last_name, $patinet_age, $patinet_address, $patient_phone, $patient_email,
+        $patient_first_name, $patinet_last_name, $age, $patinet_address, $patient_phone, $patient_email,
         $patient_date_of_birth, $patient_SSN, $password
     ]);
 
