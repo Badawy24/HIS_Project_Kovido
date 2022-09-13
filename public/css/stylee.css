@@ -149,7 +149,7 @@ a.link:hover {
     margin: 10px auto !important;
     border-color: transparent !important;
     border-radius: 50px !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
     background-color: #fff !important;
     color: #003971 !important;
     font-weight: bold !important;
@@ -628,7 +628,7 @@ table.display td {
 .inp-form {
     display: block !important;
     margin-bottom: 25px !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
     background-color: transparent !important;
     color: #fff !important;
 }
@@ -945,4 +945,8 @@ body {
 
 .live-doc {
     padding: 0px;
+}
+
+.offcanvas-top {
+    height: 40vh;
 }

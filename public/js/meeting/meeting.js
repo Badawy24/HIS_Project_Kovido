@@ -97,7 +97,7 @@ async function validateMeeting() {
             .then((response) => response.json()) //result will have meeting id
             .catch((error) => {
                 console.error("error", error);
-                alert("Invalid Meeting Id");
+                // alert("Invalid Meeting Id");
                 window.location.href = "/";
                 return;
             });
@@ -106,6 +106,7 @@ async function validateMeeting() {
             document.getElementById("home-page").style.display = "none";
             return meetingId;
         }
+        console.log("1.1");
     } else {
         validateMeetingIdAnswer = await fetch(
             AUTH_URL + "/validatemeeting/" + meetingId,
@@ -397,19 +398,19 @@ async function joinMeeting(newMeeting) {
         createMeetingFlag = 0;
     } else if (!newMeeting) {
         document.getElementById("joinPage").style.display = "none";
-        document.getElementById("home-page").style.display = "none";
+        // document.getElementById("home-page").style.display = "none";
         document.getElementById("gridPpage").style.display = "flex";
         toggleControls();
     }
 
     if (createMeetingFlag == 1) {
         document.getElementById("joinPage").style.display = "none";
-        document.getElementById("home-page").style.display = "none";
+        // document.getElementById("home-page").style.display = "none";
         document.getElementById("gridPpage").style.display = "flex";
         toggleControls();
     } else if (joinMeetingFlag == 1) {
         document.getElementById("joinPage").style.display = "flex";
-        document.getElementById("home-page").style.display = "none";
+        // document.getElementById("home-page").style.display = "none";
         document.getElementById("gridPpage").style.display = "none";
     }
 
@@ -428,7 +429,7 @@ async function joinMeeting(newMeeting) {
     if (!newMeeting) {
         console.log(meetingId);
         document.getElementById("joinPage").style.display = "none";
-        document.getElementById("home-page").style.display = "none";
+        // document.getElementById("home-page").style.display = "none";
         document.getElementById("gridPpage").style.display = "flex";
         document.getElementById("meetingid").value = meetingId;
         startMeeting(token, meetingId, joinMeetingName);

@@ -54,6 +54,13 @@ class LiveController extends Controller
             ]
         );
 
-        return "ok";
+        return redirect('/profile')->with('liveBokked', 'Live Consultation Succesfully');
+    }
+    public function startMeeting()
+    {
+        $pat_id = session('user_id');
+        $pat_name = DB::select('select pat_fname,pat_lname from patient where pat_id = ?', [$pat_id]);
+        $meetingid = DB::select('select * from pat_consultation where pat_id = ?', [$pat_id]);
+        return view('meeting.startMeeting')->with(['pat_name' => $pat_name[0], 'meetingid' => $meetingid[0]]);
     }
 }

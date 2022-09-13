@@ -14,7 +14,13 @@ class ProfileController extends Controller
     {
         $pat_id = session('user_id');
         $patient = DB::select('select * from patient where pat_id = ?', [$pat_id]);
-        return view('profile')->with('patients', $patient);
+        $meetingData = DB::select('select * from pat_consultation where pat_id = ?', [$pat_id]);
+        return view('profile')->with(
+            [
+                'patients' => $patient,
+                'meetingData' => $meetingData,
+            ]
+        );
     }
     public function getEditData()
     {
@@ -50,22 +56,21 @@ class ProfileController extends Controller
         $request->validate([
             'old_pass' => 'required',
         ]);
-        $old_password =DB::select('select patient_password from patient where pat_id = ?', [$pat_id]);
-        if(Hash::check($request->old_pass, $old_password[0]->patient_password)){
+        $old_password = DB::select('select patient_password from patient where pat_id = ?', [$pat_id]);
+        if (Hash::check($request->old_pass, $old_password[0]->patient_password)) {
             $request->validate([
                 'new_pass' => 'required|min:8',
                 'password_confirmation' => 'required_with:new_pass|same:new_pass',
             ]);
             $password = Hash::make($request->new_pass);
             $reset = DB::update('update patient set patient_password = ?', [$password]);
-            if($reset){
-                return redirect('change_pass_patient\\'. $pat_id)->with('success', 'Password Reset Succesfully');
-            } else{
-                return redirect('change_pass_patient\\'. $pat_id)->with('fail', 'Something Wrong');
+            if ($reset) {
+                return redirect('change_pass_patient\\' . $pat_id)->with('success', 'Password Reset Succesfully');
+            } else {
+                return redirect('change_pass_patient\\' . $pat_id)->with('fail', 'Something Wrong');
             }
         } else {
-            return redirect('change_pass_patient\\'. $pat_id)->with('not_same', 'Password Can\'t match Old Password');
+            return redirect('change_pass_patient\\' . $pat_id)->with('not_same', 'Password Can\'t match Old Password');
         }
-            
     }
 }

@@ -784,3 +784,7 @@ table.display td {
 .live-doc {
     padding: 0px;
 }
+
+.offcanvas-top {
+    height: 40vh;
+}
