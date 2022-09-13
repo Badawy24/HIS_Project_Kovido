@@ -4,7 +4,7 @@
     <form action="admin_add_patient" method="post" class="row" id="admin_patient">
         <?php if(session('a_i_msg')): ?>
             <div class="alert alert-success">Patient added successfully</div>
-        <?php else: ?>
+        <?php elseif(session('a_r_msg')): ?>
             <div class="alert alert-danger">The operation is unsuccessful</div>
         <?php endif; ?>
 
@@ -162,17 +162,22 @@ unset($__errorArgs, $__bag); ?>
 
         </div>
         
+        <?php
+        $dateBrith = date_create(date('Y-m-d'));
+        date_sub($dateBrith, date_interval_create_from_date_string('15 years'));
+        ?>
         <div class="col-lg-12">
             <label class="head-fog">Birth Of Date</label>
             <input class=" form-control" type="date" placeholder="Birth Of Date" name="pat_DOF" id="BOD"
-                value="<?php echo e(old('pat_BOF')); ?>" aria-label="default input example">
+                value="<?php echo e(old('pat_DOF')); ?>" aria-label="default input example" max="<?php echo date_format($dateBrith, 'Y-m-d'); ?>">
 
-            <?php $__errorArgs = ['pat_BOF'];
+            <?php $__errorArgs = ['pat_DOF'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div class="alert alert-danger d-flex
+                align-items-center" role="alert">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <div> <?php echo e($message); ?> </div>
                 </div>
@@ -182,7 +187,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
 
         </div>
-        <input type="submit" class="btn update-btn btn-primary mb-3 submit " value="Register" name="register-user">
+        <input type="submit" class="btn update-btn btn-primary mb-3 submit " style="margin-left:360px" value="Register" name="register-user">
     </form>
 <?php $__env->stopSection(); ?>
 

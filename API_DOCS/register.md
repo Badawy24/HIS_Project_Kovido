@@ -13,7 +13,6 @@ request: <strong> POST </strong>
 {
   patient_first_name: userInput,
   patient_last_name: userInput,
-  patient_age: userInput,
   patienet_address: userInput,
   patient_phone: userInput,
   patient_email: userInput,

@@ -55,7 +55,7 @@
 
 
 
-                    <button class="btn btn-primary mb-1 update-btn submit no_res_button admin_add_test_button " onclick="window.location.href = '/admin_add_test_details'"> Add New Test</button>
+                    <button class="btn btn-primary mb-1 update-btn submit no_res_button admin_add_test_button " style="margin-left:120px" onclick="window.location.href = '/admin_add_test_details'"> Add New Test</button>
 
                     </form>
                 </div>
