@@ -219,6 +219,8 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     Route::get('/confirm_con/{doc_id}', [LiveController::class, 'confirm_con']);
     Route::post('/confirmLive', [LiveController::class, 'confirmLive']);
     Route::get('/startMeeting', [LiveController::class, 'startMeeting']);
+    Route::get('/startMeetingDoc', [LiveController::class, 'startMeetingDoc']);
+    Route::get('/startMeetingDoc/{pat_id}', [LiveController::class, 'joinMeetingDoc']);
     /* End Contact Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
