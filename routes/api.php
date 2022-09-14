@@ -928,7 +928,7 @@ Route::get('/all-patients-logined', function () {
 // https://powerful-forest-82516.herokuapp.com/api/get-all-test-reservation
 Route::get('/get-all-test-reservation', function () {
 
-    $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name
+    $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name, tp.res_id
 	from patient p
 	inner join test_patient tp
     on p.pat_id = tp.pat_id
@@ -951,6 +951,7 @@ Route::get('/get-all-test-reservation', function () {
                 'pat_test_date' =>  $childCat->pat_test_date,
                 'pat_test_time' =>  $childCat->pat_test_time,
                 'hc_name' =>  $childCat->hc_name,
+                'res_id' => $childCat->res_id,
             ];
     }
 
