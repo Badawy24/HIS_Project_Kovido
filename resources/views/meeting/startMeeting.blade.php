@@ -170,62 +170,63 @@
 
 <body>
     <section id="joinPage" class="main-bg">
-        <div class="join-container">
-            <!--join screen left grid start-->
-            <article class="join-left">
-                <div class="video-view">
-                    <video class="video join-video" id="joinCam"></video>
-                    <div class="input-group mb-3 video-content">
+        <div class="container">
+            <div class="join-container">
+                <!--join screen left grid start-->
+                <article class="join-left">
+                    <div class="video-view">
+                        <video class="video join-video" id="joinCam"></video>
+                        <div class="input-group mb-3 video-content">
 
-                        <button class="cam-btn" id="camButton" onclick="toggleWebCam()">
-                            <i class="bi bi-camera-video-fill cam-on" id="onCamera"></i>
-                            <i class="bi bi-camera-video-off-fill cam-off" id="offCamera"></i>
-                        </button>
+                            <button class="cam-btn" id="camButton" onclick="toggleWebCam()">
+                                <i class="bi bi-camera-video-fill cam-on" id="onCamera"></i>
+                                <i class="bi bi-camera-video-off-fill cam-off" id="offCamera"></i>
+                            </button>
 
-                        <button class="mic-btn" id="micButton" onclick="toggleMic()">
-                            <i class="bi bi-mic-mute-fill mic-on" id="muteMic"></i>
-                            <i class="bi bi-mic-fill mic-off" id="unmuteMic"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!--join screen right grid start-->
-            <article class="join-right">
-                <h1>JOIN PAGE</h1>
-                <div>
-                    <div class="class-control row join-id">
-                        <div class="col-1">
-                            <img src="../assets/icons/svg-path.svg" height="25px" width="25px" />
-                        </div>
-                        <div class="col-8">
-                            <input type="hidden" id="joinMeetingId" value="{{ $meetingid->con_meet_id }}">
-                            <input type="text" id="joinMeetingName" placeholder="Name Of Participant"
-                                class="form-control" value="{{ $pat_name->pat_fname . ' ' . $pat_name->pat_lname }}"
-                                disabled />
-                        </div>
-                        <div class="col-2">
-                            <button id="meetingJoinButton" onclick="joinMeeting()"
-                                class="join-right-btn btn btn-primary">
-                                Join Meeting
+                            <button class="mic-btn" id="micButton" onclick="toggleMic()">
+                                <i class="bi bi-mic-mute-fill mic-on" id="muteMic"></i>
+                                <i class="bi bi-mic-fill mic-off" id="unmuteMic"></i>
                             </button>
                         </div>
                     </div>
-                </div>
-            </article>
-            <!--join screen right grid end-->
-        </div>
+                </article>
+
+                <!--join screen right grid start-->
+                <article class="join-right">
+                    <h1>JOIN PAGE</h1>
+                    <div>
+                        <div class="class-control row join-id">
+                            <div class="col-1">
+                                <img src="../assets/icons/svg-path.svg" height="25px" width="25px" />
+                            </div>
+                            <div class="col-8">
+                                <input type="hidden" id="joinMeetingId" value="{{ $meetingid->con_meet_id }}">
+                                <input type="text" id="joinMeetingName" placeholder="Name Of Participant"
+                                    class="form-control" value="{{ $pat_name->pat_fname . ' ' . $pat_name->pat_lname }}"
+                                    disabled />
+                            </div>
+                            <div class="col-2">
+                                <button id="meetingJoinButton" onclick="joinMeeting()"
+                                    class="join-right-btn btn btn-primary">
+                                    Join Meeting
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!--join screen right grid end-->
+            </div>
     </section>
 
     <section class="grid-page flex-container live-meeting" id="gridPpage">
         <div class="row live-meeting-container">
             <article class="col-3 d-flex justify-content-start">
-                <input type="text" class="form-control navbar-brand" id="meetingid" readonly />
+                <input type="text" class="form-control navbar-brand" id="meetingid" readonly hidden />
 
-                <button id="btnCopy" type="button" class="btn btn-outline-light" onclick="copyMeetingCode()">
+                {{-- <button id="btnCopy" type="button" class="btn btn-outline-light" onclick="copyMeetingCode()">
                     <span class="material-icons"> content_copy </span>
                     <div class="copyContent">Copy Meeting Code</div>
-                </button>
+                </button> --}}
             </article>
 
             <article class="col-9" style="margin-top: 13px; position: static; align-content: right">
@@ -279,10 +280,10 @@
                         </button>
                         <div class="dropdown-menu"
                             style="
-            background-color: #212032;
-            color: white;
-            margin-left: -80px;
-            ">
+                background-color: #212032;
+                color: white;
+                margin-left: -80px;
+                ">
                             <a class="dropdown-item" id="endCall">End Call</a>
                             <a class="dropdown-item" id="leaveCall">Leave Meeting</a>
                         </div>
@@ -321,6 +322,7 @@
             <div id="btnSend" class="input-group-append">
                 <button class="btn btn-primary">Send</button>
             </div>
+        </div>
         </div>
     </section>
 

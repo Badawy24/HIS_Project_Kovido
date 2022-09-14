@@ -18,7 +18,11 @@
                             </div>
                         @else
                             @foreach ($meetingInfo as $meeting)
-                                @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $meeting->con_time)
+                                @php
+                                    $timedel = strtotime($meeting->con_time) + 60 * 60;
+                                    $time = date('H:i', $timedel);
+                                @endphp
+                                @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $time)
                                     <article class="col-md-4 d-flex align-items-stretch">
                                         <div class="card px-2 py-2 mb-5" style="min-width: 100%">
                                             <div class="card-body text-start">

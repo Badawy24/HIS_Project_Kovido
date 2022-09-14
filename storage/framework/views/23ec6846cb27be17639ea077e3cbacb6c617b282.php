@@ -160,7 +160,11 @@
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
+                                    <?php
+                                        $timedel = strtotime($meetingData[0]->con_time) + 60 * 60;
+                                        $time = date('H:i', $timedel);
+                                    ?>
+                                    <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $time): ?>
                                         <div class="offcanvas-body ">
                                             <div class="row justify-content-md-center text-center">
                                                 <div class="col-md-5 card">
