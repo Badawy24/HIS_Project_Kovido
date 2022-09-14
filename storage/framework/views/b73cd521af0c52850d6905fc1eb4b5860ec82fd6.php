@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8" />
-    {{-- <link rel="shortcut icon" href="../assets/icons/favicon.ico" /> --}}
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
@@ -200,9 +200,9 @@
                                 <img src="../assets/icons/svg-path.svg" height="25px" width="25px" />
                             </div>
                             <div class="col-8">
-                                <input type="hidden" id="joinMeetingId" value="{{ $meeting->con_meet_id }}">
+                                <input type="hidden" id="joinMeetingId" value="<?php echo e($meeting->meet_admin_id); ?>">
                                 <input type="text" id="joinMeetingName" placeholder="Name Of Participant"
-                                    class="form-control" value="{{ $doc_name->doc_fname . ' ' . $doc_name->doc_lname }}"
+                                    class="form-control" value="<?php echo e($doc_name->doc_fname . ' ' . $doc_name->doc_lname); ?>"
                                     disabled />
                             </div>
                             <div class="col-2">
@@ -225,10 +225,7 @@
             <article class="col-3 d-flex justify-content-start">
                 <input type="text" class="form-control navbar-brand" id="meetingid" readonly />
 
-                {{-- <button id="btnCopy" type="button" class="btn btn-outline-light" onclick="copyMeetingCode()">
-                    <span class="material-icons"> content_copy </span>
-                    <div class="copyContent">Copy Meeting Code</div>
-                </button> --}}
+                
             </article>
 
             <article class="col-9" style="margin-top: 13px; position: static; align-content: right">
@@ -333,3 +330,4 @@
 <div id="viewer"></div>
 
 </html>
+<?php /**PATH C:\Users\Badawy\Desktop\v0.2\HIS_Project_Kovido\resources\views/meeting/startmeetingAdminDoctor.blade.php ENDPATH**/ ?>

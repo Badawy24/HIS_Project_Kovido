@@ -200,7 +200,7 @@
                                 <img src="../assets/icons/svg-path.svg" height="25px" width="25px" />
                             </div>
                             <div class="col-8">
-                                <input type="hidden" id="joinMeetingId" value="{{ $meeting->con_meet_id }}">
+                                <input type="hidden" id="joinMeetingId" value="{{ $meeting->meet_admin_id }}">
                                 <input type="text" id="joinMeetingName" placeholder="Name Of Participant"
                                     class="form-control" value="{{ $doc_name->doc_fname . ' ' . $doc_name->doc_lname }}"
                                     disabled />

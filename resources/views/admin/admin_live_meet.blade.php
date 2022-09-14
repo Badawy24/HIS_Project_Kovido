@@ -25,7 +25,7 @@
                             <div class="col-md-8">
                                 <p class="head">Data About <span>{{ count(session('meet_data')) }}</span> Meeting in
                                     System <br />
-                                    Date : <?php $date = date('d-m-y h:i:s');
+                                    Date : <?php $date = date('d-m-y H:i:s');
                                     echo $date; ?></p>
                             </div>
                             <div class="col-md-2 con_add_btn">
@@ -159,7 +159,7 @@
                                                 <input type="hidden" id="joinMeetingId"
                                                     value="{{ $meet->meet_admin_id }}">
 
-                                                @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meet->meet_date . ' ' . $meet->meet_time)
+                                                @if (date('Y-m-d H:i', strtotime('+2 hours')) < $meet->meet_date . ' ' . $meet->meet_time)
                                                     <button disabled class="btn"><i
                                                             class="text-primary fa-solid fa-video"></i></button>
                                                 @else
