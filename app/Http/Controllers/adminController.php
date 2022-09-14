@@ -64,12 +64,11 @@ class adminController extends Controller
         $update_data = DB::update(
             'update doctor set
             doc_phone = ?,
-            doc_email = ?,
-            doc_pass = ? where doc_id = ?',
+            doc_email = ?
+             where doc_id = ?',
             [
                 $request->doc_phone,
                 $request->doc_email,
-                $request->doc_pass,
                 $doc_id,
             ]
         );
@@ -881,14 +880,12 @@ class adminController extends Controller
                 'update meeting set
             meet_date = ?,
             meet_time = ?,
-            meet_desc = ?,
-            meet_admin_id = ?
+            meet_desc = ?
             where meet_id = ?',
                 [
                     $request->meet_date,
                     $request->meet_time,
                     $request->meet_desc,
-                    $request->meet_id,
                     $meet_id,
                 ]
             );

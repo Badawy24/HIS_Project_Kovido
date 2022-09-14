@@ -212,6 +212,188 @@
                     </div>
                 </div>
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEight">
+                        Billing
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingEight">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseNine">
+                        OPD - Out Patient
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingNine">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTen">
+                        IPD - In Patient
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingEleven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEleven" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEleven">
+                        Pharmacy
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseEleven" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingEleven">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwelvel">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwelvel" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwelvel">
+                        Pathology
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwelvel" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTwelvel">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThrteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThrteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThrteen">
+                        Blood Bank
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThrteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingThrteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingForteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseForteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseForteen">
+                        Ambulance
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseForteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingForteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFifteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseFifteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseFifteen">
+                        Front Office
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFifteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingFifteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingsixteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapsesixteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapsesixteen">
+                        Birth & Death Record
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapsesixteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingsixteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSeventeen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseSeventeen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseSeventeen">
+                        Human Resource
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseSeventeen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingSeventeen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingEighteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseEighteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseEighteen">
+                        Referral
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseEighteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingEighteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingNineteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseNineteen" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseNineteen">
+                        TPA Management
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseNineteen" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingNineteen">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTewntey">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTewntey" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTewntey">
+                        Messaging
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTewntey" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTewntey">
+                    <div class="accordion-body">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
