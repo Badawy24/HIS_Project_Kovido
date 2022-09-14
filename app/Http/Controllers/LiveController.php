@@ -98,7 +98,16 @@ class LiveController extends Controller
             return view('profile')->with(['noInternet' => 'Check Your Internet Connection!']);
         }
     }
+    public function startMeetingAdmin($meet_id)
+    {
+        if ($this->checkInternet()) {
 
+            $meeting = DB::select('select * from meeting where meet_id = ?', [$meet_id]);
+            return view('meeting.startMeetingAdmin')->with(['meeting' => $meeting[0]]);
+        } else {
+            return redirect('/profile')->with(['noInternet' => 'Check Your Internet Connection!']);
+        }
+    }
     public function checkInternet($site = "https://google.com/")
     {
         if (@fopen($site, "r")) {

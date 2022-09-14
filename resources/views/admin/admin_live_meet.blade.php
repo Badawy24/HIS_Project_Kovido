@@ -9,6 +9,9 @@
             @if (Session::has('fail'))
                 <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
             @endif
+            @if (Session::has('del'))
+                <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('del') }}</div>
+            @endif
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -67,7 +70,8 @@
 
                                                         <div class="col-md-12 ">
                                                             <label for="">Meeting Date</label>
-                                                            <input class="form-control" name="meet_date" type="date"
+                                                            <input onclick="createIdMeeting(true)" class="form-control"
+                                                                name="meet_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
                                                                 value="{{ old('meet_date') }}" min="<?php echo date('Y-m-d'); ?>">
@@ -94,19 +98,6 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
-                                                        <div class="col-md-12 ">
-                                                            <input class="form-control" name="meet_duration" type="number"
-                                                                placeholder="Meeting Duration"
-                                                                aria-label="default input example"
-                                                                value="{{ old('con_duration') }}">
-                                                            @error('meet_duration')
-                                                                <div class="alert alert-danger d-flex align-items-center"
-                                                                    role="alert">
-                                                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> {{ $message }} </div>
-                                                                </div>
-                                                            @enderror
-                                                        </div>
                                                         <div class="col-md-12">
                                                             <textarea class="form-control" name="meet_desc" placeholder="Meeting Description"></textarea>
                                                             @error('meet_desc')
@@ -117,6 +108,8 @@
                                                                 </div>
                                                             @enderror
                                                         </div>
+                                                        <input type="hidden" name="meetinId" id="meetingid" value="">
+
                                                         <div class="col-md-6">
                                                             <input type="submit" class="update-btn" name="submit"
                                                                 value="Save Data">
@@ -141,11 +134,12 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Meeting ID</th>
                                     <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
-                                    <th>Duration</th>
                                     <th>Doctor Name</th>
+                                    <th>Join</th>
                                     <th>Edit</th>
                                     <th>Del</th>
                                 </tr>
@@ -154,18 +148,34 @@
                                 @foreach (session('meet_data') as $meet)
                                     <tr>
                                         <td>{{ $meet->meet_id }}</td>
+                                        <td>{{ $meet->meet_admin_id }}</td>
                                         <td>{{ $meet->meet_desc }}</td>
                                         <td>{{ $meet->meet_date }}</td>
                                         <td>{{ $meet->meet_time }}</td>
-                                        <td>{{ $meet->meet_duration }}</td>
                                         <td>{{ $meet->doc_fname . ' ' . $meet->doc_lname }}</td>
+                                        <td>
+                                            <form action="/startMeetingAdmin/{{ $meet->meet_id }}" method="get"
+                                                class="d-inline-block mb-0">
+                                                <input type="hidden" id="joinMeetingId"
+                                                    value="{{ $meet->meet_admin_id }}">
+
+                                                @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meet->meet_date . ' ' . $meet->meet_time)
+                                                    <button disabled class="btn"><i
+                                                            class="text-primary fa-solid fa-video"></i></button>
+                                                @else
+                                                    <button type="submit" id="meetingJoinButton" class="btn"
+                                                        onclick="validateMeeting()"><i
+                                                            class="text-primary fa-solid fa-video"></i></button>
+                                                @endif
+                                            </form>
+                                        </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_update/{{ $meet->meet_id }}">
+                                            <a href="/showadmin_meet_update/{{ $meet->meet_id }}">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_del/{{ $meet->meet_id }}">
+                                            <a href="/admin_meet_del/{{ $meet->meet_id }}">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
@@ -187,3 +197,6 @@
         </div>
     </div>
 @endsection
+<script src="../js/meeting/meeting.js"></script>
+<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+<script src="../js/meeting/config.js"></script>

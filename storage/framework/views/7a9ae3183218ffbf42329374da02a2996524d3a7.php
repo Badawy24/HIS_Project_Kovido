@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="doc-data">
         <div class="container">
@@ -8,6 +7,9 @@
 
             <?php if(Session::has('fail')): ?>
                 <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
+            <?php endif; ?>
+            <?php if(Session::has('del')): ?>
+                <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('del')); ?></div>
             <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -75,7 +77,8 @@ unset($__errorArgs, $__bag); ?>
 
                                                         <div class="col-md-12 ">
                                                             <label for="">Meeting Date</label>
-                                                            <input class="form-control" name="meet_date" type="date"
+                                                            <input onclick="createIdMeeting(true)" class="form-control"
+                                                                name="meet_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
                                                                 value="<?php echo e(old('meet_date')); ?>" min="<?php echo date('Y-m-d'); ?>">
@@ -116,26 +119,6 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                         </div>
-                                                        <div class="col-md-12 ">
-                                                            <input class="form-control" name="meet_duration" type="number"
-                                                                placeholder="Meeting Duration"
-                                                                aria-label="default input example"
-                                                                value="<?php echo e(old('con_duration')); ?>">
-                                                            <?php $__errorArgs = ['meet_duration'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                                <div class="alert alert-danger d-flex align-items-center"
-                                                                    role="alert">
-                                                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> <?php echo e($message); ?> </div>
-                                                                </div>
-                                                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                        </div>
                                                         <div class="col-md-12">
                                                             <textarea class="form-control" name="meet_desc" placeholder="Meeting Description"></textarea>
                                                             <?php $__errorArgs = ['meet_desc'];
@@ -153,6 +136,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                         </div>
+                                                        <input type="hidden" name="meetinId" id="meetingid" value="">
+
                                                         <div class="col-md-6">
                                                             <input type="submit" class="update-btn" name="submit"
                                                                 value="Save Data">
@@ -174,11 +159,12 @@ unset($__errorArgs, $__bag); ?>
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Meeting ID</th>
                                     <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
-                                    <th>Duration</th>
                                     <th>Doctor Name</th>
+                                    <th>Join</th>
                                     <th>Edit</th>
                                     <th>Del</th>
                                 </tr>
@@ -187,18 +173,34 @@ unset($__errorArgs, $__bag); ?>
                                 <?php $__currentLoopData = session('meet_data'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meet): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td><?php echo e($meet->meet_id); ?></td>
+                                        <td><?php echo e($meet->meet_admin_id); ?></td>
                                         <td><?php echo e($meet->meet_desc); ?></td>
                                         <td><?php echo e($meet->meet_date); ?></td>
                                         <td><?php echo e($meet->meet_time); ?></td>
-                                        <td><?php echo e($meet->meet_duration); ?></td>
                                         <td><?php echo e($meet->doc_fname . ' ' . $meet->doc_lname); ?></td>
+                                        <td>
+                                            <form action="/startMeetingAdmin/<?php echo e($meet->meet_id); ?>" method="get"
+                                                class="d-inline-block mb-0">
+                                                <input type="hidden" id="joinMeetingId"
+                                                    value="<?php echo e($meet->meet_admin_id); ?>">
+
+                                                <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meet->meet_date . ' ' . $meet->meet_time): ?>
+                                                    <button disabled class="btn"><i
+                                                            class="text-primary fa-solid fa-video"></i></button>
+                                                <?php else: ?>
+                                                    <button type="submit" id="meetingJoinButton" class="btn"
+                                                        onclick="validateMeeting()"><i
+                                                            class="text-primary fa-solid fa-video"></i></button>
+                                                <?php endif; ?>
+                                            </form>
+                                        </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_update/<?php echo e($meet->meet_id); ?>">
+                                            <a href="/showadmin_meet_update/<?php echo e($meet->meet_id); ?>">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_del/<?php echo e($meet->meet_id); ?>">
+                                            <a href="/admin_meet_del/<?php echo e($meet->meet_id); ?>">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
@@ -221,5 +223,8 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+<script src="../js/meeting/meeting.js"></script>
+<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+<script src="../js/meeting/config.js"></script>
 
 <?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\v0.2\HIS_Project_Kovido\resources\views/admin/admin_live_meet.blade.php ENDPATH**/ ?>

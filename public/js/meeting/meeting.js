@@ -709,22 +709,22 @@ function closeChatWrapper() {
 function toggleControls() {
     console.log("from toggleControls");
     if (micEnable) {
-        console.log("micEnable False");
-        micOn.style.display = "none";
-        micOff.style.display = "inline-block";
-    } else {
         console.log("micEnable True");
         micOn.style.display = "inline-block";
         micOff.style.display = "none";
+    } else {
+        console.log("micEnable False");
+        micOn.style.display = "none";
+        micOff.style.display = "inline-block";
     }
 
     if (webCamEnable) {
-        console.log("webCamEnable False");
-        videoCamOn.style.display = "none";
-        videoCamOff.style.display = "inline-block";
-    } else {
         console.log("webCamEnable True");
         videoCamOn.style.display = "inline-block";
         videoCamOff.style.display = "none";
+    } else {
+        console.log("webCamEnable False");
+        videoCamOn.style.display = "none";
+        videoCamOff.style.display = "inline-block";
     }
 }

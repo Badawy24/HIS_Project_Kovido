@@ -153,6 +153,9 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     /* Start Live Meeting Route In Admin */
     Route::get('/admin_live_meet', [adminController::class, 'admin_live_meet']);
     Route::post('/admin_live_meet', [adminController::class, 'admin_add_meet']);
+    Route::get('/admin_meet_del/{meet_id}', [adminController::class, 'del_meet']);
+    Route::get('/showadmin_meet_update/{meet_id}', [adminController::class, 'showadmin_meet_update']);
+    Route::post('/admin_meet_update/{meet_id}', [adminController::class, 'admin_meet_update']);
     /* End Live Meeting Route In Admin */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -224,6 +227,7 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     Route::get('/startMeeting', [LiveController::class, 'startMeeting']);
     Route::get('/startMeetingDoc', [LiveController::class, 'startMeetingDoc']);
     Route::get('/startMeetingDoc/{pat_id}', [LiveController::class, 'joinMeetingDoc']);
+    Route::get('/startMeetingAdmin/{meet_id}', [LiveController::class, 'startMeetingAdmin']);
     /* End Contact Routes */
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
