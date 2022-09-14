@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\DB;
     <div class="doc-data">
         <div class="container">
             <?php if(Session::has('success')): ?>
-            <div class="alert alert-success"><span class="closebtn">×</span><?php echo e(Session::get('success')); ?></div>
+                <div class="alert alert-success"><span class="closebtn">×</span><?php echo e(Session::get('success')); ?></div>
             <?php endif; ?>
 
             <?php if(Session::has('fail')): ?>
-            <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
+                <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
             <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -127,7 +127,7 @@ unset($__errorArgs, $__bag); ?>
                                                             <input class="form-control" name="con_date" type="date"
                                                                 placeholder="Consultation Date"
                                                                 aria-label="default input example"
-                                                                value="<?php echo e(old('col_date')); ?>">
+                                                                value="<?php echo e(old('col_date')); ?>" min="<?php echo date('Y-m-d'); ?>">
                                                             <?php $__errorArgs = ['con_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -225,7 +225,7 @@ unset($__errorArgs, $__bag); ?>
                                     <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
-                                    <th>Duration</th>
+                                    <th>Meeting ID</th>
                                     <th>patient Name</th>
                                     <th>Doctor Name</th>
                                     <th>Edit</th>
@@ -240,7 +240,7 @@ unset($__errorArgs, $__bag); ?>
                                         <td><?php echo e($con->con_desc); ?></td>
                                         <td><?php echo e($con->con_date); ?></td>
                                         <td><?php echo e($con->con_time); ?></td>
-                                        <td><?php echo e($con->con_duration); ?></td>
+                                        <td><?php echo e($con->con_meet_id); ?></td>
                                         <td><?php echo e($con->pat_fname . ' ' . $con->pat_lname); ?></td>
                                         <td><?php echo e($con->doc_fname . ' ' . $con->doc_lname); ?></td>
                                         <td class="report-icon">

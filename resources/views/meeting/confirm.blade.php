@@ -33,7 +33,7 @@
                                     {{-- <input type="hidden" id="joinMeetingId"> --}}
                                     <div class="col-lg-12">
                                         <input class="inp-form form-control" type="date" name="meetingdate"
-                                            aria-label="default input example">
+                                            aria-label="default input example" min="<?php echo date('Y-m-d'); ?>">
                                         @error('meetingdate')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>

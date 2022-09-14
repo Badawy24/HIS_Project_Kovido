@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class LiveController extends Controller
 {
@@ -31,9 +32,12 @@ class LiveController extends Controller
             'con_title' => 'required',
             'meetingDec' => 'required',
         ]);
-
-        DB::insert(
-            '
+        $checkEmpty = DB::select('select * from pat_consultation where pat_id = ?', [$pat_id]);
+        if ($checkEmpty) {
+            return redirect('/profile')->with('allreadyliveBokked', 'It Is Not Possible To Book More Than One consultation');
+        } else {
+            DB::insert(
+                '
         insert into pat_consultation(
             con_title,
             con_date,
@@ -43,25 +47,31 @@ class LiveController extends Controller
             con_desc,
             con_time)
             values(?,?,?,?,?,?,?)',
-            [
-                $request->con_title,
-                $request->meetingdate,
-                $request->meetinId,
-                $pat_id,
-                $request->doc_id,
-                $request->meetingDec,
-                '20:00'
-            ]
-        );
+                [
+                    $request->con_title,
+                    $request->meetingdate,
+                    $request->meetinId,
+                    $pat_id,
+                    $request->doc_id,
+                    $request->meetingDec,
+                    '20:00'
+                ]
+            );
 
-        return redirect('/profile')->with('liveBokked', 'Live Consultation Succesfully');
+            return redirect('/profile')->with('liveBokked', 'Live Consultation Succesfully');
+        }
     }
     public function startMeeting()
     {
-        $pat_id = session('user_id');
-        $pat_name = DB::select('select pat_fname,pat_lname from patient where pat_id = ?', [$pat_id]);
-        $meetingid = DB::select('select * from pat_consultation where pat_id = ?', [$pat_id]);
-        return view('meeting.startMeeting')->with(['pat_name' => $pat_name[0], 'meetingid' => $meetingid[0]]);
+        if ($this->checkInternet()) {
+
+            $pat_id = session('user_id');
+            $pat_name = DB::select('select pat_fname,pat_lname from patient where pat_id = ?', [$pat_id]);
+            $meetingid = DB::select('select * from pat_consultation where pat_id = ?', [$pat_id]);
+            return view('meeting.startMeeting')->with(['pat_name' => $pat_name[0], 'meetingid' => $meetingid[0]]);
+        } else {
+            return redirect('/profile')->with(['noInternet' => 'Check Your Internet Connection!']);
+        }
     }
 
     public function startMeetingDoc()
@@ -78,9 +88,23 @@ class LiveController extends Controller
     }
     public function joinMeetingDoc($pat_id)
     {
-        $doc_id = session('doc_user_id');
-        $doc_name = DB::select('select doc_fname,doc_lname from doctor where doc_id = ?', [$doc_id]);
-        $meeting = DB::select('select * from pat_consultation where pat_id = ? ', [$pat_id]);
-        return view('meeting.startMeetingDoctor')->with(['meeting' => $meeting[0], 'doc_name' => $doc_name[0]]);
+        if ($this->checkInternet()) {
+
+            $doc_id = session('doc_user_id');
+            $doc_name = DB::select('select doc_fname,doc_lname from doctor where doc_id = ?', [$doc_id]);
+            $meeting = DB::select('select * from pat_consultation where pat_id = ? ', [$pat_id]);
+            return view('meeting.startMeetingDoctor')->with(['meeting' => $meeting[0], 'doc_name' => $doc_name[0]]);
+        } else {
+            return view('profile')->with(['noInternet' => 'Check Your Internet Connection!']);
+        }
+    }
+
+    public function checkInternet($site = "https://google.com/")
+    {
+        if (@fopen($site, "r")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

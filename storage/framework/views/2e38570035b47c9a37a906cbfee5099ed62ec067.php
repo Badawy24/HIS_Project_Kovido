@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
             <?php if(Session::has('fail')): ?>
                 <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('fail')); ?></div>
             <?php endif; ?>
+            <?php if(Session::has('del')): ?>
+                <div class="alert alert-danger"><span class="closebtn">×</span><?php echo e(Session::get('del')); ?></div>
+            <?php endif; ?>
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -48,8 +51,10 @@ use Illuminate\Support\Facades\DB;
                                                 <form class="con_add" action="admin_live" method="post">
                                                     <?php echo csrf_field(); ?>
                                                     <div class="row">
+                                                        <input type="hidden" name="meetinId" id="meetingid" value="">
                                                         <div class="col-md-12 ">
-                                                            <input class="form-control" name="con_title" type="text"
+                                                            <input onclick="createIdMeeting(true)" class="form-control"
+                                                                name="con_title" type="text"
                                                                 placeholder="Consultation Title"
                                                                 aria-label="default input example"
                                                                 value="<?php echo e(old('con_title')); ?>">
@@ -147,8 +152,7 @@ unset($__errorArgs, $__bag); ?>
                                                             <label for="">Consultation Time</label>
                                                             <input class="form-control" name="con_time" type="time"
                                                                 placeholder="Consultation Time"
-                                                                aria-label="default input example"
-                                                                value="<?php echo e(old('con_time')); ?>">
+                                                                aria-label="default input example" value="20:00" disabled>
                                                             <?php $__errorArgs = ['con_time'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -164,26 +168,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                         </div>
-                                                        <div class="col-md-12 ">
-                                                            <input class="form-control" name="con_duration" type="number"
-                                                                placeholder="Consultation Duration"
-                                                                aria-label="default input example"
-                                                                value="<?php echo e(old('con_duration')); ?>">
-                                                            <?php $__errorArgs = ['con_duration'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                                <div class="alert alert-danger d-flex align-items-center"
-                                                                    role="alert">
-                                                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                                                    <div> <?php echo e($message); ?> </div>
-                                                                </div>
-                                                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                        </div>
+                                                        
                                                         <div class="col-md-12">
                                                             <textarea class="form-control" name="con_desc" placeholder="Consultation Description"></textarea>
                                                             <?php $__errorArgs = ['con_desc'];
@@ -244,12 +229,12 @@ unset($__errorArgs, $__bag); ?>
                                         <td><?php echo e($con->pat_fname . ' ' . $con->pat_lname); ?></td>
                                         <td><?php echo e($con->doc_fname . ' ' . $con->doc_lname); ?></td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_update/<?php echo e($con->con_id); ?>">
+                                            <a href="/showadmin_con_update/<?php echo e($con->con_id); ?>">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_del/<?php echo e($con->con_id); ?>">
+                                            <a href="/admin_con_del/<?php echo e($con->con_id); ?>">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
@@ -272,5 +257,9 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
+<script src="../js/meeting/meeting.js"></script>
+<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+<script src="../js/meeting/config.js"></script>
 
 <?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\v0.2\HIS_Project_Kovido\resources\views/admin/admin_live.blade.php ENDPATH**/ ?>

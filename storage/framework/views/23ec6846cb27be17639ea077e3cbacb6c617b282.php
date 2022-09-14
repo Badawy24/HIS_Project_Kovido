@@ -20,6 +20,26 @@
                             </div>
                         </div>
                     <?php endif; ?>
+                    <?php if(Session::has('noInternet')): ?>
+                        <div class="col-md-4 alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-regular fa-circle-error"></i>
+                            &nbsp;
+                            <div>
+                                <?php echo e(Session::get('noInternet')); ?>
+
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(Session::has('allreadyliveBokked')): ?>
+                        <div class="col-md-6 alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-regular fa-circle-error"></i>
+                            &nbsp;
+                            <div>
+                                <?php echo e(Session::get('allreadyliveBokked')); ?>
+
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="row">
@@ -123,11 +143,11 @@
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
                                     aria-controls="offcanvasTop">Check Your Meeting</button>
                             </div>
-                            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop"
+                            <div class="offcanvas offcanvas-top card-join-meeting" tabindex="-1" id="offcanvasTop"
                                 aria-labelledby="offcanvasTopLabel">
                                 <h5 id="offcanvasTopLabel" class="text-center mt-4">Live Consultation Information</h5>
                                 <?php if($meetingData == null): ?>
-                                    <div class="offcanvas-body">
+                                    <div class="offcanvas-body ">
                                         <div class="row justify-content-md-center text-center">
                                             <div class="col-md-4 alert alert-danger d-flex align-items-center"
                                                 role="alert">
@@ -140,7 +160,7 @@
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <div class="offcanvas-body">
+                                    <div class="offcanvas-body ">
                                         <div class="row justify-content-md-center text-center">
                                             <div class="col-md-5 card">
                                                 <div class="card-body">
@@ -157,20 +177,31 @@
                                                             <?php echo e($meetingData[0]->con_time); ?>
 
                                                         </h4>
+                                                        <?php $doc_n = DB::select('select * from doctor where doc_id = ?', [$meetingData[0]->doc_id]); ?>
+                                                        <h4 class="card-title mb-1">Doctor :
+                                                            <?php echo e($doc_n[0]->doc_fname . ' ' . $doc_n[0]->doc_lname); ?>
+
+                                                        </h4>
                                                     </div>
                                                     <form action="/startMeeting" method="get" class="d-inline-block">
                                                         <input type="hidden" id="joinMeetingId"
                                                             value="<?php echo e($meetingData[0]->con_meet_id); ?>">
-                                                        <button type="submit" id="meetingJoinButton"
-                                                            onclick="validateMeeting()"
-                                                            class="btn btn-primary">Join</button>
-                                                    </form>
 
-                                                    <form action="" class=" d-inline-block">
+                                                        <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
+                                                            <button disabled class="btn btn-primary">Join</button>
+                                                        <?php else: ?>
+                                                            <button type="submit" id="meetingJoinButton"
+                                                                onclick="validateMeeting()"
+                                                                class="btn btn-primary">Join</button>
+                                                        <?php endif; ?>
+                                                    </form>
+                                                    <form action="/admin_con_del/<?php echo e($meetingData[0]->con_id); ?>"
+                                                        class=" d-inline-block">
                                                         <button class="btn btn-danger">Cancel</button>
                                                     </form>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -217,7 +248,8 @@
                                         <div class="col-md-8 offset-md-4">
                                             <?php if($m->reply == ''): ?>
                                                 <div class="alert alert-danger" role="alert">
-                                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>No reply yet
+                                                    <i class="fa-solid fa-triangle-exclamation me-2"></i>No
+                                                    reply yet
                                                 </div>
                                             <?php else: ?>
                                                 <div class="msg-reply">

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
             @if (Session::has('fail'))
                 <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('fail') }}</div>
             @endif
+            @if (Session::has('del'))
+                <div class="alert alert-danger"><span class="closebtn">×</span>{{ Session::get('del') }}</div>
+            @endif
             <p class="doc-btn">
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -48,8 +51,10 @@ use Illuminate\Support\Facades\DB;
                                                 <form class="con_add" action="admin_live" method="post">
                                                     @csrf
                                                     <div class="row">
+                                                        <input type="hidden" name="meetinId" id="meetingid" value="">
                                                         <div class="col-md-12 ">
-                                                            <input class="form-control" name="con_title" type="text"
+                                                            <input onclick="createIdMeeting(true)" class="form-control"
+                                                                name="con_title" type="text"
                                                                 placeholder="Consultation Title"
                                                                 aria-label="default input example"
                                                                 value="{{ old('con_title') }}">
@@ -117,8 +122,7 @@ use Illuminate\Support\Facades\DB;
                                                             <label for="">Consultation Time</label>
                                                             <input class="form-control" name="con_time" type="time"
                                                                 placeholder="Consultation Time"
-                                                                aria-label="default input example"
-                                                                value="{{ old('con_time') }}">
+                                                                aria-label="default input example" value="20:00" disabled>
                                                             @error('con_time')
                                                                 <div class="alert alert-danger d-flex align-items-center"
                                                                     role="alert">
@@ -127,7 +131,7 @@ use Illuminate\Support\Facades\DB;
                                                                 </div>
                                                             @enderror
                                                         </div>
-                                                        <div class="col-md-12 ">
+                                                        {{-- <div class="col-md-12 ">
                                                             <input class="form-control" name="con_duration" type="number"
                                                                 placeholder="Consultation Duration"
                                                                 aria-label="default input example"
@@ -139,7 +143,7 @@ use Illuminate\Support\Facades\DB;
                                                                     <div> {{ $message }} </div>
                                                                 </div>
                                                             @enderror
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="col-md-12">
                                                             <textarea class="form-control" name="con_desc" placeholder="Consultation Description"></textarea>
                                                             @error('con_desc')
@@ -196,12 +200,12 @@ use Illuminate\Support\Facades\DB;
                                         <td>{{ $con->pat_fname . ' ' . $con->pat_lname }}</td>
                                         <td>{{ $con->doc_fname . ' ' . $con->doc_lname }}</td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_update/{{ $con->con_id }}">
+                                            <a href="/showadmin_con_update/{{ $con->con_id }}">
                                                 <i class="edit-icon fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                         <td class="report-icon">
-                                            <a href="/admin_dose_data_del/{{ $con->con_id }}">
+                                            <a href="/admin_con_del/{{ $con->con_id }}">
                                                 <i class="del-icon fa-solid fa-trash"></i>
                                             </a>
                                         </td>
@@ -223,3 +227,7 @@ use Illuminate\Support\Facades\DB;
         </div>
     </div>
 @endsection
+
+<script src="../js/meeting/meeting.js"></script>
+<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+<script src="../js/meeting/config.js"></script>

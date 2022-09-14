@@ -950,3 +950,9 @@ body {
 .offcanvas-top {
     height: 40vh;
 }
+
+.card-join-meeting {
+    height: 50vh !important;
+    background: linear-gradient(to right, #003971, #bc4949);
+
+}

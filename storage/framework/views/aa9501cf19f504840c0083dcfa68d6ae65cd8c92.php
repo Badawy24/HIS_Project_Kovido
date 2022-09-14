@@ -34,7 +34,7 @@
                                     
                                     <div class="col-lg-12">
                                         <input class="inp-form form-control" type="date" name="meetingdate"
-                                            aria-label="default input example">
+                                            aria-label="default input example" min="<?php echo date('Y-m-d'); ?>">
                                         <?php $__errorArgs = ['meetingdate'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

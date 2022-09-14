@@ -143,6 +143,9 @@ Route::group(['middleware' => 'loginmiddle'], function () {
     /* Start Live Consultation Route In Admin */
     Route::get('/admin_live', [adminController::class, 'admin_live']);
     Route::post('/admin_live', [adminController::class, 'admin_add_consultation']);
+    Route::get('/showadmin_con_update/{con_id}', [adminController::class, 'showadmin_con_update']);
+    Route::post('/admin_con_update/{con_id}', [adminController::class, 'admin_con_update']);
+    Route::get('/admin_con_del/{con_id}', [adminController::class, 'del_con']);
     /* End Live Consultation  Route In Admin */
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

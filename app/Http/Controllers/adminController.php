@@ -734,14 +734,14 @@ class adminController extends Controller
             'pat_id' => 'required',
             'doc_id' => 'required',
             'con_date' => 'required',
-            'con_time' => 'required',
-            'con_duration' => 'required',
+            // 'con_time' => 'required',
+            // 'con_duration' => 'required',
         ]);
         $con = DB::insert(
             'insert into pat_consultation(
             con_title,
             con_date,
-            con_duration,
+            con_meet_id,
             pat_id,
             doc_id,
             con_desc,
@@ -750,11 +750,11 @@ class adminController extends Controller
             [
                 $request->con_title,
                 $request->con_date,
-                $request->con_duration,
+                $request->meetinId,
                 $request->pat_id,
                 $request->doc_id,
                 $request->con_desc,
-                $request->con_time,
+                "20:00",
             ]
         );
         if ($con) {
@@ -806,4 +806,45 @@ class adminController extends Controller
         }
     }
     /**End Live Consultation */
+    public function showadmin_con_update($con_id)
+    {
+        $con_data = DB::select('select pat_consultation.*,
+        patient.pat_fname, patient.pat_lname, patient.pat_id,
+        doctor.doc_fname, doctor.doc_lname, doctor.doc_id
+        from pat_consultation
+        inner join patient ON pat_consultation.pat_id = patient.pat_id
+        inner join doctor ON pat_consultation.doc_id = doctor.doc_id where con_id=?', [$con_id]);
+
+        return view('admin.admin_update_con')->with(['con_data' => $con_data[0]]);
+    }
+    public function admin_con_update(Request $request, $con_id)
+    {
+        $update_data = DB::update(
+            'update pat_consultation set
+            doc_id = ?,
+            con_date = ?,
+            con_time = ?,
+            con_desc = ?,
+            con_title = ?
+            where con_id = ?',
+            [
+                $request->doc_name,
+                $request->con_date,
+                $request->con_time,
+                $request->con_desc,
+                $request->Title,
+                $con_id,
+            ]
+        );
+        if ($update_data) {
+            return redirect('/admin_live')->with(['success' => 'Data Updated successfully']);
+        } else {
+            return redirect()->back()->with('fail', 'Something Wrong');
+        }
+    }
+    public function del_con($con_id)
+    {
+        DB::delete('delete from pat_consultation where con_id = ?', [$con_id]);
+        return redirect()->back()->with(['del' => 'Data Deleted Successfuly']);
+    }
 }

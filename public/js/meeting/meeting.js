@@ -97,8 +97,8 @@ async function validateMeeting() {
             .then((response) => response.json()) //result will have meeting id
             .catch((error) => {
                 console.error("error", error);
-                // alert("Invalid Meeting Id");
-                window.location.href = "/";
+                // alert("Check Your Internet Connection!");
+                window.location.href = "/profile";
                 return;
             });
         if (result.meetingId === meetingId) {
@@ -338,7 +338,7 @@ async function createIdMeeting(newMeeting) {
 
     if (newMeeting) {
         createMeetingFlag = 1;
-        joinMeetingFlag = 0;
+        // joinMeetingFlag = 0;
         console.log("1");
     }
 
@@ -361,7 +361,7 @@ async function createIdMeeting(newMeeting) {
 
         const { meetingId } = await fetch(url, options)
             .then((response) => response.json())
-            .catch((error) => alert("error", error));
+            .catch((error) => alert("Check Your Internet Connection!", error));
         document.getElementById("meetingid").value = meetingId;
 
 
@@ -613,14 +613,14 @@ function addDomEvents() {
 
 
     // //startRecording
-    btnStartRecording.addEventListener("click", async () => {
-        console.log("btnRecording is clicked");
-        meeting.startRecording();
-    });
-    // //Stop Recording
-    btnStopRecording.addEventListener("click", async () => {
-        meeting.stopRecording();
-    });
+    // btnStartRecording.addEventListener("click", async () => {
+    //     console.log("btnRecording is clicked");
+    //     meeting.startRecording();
+    // });
+    // // //Stop Recording
+    // btnStopRecording.addEventListener("click", async () => {
+    //     meeting.stopRecording();
+    // });
 }
 
 async function toggleMic() {
@@ -709,22 +709,22 @@ function closeChatWrapper() {
 function toggleControls() {
     console.log("from toggleControls");
     if (micEnable) {
-        console.log("micEnable True");
-        micOn.style.display = "inline-block";
-        micOff.style.display = "none";
-    } else {
         console.log("micEnable False");
         micOn.style.display = "none";
         micOff.style.display = "inline-block";
+    } else {
+        console.log("micEnable True");
+        micOn.style.display = "inline-block";
+        micOff.style.display = "none";
     }
 
     if (webCamEnable) {
-        console.log("webCamEnable True");
-        videoCamOn.style.display = "inline-block";
-        videoCamOff.style.display = "none";
-    } else {
         console.log("webCamEnable False");
         videoCamOn.style.display = "none";
         videoCamOff.style.display = "inline-block";
+    } else {
+        console.log("webCamEnable True");
+        videoCamOn.style.display = "inline-block";
+        videoCamOff.style.display = "none";
     }
 }

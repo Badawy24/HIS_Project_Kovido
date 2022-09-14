@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 use function GuzzleHttp\Promise\queue;
 
@@ -30,7 +31,7 @@ Route::post('/register', function (Request $request) {
     // get request body
     $patient_first_name = $request->patient_first_name;
     $patinet_last_name = $request->patient_last_name;
-    $patinet_age = $request->patient_age;
+    $age = Carbon::parse($request->patient_date_of_birth)->diff(Carbon::now())->y;
     $patinet_address = $request->patienet_address;
     $patient_phone = $request->patient_phone;
     $patient_email = $request->patient_email;
@@ -54,7 +55,7 @@ Route::post('/register', function (Request $request) {
 
     $result = DB::insert('insert into patient (pat_fname,pat_lname,pat_age,pat_address,pat_phone,pat_email,pat_DOF,pat_SSN,patient_password)
     VALUES (?,?,?,?,?,?,?,?,?)', [
-        $patient_first_name, $patinet_last_name, $patinet_age, $patinet_address, $patient_phone, $patient_email,
+        $patient_first_name, $patinet_last_name, $age, $patinet_address, $patient_phone, $patient_email,
         $patient_date_of_birth, $patient_SSN, $password
     ]);
 
@@ -981,4 +982,37 @@ Route::get('/get-all-dose-reservation', function () {
 
     // retrieve json object -> $data in not in [] because it is already an array
     return response($tests);
+});
+
+
+Route::get('/messages-of-patient-doctors',function(){
+    $result = DB::select('select p.pat_fname,p.pat_lname, p.pat_email, t.test_name, tp.pat_test_date , tp.pat_test_time , hc.hc_name
+	from patient p
+	inner join test_patient tp
+    on p.pat_id = tp.pat_id
+    inner join test t
+    on  tp.test_id = t.test_id
+    inner join healthcare_center hc
+    on hc.hc_id = tp.test_patient_health');
+
+    // declare $data array
+    $tests = [];
+
+    // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+    foreach ($result as $childCat) {
+        $tests[] =
+            [
+                'pat_fname' =>  $childCat->pat_fname,
+                'pat_lname' =>  $childCat->pat_lname,
+                'pat_email' =>  $childCat->pat_email,
+                'test_name' =>  $childCat->test_name,
+                'pat_test_date' =>  $childCat->pat_test_date,
+                'pat_test_time' =>  $childCat->pat_test_time,
+                'hc_name' =>  $childCat->hc_name,
+            ];
+    }
+
+
+    // retrieve json object -> $data in not in [] because it is already an array
+    return response($tests, 200);
 });
