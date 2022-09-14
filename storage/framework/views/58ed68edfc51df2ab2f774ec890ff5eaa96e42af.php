@@ -5,6 +5,74 @@
                 <h2 class="head-cards h3 py-3">Your Live Consultation & Live Meeting</h2>
                 <section>
                     <div class="row">
+                        <?php
+
+                            $meetAdmin = DB::select('select * from meeting where host_doc_id = ? ', [$doc_id]);
+                        ?>
+
+                        <?php if($meetAdmin): ?>
+                            <?php
+                                $timedel = strtotime($meetAdmin[0]->meet_time) + 60 * 60;
+                                $time = date('H:i', $timedel);
+                            ?>
+                            <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meetAdmin[0]->meet_date . ' ' . $time): ?>
+                                <article class="col-md-4 d-flex align-items-stretch">
+                                    <div class="card px-2 py-2 mb-5" style="min-width: 100%">
+                                        <div class="card-body text-start">
+                                            <h4 class="card-title mb-4">
+                                                Meeting : From Admin
+                                            </h4>
+
+                                            <div class="real-data live-doc">
+                                                <h5 class="live-doc-card">Date :</h5>
+                                                <span class="h6">
+                                                    <?php echo e($meetAdmin[0]->meet_date); ?>
+
+                                                </span>
+                                            </div>
+                                            <div class="real-data live-doc">
+                                                <h5 class="live-doc-card">Time :</h5>
+                                                <span class="h6">
+                                                    <?php echo e(date('H:i', strtotime($meetAdmin[0]->meet_time))); ?>
+
+                                                </span>
+                                            </div>
+                                            <div class="real-data live-doc">
+                                                <h5 class="live-doc-card">Description :</h5>
+                                                <span class="h6">
+                                                    <?php echo e($meetAdmin[0]->meet_desc); ?>
+
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="/joinMeetingAdminDoc/<?php echo e($doc_id); ?>" method="get"
+                                                class="d-inline-block">
+                                                <input type="hidden" id="joinMeetingId"
+                                                    value="<?php echo e($meetAdmin[0]->meet_admin_id); ?>">
+                                                <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meetAdmin[0]->meet_date . ' ' . $meetAdmin[0]->meet_time): ?>
+                                                    <button disabled class="btn btn-primary">Join</button>
+                                                <?php else: ?>
+                                                    <button type="submit" id="meetingJoinButton"
+                                                        onclick="validateMeeting()" class="btn btn-primary">Join</button>
+                                                <?php endif; ?>
+
+                                            </form>
+
+                                            <form action="/admin_meet_del/<?php echo e($meetAdmin[0]->meet_id); ?>"
+                                                class=" d-inline-block">
+                                                <button class="btn btn-danger">Cancel</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </article>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </section>
+                
+                <section>
+                    <div class="row">
                         <?php if($meetingInfo == null): ?>
                             <div class="row justify-content-md-center text-center">
                                 <div class="col-md-4 alert alert-danger d-flex align-items-center" role="alert">
@@ -21,7 +89,7 @@
                                     $timedel = strtotime($meeting->con_time) + 60 * 60;
                                     $time = date('H:i', $timedel);
                                 ?>
-                                <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $time): ?>
+                                <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $time): ?>
                                     <article class="col-md-4 d-flex align-items-stretch">
                                         <div class="card px-2 py-2 mb-5" style="min-width: 100%">
                                             <div class="card-body text-start">
@@ -60,7 +128,7 @@
                                                 <div class="real-data live-doc">
                                                     <h5 class="live-doc-card">Time :</h5>
                                                     <span class="h6">
-                                                        <?php echo e($meeting->con_time); ?>
+                                                        <?php echo e(date('H:i', strtotime($meeting->con_time))); ?>
 
                                                     </span>
                                                 </div>
@@ -77,7 +145,7 @@
                                                     class="d-inline-block">
                                                     <input type="hidden" id="joinMeetingId"
                                                         value="<?php echo e($meeting->con_meet_id); ?>">
-                                                    <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $meeting->con_time): ?>
+                                                    <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $meeting->con_time): ?>
                                                         <button disabled class="btn btn-primary">Join</button>
                                                     <?php else: ?>
                                                         <button type="submit" id="meetingJoinButton"

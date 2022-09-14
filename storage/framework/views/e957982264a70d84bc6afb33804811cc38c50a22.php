@@ -221,7 +221,7 @@
     <section class="grid-page flex-container live-meeting" id="gridPpage">
         <div class="row live-meeting-container">
             <article class="col-3 d-flex justify-content-start">
-                <input type="text" class="form-control navbar-brand" id="meetingid" readonly hidden />
+                <input type="text" class="form-control navbar-brand" id="meetingid" readonly />
 
                 
             </article>

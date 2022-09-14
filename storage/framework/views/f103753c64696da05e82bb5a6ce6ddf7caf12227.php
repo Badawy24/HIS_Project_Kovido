@@ -38,6 +38,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/file.js"></script>
     <script src="/js/all.min.css"></script>
+    <?php echo $__env->yieldContent('scripts'); ?>
 </body>
 
 </html>
