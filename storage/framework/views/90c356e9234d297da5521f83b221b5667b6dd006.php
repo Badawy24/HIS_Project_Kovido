@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('content'); ?>
     <div class="home-page">
         <div class="container">
