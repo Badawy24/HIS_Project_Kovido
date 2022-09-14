@@ -782,7 +782,6 @@ class adminController extends Controller
     public function admin_add_meet(Request $request)
     {
         $request->validate([
-            'meet_duration' => 'required',
             'doc_id' => 'required',
             'meet_date' => 'required',
             'meet_time' => 'required',
@@ -791,14 +790,14 @@ class adminController extends Controller
         $meet = DB::insert(
             'insert into meeting(
             meet_date,
-            meet_duration,
+            meet_admin_id,
             meet_desc,
             meet_time,
             host_doc_id)
             values(?,?,?,?,?)',
             [
                 $request->meet_date,
-                $request->meet_duration,
+                $request->meetinId,
                 $request->meet_desc,
                 $request->meet_time,
                 $request->doc_id,
@@ -856,5 +855,48 @@ class adminController extends Controller
     {
         DB::delete('delete from pat_consultation where con_id = ?', [$con_id]);
         return redirect()->back()->with(['del' => 'Data Deleted Successfuly']);
+    }
+    public function del_meet($meet_id)
+    {
+        DB::delete('delete from meeting where meet_id = ?', [$meet_id]);
+        return redirect()->back()->with(['del' => 'Data Deleted Successfuly']);
+    }
+    public function showadmin_meet_update($meet_id)
+    {
+        $meet_data = DB::select('select meeting.*,
+        doctor.doc_fname, doctor.doc_lname, doctor.doc_id
+        from meeting
+        inner join doctor ON meeting.host_doc_id = doctor.doc_id where meeting.meet_id=?', [$meet_id]);
+
+        return view('admin.admin_update_meet')->with(['meet_data' => $meet_data[0]]);
+    }
+    public function admin_meet_update(Request $request, $meet_id)
+    {
+        $checkEmptyLive = DB::select('select * from pat_consultation where doc_id=? and con_date =? and con_time =?', [$request->doc_name, $request->meet_date, $request->meet_time]);
+        $checkEmptyMeeting = DB::select('select * from Meeting where host_doc_id=? and meet_date =? and meet_time =?', [$request->doc_id, $request->meet_date, $request->meet_time]);
+        if ($checkEmptyLive || $checkEmptyMeeting) {
+            return redirect()->back()->with('fail', 'This Date Is Booked');
+        } else {
+            $update_data = DB::update(
+                'update meeting set
+            meet_date = ?,
+            meet_time = ?,
+            meet_desc = ?,
+            meet_admin_id = ?
+            where meet_id = ?',
+                [
+                    $request->meet_date,
+                    $request->meet_time,
+                    $request->meet_desc,
+                    $request->meet_id,
+                    $meet_id,
+                ]
+            );
+            if ($update_data) {
+                return redirect('/admin_live_meet')->with(['success' => 'Data Updated successfully']);
+            } else {
+                return redirect()->back()->with('fail', 'Something Wrong');
+            }
+        }
     }
 }

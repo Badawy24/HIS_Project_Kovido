@@ -84,7 +84,25 @@ class LiveController extends Controller
         inner join patient on pat_consultation.pat_id = patient.pat_id
         inner join doctor on pat_consultation.doc_id = doctor.doc_id where pat_consultation.doc_id = ?', [$doc_id]);
 
-        return view('meeting.doc_meeting')->with(['meetingInfo' => $meetingInfo, 'pat_consultation' => 'pat_consultation']);
+        return view('meeting.doc_meeting')->with(
+            [
+                'meetingInfo' => $meetingInfo,
+                'pat_consultation' => 'pat_consultation',
+                'doc_id' => $doc_id
+            ]
+        );
+    }
+
+    public function joinMeetingAdminDoc($doc_id)
+    {
+        if ($this->checkInternet()) {
+
+            $doc_name = DB::select('select doc_fname,doc_lname from doctor where doc_id = ?', [$doc_id]);
+            $meeting = DB::select('select * from meeting where host_doc_id = ? ', [$doc_id]);
+            return view('meeting.startmeetingAdminDoctor')->with(['meeting' => $meeting[0], 'doc_name' => $doc_name[0]]);
+        } else {
+            return view('profile')->with(['noInternet' => 'Check Your Internet Connection!']);
+        }
     }
     public function joinMeetingDoc($pat_id)
     {
@@ -98,7 +116,16 @@ class LiveController extends Controller
             return view('profile')->with(['noInternet' => 'Check Your Internet Connection!']);
         }
     }
+    public function startMeetingAdmin($meet_id)
+    {
+        if ($this->checkInternet()) {
 
+            $meeting = DB::select('select * from meeting where meet_id = ?', [$meet_id]);
+            return view('meeting.startMeetingAdmin')->with(['meeting' => $meeting[0]]);
+        } else {
+            return redirect('/profile')->with(['noInternet' => 'Check Your Internet Connection!']);
+        }
+    }
     public function checkInternet($site = "https://google.com/")
     {
         if (@fopen($site, "r")) {
