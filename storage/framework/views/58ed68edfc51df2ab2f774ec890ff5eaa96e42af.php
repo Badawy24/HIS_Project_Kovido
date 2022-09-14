@@ -15,7 +15,7 @@
                                 $timedel = strtotime($meetAdmin[0]->meet_time) + 60 * 60;
                                 $time = date('H:i', $timedel);
                             ?>
-                            <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meetAdmin[0]->meet_date . ' ' . $time): ?>
+                            <?php if(date('Y-m-d H:i', strtotime('+2 hours')) > $meetAdmin[0]->meet_date . ' ' . $time): ?>
                                 <article class="col-md-4 d-flex align-items-stretch">
                                     <div class="card px-2 py-2 mb-5" style="min-width: 100%">
                                         <div class="card-body text-start">

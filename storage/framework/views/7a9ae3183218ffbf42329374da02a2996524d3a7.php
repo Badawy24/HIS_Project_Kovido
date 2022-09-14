@@ -223,7 +223,7 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('script'); ?>
+<?php $__env->startSection('scripts'); ?>
     <script src="../js/meeting/meeting.js"></script>
     <script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
     <script src="../js/meeting/config.js"></script>
