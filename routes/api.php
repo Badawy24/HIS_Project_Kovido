@@ -372,11 +372,6 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         $res_id = $request->res_id;
 
 
-        return [
-            'your res id' => $res_id
-        ];
-
-
         $result = DB::delete(
             'delete from test_patient where res_id = ?',
             [$res_id]
