@@ -164,7 +164,7 @@
                                         $timedel = strtotime($meetingData[0]->con_time) + 60 * 60;
                                         $time = date('H:i', $timedel);
                                     ?>
-                                    <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $time): ?>
+                                    <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $time): ?>
                                         <div class="offcanvas-body ">
                                             <div class="row justify-content-md-center text-center">
                                                 <div class="col-md-5 card">
@@ -192,7 +192,7 @@
                                                             <input type="hidden" id="joinMeetingId"
                                                                 value="<?php echo e($meetingData[0]->con_meet_id); ?>">
 
-                                                            <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
+                                                            <?php if(date('Y-m-d H:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
                                                                 <button disabled class="btn btn-primary">Join</button>
                                                             <?php else: ?>
                                                                 <button type="submit" id="meetingJoinButton"

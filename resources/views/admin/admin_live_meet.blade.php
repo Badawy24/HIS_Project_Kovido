@@ -197,6 +197,8 @@
         </div>
     </div>
 @endsection
-<script src="../js/meeting/meeting.js"></script>
-<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
-<script src="../js/meeting/config.js"></script>
+@section('script')
+    <script src="../js/meeting/meeting.js"></script>
+    <script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+    <script src="../js/meeting/config.js"></script>
+@endsection
