@@ -371,13 +371,13 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
         // get data from request body
         $res_id = $request->res_id;
 
-
+        $res_id = (int)$res_id;
 
         $res = DB::select('select * from test_patient where res_id = ?',[$res_id]);
 
 
         return [
-            'msg' => $res_id,
+            'msg' => $res,
         ];
 
         $result = DB::delete(
