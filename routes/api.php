@@ -666,7 +666,13 @@ Route::group(['middleware' => 'DoctorAuthAPI'], function () {
         $doctor_id = DoctorsTokenManager::currentDoctor($request)->doc_id;
 
         // retreive messages of doctor
-        $msgsData = DB::select("select * from doc_pat where doc_id = ?", [$doctor_id]);
+        $msgsData = DB::select("select p.pat_fname,p.pat_lname, p.pat_email, dp.message , dp.reply , dp.msg_id , d.doc_fname,d.doc_lname
+        from patient p
+        inner join doc_pat dp
+        on p.pat_id = dp.pat_id
+        inner join doctor d
+        on  d.doc_id = dp.doc_id
+        where dp.doc_id = ?",[$doctor_id]);
 
         // declare $data array
         $data = [];
@@ -675,11 +681,14 @@ Route::group(['middleware' => 'DoctorAuthAPI'], function () {
         foreach ($msgsData as $childCat) {
             $data[] =
                 [
-                    'doc_id' =>  $childCat->doc_id,
-                    'pat_id' =>  $childCat->pat_id,
+                    'pat_fname' =>  $childCat->pat_fname,
+                    'pat_lname' =>  $childCat->pat_lname,
+                    'pat_email' =>  $childCat->pat_email,
                     'message' =>  $childCat->message,
                     'reply' =>  $childCat->reply,
                     'msg_id' =>  $childCat->msg_id,
+                    'doc_fname' =>  $childCat->doc_fname,
+                    'doc_lname' =>  $childCat->doc_lname,
                 ];
         }
         // retrieve json object -> $data in not in [] because it is already an array
