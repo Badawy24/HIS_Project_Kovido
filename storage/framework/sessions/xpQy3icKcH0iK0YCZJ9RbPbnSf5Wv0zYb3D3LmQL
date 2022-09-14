@@ -1,1 +1,1 @@
-a:5:{s:6:"_token";s:40:"O6XuT5TwI91OV1rrSQaTTPkf4XSdlH6vSsBuA4yf";s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:9:"_previous";a:1:{s:3:"url";s:40:"http://127.0.0.1:8000/startMeetingDoc/35";}s:13:"doc_Logged_In";b:1;s:11:"doc_user_id";i:1;}
+a:5:{s:9:"_previous";a:1:{s:3:"url";s:43:"http://127.0.0.1:8000/joinMeetingAdminDoc/1";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:6:"_token";s:40:"rT86mAvlEOZxZ2qmSo7zc7fimBDp4OUIT30NcvTx";s:13:"doc_Logged_In";b:1;s:11:"doc_user_id";i:1;}
