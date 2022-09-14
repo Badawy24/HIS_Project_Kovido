@@ -223,8 +223,10 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-<script src="../js/meeting/meeting.js"></script>
-<script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
-<script src="../js/meeting/config.js"></script>
+<?php $__env->startSection('script'); ?>
+    <script src="../js/meeting/meeting.js"></script>
+    <script src="https://sdk.videosdk.live/js-sdk/0.0.37/videosdk.js"></script>
+    <script src="../js/meeting/config.js"></script>
+<?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('admin.admin-dashbord-temp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Badawy\Desktop\v0.2\HIS_Project_Kovido\resources\views/admin/admin_live_meet.blade.php ENDPATH**/ ?>
