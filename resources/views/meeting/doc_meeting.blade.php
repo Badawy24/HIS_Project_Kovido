@@ -18,65 +18,73 @@
                             </div>
                         @else
                             @foreach ($meetingInfo as $meeting)
-                                <article class="col-md-4 d-flex align-items-stretch">
-                                    <div class="card px-2 py-2 mb-5" style="min-width: 100%">
-                                        <div class="card-body text-start">
-                                            <h4 class="card-title mb-4">
-                                                Consultation : {{ $meeting->con_title }}
-                                            </h4>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">patient :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->pat_fname . ' ' . $meeting->pat_lname }}
-                                                </span>
+                                @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $meeting->con_time)
+                                    <article class="col-md-4 d-flex align-items-stretch">
+                                        <div class="card px-2 py-2 mb-5" style="min-width: 100%">
+                                            <div class="card-body text-start">
+                                                <h4 class="card-title mb-4">
+                                                    Consultation : {{ $meeting->con_title }}
+                                                </h4>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">patient :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->pat_fname . ' ' . $meeting->pat_lname }}
+                                                    </span>
+                                                </div>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">Phone :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->pat_phone }}
+                                                    </span>
+                                                </div>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">Email :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->pat_email }}
+                                                    </span>
+                                                </div>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">Date :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->con_date }}
+                                                    </span>
+                                                </div>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">Time :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->con_time }}
+                                                    </span>
+                                                </div>
+                                                <div class="real-data live-doc">
+                                                    <h5 class="live-doc-card">Description :</h5>
+                                                    <span class="h6">
+                                                        {{ $meeting->con_desc }}
+                                                    </span>
+                                                </div>
                                             </div>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">Phone :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->pat_phone }}
-                                                </span>
-                                            </div>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">Email :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->pat_email }}
-                                                </span>
-                                            </div>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">Date :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->con_date }}
-                                                </span>
-                                            </div>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">Time :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->con_time }}
-                                                </span>
-                                            </div>
-                                            <div class="real-data live-doc">
-                                                <h5 class="live-doc-card">Description :</h5>
-                                                <span class="h6">
-                                                    {{ $meeting->con_desc }}
-                                                </span>
+                                            <div class="card-body">
+                                                <form action="/startMeetingDoc/{{ $meeting->pat_id }}" method="get"
+                                                    class="d-inline-block">
+                                                    <input type="hidden" id="joinMeetingId"
+                                                        value="{{ $meeting->con_meet_id }}">
+                                                    @if (date('Y-m-d h:i', strtotime('+2 hours')) < $meeting->con_date . ' ' . $meeting->con_time)
+                                                        <button disabled class="btn btn-primary">Join</button>
+                                                    @else
+                                                        <button type="submit" id="meetingJoinButton"
+                                                            onclick="validateMeeting()"
+                                                            class="btn btn-primary">Join</button>
+                                                    @endif
+
+                                                </form>
+
+                                                <form action="/admin_con_del/{{ $meeting->con_id }}"
+                                                    class=" d-inline-block">
+                                                    <button class="btn btn-danger">Cancel</button>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="card-body">
-                                            <form action="/startMeetingDoc/{{ $meeting->pat_id }}" method="get"
-                                                class="d-inline-block">
-                                                <input type="hidden" id="joinMeetingId"
-                                                    value="{{ $meeting->con_meet_id }}">
-
-                                                <button type="submit" id="meetingJoinButton" onclick="validateMeeting()"
-                                                    class="btn btn-primary">Join</button>
-                                            </form>
-
-                                            <form action="" class=" d-inline-block">
-                                                <button class="btn btn-danger">Cancel</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </article>
+                                    </article>
+                                @endif
                             @endforeach
                         @endif
                     </div>

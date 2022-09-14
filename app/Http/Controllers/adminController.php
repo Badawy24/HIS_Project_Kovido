@@ -737,8 +737,12 @@ class adminController extends Controller
             // 'con_time' => 'required',
             // 'con_duration' => 'required',
         ]);
-        $con = DB::insert(
-            'insert into pat_consultation(
+        $checkEmpty = DB::select('select * from pat_consultation where doc_id=? and con_date =?', [$request->doc_id, $request->con_date]);
+        if ($checkEmpty) {
+            return redirect('admin_live')->with('fail', 'This Date Is Booked');
+        } else {
+            $con = DB::insert(
+                'insert into pat_consultation(
             con_title,
             con_date,
             con_meet_id,
@@ -747,20 +751,21 @@ class adminController extends Controller
             con_desc,
             con_time)
             values(?,?,?,?,?,?,?)',
-            [
-                $request->con_title,
-                $request->con_date,
-                $request->meetinId,
-                $request->pat_id,
-                $request->doc_id,
-                $request->con_desc,
-                "20:00",
-            ]
-        );
-        if ($con) {
-            return redirect('admin_live')->with('success', 'Data Added successfully');
-        } else {
-            return redirect('admin_live')->with('fail', 'Something Wrong');
+                [
+                    $request->con_title,
+                    $request->con_date,
+                    $request->meetinId,
+                    $request->pat_id,
+                    $request->doc_id,
+                    $request->con_desc,
+                    "20:00",
+                ]
+            );
+            if ($con) {
+                return redirect('admin_live')->with('success', 'Data Added successfully');
+            } else {
+                return redirect('admin_live')->with('fail', 'Something Wrong');
+            }
         }
     }
     public function admin_live_meet()
@@ -819,27 +824,32 @@ class adminController extends Controller
     }
     public function admin_con_update(Request $request, $con_id)
     {
-        $update_data = DB::update(
-            'update pat_consultation set
+        $checkEmpty = DB::select('select * from pat_consultation where doc_id=? and con_date =? and con_time =?', [$request->doc_name, $request->con_date, $request->con_time]);
+        if ($checkEmpty) {
+            return redirect()->back()->with('fail', 'This Date Is Booked');
+        } else {
+            $update_data = DB::update(
+                'update pat_consultation set
             doc_id = ?,
             con_date = ?,
             con_time = ?,
             con_desc = ?,
             con_title = ?
             where con_id = ?',
-            [
-                $request->doc_name,
-                $request->con_date,
-                $request->con_time,
-                $request->con_desc,
-                $request->Title,
-                $con_id,
-            ]
-        );
-        if ($update_data) {
-            return redirect('/admin_live')->with(['success' => 'Data Updated successfully']);
-        } else {
-            return redirect()->back()->with('fail', 'Something Wrong');
+                [
+                    $request->doc_name,
+                    $request->con_date,
+                    $request->con_time,
+                    $request->con_desc,
+                    $request->Title,
+                    $con_id,
+                ]
+            );
+            if ($update_data) {
+                return redirect('/admin_live')->with(['success' => 'Data Updated successfully']);
+            } else {
+                return redirect()->back()->with('fail', 'Something Wrong');
+            }
         }
     }
     public function del_con($con_id)

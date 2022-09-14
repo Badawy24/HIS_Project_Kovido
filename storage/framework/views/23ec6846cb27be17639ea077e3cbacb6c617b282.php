@@ -160,50 +160,64 @@
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <div class="offcanvas-body ">
-                                        <div class="row justify-content-md-center text-center">
-                                            <div class="col-md-5 card">
-                                                <div class="card-body">
-                                                    <div class="card-body text-start">
-                                                        <h4 class="card-title mb-1">Title :
-                                                            <?php echo e($meetingData[0]->con_title); ?>
+                                    <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
+                                        <div class="offcanvas-body ">
+                                            <div class="row justify-content-md-center text-center">
+                                                <div class="col-md-5 card">
+                                                    <div class="card-body">
+                                                        <div class="card-body text-start">
+                                                            <h4 class="card-title mb-1">Title :
+                                                                <?php echo e($meetingData[0]->con_title); ?>
 
-                                                        </h4>
-                                                        <h4 class="card-title mb-1">Date :
-                                                            <?php echo e($meetingData[0]->con_date); ?>
+                                                            </h4>
+                                                            <h4 class="card-title mb-1">Date :
+                                                                <?php echo e($meetingData[0]->con_date); ?>
 
-                                                        </h4>
-                                                        <h4 class="card-title mb-1">Time :
-                                                            <?php echo e($meetingData[0]->con_time); ?>
+                                                            </h4>
+                                                            <h4 class="card-title mb-1">Time :
+                                                                <?php echo e($meetingData[0]->con_time); ?>
 
-                                                        </h4>
-                                                        <?php $doc_n = DB::select('select * from doctor where doc_id = ?', [$meetingData[0]->doc_id]); ?>
-                                                        <h4 class="card-title mb-1">Doctor :
-                                                            <?php echo e($doc_n[0]->doc_fname . ' ' . $doc_n[0]->doc_lname); ?>
+                                                            </h4>
+                                                            <?php $doc_n = DB::select('select * from doctor where doc_id = ?', [$meetingData[0]->doc_id]); ?>
+                                                            <h4 class="card-title mb-1">Doctor :
+                                                                <?php echo e($doc_n[0]->doc_fname . ' ' . $doc_n[0]->doc_lname); ?>
 
-                                                        </h4>
+                                                            </h4>
+                                                        </div>
+                                                        <form action="/startMeeting" method="get" class="d-inline-block">
+                                                            <input type="hidden" id="joinMeetingId"
+                                                                value="<?php echo e($meetingData[0]->con_meet_id); ?>">
+
+                                                            <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
+                                                                <button disabled class="btn btn-primary">Join</button>
+                                                            <?php else: ?>
+                                                                <button type="submit" id="meetingJoinButton"
+                                                                    onclick="validateMeeting()"
+                                                                    class="btn btn-primary">Join</button>
+                                                            <?php endif; ?>
+                                                        </form>
+                                                        <form action="/admin_con_del/<?php echo e($meetingData[0]->con_id); ?>"
+                                                            class=" d-inline-block">
+                                                            <button class="btn btn-danger">Cancel</button>
+                                                        </form>
                                                     </div>
-                                                    <form action="/startMeeting" method="get" class="d-inline-block">
-                                                        <input type="hidden" id="joinMeetingId"
-                                                            value="<?php echo e($meetingData[0]->con_meet_id); ?>">
-
-                                                        <?php if(date('Y-m-d h:i', strtotime('+2 hours')) < $meetingData[0]->con_date . ' ' . $meetingData[0]->con_time): ?>
-                                                            <button disabled class="btn btn-primary">Join</button>
-                                                        <?php else: ?>
-                                                            <button type="submit" id="meetingJoinButton"
-                                                                onclick="validateMeeting()"
-                                                                class="btn btn-primary">Join</button>
-                                                        <?php endif; ?>
-                                                    </form>
-                                                    <form action="/admin_con_del/<?php echo e($meetingData[0]->con_id); ?>"
-                                                        class=" d-inline-block">
-                                                        <button class="btn btn-danger">Cancel</button>
-                                                    </form>
                                                 </div>
                                             </div>
-
                                         </div>
-                                    </div>
+                                    <?php else: ?>
+                                        <div class="offcanvas-body ">
+                                            <div class="row justify-content-md-center text-center">
+                                                <div class="col-md-4 alert alert-danger d-flex align-items-center"
+                                                    role="alert">
+                                                    <div>
+                                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                                        &nbsp;
+                                                        You Don't Have Any Live Consultation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                             <div class="card-body d-inline-block">
