@@ -366,7 +366,7 @@ Route::group(['middleware' => 'MyAuthAPI'], function () {
     });
 
     // delete reservation                       [tested and documented]
-    Route::delete('/delete-test-reservation', function (Request $request) {
+    Route::post('/delete-test-reservation', function (Request $request) {
 
         // get data from request body
         $res_id = $request->res_id;
